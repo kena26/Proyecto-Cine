@@ -18,4 +18,5 @@ Agregar la dependencia de CORS:
 Asegúrate de que tu proyecto incluya la dependencia spring-boot-starter-web en el archivo pom.xml. Spring Boot proporciona soporte para CORS de forma nativa.
 
 
-La clase Producto.java y CineDB son ejemplos de como manejar las tablas de la base de datos
+La clase Producto.java y CineDB son ejemplos de como manejar las tablas de la base de datos, al igual que el index.html y app,js son ejemplos (Lo pueden eliminar)
+
