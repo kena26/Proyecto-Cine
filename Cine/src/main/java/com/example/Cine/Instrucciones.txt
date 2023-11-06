@@ -1,0 +1,21 @@
+Configuración de la base de datos remota:
+
+Define la configuración de la base de datos en el archivo application.properties o application.yml. Debes especificar la URL, nombre de usuario y contraseña de la base de datos remota.
+Asegúrate de que la base de datos remota esté accesible desde tu aplicación Spring Boot.
+
+
+Dependencias de Spring Boot:
+
+Asegúrate de agregar las dependencias adecuadas para trabajar con la base de datos remota en tu archivo pom.xml. Por ejemplo, si estás utilizando MySQL, puedes agregar la dependencia spring-boot-starter-data-jpa.
+
+
+Controladores:
+
+Crea controladores REST para exponer las API CRUD a través de HTTP. Utiliza las anotaciones @RestController, @RequestMapping, y otras anotaciones de Spring para definir las rutas y métodos HTTP correspondientes.
+
+
+Agregar la dependencia de CORS:
+Asegúrate de que tu proyecto incluya la dependencia spring-boot-starter-web en el archivo pom.xml. Spring Boot proporciona soporte para CORS de forma nativa.
+
+
+La clase Producto.java y CineDB son ejemplos de como manejar las tablas de la base de datos
