@@ -1,0 +1,55 @@
+-----------------------------------------------------------------------------------------------
+GUIA DE SPRINGBOOT
+
+1. Configuración de la base de datos remota:
+
+Define la configuración de la base de datos en el archivo application.properties o application.yml. Debes especificar la URL, nombre de usuario y contraseña de la base de datos remota.
+Asegúrate de que la base de datos remota esté accesible desde tu aplicación Spring Boot.
+
+2. Dependencias de Spring Boot:
+
+Asegúrate de agregar las dependencias adecuadas para trabajar con la base de datos remota en tu archivo pom.xml. Por ejemplo, si estás utilizando MySQL, puedes agregar la dependencia spring-boot-starter-data-jpa.
+
+3. Controladores:
+
+Crea controladores REST para exponer las API CRUD a través de HTTP. Utiliza las anotaciones @RestController, @RequestMapping, y otras anotaciones de Spring para definir las rutas y métodos HTTP correspondientes.
+
+4. Agregar la dependencia de CORS:
+Asegúrate de que tu proyecto incluya la dependencia spring-boot-starter-web en el archivo pom.xml. Spring Boot proporciona soporte para CORS de forma nativa.
+La clase Producto.java y CineDB son ejemplos de como manejar las tablas de la base de datos
+
+------------------------------------------------------------------------------------------------
+GUIA DE COMO CORRER TAILWIND
+
+1. necesitas
+-node
+-extension de tailwind
+-live server
+
+2. Abrir la terminal carpeta del proyecto, debe decir que estas en el Proyecto-Cine
+una vez que estes en la terminal corres el siguiente comando
+
+npm run tw
+
+3. Una vez corra y dice done completed y etc
+NO CIERRES LA TERMINAL, minimizalo y ponte a hacer tu cosa
+
+4. Para detener la ejecucion en la terminal tocar CTRl+C
+
+REPOSITORIO
+
+vamos a trabajar con branches o ramas, las ramas solo se usan una vez, cuando hagas commit a lo
+que hicistes y ese sea aceptado, esa rama se borra, todas las ramas tienen que estar al dia con
+el main, NADIE TOCA EL MAIN
+
+Las branches se llaman asi
+lo que hicistes/donde
+
+ejemplo:
+
+(se agrego, elimino, edito, etc)-seccion-1/pagina-inicio
+
+y añadan en el mensaje del commit una especificacion de lo que hicieron
+ejemplo:
+
+se agrego un nuevo boton que tira misiles cada vez que lo presionas
