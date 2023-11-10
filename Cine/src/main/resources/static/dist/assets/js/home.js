@@ -12,6 +12,26 @@ let rad2 = document.getElementById('car2rad')
 let rad3 = document.getElementById('car3rad')
 let rad4 = document.getElementById('car4rad')
 let rad5 = document.getElementById('car5rad')
+let busquedaInput = document.getElementById('busqueda')
+let promos = document.getElementsByClassName('promo')
+//cambios responsive
+function cambios(){
+    if(window.innerWidth<640){
+        busquedaInput.placeholder = 'Buscar'
+        for(let promo of promos){
+            promo.classList.remove('absolute', 'top-5', 'right-1/2', 'translate-x-1/2')
+        }
+    }
+    else{
+        for(let promo of promos){
+            promo.classList.add('absolute', 'top-5', 'right-1/2', 'translate-x-1/2')
+        }
+    }
+}
+cambios()
+window.addEventListener('resize', function () {
+    cambios()
+})
 //contenedor del scroll de trending
 let scrollTrend = document.getElementById('scroll')
 //funcion para ocultar imagen actual
