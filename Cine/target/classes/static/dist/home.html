@@ -7,13 +7,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="output.css">
     <script src="https://kit.fontawesome.com/da2008d449.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body class="bg-radial-gradient at-[50.02% 52.33%] from-[#431B19] via-[#431B19] to-[#141414]">
     <!--HEADER-->
     <header>
         <!--nav principal-->
-        <nav class="bg-black">
+        <nav class="bg-black max-sm:hidden">
             <ul class="flex justify-end">
                 <li><a href="#" class="text-white mr-16 text-xl">Inicio</a></li>
                 <li><a href="#" class="text-white mr-16 text-xl">Cines</a></li>
@@ -22,31 +23,45 @@
             </ul>
         </nav>
         <!--seccion del logo-->
-        <section class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between pl-5 pr-5 items-center">
-            <img src="/Cine/src/main/resources/static/dist/assets/img/logo.png" alt="" class="w-auto h-12">
-            <div class="search-container flex items-center relative w-80 h-20">
-                <input type="text" placeholder="  Busca tu Pelicula" class="bg-[rgba(247,246,245,0.53)] placeholder:text-black rounded-[20px] w-full pt-1 pb-1">
-                <img src="/Cine/src/main/resources/static/dist/assets/icon/busqueda-de-lupa (1).png" class="w-6 absolute right-4" >
+        <section class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between pl-5 pr-5 items-center w-full max-sm:px-0">
+            <div class="hidden max-sm:block">
+                <i class="fa-solid fa-bars max-sm:block text-2xl"></i>
             </div>
-            <div class="user-container flex items-center relative w-44 h-20">
-                <img src="/Cine/src/main/resources/static/dist/assets/icon/usuario.png" class="w-auto h-6" alt="">
-                <p>User name</p>
-                <img src="/Cine/src/main/resources/static/dist/assets/icon/flecha-hacia-abajo-para-navegar.png" class="w-4 absolute right-12" >
+            <div class="cursor-pointer">
+                <img src="/Cine/src/main/resources/static/dist/assets/img/logo.png" alt="" class="w-auto h-12 max-sm:h-10 max-sm:w-auto">
+            </div>
+            <div class="search-container flex items-center relative w-[25rem] h-20 max-sm:w-40">
+                <input type="text" id="busqueda" placeholder="Busca tu Pelicula" class="bg-[rgba(247,246,245,0.53)] placeholder:text-black rounded-[20px] w-full pt-1 pb-1 indent-5 text-sm">
+                <img src="/Cine/src/main/resources/static/dist/assets/icon/busqueda-de-lupa (1).png" class="w-6 absolute right-2" >
+            </div>
+            <div class="user-container flex items-center w-44 h-20 justify-center relative space-x-2 max-sm:m-0 max-sm:space-x-0 max-sm:w-32">
+                <div class="ml-4 cursor-pointer max-sm:ml-0">
+                    <img src="/Cine/src/main/resources/static/dist/assets/icon/usuario.png" class="w-auto h-10 max-sm:h-10">
+                </div>
+                <div class="flex max-sm:hidden">
+                    <div class="cursor-pointer">
+                        <p class="text-lg font-semibold">Username</p>
+                    </div>
+                    <div class="absolute right-0 bottom-[29px] cursor-pointer">
+                        <img src="/Cine/src/main/resources/static/dist/assets/icon/flecha-hacia-abajo-para-navegar.png" class="w-3" >
+                    </div>
+                </div>
             </div>
         </section>
         <!--seccion de ubicacion-->
         <section class="bg-black flex justify-center gap-20">
             <div class="search-container flex items-center relative w-80 h-20">
-            <input type="text" placeholder="Provincia" class="bg-[rgba(247,246,245,0.53)] placeholder:text-black text-center rounded-[20px] w-full pt-1 pb-1">
+            <input type="text" placeholder="Provincia" class="bg-[rgba(247,246,245,0.53)] placeholder:text-black text-center rounded-[20px] w-full py-1 mx-3">
             <img src="/Cine/src/main/resources/static/dist/assets/icon/flecha-hacia-abajo-para-navegar.png" class="w-4 absolute right-4" >
             </div>
             <div class="search-container flex items-center relative w-80 h-20">
-                <input type="text" placeholder="Cine" class="bg-[rgba(247,246,245,0.53)] placeholder:text-black text-center rounded-[20px] w-full pt-1 pb-1">
+                <input type="text" placeholder="Cine" class="bg-[rgba(247,246,245,0.53)] placeholder:text-black text-center rounded-[20px] w-full py-1 mx-3">
                 <img src="/Cine/src/main/resources/static/dist/assets/icon/flecha-hacia-abajo-para-navegar.png" class="w-4 absolute right-4" >
             </div>
         </section>
     </header>
     <!--SECCION 1 - CARRUSEL DE PROMOCIONES-->
+
     <section class="h-96 overflow-hidden relative max-sm:h-56">
         <!--imagenes-->
         <div class="h-full">
@@ -72,6 +87,10 @@
             <i class="fa-solid fa-caret-right text-5xl text-gray-400"></i>
         </div>
     </section>
+    <!--CHATBOX-->
+    <div class="bg-[#63432e] fixed right-2 bottom-20 rounded-full p-3 flex items-center z-50 max-sm:bottom-44">
+        <img src="/Cine/src/main/resources/static/dist/assets/icon/servicio-al-cliente.png" alt="" class="w-10">
+    </div>
 
     <!--SECCION 2 - CARRUSEL DE TRENDING-->
     <section class="pt-10 h-96 max-sm:h-56">
@@ -95,29 +114,71 @@
                 <img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt="" class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg">
             </div>
             <!--botones-->
-            <div class="absolute z-20 left-20 top-1/2 -translate-y-1/2 cursor-pointer max-sm:left-0" onclick="scrollIzq()">
-                <i class="fa-solid fa-caret-left text-5xl text-gray-400 focus:outline-none"></i>
+            <div class="absolute z-20 left-20 top-1/2 -translate-y-1/2 cursor-pointer max-sm:left-0 bg-gray-200 p-2 rounded-2xl opacity-60" onclick="scrollIzq()">
+                <i class="fa-solid fa-caret-left text-5xl text-black focus:outline-none"></i>
             </div>
-            <div class="absolute z-20 right-20 top-1/2 -translate-y-1/2 cursor-pointer max-sm:right-0" onclick="scrollDer()">
-                <i class="fa-solid fa-caret-right text-5xl text-gray-400 focus:outline-none"></i>
+            <div class="absolute z-20 right-20 top-1/2 -translate-y-1/2 cursor-pointer max-sm:right-0 bg-gray-200 p-2 rounded-2xl opacity-60" onclick="scrollDer()">
+                <i class="fa-solid fa-caret-right text-5xl text-black focus:outline-none"></i>
             </div>
             <!--fondo a los botones-->
-            <div class="bg-gray-200 h-72 w-12 absolute z-10 left-[67px] top-[53%] -translate-y-1/2 rounded-lg cursor-pointer max-sm:h-52 max-sm:w-8 max-sm:left-0 max-sm:top-[55%] focus:outline-none" onclick="scrollIzq()"></div>
-            <div class="bg-gray-200 h-72 w-12 absolute z-10 right-[67px] top-[53%] -translate-y-1/2 rounded-lg cursor-pointer max-sm:h-52 max-sm:w-8 max-sm:right-0 max-sm:top-[55%] focus:outline-none" onclick="scrollDer()"></div>
         </div>
     </section>
     <!--SECCION 3 - CARTELERA-->
-    <section class="pt-16 h-96 max-sm:h-56 max-sm:pt-32">
+    <section class="pt-16 h-96 max-sm:h-56 max-sm:pt-32 pb-16">
         <div class="flex justify-center">
             <h2 class="border text-white bg-[#89613E] px-5 py-1 font-bold rounded-lg text-lg">Cartelera</h2>
         </div>
         <!--Imagenes-->
         <div class="flex justify-center pt-10">
             <div class="grid grid-cols-4 max-w-full w-4/5 max-sm:grid-cols-2 max-sm:gap-3">
-                <img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt="" class="mr-3 h-72 w-64 object-cover max-sm:h-52 rounded-lg max-sm:w-52 max-sm:mr-3  max-sm:mb-3">
-                <img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel2.jpg" alt="" class="mr-3 h-72 w-64 object-cover max-sm:h-52 rounded-lg max-sm:w-52 max-sm:mb-3">
-                <img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt="" class="mr-3 h-72 w-64 object-cover max-sm:h-52 rounded-lg max-sm:w-52 max-sm:mr-3  max-sm:mb-3">
-                <img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel2.jpg" alt="" class="mr-3 h-72 w-64 object-cover max-sm:h-52 rounded-lg max-sm:w-52 max-sm:mb-3">
+                <!--Imagen 1-->
+                <div class="relative">
+                    <img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt="" class="mr-3 h-72 w-64 object-cover max-sm:h-52 rounded-lg max-sm:w-52 max-sm:mr-3  max-sm:mb-3">
+                    <div class="absolute top-0 left-0 flex z-10 items-center opacity-0 hover:opacity-100 flex-col w-full h-full duration-500">
+                        <a href="">
+                            <p class="text-white font-bold text-center bg-black rounded-lg px-3 opacity-60 text-xl mt-32 cursor-pointer max-sm:mt-16 max-sm:text-lg">comprar ticket</p>
+                        </a>
+                        <a href="" class="mt-auto mb-6  w-full max-sm:mb-2">
+                            <p class="text-white font-bold text-center bg-black opacity-60 text-xl cursor-pointer max-sm:text-lg">más info</p>
+                        </a>
+                    </div>
+                </div>
+                <!--Imagen 2-->
+                <div class="relative">
+                    <img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel2.jpg" alt="" class="mr-3 h-72 w-64 object-cover max-sm:h-52 rounded-lg max-sm:w-52 max-sm:mb-3">
+                    <div class="absolute top-0 left-0 flex z-10 items-center opacity-0 hover:opacity-100 flex-col w-full h-full duration-500">
+                        <a href="">
+                            <p class="text-white font-bold text-center bg-black rounded-lg px-3 opacity-60 text-xl mt-32 cursor-pointer max-sm:mt-16 max-sm:text-lg">comprar ticket</p>
+                        </a>
+                        <a href="" class="mt-auto mb-6  w-full max-sm:mb-2">
+                            <p class="text-white font-bold text-center bg-black opacity-60 text-xl cursor-pointer max-sm:text-lg">más info</p>
+                        </a>
+                    </div>
+                </div>
+                <!--Imagen 3-->
+                <div class="relative">
+                    <img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt="" class="mr-3 h-72 w-64 object-cover max-sm:h-52 rounded-lg max-sm:w-52 max-sm:mr-3  max-sm:mb-3">
+                    <div class="absolute top-0 left-0 flex z-10 items-center opacity-0 hover:opacity-100 flex-col w-full h-full duration-500">
+                        <a href="">
+                            <p class="text-white font-bold text-center bg-black rounded-lg px-3 opacity-60 text-xl mt-32 cursor-pointer max-sm:mt-16 max-sm:text-lg">comprar ticket</p>
+                        </a>
+                        <a href="" class="mt-auto mb-6  w-full max-sm:mb-2">
+                            <p class="text-white font-bold text-center bg-black opacity-60 text-xl cursor-pointer max-sm:text-lg">más info</p>
+                        </a>
+                    </div>
+                </div>
+                <!--Imagen 4-->
+                <div class="relative">
+                    <img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel2.jpg" alt="" class="mr-3 h-72 w-64 object-cover max-sm:h-52 rounded-lg max-sm:w-52 max-sm:mb-3">
+                    <div class="absolute top-0 left-0 flex z-10 items-center opacity-0 hover:opacity-100 flex-col w-full h-full duration-500">
+                        <a href="">
+                            <p class="text-white font-bold text-center bg-black rounded-lg px-3 opacity-60 text-xl mt-32 cursor-pointer max-sm:mt-16 max-sm:text-lg">comprar ticket</p>
+                        </a>
+                        <a href="" class="mt-auto mb-6  w-full max-sm:mb-2">
+                            <p class="text-white font-bold text-center bg-black opacity-60 text-xl cursor-pointer max-sm:text-lg">más info</p>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
         <!--boton de ver más-->
@@ -126,63 +187,70 @@
         </div>
     </section>
     <!--SECCION 4 - PROMOCIONES-->
-    <section class="p-16 h-96 max-sm:h-56 max-sm:pt-[30rem] pb-[30rem]">
-        <div class="flex justify-center pt-28">
-            <div class="grid grid-cols-2 max-w-full w-11/12 gap-20 max-sm:grid-cols-1 max-sm:gap-3">
+    <section class="h-[480px] max-sm:h-56 max-sm:pt-[30rem] pb-[30rem] max-sm:pb-[40rem] w-full">
+        <div class="flex justify-center pt-40 w-[100%] max-sm:pt-20">
+            <div class="grid grid-cols-2 max-w-full w-11/12 gap-20 max-sm:grid-cols-1 max-sm:gap-3 max-sm:w-full place-items-center">
                 <!--promocion 1-->
-                <div class="bg-[#362A26] h-72 rounded-3xl relative flex flex-col max-sm:h-[22rem]">
-                    <div class="max-w-full w-11/12 h-28 justify-center items-center absolute top-5 right-1/2 translate-x-1/2">
+                <div class="bg-[#362A26] h-72 rounded-3xl relative max-sm:flex max-sm:flex-col max-sm:h-56 w-11/12 max-sm:items-center max-sm:justify-center">
+                    <div class="promo max-w-full w-11/12 h-28 justify-center items-center max-sm:flex max-sm:w-full">
                         <!--imagen promocion-->
-                        <img  class="w-full h-full object-cover" src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt="">
-                        <div class="text-center">
+                        <img  class="w-full h-full object-cover max-sm:w-36" src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt="">
+                        <div class="text-center max-sm:w-32 max-sm:whitespace-nowrap max-sm:text-ellipsis">
                             <!--info promociom-->
-                            <p class="text-white font-bold text-lg py-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia a nihil assumenda, voluptates quo veniam</p>
+                            <p class="text-white font-bold text-lg py-4 max-sm:text-sm max-sm:overflow-hidden max-sm:px-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia a nihil assumenda, voluptates quo veniam</p>
                             <!--boton de mas informacion-->
-                            <a href="" class="text-white font-bold text-lg bg-black rounded-lg cursor-pointer px-3 py-2">Más info</a>
+                            <a href="" class="text-white font-bold text-lg bg-black rounded-lg cursor-pointer px-3 py-2 max-sm:text-sm">Más info</a>
                         </div>
                     </div>
                 </div>
                 <!--promocion 2-->
-                <div class="bg-[#362A26] h-72 rounded-3xl relative flex flex-col max-sm:h-[22rem]">
-                    <div class="max-w-full w-11/12 h-28 justify-center items-center absolute top-5 right-1/2 translate-x-1/2">
+                <div class="bg-[#362A26] h-72 rounded-3xl relative max-sm:flex max-sm:flex-col max-sm:h-56 w-11/12 max-sm:items-center max-sm:justify-center">
+                    <div class="promo max-w-full w-11/12 h-28 justify-center items-center max-sm:flex max-sm:w-full">
                         <!--imagen promocion-->
-                        <img  class="w-full h-full object-cover" src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt="">
-                        <div class="text-center">
-                            <!--info promocion-->
-                            <p class="text-white font-bold text-lg py-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia a nihil assumenda, voluptates quo veniam</p>
+                        <img  class="w-full h-full object-cover max-sm:w-36 max-sm:hidden" src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt="">
+                        <div class="text-center max-sm:w-32 max-sm:whitespace-nowrap max-sm:text-ellipsis">
+                            <!--info promociom-->
+                            <p class="text-white font-bold text-lg py-4 max-sm:text-sm max-sm:overflow-hidden max-sm:px-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia a nihil assumenda, voluptates quo veniam</p>
                             <!--boton de mas informacion-->
-                            <a href="" class="text-white font-bold text-lg bg-black rounded-lg cursor-pointer px-3 py-2">Más info</a>
+                            <a href="" class="text-white font-bold text-lg bg-black rounded-lg cursor-pointer px-3 py-2 max-sm:text-sm">Más info</a>
                         </div>
+                        <img  class="w-full h-full object-cover max-sm:w-36 hidden max-sm:block" src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] py-5 pr-40 pl-40 flex justify-between">
-        <div id="container-left" class="grid grid-cols-[repeat(2,300px)] gap-0 text-xl">
-            <div class="search-container flex items-center">
-                <img src="/Cine/src/main/resources/static/dist/assets/icon/ayudar.png" class="w-4 mr-3" >
-                <a href="#" class="text-white">Preguntas Frecuentes</a>
+    <footer class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] py-5 max-sm:pb-32 w-full relative">
+        <div id="footerItems" class="max-sm:pr-0">
+            <div class="flex pl-36 max-sm:pl-3 space-x-1">
+                <div>
+                    <div class="flex items-center">
+                        <img src="/Cine/src/main/resources/static/dist/assets/icon/ayudar.png" class="w-4 mr-3" >
+                        <a href="#" class="text-white max-sm:text-sm">Preguntas Frecuentes</a>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="/Cine/src/main/resources/static/dist/assets/icon/seguro.png" class="w-4 mr-3" >
+                        <a href="#" class="text-white max-sm:text-sm">Politicas de la Empresa</a>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="/Cine/src/main/resources/static/dist/assets/icon/apoyo (1).png" class="w-4 mr-3" >
+                        <a href="#" class="text-white max-sm:text-sm">Atencion al Cliente</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center">
+                        <img src="/Cine/src/main/resources/static/dist/assets/icon/grupo.png" class="w-4 mr-3" >
+                        <a href="#" class="text-white max-sm:text-sm">Creadores de la página</a>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="/Cine/src/main/resources/static/dist/assets/icon/seguridad.png" class="w-4 mr-3" >
+                        <a href="#" class="text-white max-sm:text-sm">Politicas de Privacidad</a>
+                    </div>  
+                </div>
             </div>
-            <div class="search-container flex items-center">
-                <img src="/Cine/src/main/resources/static/dist/assets/icon/seguro.png" class="w-4 mr-3" >
-                <a href="#" class="text-white">Politicas de la Empresa</a>
-            </div>
-            <div class="search-container flex items-center">
-                <img src="/Cine/src/main/resources/static/dist/assets/icon/apoyo (1).png" class="w-4 mr-3" >
-                <a href="#" class="text-white">Atencion al Cliente</a>
-            </div>
-            <div class="search-container flex items-center">
-                <img src="/Cine/src/main/resources/static/dist/assets/icon/grupo.png" class="w-4 mr-3" >
-                <a href="#" class="text-white">Creadores de la página</a>
-            </div>
-            <div class="search-container flex items-center">
-                <img src="/Cine/src/main/resources/static/dist/assets/icon/seguridad.png" class="w-4 mr-3" >
-                <a href="#" class="text-white">Politicas de Privacidad</a>
-            </div>  
         </div>
-        <div id="container-right" class="flex w-[120px]  justify-between"> 
+        <div class="flex absolute top-3 right-16 max-sm:top-20"> 
             <img src="/Cine/src/main/resources/static/dist/assets/icon/facebook.png" class="w-8 h-8" >
             <img src="/Cine/src/main/resources/static/dist/assets/icon/instagram.png" class="w-8 h-8" >
             <img src="/Cine/src/main/resources/static/dist/assets/icon/tik-tok.png" class="w-8 h-8" >
