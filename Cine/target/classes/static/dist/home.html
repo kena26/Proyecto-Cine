@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="/Cine/src/main/resources/static/dist/assets/css-chatbox/chatbox.css">
     <script src="https://kit.fontawesome.com/da2008d449.js" crossorigin="anonymous"></script>
-
 </head>
-
 <body class="bg-radial-gradient at-[50.02% 52.33%] from-[#431B19] via-[#431B19] to-[#141414]">
     <!--HEADER-->
     <header class="h-auto py-0">
@@ -87,8 +86,27 @@
         </div>
     </section>
     <!--CHATBOX-->
-    <div class="bg-[#63432e] fixed right-2 bottom-20 rounded-full p-3 flex items-center z-50 max-sm:bottom-44">
-        <img src="/Cine/src/main/resources/static/dist/assets/icon/servicio-al-cliente.png" alt="" class="w-10">
+    <button id="show-chatbot" class="chatbot-toggle-button z-50">
+        <div class="bg-[#63432e] flex items-center">
+            <img id="chatbot-image" src="/Cine/src/main/resources/static/dist/assets/icon/servicio-al-cliente.png" alt="Chatbot" onclick="showChat()">
+        </div>
+    </button>
+    
+    <!-- Contenedor del chatbot (inicialmente oculto) -->
+    <div id="chatbot-container" class="chatbot-container">
+        <button id="close-chatbot" class="close-button">X</button>
+        <div class="chat-header">
+            <div class="chatbot-info">
+                <img class="w-full" src="/Cine/src/main/resources/static/dist/assets/img/logo.png" alt="Logo Ñequepolis">
+            </div>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <h3>Bienvenido a Ñequepolis</h3>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Bienvenido">
+            <button id="send-button">Enviar</button>
+        </div>
     </div>
 
     <!--SECCION 2 - CARRUSEL DE TRENDING-->
@@ -190,8 +208,8 @@
         <div class="flex justify-center pt-40 w-[100%] max-sm:pt-20">
             <div class="grid grid-cols-2 max-w-full w-11/12 gap-20 max-sm:grid-cols-1 max-sm:gap-3 max-sm:w-full place-items-center">
                 <!--promocion 1-->
-                <div class="bg-[#362A26] h-72 rounded-3xl relative max-sm:flex max-sm:flex-col max-sm:h-56 w-11/12 max-sm:items-center max-sm:justify-center">
-                    <div class="promo max-w-full w-11/12 h-28 justify-center items-center max-sm:flex max-sm:w-full">
+                <div class="bg-[#362A26] h-72 rounded-3xl relative max-sm:flex-col max-sm:h-56 w-11/12 max-sm:pt-0 max-sm:items-center flex justify-center pt-5">
+                    <div id="promo" class="max-w-full w-11/12 h-28 justify-center items-center max-sm:flex max-sm:w-full">
                         <!--imagen promocion-->
                         <img  class="w-full h-full object-cover max-sm:w-36" src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt="">
                         <div class="text-center max-sm:w-32 max-sm:whitespace-nowrap max-sm:text-ellipsis">
@@ -203,24 +221,23 @@
                     </div>
                 </div>
                 <!--promocion 2-->
-                <div class="bg-[#362A26] h-72 rounded-3xl relative max-sm:flex max-sm:flex-col max-sm:h-56 w-11/12 max-sm:items-center max-sm:justify-center">
-                    <div class="promo max-w-full w-11/12 h-28 justify-center items-center max-sm:flex max-sm:w-full">
+                <div class="bg-[#362A26] h-72 rounded-3xl relative max-sm:flex-col max-sm:h-56 w-11/12 max-sm:pt-0 max-sm:items-center flex justify-center pt-5">
+                    <div id="promo" class="max-w-full w-11/12 h-28 justify-center items-center max-sm:flex max-sm:w-full">
                         <!--imagen promocion-->
-                        <img  class="w-full h-full object-cover max-sm:w-36 max-sm:hidden" src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt="">
+                        <img  class="w-full h-full object-cover max-sm:w-36" src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt="">
                         <div class="text-center max-sm:w-32 max-sm:whitespace-nowrap max-sm:text-ellipsis">
                             <!--info promociom-->
                             <p class="text-white font-bold text-lg py-4 max-sm:text-sm max-sm:overflow-hidden max-sm:px-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia a nihil assumenda, voluptates quo veniam</p>
                             <!--boton de mas informacion-->
                             <a href="" class="text-white font-bold text-lg bg-black rounded-lg cursor-pointer px-3 py-2 max-sm:text-sm">Más info</a>
                         </div>
-                        <img  class="w-full h-full object-cover max-sm:w-36 hidden max-sm:block" src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] py-5 max-sm:pb-32 w-full relative">
+    <footer class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] py-5 w-full relative">
         <div id="footerItems" class="max-sm:pr-0">
             <div class="flex pl-36 max-sm:pl-3 space-x-1">
                 <div>
@@ -256,6 +273,7 @@
         </div>
     </footer>
     <script src="/Cine/src/main/resources/static/dist/assets/js/home.js"></script>
+    <script src="/Cine/src/main/resources/static/dist/assets/js/chatbot.js"></script>
 </body>
 
 </html>
