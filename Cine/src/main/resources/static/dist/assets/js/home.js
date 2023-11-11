@@ -27,6 +27,7 @@ function cambios(){
             promo.classList.add('absolute', 'top-5', 'right-1/2', 'translate-x-1/2')
         }
     }
+    console.log('busquedaInput:', busquedaInput);
 }
 cambios()
 window.addEventListener('resize', function () {
