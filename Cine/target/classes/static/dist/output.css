@@ -1600,6 +1600,11 @@ video {
     padding-right: 0.5rem;
   }
 
+  .max-sm\:py-7 {
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
+  }
+
   .max-sm\:pb-\[40rem\] {
     padding-bottom: 40rem;
   }
