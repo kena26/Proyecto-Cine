@@ -90,6 +90,19 @@
       </div>
     </div>
   </div>
+  <script>
+    let busquedaInput = document.getElementById('busqueda')
+    //cambios responsive
+    function cambios() {
+        if (window.innerWidth < 640) {
+            busquedaInput.placeholder = 'Buscar'
+        }
+    }
+    cambios()
+    window.addEventListener('resize', function () {
+        cambios()
+    })
+</script>
 </body>
 
 </html>
