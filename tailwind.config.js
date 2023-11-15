@@ -19,6 +19,7 @@ module.exports = {
 				"Buckeye-brown": "#684A31",
 				"Mulled-Cider": "#9c7d65ff",
 				"White-Smoke": "rgba(247, 246, 245, 0.53)",
+				'Buckskin-Brown': "#9C6D46",
 			},
 			gridTemplateColumns: {
 				"15": "repeat(15, minmax(0, 1fr))",
