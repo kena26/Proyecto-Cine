@@ -684,6 +684,10 @@ video {
   top: 1.25rem;
 }
 
+.top-\[145px\] {
+  top: 145px;
+}
+
 .top-\[6px\] {
   top: 6px;
 }
@@ -928,8 +932,8 @@ video {
   height: 24rem;
 }
 
-.h-\[1780px\] {
-  height: 1780px;
+.h-\[1635px\] {
+  height: 1635px;
 }
 
 .h-\[350px\] {
