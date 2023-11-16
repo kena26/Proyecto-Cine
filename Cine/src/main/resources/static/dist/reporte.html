@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+
+<body class="bg-radial-gradient at-[50.02% 52.33%] from-[#431B19] via-[#431B19] to-[#141414]">
+    <header class="bg-radial-gradient at-[50.02% 52.33%] from-[#431B19] via-[#431B19] to-[#141414]">
+        <!--nav principal-->
+        <nav class="bg-black max-sm:hidden">
+            <ul class="flex justify-end">
+                <li><a href="#" class="text-white mr-16 text-xl">Inicio</a></li>
+                <li><a href="#" class="text-white mr-16 text-xl">Cines</a></li>
+                <li><a href="#" class="text-white mr-16 text-xl">Cartelera</a></li>
+                <li><a href="#" class="text-white mr-36 text-xl">Preguntas Frecuentes</a></li>
+            </ul>
+        </nav>
+        <!--seccion del logo-->
+        <section
+            class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
+            <div class="hidden max-sm:block">
+                <i class="fa-solid fa-bars max-sm:block text-2xl"></i>
+            </div>
+            <div class="cursor-pointer">
+                <img src="/Cine/src/main/resources/static/dist/assets/img/logo.png" alt=""
+                    class="w-72 max-sm:h-10 max-sm:w-auto">
+            </div>
+            <div class="search-container flex items-center relative w-[25rem] h-12 max-sm:w-40">
+                <input type="text" id="busqueda" placeholder="Busca tu Pelicula..."
+                    class="bg-[rgba(247,246,245,0.53)] placeholder:text-black rounded-[20px] w-full p-3 placeholder:text-lg placeholder:opacity-60 indent-5">
+                <img src="/Cine/src/main/resources/static/dist/assets/icon/busqueda-de-lupa%20(1).png"
+                    class="w-6 absolute right-5">
+            </div>
+            <div
+                class="user-container flex items-center w-44 h-12 justify-center relative space-x-2 max-sm:m-0 max-sm:space-x-0 max-sm:w-32">
+                <div class="ml-4 cursor-pointer max-sm:ml-0">
+                    <img src="/Cine/src/main/resources/static/dist/assets/icon/usuario.png"
+                        class="w-auto max-sm:h-10">
+                </div>
+                <div class="flex max-sm:hidden">
+                    <div class="cursor-pointer">
+                        <p class="text-lg font-semibold">Administrador</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </header>
+
+    <main class="flex gap-6 mt-16">
+        <!--Sucursales parte izquierda-->
+        <section id="sucursales" class="bg-[#45382E] ml-7 text-white pt-5
+        rounded-lg max-h-[530px]">
+            <h1 class="text-4xl text-center">Sucursales</h1>
+            <ul class="">
+                <li class="mt-6 text-2xl pl-20 pr-20 pt-4 pb-4 hover:bg-[#D9D9D9] hover:bg-opacity-[28%]">Sucursal #1
+                </li>
+                <li class="mt-6 text-2xl pl-20 pr-20 pt-4 pb-4 hover:bg-[#D9D9D9] hover:bg-opacity-[28%]">Sucursal #2
+                </li>
+                <li class="mt-6 text-2xl pl-20 pr-20 pt-4 pb-4 hover:bg-[#D9D9D9] hover:bg-opacity-[28%]">Sucursal #3
+                </li>
+                <li class="mt-6 text-2xl pl-20 pr-20 pt-4 pb-4 hover:bg-[#D9D9D9] hover:bg-opacity-[28%]">Sucursal #4
+                </li>
+                <li class="mt-6 text-2xl pl-20 pr-20 pt-4 pb-4 hover:bg-[#D9D9D9] hover:bg-opacity-[28%]">Sucursal #5
+                </li>
+            </ul>
+        </section>
+        <!--Sucursales parte derecha-->
+        <section id="reporte" class="text-white">
+            <h2 class="text-2xl w-[1200px] pl-6 pt-1 pb-1 bg-[#45382E]">Reporte de Boletos - Abril 2023</h2>
+            <section>
+                <!--Filtro de Sucursales-->
+                <nav id="filtro" class="bg-[#63432E] text-xl flex justify-between items-center pt-3 rounded-2xl pb-3 mt-5 w-[1400px]">
+                    <div id="filtro-izquierda" class="flex ml-7">
+                        <!--Mes-->
+                        <div id="contenedor-mes" class="relative w-max  flex gap-3 items-center">
+                            <label for="mes">Mes</label>
+                            <input list="meses" name="mes" id="mes" class="w-40 p-2 rounded-xl">
+                            <datalist id="meses">
+                                <option value="Enero"></option>
+                                <option value="Febrero"></option>
+                                <option value="Marzo"></option>
+                                <option value="Abril"></option>
+                                <option value="Mayo"></option>
+                                <option value="Junio"></option>
+                                <option value="Julio"></option>
+                                <option value="Agosto"></option>
+                                <option value="Septiembre"></option>
+                                <option value="Noviembre"></option>
+                                <option value="Octubre"></option>
+                                <option value="Diciembre"></option>
+                            </datalist>
+                            <img src="./assets/icon/flecha-hacia-abajo-para-navegar.png" class="w-4 absolute right-4">
+                        </div>
+                        <!--Año-->
+                        <div id="contenedor-año" class="relative w-max flex gap-3 items-center  ">
+                            <label for="año" class="ml-3">Año</label>
+                            <input list="años" name="años" id="año" class="w-32 p-2 rounded-xl">
+                            <datalist id="años">
+                                <option value="2023"></option>
+                                <option value="2022"></option>
+                                <option value="2021"></option>
+                                <option value="2020"></option>
+                                <option value="2019"></option>
+                                <option value="2018"></option>
+                            </datalist>
+                            <img src="./assets/icon/flecha-hacia-abajo-para-navegar.png" class="w-4 absolute right-4">
+                        </div>
+                    </div>
+                    <div id="filtro-derecha" class="mr-10">
+                        <!--Botones-->
+                        <div class="flex justify-center items-center gap-5">
+                            <button class="flex items-center justify-center gap-3 p-2 bg-[#431B19]">
+                                <img src="./assets/icon/busqueda-de-lupa (1).png" class="w-5">
+                                Consultar
+                            </button>
+                            <button class="flex items-center justify-center gap-3 p-2 bg-[#9C6D46]">
+                                <img src="./assets/icon/imprimir.png" class="w-5">
+                                Generar Reporte
+                            </button>
+                        </div>
+                    </div>
+                </nav>
+                <section class="mt-16 flex justify-between">
+                    <!--Seccion del medio-->
+                    <div class="mb-8">
+                        <!--Peliculas-->
+                        <div id="contenedor-peliculas-1" class="ml-20 flex gap-1">
+                            <div class="border">
+                                <div class="text-center">
+                                    <h2 class="p-1">Item</h2>
+                                    <div id="imagen-pelicula" class="w-64 h-72 bg-white"></div>
+                                </div>
+                            </div>
+                            <div class="border">
+                                <div class="text-center">
+                                    <h2 class="p-1">Pelicula</h2>
+                                    <div id="imagen-pelicula" class="w-64 h-72 bg-white"></div>
+                                </div>
+                            </div>
+                            <div class="border">
+                                <div class="text-center">
+                                    <h2 class="p-1">Boleto_Precio</h2>
+                                    <div id="imagen-pelicula" class="w-64 h-72 bg-white"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="contenedor-peliculas-2" class="ml-20 mt-16 flex gap-1">
+                            <div class="border">
+                                <div class="text-center">
+                                    <h2 class="p-1">Item</h2>
+                                    <div id="imagen-pelicula" class="w-64 h-72 bg-white"></div>
+                                </div>
+                            </div>
+                            <div class="border">
+                                <div class="text-center">
+                                    <h2 class="p-1">Pelicula</h2>
+                                    <div id="imagen-pelicula" class="w-64 h-72 bg-white"></div>
+                                </div>
+                            </div>
+                            <div class="border">
+                                <div class="text-center">
+                                    <h2 class="p-1">Boleto_Precio</h2>
+                                    <div id="imagen-pelicula" class="w-64 h-72 bg-white"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Graficas-->
+                    <div class="flex flex-col gap-16">
+                        <div class="text-center">
+                            <h2 class="mb-5 text-2xl">Boletos mas vendidos</h2>
+                            <div class="flex items-center">
+                                <img src="./assets/img/img-reporte/pie.png" class="w-64">
+                                <form class="grid grid-cols-2 grid-rows-3 gap-y-4">
+                                    <input type="checkbox" name="boletos" id="boleto1">
+                                    <label for="boleto1">Boleto 1</label>
+                                    <input type="checkbox">
+                                    <label for="boleto2">Boleto 2</label>
+                                    <input type="checkbox" name="boletos" id="boleto2">
+                                    <label for="boleto3">Boleto 3</label>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <h2 class="mb-5 text-2xl">Total de ingresos por Pelicula</h2>
+                            <div class="flex items-center">
+                                <img src="./assets/img/img-reporte/pie.png" class="w-64">
+                                <form class="grid grid-cols-2 grid-rows-3 gap-y-4">
+                                    <input type="checkbox" name="boletos" id="boleto1">
+                                    <label for="boleto1">Pelicula 1</label>
+                                    <input type="checkbox">
+                                    <label for="boleto2">Pelicula 2</label>
+                                    <input type="checkbox" name="boletos" id="boleto2">
+                                    <label for="boleto3">Pelicula 3</label>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </section>
+        </section>
+    </main>
+</body>
+
+</html>
