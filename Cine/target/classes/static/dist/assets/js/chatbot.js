@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	const userInput = document.getElementById("user-input");
 	const sendButton = document.getElementById("send-button");
 	const chatbotContainer = document.getElementById("chatbot-container");
-	const chatbotContainerOpen = document.getElementById("chatbot-container-open");
 	const chatbotImage = document.getElementById("chatbot-image");
 	const closeChatbotButton = document.getElementById("close-chatbot");
 
@@ -39,13 +38,14 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 
+	//Mueve hacia arriba el contenedor cuando haya un mensaje dentro
 	setInterval(moveContainer,100);
 	function moveContainer(){
 
         if (chatMessages.querySelector('div') !== null) {
             chatbotContainer.classList.add("chatbot-container-open");
 			chatMessages.style.height="300px";
-        } else {
+        } else {//Cuando no tenga mensajes dentro se elimina
             chatbotContainer.classList.remove("chatbot-container-open");
         }
 	}
