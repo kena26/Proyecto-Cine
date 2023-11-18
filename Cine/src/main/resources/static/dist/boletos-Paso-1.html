@@ -25,6 +25,9 @@
         <!--seccion del logo-->
         <section
             class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
+            <div class="hidden max-sm:block">
+                <i class="fa-solid fa-bars max-sm:block max-sm:ml-5 text-2xl"></i>
+            </div>
             <a href="./home.html">
                 <div>
                     <img src="/Cine/src/main/resources/static/dist/assets/img/logo.png" alt=""
@@ -52,23 +55,23 @@
     </header>
     <!--Seccion de los pasos-->
     <section class="flex flex-col">
-        <section class="flex relative gap-5 items-center justify-center mt-2 text-white/50 ">
+        <section class="flex relative gap-5 max-sm:gap-2 items-center justify-center mt-2 text-white/50 ">
             <p
-                class="px-14 rounded-lg pointer-events-none text-center text-white bg-Buckeye-brown/50 border-4 border-Buckeye-brown">
+                class="max-sm:px-3 max-sm:w-36 px-14 rounded-lg pointer-events-none text-center text-white bg-Buckeye-brown/50 border-4 border-Buckeye-brown ">
                 PASO 1<br />
                 Selecciona tus boletos
             </p>
             <section class="flex">
                 <div class="w-[0.1px] h-full absolute top-0 bg-white"></div>
             </section>
-            <p class="text-center pointer-events-none">
+            <p class="max-sm:w-36 text-center pointer-events-none">
                 PASO 2<br />
                 Selecciona tus asientos
             </p>
             <section class="flex">
                 <div class="w-[0.1px] h-full absolute top-0 bg-white"></div>
             </section>
-            <p class="text-center pointer-events-none">
+            <p class="max-sm:w-36 text-center pointer-events-none">
                 PASO 3<br />
                 Forma de pago
             </p>
@@ -76,7 +79,7 @@
     </section>
 
     <div class="flex justify-center">
-        <div class="p-8 rounded shadow-md mx-auto ">
+        <div class="max-sm:w-[630px] p-8 rounded shadow-md mx-auto">
             <h2 class="text-2xl font-bold mb-4 text-white flex justify-center ">Selecciona Tus Boletos</h2>
 
             <!-- Opción Adulto -->
@@ -84,7 +87,7 @@
                 <span class="w-32">Adulto</span>
                 <span class="mr-10">$3.00</span>
                 <div class="flex items-center">
-                    <div class="px-0 py-0 border rounded bg-Buckskin-Brown text-white mr-2">
+                    <div class="px-0 py-0 border rounded bg-Buckskin-Brown text-white mr-2 max-sm:mr-10">
                         <span id="adultoCantidad" class="mx-2">0</span>
                     </div>
                     <div class="flex items-center">
@@ -101,7 +104,7 @@
                 <span class="w-32">Niño</span>
                 <span class="mr-10">$3.00</span>
                 <div class="flex items-center">
-                    <div class="px-0 py-0 border rounded bg-Buckskin-Brown text-white mr-2">
+                    <div class="px-0 py-0 border rounded bg-Buckskin-Brown text-white mr-2 max-sm:mr-10">
                         <span id="ninoCantidad" class="mx-2">0</span>
                     </div>
                     <div class="flex items-center">
@@ -118,7 +121,7 @@
                 <span class="w-32">Jubilado</span>
                 <span class="mr-10">$2.00</span>
                 <div class="flex items-center">
-                    <div class="px-0 py-0 border rounded bg-Buckskin-Brown text-white mr-2">
+                    <div class="px-0 py-0 border rounded bg-Buckskin-Brown text-white mr-2 max-sm:mr-10">
                         <span id="jubiladoCantidad" class="mx-2">0</span>
                     </div>
 
@@ -134,7 +137,7 @@
                 <span class="w-32">Discapacitado</span>
                 <span class="mr-10">$2.00</span>
                 <div class="flex items-center">
-                    <div class="px-0 py-0 border rounded bg-Buckskin-Brown text-white mr-2">
+                    <div class="px-0 py-0 border rounded bg-Buckskin-Brown text-white mr-2 max-sm:mr-10">
                         <span id="discapacitadoCantidad" class="mx-2">0</span>
                     </div>
                     <div class="flex items-center">
@@ -153,7 +156,7 @@
             </div>
 
             <!-- Seccion de botones -->
-            <section id="container-buttons" class="mx-52 flex justify-between text-white mt-8">
+            <section id="container-buttons" class="mx-52 flex justify-between max-sm:justify-around text-white mt-8">
                 <!-- Botón Atrás -->
                 <a href="./infoPeli.html" class="mr-32">
                     <button id="button-back" class="w-32 h-12 px-8 py-2 relative rounded-2xl bg-Mulled-Cider">
