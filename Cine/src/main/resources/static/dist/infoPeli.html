@@ -39,18 +39,15 @@
             <!--nav principal-->
             <nav class="bg-black max-sm:hidden">
                 <ul class="flex justify-end">
-                    <li><a href="#" class="text-white mr-16 text-xl">Inicio</a></li>
-                    <li><a href="#" class="text-white mr-16 text-xl">Cines</a></li>
+                    <li><a href="./home.html" class="text-white mr-16 text-xl">Inicio</a></li>
+                    <li><a href="#" class="text-white mr-16 text-xl">Peliculas</a></li>
                     <li><a href="#" class="text-white mr-16 text-xl">Cartelera</a></li>
-                    <li><a href="#" class="text-white mr-36 text-xl">Preguntas Frecuentes</a></li>
+                    <li><a href="#" class="text-white mr-36 text-xl">Ayuda</a></li>
                 </ul>
             </nav>
             <!--seccion del logo-->
             <section
                 class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
-                <div class="hidden max-sm:block">
-                    <i class="fa-solid fa-bars max-sm:block text-2xl"></i>
-                </div>
                 <a href="./home.html">
                     <div>
                         <img src="/Cine/src/main/resources/static/dist/assets/img/logo.png" alt=""
@@ -83,16 +80,22 @@
             <!--seccion de ubicacion-->
             <section class="bg-black flex justify-center gap-20">
                 <div class="search-container flex items-center relative w-80 h-12">
-                    <input type="text" placeholder="Provincia"
+                    <select name="provincia" id="provincia"
                         class="bg-[rgba(247,246,245,0.53)] placeholder:text-black text-center rounded-[20px] w-full py-1 mx-3">
-                    <img src="/Cine/src/main/resources/static/dist/assets/icon/flecha-hacia-abajo-para-navegar.png"
-                        class="w-4 absolute right-4">
+                        <option value="" disabled selected>Provincia</option>
+                        <option value="panamaEste">Panamá Este</option>
+                        <option value="panamaOeste">Panamá Oeste</option>
+                        <option value="bocas">Bocas del Toro</option>
+                        <option value="chiriqui">Chiriquí</option>
+                        <option value="colon">Colón</option>
+                        <option value="veraguas">Veraguas</option>
+                    </select>
                 </div>
                 <div class="search-container flex items-center relative w-80 h-12">
-                    <input type="text" placeholder="Cine"
+                    <select name="cine" id="cine"
                         class="bg-[rgba(247,246,245,0.53)] placeholder:text-black text-center rounded-[20px] w-full py-1 mx-3">
-                    <img src="/Cine/src/main/resources/static/dist/assets/icon/flecha-hacia-abajo-para-navegar.png"
-                        class="w-4 absolute right-4">
+                        <option value="" disabled selected>Cine</option>
+                    </select>
                 </div>
             </section>
         </header>
@@ -130,8 +133,8 @@
                     <div class="w-full text-end">
                         <a href="./boletos-Paso-1.html">
                             <button
-                            class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] p-2 pr-6 pl-6 rounded-xl text-xl">Compra
-                            tu Boleto</button>
+                                class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] p-2 pr-6 pl-6 rounded-xl text-xl">Compra
+                                tu Boleto</button>
                         </a>
                     </div>
                 </div>
@@ -228,7 +231,7 @@
             </div>
                 
         </footer>
-
+        <script src="./assets/js/home.js"></script>
     </body>
 
     </html>

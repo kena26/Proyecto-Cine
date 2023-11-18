@@ -26,10 +26,10 @@
     <!--nav principal-->
     <nav class="bg-black max-sm:hidden">
       <ul class="flex justify-end">
-        <li><a href="#" class="text-white mr-16 text-xl">Inicio</a></li>
-        <li><a href="#" class="text-white mr-16 text-xl">Cines</a></li>
+        <li><a href="./home.html" class="text-white mr-16 text-xl">Inicio</a></li>
+        <li><a href="#" class="text-white mr-16 text-xl">Peliculas</a></li>
         <li><a href="#" class="text-white mr-16 text-xl">Cartelera</a></li>
-        <li><a href="#" class="text-white mr-36 text-xl">Preguntas Frecuentes</a></li>
+        <li><a href="#" class="text-white mr-36 text-xl">Ayuda</a></li>
       </ul>
     </nav>
     <!--seccion del logo-->
@@ -82,7 +82,9 @@
       </form>
       <div class="mt-10">
         <p class="text-center text-white mb-3"><a href="#">¿No te has registrado?</a></p>
-        <button class="w-64 py-3 rounded-full bg-white text-black mx-auto">Registrarse</button>
+        <a href="./registro.html">
+          <button class="w-64 py-3 rounded-full bg-white text-black mx-auto">Registrarse</button>
+        </a>
       </div>
     </div>
   </div>
@@ -90,15 +92,15 @@
     let busquedaInput = document.getElementById('busqueda')
     //cambios responsive
     function cambios() {
-        if (window.innerWidth < 640) {
-            busquedaInput.placeholder = 'Buscar'
-        }
+      if (window.innerWidth < 640) {
+        busquedaInput.placeholder = 'Buscar'
+      }
     }
     cambios()
     window.addEventListener('resize', function () {
-        cambios()
+      cambios()
     })
-</script>
+  </script>
 </body>
 
 </html>
