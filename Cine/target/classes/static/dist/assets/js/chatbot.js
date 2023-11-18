@@ -38,6 +38,18 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 
+	//Mueve hacia arriba el contenedor cuando haya un mensaje dentro
+	setInterval(moveContainer,100);
+	function moveContainer(){
+
+        if (chatMessages.querySelector('div') !== null) {
+            chatbotContainer.classList.add("chatbot-container-open");
+			chatMessages.style.height="300px";
+        } else {//Cuando no tenga mensajes dentro se elimina
+            chatbotContainer.classList.remove("chatbot-container-open");
+        }
+	}
+
 	function sendMessage() {
 		const userMessage = userInput.value.trim().toLowerCase();
 

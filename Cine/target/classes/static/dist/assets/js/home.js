@@ -14,8 +14,8 @@ let rad4 = document.getElementById('car4rad')
 let rad5 = document.getElementById('car5rad')
 let busquedaInput = document.getElementById('busqueda')
 //cambios responsive
-function cambios(){
-    if(window.innerWidth<640){
+function cambios() {
+    if (window.innerWidth < 640) {
         busquedaInput.placeholder = 'Buscar'
     }
 }
@@ -26,48 +26,48 @@ window.addEventListener('resize', function () {
 //contenedor del scroll de trending
 let scrollTrend = document.getElementById('scroll')
 //funcion para ocultar imagen actual
-function hide(number){
-    if(number==1){
+function hide(number) {
+    if (number == 1) {
         img1.classList.add('hidden')
     }
-    else if(number==2){
+    else if (number == 2) {
         img2.classList.add('hidden')
     }
-    else if(number==3){
+    else if (number == 3) {
         img3.classList.add('hidden')
     }
-    else if(number==4){
+    else if (number == 4) {
         img4.classList.add('hidden')
     }
-    else if(number==5){
+    else if (number == 5) {
         img5.classList.add('hidden')
     }
 }
 //funcion para mostrar imagen siguiente
-function show(number){
-    if(number==1){
+function show(number) {
+    if (number == 1) {
         img1.classList.remove('hidden')
-        rad1.checked=true
+        rad1.checked = true
     }
-    else if(number==2){
+    else if (number == 2) {
         img2.classList.remove('hidden')
-        rad2.checked=true
+        rad2.checked = true
     }
-    else if(number==3){
+    else if (number == 3) {
         img3.classList.remove('hidden')
-        rad3.checked=true
+        rad3.checked = true
     }
-    else if(number==4){
+    else if (number == 4) {
         img4.classList.remove('hidden')
-        rad4.checked=true
+        rad4.checked = true
     }
-    else if(number==5){
+    else if (number == 5) {
         img5.classList.remove('hidden')
-        rad5.checked=true
+        rad5.checked = true
     }
 }
 //funcion para quitarle el check a todos los radio
-function uncheck(){
+function uncheck() {
     rad1.checked = false;
     rad2.checked = false;
     rad3.checked = false;
@@ -75,68 +75,105 @@ function uncheck(){
     rad5.checked = false;
 }
 //funcion para ir a la siguiente imagen del carrusel
-function siguiente(){
+function siguiente() {
     hide(carruselCurrent)
-    if(carruselCurrent==5){
-        carruselCurrent=1
+    if (carruselCurrent == 5) {
+        carruselCurrent = 1
     }
-    else{
-        carruselCurrent+=1;
+    else {
+        carruselCurrent += 1;
     }
     uncheck()
     show(carruselCurrent)
 }
 //funcion para ir al anterior imagen del carrusel
-function atras(){
+function atras() {
     hide(carruselCurrent)
-    if(carruselCurrent==1){
-        carruselCurrent=5
+    if (carruselCurrent == 1) {
+        carruselCurrent = 5
     }
-    else{
-        carruselCurrent-=1;
+    else {
+        carruselCurrent -= 1;
     }
     uncheck()
     show(carruselCurrent)
 }
 
 //funcionidad para los radio(cambiar imagen) del carrusel
-function img1cambio(){
+function img1cambio() {
     hide(carruselCurrent)
-    carruselCurrent=1;
+    carruselCurrent = 1;
     img1.classList.remove('hidden')
 }
-function img2cambio(){
+function img2cambio() {
     hide(carruselCurrent)
-    carruselCurrent=2;
+    carruselCurrent = 2;
     img2.classList.remove('hidden')
 }
-function img3cambio(){
+function img3cambio() {
     hide(carruselCurrent)
-    carruselCurrent=3;
+    carruselCurrent = 3;
     img3.classList.remove('hidden')
 }
-function img4cambio(){
+function img4cambio() {
     hide(carruselCurrent)
-    carruselCurrent=4;
+    carruselCurrent = 4;
     img4.classList.remove('hidden')
 }
-function img5cambio(){
+function img5cambio() {
     hide(carruselCurrent)
-    carruselCurrent=5;
+    carruselCurrent = 5;
     img5.classList.remove('hidden')
 }
 
 //funcionalid del boton izquierdo del scroll en trending
-function scrollIzq(){
+function scrollIzq() {
     scrollTrend.scrollBy({
-        left:-480,
-        behavior:'smooth'
+        left: -480,
+        behavior: 'smooth'
     })
 }
 //funcionalidad del boton derecho del scroll en trending
-function scrollDer(){
+function scrollDer() {
     scrollTrend.scrollBy({
-        left:480,
-        behavior:'smooth'
+        left: 480,
+        behavior: 'smooth'
     })
+}
+
+//Funcionalidad para la seleccion de localizacion de cine
+
+document.getElementById('provincia').addEventListener('change', function () {
+    console.log('Change event triggered');
+    var provinciaSelect = document.getElementById('provincia');
+    var cineSelect = document.getElementById('cine');
+    var selectedProvincia = provinciaSelect.value;
+    cineSelect.innerHTML = '';
+    if (selectedProvincia === 'panamaEste') {
+        addOption(cineSelect, 'CVLS', 'Campus Victor Levi Sasso');
+        addOption(cineSelect, 'TOC', 'Sede de Tocumen');
+        addOption(cineSelect, 'HOW', 'Sede de Howard')
+    }
+    else if (selectedProvincia === 'panamaOeste') {
+        addOption(cineSelect, 'CPO', 'Centro Regional de Panamá Oeste');
+    }
+    else if (selectedProvincia === 'bocas') {
+        addOption(cineSelect, 'CBT', 'Centro Regional de Bocas del Toro');
+    }
+    else if (selectedProvincia === 'chiriqui') {
+        addOption(cineSelect, 'CHI', 'Centro Regional de Chiriquí');
+    }
+    else if (selectedProvincia === 'colon') {
+        addOption(cineSelect, 'COL', 'Centro Regional de Colón');
+    }
+    else if (selectedProvincia === 'veraguas') {
+        addOption(cineSelect, 'VER', 'Centro Regional de Veraguas');
+    }
+});
+
+function addOption(selectElement, value, text) {
+    var option = document.createElement('option');
+    option.value = value;
+    option.text = text;
+    selectElement.add(option);
 }
