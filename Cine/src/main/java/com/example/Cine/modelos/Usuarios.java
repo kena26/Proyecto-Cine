@@ -7,23 +7,15 @@ public class Usuarios {
     private String email;  
     private String telefono;  
     private String tipoUsuario;  
-    private String contrasena;  
-    private String confirmarContrasena;   
+    private String contraseña;  
+    private String confirmarContraseña;   
     private String fechaNacimiento; 
     private byte[] peliculas_Vistas;
     
-    public Usuarios(int id_usuario, String nombre, String apellido, String email, String telefono, String tipoUsuario,
-            String contrasena, String confirmarContrasena, String fechaNacimiento, byte[] peliculas_Vistas) {
-        this.id_usuario = id_usuario;
-        this.nombre = nombre;
-        this.apellido = apellido;
+    //Constructor para iniciar sesion
+    public Usuarios(String email, String contraseña) {
         this.email = email;
-        this.telefono = telefono;
-        this.tipoUsuario = tipoUsuario;
-        this.contrasena = contrasena;
-        this.confirmarContrasena = confirmarContrasena;
-        this.fechaNacimiento = fechaNacimiento;
-        this.peliculas_Vistas = peliculas_Vistas;
+        this.contraseña = contraseña;
     }
     
     public int getId_usuario() {
@@ -62,17 +54,17 @@ public class Usuarios {
     public void setTipoUsuario(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
-    public String getContrasena() {
-        return contrasena;
+    public String getContraseña() {
+        return contraseña;
     }
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
-    public String getConfirmarContrasena() {
-        return confirmarContrasena;
+    public String getConfirmarContraseña() {
+        return confirmarContraseña;
     }
-    public void setConfirmarContrasena(String confirmarContrasena) {
-        this.confirmarContrasena = confirmarContrasena;
+    public void setConfirmarContraseña(String confirmarContraseña) {
+        this.confirmarContraseña = confirmarContraseña;
     }
     public String getFechaNacimiento() {
         return fechaNacimiento;
@@ -89,3 +81,4 @@ public class Usuarios {
 
     
 }
+
