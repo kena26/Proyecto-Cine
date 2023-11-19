@@ -1,240 +1,229 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="w-full">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0">
+    <script src="../dist/assets/js/infoPeli.js"></script>
+    <style>
+        .image-list {
+            scrollbar-width: none;
+        }
+
+        .image-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        #prev-slide {
+            display: none;
+        }
+    </style>
 </head>
 
-<body>
-    <!DOCTYPE html>
-    <html lang="en" class="w-full">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="output.css">
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0">
-        <script src="../dist/assets/js/infoPeli.js"></script>
-        <style>
-            .image-list {
-                scrollbar-width: none;
-            }
-
-            .image-list::-webkit-scrollbar {
-                display: none;
-            }
-
-            #prev-slide {
-                display: none;
-            }
-        </style>
-    </head>
-
-    <body class="bg-radial-gradient at-[50.02% 52.33%] from-[#431B19] via-[#431B19] to-[#141414]">
-        <header>
-            <!--nav principal-->
-            <nav class="bg-black max-sm:hidden">
-                <ul class="flex justify-end">
-                    <li><a href="./home.html" class="text-white mr-16 text-xl">Inicio</a></li>
-                    <li><a href="#" class="text-white mr-16 text-xl">Peliculas</a></li>
-                    <li><a href="#" class="text-white mr-16 text-xl">Cartelera</a></li>
-                    <li><a href="#" class="text-white mr-36 text-xl">Ayuda</a></li>
-                </ul>
-            </nav>
-            <!--seccion del logo-->
-            <section
-                class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
-                <a href="./home.html">
-                    <div>
-                        <img src="/Cine/src/main/resources/static/dist/assets/img/logo.png" alt=""
-                            class="w-auto h-12 max-sm:h-10 max-sm:w-auto" />
-                    </div>
-                </a>
-                <div class="search-container flex items-center relative w-[25rem] h-12 max-sm:w-40">
-                    <input type="text" id="busqueda" placeholder="Busca tu Pelicula"
-                        class="bg-[rgba(247,246,245,0.53)] placeholder:text-black rounded-[20px] w-full pt-1 pb-1 indent-5 text-sm">
-                    <img src="/Cine/src/main/resources/static/dist/assets/icon/busqueda-de-lupa%20(1).png"
-                        class="w-6 absolute right-2">
+<body class="bg-radial-gradient at-[50.02% 52.33%] from-[#431B19] via-[#431B19] to-[#141414]">
+    <header class="">
+        <!--nav principal-->
+        <nav class="bg-black max-sm:hidden">
+            <ul class="flex justify-end">
+                <li><a href="#" class="text-white mr-16 text-xl">Inicio</a></li>
+                <li><a href="#" class="text-white mr-16 text-xl">Cines</a></li>
+                <li><a href="#" class="text-white mr-16 text-xl">Cartelera</a></li>
+                <li><a href="#" class="text-white mr-36 text-xl">Preguntas Frecuentes</a></li>
+            </ul>
+        </nav>
+        <!--seccion del logo-->
+        <section
+            class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
+            <div class="hidden max-sm:block">
+                <i class="fa-solid fa-bars max-sm:block text-2xl"></i>
+            </div>
+            <div class="cursor-pointer">
+                <img src="/Cine/src/main/resources/static/dist/assets/img/logo.png" alt=""
+                    class="w-auto h-12 max-sm:h-10 max-sm:w-auto">
+            </div>
+            <div class="search-container flex items-center relative w-[25rem] h-12 max-sm:w-40">
+                <input type="text" id="busqueda" placeholder="Busca tu Pelicula"
+                    class="bg-[rgba(247,246,245,0.53)] placeholder:text-black rounded-[20px] w-full pt-1 pb-1 indent-5 text-sm">
+                <img src="/Cine/src/main/resources/static/dist/assets/icon/busqueda-de-lupa%20(1).png"
+                    class="w-6 absolute right-2">
+            </div>
+            <div
+                class="user-container flex items-center w-44 h-12 justify-center relative space-x-2 max-sm:m-0 max-sm:space-x-0 max-sm:w-32">
+                <div class="ml-4 cursor-pointer max-sm:ml-0">
+                    <img src="/Cine/src/main/resources/static/dist/assets/icon/usuario.png"
+                        class="w-auto h-10 max-sm:h-10">
                 </div>
-                <div
-                    class="user-container flex items-center w-44 h-12 justify-center relative space-x-2 max-sm:m-0 max-sm:space-x-0 max-sm:w-32">
-                    <div class="ml-4 cursor-pointer max-sm:ml-0">
-                        <img src="/Cine/src/main/resources/static/dist/assets/icon/usuario.png"
-                            class="w-auto h-10 max-sm:h-10">
+                <div class="flex max-sm:hidden">
+                    <div class="cursor-pointer">
+                        <p class="text-lg font-semibold">Username</p>
                     </div>
-                    <div class="flex max-sm:hidden">
-                        <div class="cursor-pointer">
-                            <p class="text-lg font-semibold">Username</p>
-                        </div>
-                        <div class="absolute right-0 bottom-3 cursor-pointer">
-                            <img src="/Cine/src/main/resources/static/dist/assets/icon/flecha-hacia-abajo-para-navegar.png"
-                                class="w-3">
-                        </div>
+                    <div class="absolute right-0 bottom-3 cursor-pointer">
+                        <img src="/Cine/src/main/resources/static/dist/assets/icon/flecha-hacia-abajo-para-navegar.png"
+                            class="w-3">
                     </div>
                 </div>
-            </section>
-            <!--seccion de ubicacion-->
-            <section class="bg-black flex justify-center gap-20">
-                <div class="search-container flex items-center relative w-80 h-12">
-                    <select name="provincia" id="provincia"
-                        class="bg-[rgba(247,246,245,0.53)] placeholder:text-black text-center rounded-[20px] w-full py-1 mx-3">
-                        <option value="" disabled selected>Provincia</option>
-                        <option value="panamaEste">Panamá Este</option>
-                        <option value="panamaOeste">Panamá Oeste</option>
-                        <option value="bocas">Bocas del Toro</option>
-                        <option value="chiriqui">Chiriquí</option>
-                        <option value="colon">Colón</option>
-                        <option value="veraguas">Veraguas</option>
-                    </select>
-                </div>
-                <div class="search-container flex items-center relative w-80 h-12">
-                    <select name="cine" id="cine"
-                        class="bg-[rgba(247,246,245,0.53)] placeholder:text-black text-center rounded-[20px] w-full py-1 mx-3">
-                        <option value="" disabled selected>Cine</option>
-                    </select>
-                </div>
-            </section>
+            </div>
+        </section>
+        <!--seccion de ubicacion-->
+        <section class="bg-black flex justify-center gap-20">
+            <div class="search-container flex items-center relative w-80 h-12">
+                <input type="text" placeholder="Provincia"
+                    class="bg-[rgba(247,246,245,0.53)] placeholder:text-black text-center rounded-[20px] w-full py-1 mx-3">
+                <img src="/Cine/src/main/resources/static/dist/assets/icon/flecha-hacia-abajo-para-navegar.png"
+                    class="w-4 absolute right-4">
+            </div>
+            <div class="search-container flex items-center relative w-80 h-12">
+                <input type="text" placeholder="Cine"
+                    class="bg-[rgba(247,246,245,0.53)] placeholder:text-black text-center rounded-[20px] w-full py-1 mx-3">
+                <img src="/Cine/src/main/resources/static/dist/assets/icon/flecha-hacia-abajo-para-navegar.png"
+                    class="w-4 absolute right-4">
+            </div>
+        </section>
+    </header>
+
+    <section class="mt-[20px] mb-20 text-white mx-auto text-xs w-[90%]">
+        <!--IMAGEN GRANDE-->
+        <header class="relative">
+            <h1 class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] pl-2 py-1 sm:text-xl lg:text-2xl">Spider-Man Across the Spiderverse</h1>
+            <div class="relative flex justify-center items-center">
+                <img src="../dist/assets/img/img-infoPeli/spider.jpg"
+                    class="mx-auto w-full object-cover h-[150px] sm:h-96">
+                <img src="../dist/assets/img/img-infoPeli/play-48.png" class="absolute w-8 " alt="playbutton">
+            </div>
+            <div class="absolute flex gap-1 bottom-5 right-2">
+                <p class="bg-[#45382E] px-3 py-1 rounded-lg opacity-80">2h 24m</p>
+                <p class="bg-[#45382E] px-3 py-1 rounded-lg opacity-80">+10</p>
+            </div>
         </header>
 
-        <section class="ml-64 mr-[280px] mt-[20px] mb-20 text-white">
-            <!--Imagen Grande-->
-            <header>
-                <h1 class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] pt-2 pb-2 pl-5 text-2xl font-medium">Spider-Man
-                    Across the Spiderverse</h1>
-                <img src="../dist/assets/img/img-infoPeli/spider.jpg" class="w-full h-[520px] object-cover ">
-            </header>
-            <section class="flex gap-9">
-                <!--Imagen mediana-->
-                <img src="../dist/assets/img/img-infoPeli/trailer.jpg" alt=""
-                    class="w-96 h-[550px] object-center object-cover -mt-24 ml-5">
+
+        <section class="flex flex-col items-center gap-10 sm:gap-0">
+            <!--IMAGEN MEDIANA-->
+            <div class="flex flex-col justify-center items-center gap-5 sm:flex-row sm:items-start">
+                <img src="../dist/assets/img/img-infoPeli/trailer.jpg" alt="" class="w-[85%] max-w-[300px] -mt-3 z-10 sm:-mt-20 sm:ml-7 md:max-w-[400px]">
                 <!--Informacion de la Peli-->
-                <div>
-                    <div class="flex justify-between w-full mt-9">
-                        <h2>------- About -------</h2>
-                        <div>
-                            <ul class="flex gap-3">
-                                <li>Star</li>
-                                <li>Star</li>
-                                <li>Star</li>
-                                <li>Star</li>
-                            </ul>
-                        </div>
+                <div class="md:text-base lg:text-xl">
+                    <div class="sm:flex sm:justify-between sm:items-center sm:my-6">
+                        <h2 class="hidden sm:block">------- About -------</h2>
+                        <ul class="flex justify-center gap-1">
+                            <li><img src="../dist/assets/img/img-infoPeli/star-regular.svg" class="w-5 md:w-7"></li>
+                            <li><img src="../dist/assets/img/img-infoPeli/star-regular.svg" class="w-5 md:w-7"></li>
+                            <li><img src="../dist/assets/img/img-infoPeli/star-regular.svg" class="w-5 md:w-7"></li>
+                            <li><img src="../dist/assets/img/img-infoPeli/star-regular.svg" class="w-5 md:w-7"></li>
+                            <li><img src="../dist/assets/img/img-infoPeli/star-regular.svg" class="w-5 md:w-7"></li>
+                        </ul>
                     </div>
-                    <p class="text-justify mt-5 ">After reuniting with Gwen Stacy, Brooklyn's full-time, friendly
-                        neighborhood Spider-Man is catapulted across the Multiverse, where he encounters a team of
-                        Spider-People charged with protecting its very existence. However, when the heroes clash on how
-                        to
-                        handle a new threat, Miles finds himself pitted against the other Spiders. He must soon redefine
-                        what it means to be a hero so he can save the people he loves most.</p>
-                    <div class="w-full text-end">
-                        <a href="./boletos-Paso-1.html">
-                            <button
-                                class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] p-2 pr-6 pl-6 rounded-xl text-xl">Compra
-                                tu Boleto</button>
-                        </a>
+                    <div class="text-center">
+                        <h2 class="my-6 sm:hidden">------- About -------</h2>
+                        <p class="text-justify">After reuniting with Gwen Stacy, Brooklyn's full-time, friendly
+                            neighborhood Spider-Man is catapulted across the Multiverse, where he encounters a team of
+                            Spider-People charged with protecting its very existence. However, when the heroes clash on
+                            how
+                            to
+                            handle a new threat, Miles finds himself pitted against the other Spiders. He must soon
+                            redefine
+                            what it means to be a hero so he can save the people he loves most.</p>
                     </div>
                 </div>
-            </section>
-            <!--Slider-->
-            <section class="mt-16">
-                <h2>Directed By</h2>
-                <ul class="flex mt-3">
-                    <li>Joaquin Dos Santos,</li>
-                    <li>Komp Powers,</li>
-                    <li>Christhopher Miller,</li>
-                    <li>David Callaham</li>
-                </ul>
-                <h2 class="mt-3">CAST:</h2>
-                <section class="flex items-center justify-center h-full mt-6">
+            </div>
+            <button class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] py-3 px-2 rounded-xl text-sm sm:self-end sm:text-base sm:px-6 lg:text-xl">Compra
+                tu Boleto</button>
+        </section>
+        <!--Slider-->
+        <section class="md:text-base lg:text-xl">
+            <h2>Directed By</h2>
+            <div class="flex flex-wrap gap-2">
+                <p>Joaquin Dos Santos, </p>
+                <p>Komp Powers,</p>
+                <p>Justin K Thompson,</p>
+                <p>Christopher Miller,</p>
+                <p>David Callaham</p>
+            </div>
+            <h2 class="mt-3">CAST:</h2>
+            <section class="flex items-center justify-center h-full mt-6">
 
-                    <div id="container" class="max-w-[1200px] w-[95%]">
-                        <div class="slider-wrapper relative">
-                            <button id="prev-slide"
-                                class="material-symbols-rounded slide-button absolute left-[-25px] top-2/4 outline-none border-none h-[50px] w-[50px] z-[5] text-white  text-[2.2rem] bg-black rounded-[50%] translate-y-[50%] items-center justify-center">chevron_left</button>
-                            <ul
-                                class="image-list grid grid-cols-[repeat(10,1fr)] gap-[18px] text-[0] overflow-x-auto scroll-w">
-                                <img class="image-item max-w-none w-[325px] h-[400px] object-fill"
-                                    src="../dist/assets/img/img-infoPeli/Oscar.jpg">
-                                <img class="image-item max-w-none w-[325px] h-[400px] object-cover "
-                                    src="../dist/assets/img/img-infoPeli/hailee.jpg">
-                                <img class="image-item max-w-none w-[325px] h-[400px] object-cover "
-                                    src="../dist/assets/img/img-infoPeli/shameik.jpg">
-                                <img class="image-item max-w-none w-[325px] h-[400px] object-cover "
-                                    src="../dist/assets/img/img-infoPeli/karan.jpg">
-                                <img class="image-item max-w-none w-[325px] h-[400px] object-cover "
-                                    src="../dist/assets/img/img-infoPeli/Oscar.jpg">
-                                <img class="image-item max-w-none w-[325px] h-[400px] object-cover "
-                                    src="../dist/assets/img/img-infoPeli/starwars.png">
-                                <img class="image-item max-w-none w-[325px] h-[400px] object-cover "
-                                    src="../dist/assets/img/img-infoPeli/infinity war.jpg">
-                                <img class="image-item max-w-none w-[325px] h-[400px] object-cover "
-                                    src="../dist/assets/img/img-infoPeli/joker.jpg">
-                                <img class="image-item max-w-none w-[325px] h-[400px] object-cover "
-                                    src="../dist/assets/img/img-infoPeli/shrek.png">
-                                <img class="image-item max-w-none w-[325px] h-[400px] object-cover"
-                                    src="../dist/assets/img/img-infoPeli/starwars.png">
-                            </ul>
-                            <button id="next-slide" class="material-symbols-rounded slide-button absolute right-[-25px] top-2/4 outline-none border-none h-[50px] w-[50px] z-[5] text-white flex text-[2.2rem] bg-black 
-                    items-center justify-center rounded-[50%] translate-y-[50%]">chevron_right</button>
-                        </div>
+                <div id="container" class="max-w-[1200px] w-[75%]">
+                    <div class="slider-wrapper relative">
+                        <button id="prev-slide"
+                            class="material-symbols-rounded slide-button absolute left-[-35px] top-2/4 outline-none border-none scale-150 z-[5] text-white  text-[2.2rem]  items-center justify-center">chevron_left</button>
+                        <ul
+                            class="image-list grid grid-cols-[repeat(10,1fr)] gap-[18px] text-[0] overflow-x-auto scroll-w">
+                            <img class="image-item max-w-none w-[120px] h-[180px] object-cover md:w-[200px] md:h-[260px] lg:w-[220px] lg:h-[280px]"
+                                src="../dist/assets/img/img-infoPeli/Oscar.jpg">
+                            <img class="image-item max-w-none w-[120px] h-[180px] object-cover md:w-[200px] md:h-[260px] lg:w-[220px] lg:h-[280px] "
+                                src="../dist/assets/img/img-infoPeli/hailee.jpg">
+                            <img class="image-item max-w-none w-[120px] h-[180px] object-cover md:w-[200px] md:h-[260px] lg:w-[220px] lg:h-[280px] "
+                                src="../dist/assets/img/img-infoPeli/shameik.jpg">
+                            <img class="image-item max-w-none w-[120px] h-[180px] object-cover md:w-[200px] md:h-[260px] lg:w-[220px] lg:h-[280px] "
+                                src="../dist/assets/img/img-infoPeli/karan.jpg">
+                            <img class="image-item max-w-none w-[120px] h-[180px] object-cover md:w-[200px] md:h-[260px] lg:w-[220px] lg:h-[280px] "
+                                src="../dist/assets/img/img-infoPeli/Oscar.jpg">
+                            <img class="image-item max-w-none w-[120px] h-[180px] object-cover md:w-[200px] md:h-[260px] lg:w-[220px] lg:h-[280px] "
+                                src="../dist/assets/img/img-infoPeli/starwars.png">
+                            <img class="image-item max-w-none w-[120px] h-[180px] object-cover md:w-[200px] md:h-[260px] lg:w-[220px] lg:h-[280px] "
+                                src="../dist/assets/img/img-infoPeli/infinity war.jpg">
+                            <img class="image-item max-w-none w-[120px] h-[180px] object-cover md:w-[200px] md:h-[260px] lg:w-[220px] lg:h-[280px] "
+                                src="../dist/assets/img/img-infoPeli/joker.jpg">
+                            <img class="image-item max-w-none w-[120px] h-[180px] object-cover md:w-[200px] md:h-[260px] lg:w-[220px] lg:h-[280px] "
+                                src="../dist/assets/img/img-infoPeli/shrek.png">
+                            <img class="image-item max-w-none w-[120px] h-[180px] object-cover md:w-[200px] lg:w-[220px] lg:h-[280px]"
+                                src="../dist/assets/img/img-infoPeli/starwars.png">
+                        </ul>
+                        <button id="next-slide"
+                            class="material-symbols-rounded slide-button absolute right-[-35px] top-2/4 outline-none border-none scale-150 z-[5] text-white flex text-[2.2rem] items-center justify-center">chevron_right</button>
                     </div>
-                </section>
+                </div>
             </section>
         </section>
+    </section>
 
 
-
-
-        <footer class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] py-5 w-full relative z-50">
-            <div id="footerItems" class="max-sm:pr-0">
-                <div class="flex pl-36 max-sm:pl-3 space-x-3">
-                    <div class="space-y-1">
-                        <div class="flex items-center">
-                            <img src="/Cine/src/main/resources/static/dist/assets/icon/ayudar.png" class="w-4 mr-3">
-                            <a href="#" class="text-white max-sm:text-sm">Preguntas Frecuentes</a>
-                        </div>
-                        <div class="flex items-center">
-                            <img src="/Cine/src/main/resources/static/dist/assets/icon/seguro.png" class="w-4 mr-3">
-                            <a href="#" class="text-white max-sm:text-sm">Politicas de la Empresa</a>
-                        </div>
-                        <div class="flex items-center">
-                            <img src="/Cine/src/main/resources/static/dist/assets/icon/apoyo (1).png" class="w-4 mr-3">
-                            <a href="#" class="text-white max-sm:text-sm">Atencion al Cliente</a>
-                        </div>
+    <footer class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] py-5 w-full relative z-50">
+        <div id="footerItems" class="max-sm:pr-0">
+            <div class="flex pl-36 max-sm:pl-3 space-x-3">
+                <div class="space-y-1">
+                    <div class="flex items-center">
+                        <img src="/Cine/src/main/resources/static/dist/assets/icon/ayudar.png" class="w-4 mr-3">
+                        <a href="#" class="text-white max-sm:text-sm">Preguntas Frecuentes</a>
                     </div>
-                    <div class="space-y-1">
-                        <div class="flex items-center">
-                            <img src="/Cine/src/main/resources/static/dist/assets/icon/grupo.png" class="w-4 mr-3">
-                            <a href="#" class="text-white max-sm:text-sm">Creadores de la página</a>
-                        </div>
-                        <div class="flex items-center">
-                            <img src="/Cine/src/main/resources/static/dist/assets/icon/seguridad.png" class="w-4 mr-3">
-                            <a href="#" class="text-white max-sm:text-sm">Politicas de Privacidad</a>
-                        </div>
+                    <div class="flex items-center">
+                        <img src="/Cine/src/main/resources/static/dist/assets/icon/seguro.png" class="w-4 mr-3">
+                        <a href="#" class="text-white max-sm:text-sm">Politicas de la Empresa</a>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="/Cine/src/main/resources/static/dist/assets/icon/apoyo (1).png" class="w-4 mr-3">
+                        <a href="#" class="text-white max-sm:text-sm">Atencion al Cliente</a>
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <div class="flex items-center">
+                        <img src="/Cine/src/main/resources/static/dist/assets/icon/grupo.png" class="w-4 mr-3">
+                        <a href="#" class="text-white max-sm:text-sm">Creadores de la página</a>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="/Cine/src/main/resources/static/dist/assets/icon/seguridad.png" class="w-4 mr-3">
+                        <a href="#" class="text-white max-sm:text-sm">Politicas de Privacidad</a>
                     </div>
                 </div>
             </div>
-            <div class="flex absolute top-3 right-16 max-sm:top-20 space-x-1">
-                <a href="">
-                    <img src="/Cine/src/main/resources/static/dist/assets/icon/facebook.png" class="w-8 h-8">
-                </a>
-                <a href="">
-                    <img src="/Cine/src/main/resources/static/dist/assets/icon/instagram.png" class="w-8 h-8">
-                </a>
-                <a href="">
-                    <img src="/Cine/src/main/resources/static/dist/assets/icon/tik-tok.png" class="w-8 h-8">
-                </a>
-            </div>
-                
-        </footer>
-        <script src="./assets/js/home.js"></script>
-    </body>
-
-    </html>
+        </div>
+        <div class="flex absolute top-3 right-16 max-sm:top-20 space-x-1">
+            <a href="">
+                <img src="/Cine/src/main/resources/static/dist/assets/icon/facebook.png" class="w-8 h-8">
+            </a>
+            <a href="">
+                <img src="/Cine/src/main/resources/static/dist/assets/icon/instagram.png" class="w-8 h-8">
+            </a>
+            <a href="">
+                <img src="/Cine/src/main/resources/static/dist/assets/icon/tik-tok.png" class="w-8 h-8">
+            </a>
+        </div>
+            
+    </footer>
 </body>
 
 </html>
