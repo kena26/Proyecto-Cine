@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrador</title>
+    <link rel="icon" href="\Cine\src\main\resources\static\dist\assets\icon\favicon.ico">
     <link rel="stylesheet" href="output.css">
     <script src="https://kit.fontawesome.com/da2008d449.js" crossorigin="anonymous"></script>
 </head>
@@ -49,12 +50,78 @@
     </header>
 
     <main>
-        <section class="mx-auto p-5 w-90 flex space-x-4 items-stretch h-80">
-            <div class="w-1/4 bg-gray-300 bg-opacity-60 rounded-9xl p-4">
-
+        <section id="selector" class="absolute h-full w-full flex" style="display: block;">
+            <div class="absolute bg-black rounded-3xl items-center" style="width:810px; height:410px; top: 5%; left: 20%;">
+                <div class="absolute bg-[#9C6D46] rounded-3xl" style="width:800px; height:400px; top: 5px; left: 5px;">
+                    <div class="text-center" style="height: 25px; margin: 10px;">
+                        <h1 class="font-serif text-xl">ELIGI TU FOTO DE PERFIL</h1>
+                    </div>
+                    <div class="flex">
+                        <img src="/Cine/src/main/resources/static/dist/assets/icon/servicio-al-cliente.png" class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;" onclick="cambiarFotoPerfil(this)">
+                        <img src="/Cine/src/main/resources/static/dist/assets/icon/usuario.png" class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;" onclick="cambiarFotoPerfil(this)">
+                        <img src="/Cine/src/main/resources/static/dist/assets/icon/user-icon-profile.png" class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;" onclick="cambiarFotoPerfil(this)">
+                    </div>
+                    
+                </div>
+                <div>
+                    <button class="absolute text-white bg-stone-500 hover:bg-red-600 rounded-2xl h-10 w-28" style="top: 350px; left: 350px;" onclick="cerrarSelector()">Cancelar</button>
+                </div>
             </div>
-            <div class="w-3/4 h-full bg-gray-300 bg-opacity-61 rounded-1/5 p-4">
-
+        </section>
+        <section class="mx-auto p-5 w-90 flex space-x-2 items-stretch" style="height: 475px;">
+            <div class="w-1/4 h-full bg-gray-300 bg-opacity-70 rounded-3xl flex">
+                <div style="width: 320px;">
+                    <div class="w-full flex justify-center" style="margin-top: 10px;">
+                        <img src="/Cine/src/main/resources/static/dist/assets/icon/user-icon-profile.png" id="fotoperfil" class=" relative rounded-full h-20 w-20">
+                        <div class="absolute" style="top: 180px; left: 180px;">
+                                <a onclick="mostrarSelector()">
+                                    <img class="rounded-full h-10 w-10 cursor-pointer" src="/Cine/src/main/resources/static/dist/assets/icon/camara.jpg">
+                                </a>
+                        </div>
+                    </div>
+                    <div class="w-full mt-4 flex space-x-2">
+                        <h2 style="margin-left: 10px;">Nombre: </h2>
+                        <textarea name="Usuario" id="nombreUsuario" cols="25" rows="1" class="h-6" style="resize: none; margin-left: 10px;"></textarea>
+                    </div>
+                    <div class="w-full mt-4 flex space-x-2">
+                        <h2 style="margin-left: 10px;">Genero: </h2>
+                        <textarea name="Usuario" id="genero" cols="20" rows="1" class="h-6" style="resize: none; margin-left: 17px;"></textarea>
+                    </div>
+                    <div class="w-full mt-4 flex space-x-2">
+                        <h2 style="margin-left: 10px;">F. Nac: </h2>
+                        <textarea name="Usuario" id="fechNac" cols="20" rows="1" class="h-6" style="resize: none; margin-left: 25px;"></textarea>
+                    </div>
+                    <div class="w-full mt-4 flex space-x-2">
+                        <h2 style="margin-left: 10px;">Cedula: </h2>
+                        <textarea name="Usuario" id="cedula" cols="20" rows="1" class="h-6" style="resize: none; margin-left: 20px;"></textarea>
+                    </div>
+                    <div class="w-full mt-4 flex space-x-2">
+                        <h2 style="margin-left: 10px;">Email: </h2>
+                        <textarea name="Usuario" id="correo" cols="27" rows="1" class="h-6" style="resize: none; margin-left: 30px;"></textarea>
+                    </div>
+                    <div class="w-full mt-4 flex space-x-2">
+                        <h2 style="margin-left: 10px;">Telefono: </h2>
+                        <textarea name="Usuario" id="telefono" cols="20" rows="1" class="h-6" style="resize: none; margin-left: 8px;"></textarea>
+                    </div>
+                    <div class="flex space-x-3" style="margin-left: 25px; margin-top: 25px;">
+                        <div style="margin-right: 5px;">
+                            <button class="text-white bg-stone-500 hover:bg-green-600 rounded-2xl h-10 w-28">Actualizar</button>
+                        </div>
+                        <div style="margin-right: 5px;">
+                            <button class="text-white bg-stone-500 hover:bg-red-600 rounded-2xl h-10 w-28">Cerrar Sesion</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-3/4 h-full bg-gray-300 bg-opacity-70 rounded-3xl" style="margin-left: 20px;">
+                <div class="h-full flex space-x-3 justify-center items-center">
+                    <div style="width: 250px;">
+                        <img src="/Cine/src/main/resources/static/dist/assets/img/WhatsApp_Image_2023-11-04_at_1.04.33_PM-transformed-removebg-preview.png">
+                    </div>
+                    <div style="width: 250px;">
+                        <img src="/Cine/src/main/resources/static/dist/assets/img/formulario (1).png">
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -95,7 +162,7 @@
         </div>
             
     </footer>
-
+    <script src="/Cine/src/main/resources/static/dist/assets/js/perfil_admin.js"></script>
     <script>
         let busquedaInput = document.getElementById('busqueda')
         //cambios responsive
