@@ -957,6 +957,10 @@ video {
   height: 24rem;
 }
 
+.h-\[120px\] {
+  height: 120px;
+}
+
 .h-\[1635px\] {
   height: 1635px;
 }
@@ -2055,20 +2059,61 @@ video {
 }
 
 @media not all and (min-width: 640px) {
+  .max-sm\:absolute {
+    position: absolute;
+  }
+
+  .max-sm\:-top-16 {
+    top: -4rem;
+  }
+
+  .max-sm\:bottom-5 {
+    bottom: 1.25rem;
+  }
+
   .max-sm\:left-0 {
     left: 0px;
+  }
+
+  .max-sm\:left-36 {
+    left: 9rem;
+  }
+
+  .max-sm\:left-96 {
+    left: 24rem;
+  }
+
+  .max-sm\:left-\[85px\] {
+    left: 85px;
   }
 
   .max-sm\:right-0 {
     right: 0px;
   }
 
+  .max-sm\:right-10 {
+    right: 2.5rem;
+  }
+
   .max-sm\:top-20 {
     top: 5rem;
   }
 
+  .max-sm\:top-80 {
+    top: 20rem;
+  }
+
   .max-sm\:m-0 {
     margin: 0px;
+  }
+
+  .max-sm\:mx-10 {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+  }
+
+  .max-sm\:mb-10 {
+    margin-bottom: 2.5rem;
   }
 
   .max-sm\:mb-3 {
@@ -2079,8 +2124,24 @@ video {
     margin-left: 0px;
   }
 
+  .max-sm\:ml-5 {
+    margin-left: 1.25rem;
+  }
+
+  .max-sm\:mr-10 {
+    margin-right: 2.5rem;
+  }
+
   .max-sm\:mr-3 {
     margin-right: 0.75rem;
+  }
+
+  .max-sm\:mt-20 {
+    margin-top: 5rem;
+  }
+
+  .max-sm\:mt-60 {
+    margin-top: 15rem;
   }
 
   .max-sm\:block {
@@ -2107,6 +2168,10 @@ video {
     height: 14rem;
   }
 
+  .max-sm\:h-\[1000px\] {
+    height: 1000px;
+  }
+
   .max-sm\:w-28 {
     width: 7rem;
   }
@@ -2125,6 +2190,14 @@ video {
 
   .max-sm\:w-52 {
     width: 13rem;
+  }
+
+  .max-sm\:w-\[435px\] {
+    width: 435px;
+  }
+
+  .max-sm\:w-\[630px\] {
+    width: 630px;
   }
 
   .max-sm\:w-auto {
@@ -2149,6 +2222,26 @@ video {
 
   .max-sm\:items-center {
     align-items: center;
+  }
+
+  .max-sm\:justify-center {
+    justify-content: center;
+  }
+
+  .max-sm\:justify-between {
+    justify-content: space-between;
+  }
+
+  .max-sm\:justify-around {
+    justify-content: space-around;
+  }
+
+  .max-sm\:gap-2 {
+    gap: 0.5rem;
+  }
+
+  .max-sm\:gap-20 {
+    gap: 5rem;
   }
 
   .max-sm\:gap-3 {
@@ -2187,6 +2280,11 @@ video {
   .max-sm\:px-2 {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+  }
+
+  .max-sm\:px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 
   .max-sm\:pb-\[40rem\] {

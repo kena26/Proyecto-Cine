@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Film Mania</title>
+		<title>FilmMania | Paso 2</title>
 		<link rel="stylesheet" href="output.css" />
 		<link
 			rel="icon"
@@ -14,7 +14,7 @@
 	</head>
 	<body
 		onload="iniciar(), asientosOcupados()"
-		class="h-screen bg-gradient-to-b from-Délicieux-au-Chocolat to-Piano-Black">
+		class="h-screen max-sm:h-[1000px] bg-gradient-to-b from-Délicieux-au-Chocolat to-Piano-Black">
 		<!--HEADER-->
 		<header>
 			<!--nav principal-->
@@ -29,6 +29,9 @@
 			<!--seccion del logo-->
 			<section
 				class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
+				<div class="hidden max-sm:block">
+					<i class="fa-solid fa-bars max-sm:block max-sm:ml-5 text-2xl"></i>
+				</div>
 				<a href="./home.html">
 					<div class="cursor-pointer">
 						<img
@@ -61,8 +64,8 @@
 		<!--Seccion de los pasos-->
 		<section class="flex flex-col">
 			<section
-				class="flex relative gap-5 items-center justify-center mt-2 text-white/50">
-				<p class="text-center pointer-events-none">
+				class="flex relative gap-5 max-sm:gap-2 items-center justify-center mt-2 text-white/50">
+				<p class="max-sm:w-36 text-center pointer-events-none">
 					PASO 1<br />
 					Selecciona tus boletos
 				</p>
@@ -70,20 +73,20 @@
 					<div class="w-[0.1px] h-full absolute top-0 bg-white"></div>
 				</section>
 				<p
-					class="px-14 rounded-lg pointer-events-none text-center text-white bg-Buckeye-brown/50 border-4 border-Buckeye-brown">
+					class="max-sm:px-3 max-sm:w-36 px-14 rounded-lg pointer-events-none text-center text-white bg-Buckeye-brown/50 border-4 border-Buckeye-brown">
 					PASO 2<br />
 					Selecciona tus asientos
 				</p>
 				<section class="flex">
 					<div class="w-[0.1px] h-full absolute top-0 bg-white"></div>
 				</section>
-				<p class="text-center pointer-events-none">
+				<p class="max-sm:w-36 text-center pointer-events-none">
 					PASO 3<br />
 					Forma de pago
 				</p>
 			</section>
 			<!--Seccion de la disponibilidad de asientos-->
-			<section class="flex relative mt-5 gap-5 justify-center">
+			<section class="flex relative mt-5 max-sm:mt-20 gap-5 max-sm:gap-20 justify-center">
 				<section class="flex flex-col items-center">
 					<span class="font-semibold text-white">Disponible</span>
 					<span
@@ -104,7 +107,7 @@
 				<!--Seccion de timer-->
 				<section
 					id="timer"
-					class="w-52 absolute right-60 text-center rounded-3xl px-4 bg-Buckeye-brown text-white">
+					class="w-52 absolute max-sm:-top-16 right-60 max-sm:right-10 text-center rounded-3xl px-4 bg-Buckeye-brown text-white">
 					<p class="">Tiempo de Compra</p>
 					<div class="inline-block" id="timer-container">
 						<div class="" id="container-minutos">--</div>
@@ -2031,26 +2034,27 @@
 				<!--Imagen de pantalla de cine-->
 				<img
 					id=""
-					class="w-[550px] flex absolute bottom-0"
+					class="w-[550px] max-sm:w-[435px] flex absolute max-sm:left-[85px] bottom-0 max-sm:bottom-5"
 					src="\Cine\src\main\resources\static\dist\assets\icon\Pantalla de Cine.png"
 					alt="" />
 				<!--Seccion de asientos seleccionados-->
 				<section
 					id=""
-					class="absolute top-12 right-40 text-center text-lg text-white">
-					<p id="sala-S">Sala</p>
+					class="max-sm:w-full absolute top-12 max-sm:top-80 right-40 max-sm:right-0 text-center text-lg text-white">
+					<p id="sala-S" class="max-sm:flex max-sm:justify-center">Sala</p>
 
-					<p>Usted ha seleccionado:</p>
+					<p class="max-sm:absolute max-sm:left-36">Usted ha seleccionado:</p>
 
 					<p
 						id="asiento-S"
-						class="max-w-[200px] max-h-40 whitespace-normal overflow-hidden"></p>
+						class="max-w-[200px] h-[120px] max-sm:absolute max-sm:left-96 whitespace-normal overflow-hidden">
+					</p>
 				</section>
 			</section>
 			<!--Seccion de botones-->
 			<section
 				id="container-buttons"
-				class="mx-52 flex justify-around text-white">
+				class="mx-52 max-sm:mx-10 max-sm:mt-60 flex justify-around max-sm:justify-between text-white">
 				<a href="\Cine\src\main\resources\static\dist\boletos-Paso-1.html">
 					<button
 						id="button-back"
@@ -2108,7 +2112,7 @@
 				<div class="w-60 flex justify-around">
 					<a
 						id="message-link"
-						href="\Cine\src\main\resources\static\dist\asientos.html">
+						href="./compra-paso-2(asientos).html">
 						<button
 							id="message-button"
 							class="w-14 h-8 text-white bg-Piano-Black/75 rounded-lg">
@@ -2117,7 +2121,7 @@
 					</a>
 					<a
 						id="message-link"
-						href="\Cine\src\main\resources\static\dist\home.html">
+						href="./home.html">
 						<button
 							id="message-button"
 							class="w-14 h-8 text-white bg-Piano-Black/75 rounded-lg">

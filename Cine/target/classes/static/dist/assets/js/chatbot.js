@@ -78,14 +78,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	function handleUserInput(userMessage, isUserImage) {
 		const responses = {
-			"hola": "¡Hola! ¿En qué puedo ayudarte?",
-			"¿cómo estás?": "Estoy bien, gracias por preguntar.",
-			"ayuda": "Opciones disponibles: <br>'hola', '¿cómo estás?', 'ayuda'.<br>",
+			"¿cuáles son los horarios de las funciones?": 'Puedes consultar los horarios de nuestras funciones en la sección "Horarios" de nuestro sitio web.',
+			"¿cómo compro boletos en línea?": "Para comprar boletos en línea, simplemente visita nuestra página web, selecciona la película y horario deseado, elige tus asientos y sigue los pasos para el pago seguro.",
+			"¿ofrecen descuentos?": "Si, este atento a nuestra pagina web y redes sociales para más información.",
+			"¿qué debo hacer si perdí mi boleto o confirmación de compra?": "No ocurre nada, puedes ir a tu perfil y seguir viendo de tu película.",
+			"¿cuáles son las políticas de edad para las películas?": "Nuestras políticas de edad para las películas se basan en las clasificaciones establecidas por las autoridades pertinentes. Consulta la clasificación de cada película al comprar tus boletos.",
+			"¿tienen películas con subtítulos o en otros idiomas?": "Es correcto existen películas en Español y con subtítulos.",
+			"¿ofrecen funciones especiales, como películas en 3D o eventos temáticos?": "Sí, hay películas en 3D. Los eventos temáticos estén atentos a nuestras redes sociales para cambios en un futuro.",
+			"¿cómo puedo contactar al servicio Técnico?": "Contáctanos al (6483-3283) o puedes escribirnos al (correo@gmail.com)",
+			/*"¿cuál es la película más vista de esta semana en [nombre del cine]?": "La película más vista de esta semana es [Nombre de la película].",*/
+			"ayuda": "Opciones disponibles: <br>'¿cuáles son los horarios de las funciones?', '¿cómo compro boletos en línea?', '¿ofrecen descuentos?' , '¿qué debo hacer si perdí mi boleto o confirmación de compra?', '¿cuáles son las políticas de edad para las películas?', '¿tienen películas con subtítulos o en otros idiomas?', '¿ofrecen funciones especiales, como películas en 3D o eventos temáticos?', '¿cómo puedo contactar al servicio Técnico?', 'ayuda'.<br>",
 		};
 
 		const response =
 			responses[userMessage] ||
-			"No entiendo tu pregunta. Escribe 'ayuda' para ver las opciones disponibles.";
+			"No entiendo tu pregunta. Escribe 'ayuda' para ver las opciones disponibles o contacta a servicio al cliente 6483-3283";
 
 		setTimeout(function () {
 			addMessage("ChatBot", response, false, isUserImage);
