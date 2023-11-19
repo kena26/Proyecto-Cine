@@ -640,10 +640,6 @@ video {
   right: 5rem;
 }
 
-.right-4 {
-  right: 1rem;
-}
-
 .right-40 {
   right: 10rem;
 }
@@ -945,6 +941,10 @@ video {
   height: 1rem;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
 .h-72 {
   height: 18rem;
 }
@@ -997,36 +997,16 @@ video {
   height: 100vh;
 }
 
-.h-2 {
-  height: 0.5rem;
-}
-
-.h-3 {
-  height: 0.75rem;
-}
-
-.h-60 {
-  height: 15rem;
-}
-
-.h-6 {
-  height: 1.5rem;
-}
-
-.h-1 {
-  height: 0.25rem;
-}
-
-.h-11 {
-  height: 2.75rem;
-}
-
 .max-h-\[18rem\] {
   max-height: 18rem;
 }
 
 .w-1\/2 {
   width: 50%;
+}
+
+.w-1\/4 {
+  width: 25%;
 }
 
 .w-10 {
@@ -1043,6 +1023,10 @@ video {
 
 .w-20 {
   width: 5rem;
+}
+
+.w-28 {
+  width: 7rem;
 }
 
 .w-3 {
@@ -1145,21 +1129,8 @@ video {
   width: 100%;
 }
 
-<<<<<<< HEAD
-.w-2 {
-  width: 0.5rem;
-}
-
-.w-1\/4 {
-  width: 25%;
-}
-
-.w-28 {
-  width: 7rem;
-=======
 .w-px {
   width: 1px;
->>>>>>> f1127b516c10cda525dec674e9e03fcf3cf75bca
 }
 
 .max-w-\[1200px\] {
@@ -1372,23 +1343,10 @@ video {
   margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
 }
 
-<<<<<<< HEAD
-.space-x-5 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1.25rem * var(--tw-space-x-reverse));
-  margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.space-x-4 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1rem * var(--tw-space-x-reverse));
-  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
-=======
 .space-y-10 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(2.5rem * var(--tw-space-y-reverse));
->>>>>>> f1127b516c10cda525dec674e9e03fcf3cf75bca
 }
 
 .overflow-hidden {
@@ -1601,6 +1559,11 @@ video {
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
+.bg-stone-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(120 113 108 / var(--tw-bg-opacity));
+}
+
 .bg-transparent {
   background-color: transparent;
 }
@@ -1615,37 +1578,16 @@ video {
   background-color: rgb(202 138 4 / var(--tw-bg-opacity));
 }
 
-.bg-gray-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
-}
-
-.bg-gray-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(75 85 99 / var(--tw-bg-opacity));
-}
-
-.bg-stone-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(120 113 108 / var(--tw-bg-opacity));
-}
-
-.bg-stone-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(168 162 158 / var(--tw-bg-opacity));
-}
-
 .bg-opacity-40 {
   --tw-bg-opacity: 0.4;
 }
 
-<<<<<<< HEAD
 .bg-opacity-70 {
   --tw-bg-opacity: 0.7;
-=======
+}
+
 .bg-\[url\(\'\.\/assets\/img\/Fondo\.png\'\)\] {
   background-image: url('./assets/img/Fondo.png');
->>>>>>> f1127b516c10cda525dec674e9e03fcf3cf75bca
 }
 
 .bg-gradient-to-b {
@@ -1712,13 +1654,12 @@ video {
   background-position: center;
 }
 
-<<<<<<< HEAD
-.bg-no-repeat {
-  background-repeat: no-repeat;
-=======
 .bg-top {
   background-position: top;
->>>>>>> f1127b516c10cda525dec674e9e03fcf3cf75bca
+}
+
+.bg-no-repeat {
+  background-repeat: no-repeat;
 }
 
 .fill-D\E9licieux-au-Chocolat {
@@ -2079,10 +2020,6 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-.required\:rounded-full:required {
-  border-radius: 9999px;
-}
-
 .hover\:bg-amber-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(180 83 9 / var(--tw-bg-opacity));
@@ -2091,16 +2028,6 @@ video {
 .hover\:bg-gray-200:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-blue-700:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-green-700:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(21 128 61 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-green-600:hover {
