@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			"¿ofrecen funciones especiales, como películas en 3D o eventos temáticos?": "Sí, hay películas en 3D. Los eventos temáticos estén atentos a nuestras redes sociales para cambios en un futuro.",
 			"¿cómo puedo contactar al servicio Técnico?": "Contáctanos al (6483-3283) o puedes escribirnos al (correo@gmail.com)",
 			/*"¿cuál es la película más vista de esta semana en [nombre del cine]?": "La película más vista de esta semana es [Nombre de la película].",*/
-			"ayuda": "Opciones disponibles: <br>'¿cuáles son los horarios de las funciones?', '¿cómo compro boletos en línea?', '¿ofrecen descuentos?' , '¿qué debo hacer si perdí mi boleto o confirmación de compra?', '¿cuáles son las políticas de edad para las películas?', '¿tienen películas con subtítulos o en otros idiomas?', '¿ofrecen funciones especiales, como películas en 3D o eventos temáticos?', '¿cómo puedo contactar al servicio Técnico?', 'ayuda'.<br>",
+			"ayuda": "Opciones disponibles: <br>'¿cuáles son los horarios de las funciones?',  <br>'¿cómo compro boletos en línea?',  <br>'¿ofrecen descuentos?' ,  <br>'¿qué debo hacer si perdí mi boleto o confirmación de compra?',  <br>'¿cuáles son las políticas de edad para las películas?',  <br>'¿tienen películas con subtítulos o en otros idiomas?',  <br>'¿ofrecen funciones especiales, como películas en 3D o eventos temáticos?',  <br>'¿cómo puedo contactar al servicio Técnico?',  <br>'ayuda'.<br>",
 		};
 
 		const response =

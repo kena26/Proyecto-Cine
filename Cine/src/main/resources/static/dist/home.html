@@ -38,7 +38,7 @@
 			</div>
 			<div
 				class="user-container flex items-center w-44 h-12 justify-center relative space-x-2 max-sm:m-0 max-sm:space-x-0 max-sm:w-32">
-				<div class="ml-4 cursor-pointer max-sm:ml-0">
+				<div onclick="window.location.href='./perfil-usuario.html'" class="ml-4 cursor-pointer max-sm:ml-0">
 					<img src="/Cine/src/main/resources/static/dist/assets/icon/usuario.png"
 						class="w-auto h-10 max-sm:h-10">
 				</div>
@@ -46,10 +46,16 @@
 					<div class="cursor-pointer">
 						<p class="text-lg font-semibold">Username</p>
 					</div>
-					<div class="absolute right-0 bottom-3 cursor-pointer">
+					<div onclick="userNavBar()" class="absolute right-0 bottom-3 cursor-pointer">
 						<img src="/Cine/src/main/resources/static/dist/assets/icon/flecha-hacia-abajo-para-navegar.png"
 							class="w-3">
 					</div>
+				</div>
+				<div id="user-slide" class="absolute w-52 h-44 bg-white top-12 right-[-10px] z-50 rounded-lg text-center hidden">
+					<p class="mt-2">Inicie Sesión en Filmania</p>
+					<button onclick="window.location.href='./inicio-sesion.html'" class="mt-2 bg-[#996c45] w-40 py-2 rounded-full font-bold">Inicie Sesión</button>
+					<p class="mt-2">o</p>
+					<button onclick="window.location.href='./registro.html'" class="mt-2 bg-[#996c45] w-40 py-2 rounded-full font-bold">Registrese</button>
 				</div>
 			</div>
 		</section>
@@ -74,7 +80,6 @@
 				</select>
 			</div>
 		</section>
-		    
 	</header>
 	<!--SECCION 1 - CARRUSEL DE PROMOCIONES-->
 	<section class="h-96 overflow-hidden relative max-sm:h-56 mt-0">
@@ -145,30 +150,114 @@
 		<!--imagenes-->
 		<div class="flex justify-center relative">
 			<div id="scroll" class="flex overflow-x-hidden pt-5 max-w-full w-4/5">
-				<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt=""
-					class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg" />
-				<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel2.jpg" alt=""
-					class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg" />
-				<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel2.jpg" alt=""
-					class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg" />
-				<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt=""
-					class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg" />
-				<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel2.jpg" alt=""
-					class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg" />
-				<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt=""
-					class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg" />
-				<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel2.jpg" alt=""
-					class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg" />
-				<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt=""
-					class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg" />
-				<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel2.jpg" alt=""
-					class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg" />
-				<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt=""
-					class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg" />
-				<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel2.jpg" alt=""
-					class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg" />
-				<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt=""
-					class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg" />
+				<!--Imagen 1-->
+				<div class="relative flex-shrink-0">
+					<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt=""
+						class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg" />
+					<div
+						class="absolute top-0 left-0 flex z-10 items-center opacity-0 hover:opacity-100 flex-col w-full h-full duration-500">
+						<a href="./infoPeli.html" class="mt-auto w-full max-sm:mb-3">
+							<p
+								class="text-white font-bold text-center max-w-[16rem] rounded-b-lg max-h-[18rem] bg-black opacity-60 text-xl cursor-pointer max-sm:text-lg">
+								más info
+							</p>
+						</a>
+					</div>
+				</div>
+				<div class="relative flex-shrink-0">
+					<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel2.jpg" alt=""
+						class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg" />
+					<div
+						class="absolute top-0 left-0 flex z-10 items-center opacity-0 hover:opacity-100 flex-col w-full h-full duration-500">
+						<a href="./infoPeli.html" class="mt-auto w-full max-sm:mb-3">
+							<p
+								class="text-white font-bold text-center max-w-[16rem] rounded-b-lg max-h-[18rem] bg-black opacity-60 text-xl cursor-pointer max-sm:text-lg">
+								más info
+							</p>
+						</a>
+					</div>
+				</div>
+				<!--Imagen 1-->
+				<div class="relative flex-shrink-0">
+					<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt=""
+						class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg" />
+					<div
+						class="absolute top-0 left-0 flex z-10 items-center opacity-0 hover:opacity-100 flex-col w-full h-full duration-500">
+						<a href="./infoPeli.html" class="mt-auto w-full max-sm:mb-3">
+							<p
+								class="text-white font-bold text-center max-w-[16rem] rounded-b-lg max-h-[18rem] bg-black opacity-60 text-xl cursor-pointer max-sm:text-lg">
+								más info
+							</p>
+						</a>
+					</div>
+				</div>
+				<div class="relative flex-shrink-0">
+					<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel2.jpg" alt=""
+						class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg" />
+					<div
+						class="absolute top-0 left-0 flex z-10 items-center opacity-0 hover:opacity-100 flex-col w-full h-full duration-500">
+						<a href="./infoPeli.html" class="mt-auto w-full max-sm:mb-3">
+							<p
+								class="text-white font-bold text-center max-w-[16rem] rounded-b-lg max-h-[18rem] bg-black opacity-60 text-xl cursor-pointer max-sm:text-lg">
+								más info
+							</p>
+						</a>
+					</div>
+				</div>
+				<!--Imagen 1-->
+				<div class="relative flex-shrink-0">
+					<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt=""
+						class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg" />
+					<div
+						class="absolute top-0 left-0 flex z-10 items-center opacity-0 hover:opacity-100 flex-col w-full h-full duration-500">
+						<a href="./infoPeli.html" class="mt-auto w-full max-sm:mb-3">
+							<p
+								class="text-white font-bold text-center max-w-[16rem] rounded-b-lg max-h-[18rem] bg-black opacity-60 text-xl cursor-pointer max-sm:text-lg">
+								más info
+							</p>
+						</a>
+					</div>
+				</div>
+				<div class="relative flex-shrink-0">
+					<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel2.jpg" alt=""
+						class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg" />
+					<div
+						class="absolute top-0 left-0 flex z-10 items-center opacity-0 hover:opacity-100 flex-col w-full h-full duration-500">
+						<a href="./infoPeli.html" class="mt-auto w-full max-sm:mb-3">
+							<p
+								class="text-white font-bold text-center max-w-[16rem] rounded-b-lg max-h-[18rem] bg-black opacity-60 text-xl cursor-pointer max-sm:text-lg">
+								más info
+							</p>
+						</a>
+					</div>
+				</div>
+				<!--Imagen 1-->
+				<div class="relative flex-shrink-0">
+					<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt=""
+						class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg" />
+					<div
+						class="absolute top-0 left-0 flex z-10 items-center opacity-0 hover:opacity-100 flex-col w-full h-full duration-500">
+						<a href="./infoPeli.html" class="mt-auto w-full max-sm:mb-3">
+							<p
+								class="text-white font-bold text-center max-w-[16rem] rounded-b-lg max-h-[18rem] bg-black opacity-60 text-xl cursor-pointer max-sm:text-lg">
+								más info
+							</p>
+						</a>
+					</div>
+				</div>
+				<div class="relative flex-shrink-0">
+					<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel2.jpg" alt=""
+						class="mr-3 h-72 w-64 object-cover max-sm:h-52 max-sm:w-28 rounded-lg" />
+					<div
+						class="absolute top-0 left-0 flex z-10 items-center opacity-0 hover:opacity-100 flex-col w-full h-full duration-500">
+						<a href="./infoPeli.html" class="mt-auto w-full max-sm:mb-3">
+							<p
+								class="text-white font-bold text-center max-w-[16rem] rounded-b-lg max-h-[18rem] bg-black opacity-60 text-xl cursor-pointer max-sm:text-lg">
+								más info
+							</p>
+						</a>
+					</div>
+				</div>
 			</div>
 			<!--botones-->
 			<div class="absolute z-20 left-20 top-1/2 -translate-y-1/2 cursor-pointer max-sm:left-0 bg-gray-200 p-2 rounded-2xl opacity-60"
@@ -191,7 +280,7 @@
 		</div>
 		<!--Imagenes-->
 		<div class="flex justify-center pt-10">
-			<div class="grid grid-cols-4 max-w-full w-4/5 max-sm:grid-cols-2 max-sm:gap-3">
+			<div class="grid grid-cols-4 max-w-full w-4/5 max-sm:grid-cols-2 gap-3">
 				<!--Imagen 1-->
 				<div class="relative">
 					<img src="/Cine/src/main/resources/static/dist/assets/img/img-home/carrusel1.png" alt=""
@@ -349,10 +438,10 @@
 				<img src="/Cine/src/main/resources/static/dist/assets/icon/tik-tok.png" class="w-8 h-8" />
 			</a>
 		</div>
-		    
 	</footer>
 	<script src="/Cine/src/main/resources/static/dist/assets/js/home.js"></script>
 	<script src="/Cine/src/main/resources/static/dist/assets/js/chatbot.js"></script>
+	<script src="./assets/js/header.js"></script>
 </body>
 
 </html>

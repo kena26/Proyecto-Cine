@@ -39,9 +39,15 @@
                         <img src="/Cine/src/main/resources/static/dist/assets/icon/flecha-hacia-abajo-para-navegar.png" class="w-3" >
                     </div>
                 </div>
+                <div class="search-container flex items-center relative w-80 h-12">
+                    <select name="cine" id="cine"
+                        class="bg-[rgba(247,246,245,0.53)] placeholder:text-black text-center rounded-[20px] w-full py-1 mx-3">
+                        <option value="" disabled selected>Cine</option>
+                    </select>
+                </div>
             </div>
         </section>
-    </header>
+    </header>
 
     <main>
         <section id="selector" class="absolute h-full w-full flex" style="display: none;">
@@ -154,19 +160,7 @@
             
     </footer>
     <script src="/Cine/src/main/resources/static/dist/assets/js/perfil_admin.js"></script>
-    <script>
-        let busquedaInput = document.getElementById('busqueda')
-        //cambios responsive
-        function cambios() {
-            if (window.innerWidth < 640) {
-                busquedaInput.placeholder = 'Buscar'
-            }
-        }
-        cambios()
-        window.addEventListener('resize', function () {
-            cambios()
-        })
-    </script>
+    <script src="./assets/js/header.js"></script>
 </body>
 
 </html>
