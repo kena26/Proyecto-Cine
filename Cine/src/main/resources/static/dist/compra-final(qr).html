@@ -19,11 +19,11 @@
                 <li><a href="./home.html" class="text-white mr-16 text-xl">Inicio</a></li>
                 <li><a href="#" class="text-white mr-16 text-xl">Peliculas</a></li>
                 <li><a href="#" class="text-white mr-16 text-xl">Cartelera</a></li>
-                <li><a href="#" class="text-white mr-36 text-xl">Ayuda</a></li>
             </ul>
         </nav>
         <!--seccion del logo-->
-        <section class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
+        <section
+            class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
             <div class="hidden max-sm:block">
                 <i class="fa-solid fa-bars max-sm:block max-sm:ml-5 text-2xl"></i>
             </div>
@@ -49,9 +49,13 @@
                     <div class="cursor-pointer">
                         <p class="text-lg font-semibold">Username</p>
                     </div>
+                    <!-- ICONO V-->
                     <div class="absolute right-0 bottom-3 cursor-pointer">
-                        <img src="/Cine/src/main/resources/static/dist/assets/icon/flecha-hacia-abajo-para-navegar.png"
-                            class="w-3">
+                        <svg class="w-5 h-5 ml-2 -mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -122,8 +126,7 @@
 
             </div>
         </div>
-
-        <button class="bg-[#9C6D46] flex justify-center items-center text-4xl mt-16 w-52 h-16
+        <button onclick="window.location.href='./home.html'" class="bg-[#9C6D46] flex justify-center items-center text-4xl mt-16 w-52 h-16
             hover:bg-amber-700 active:bg-amber-900 rounded-full">
             HECHO
         </button>
