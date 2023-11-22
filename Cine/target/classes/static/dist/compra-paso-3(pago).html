@@ -40,146 +40,151 @@
           </div>
           <!-- ICONO V-->
           <div class="absolute right-0 bottom-3 cursor-pointer">
-            <svg class="w-5 h-5 ml-2 -mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            <svg class="w-5 h-5 ml-2 -mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
-        </div>
+          </div>
         </div>
       </div>
     </section>
   </header>
 
-  <section class="flex flex-col p-8">
-    <section class="flex relative gap-20 items-center justify-center text-white/50 font-bold">
-      <div class="text-center pointer-events-none flex flex-col items-center">
-        <p>PASO 1</p>
-        <p>Selecciona tus boletos</p>
-      </div>
-
-      <div class="w-px h-10 bg-white"></div>
-
-      <div class="text-center pointer-events-none flex flex-col items-center">
-        <p>PASO 2</p>
-        <p>Selecciona tus asientos</p>
-      </div>
-
-      <div class="w-px h-10 bg-white"></div>
-
-      <div
-        class="px-20 rounded-lg pointer-events-none text-center text-white bg-[#63432E]/50 border-4 border-[#63432E]">
+  <!--Metodo de pago-->
+  <section class="flex flex-col mb-5">
+    <section class="flex relative gap-5 max-sm:gap-2 items-center justify-center mt-2 text-white/50 ">
+      <p class="max-sm:w-36 text-center pointer-events-none">
+        PASO 1<br />
+        Selecciona tus boletos
+      </p>
+      <section class="flex">
+        <div class="w-[0.1px] h-full absolute top-0 bg-white"></div>
+      </section>
+      <p class="max-sm:w-28 text-center pointer-events-none">
+        PASO 2<br />
+        Selecciona tus asientos
+      </p>
+      <section class="flex">
+        <div class="w-[0.1px] h-full absolute top-0 bg-white"></div>
+      </section>
+      <p
+        class="max-sm:px-3 max-sm:w-36 px-14 rounded-lg pointer-events-none text-center text-white bg-Buckeye-brown/50 border-4 border-Buckeye-brown">
         PASO 3<br />
         Forma de pago
-      </div>
+      </p>
     </section>
   </section>
+
   <!--Seccion de timer-->
-  <section id="timer" class="w-52 absolute right-0 text-center rounded-3xl px-4 bg-Buckeye-brown text-white">
+  <section id="timer"
+    class="w-52 absolute right-4 max-sm:static max-sm:mx-auto my-4 text-center rounded-3xl px-4 bg-Buckeye-brown text-white">
     <p class="">Tiempo de Compra</p>
-    <div class="inline-block" id="timer-container">
-      <div class="" id="container-minutos">--</div>
-    </div>
-    <span>:</span>
-    <div class="inline-block" id="timer-container">
-      <div class="" id="container-segundos">--</div>
+    <div>
+      <div class="inline-block" id="timer-container">
+        <div class="" id="container-minutos">--</div>
+      </div>
+      <span>:</span>
+      <div class="inline-block" id="timer-container">
+        <div class="" id="container-segundos">--</div>
+      </div>
     </div>
   </section>
+
   <!--Seccion de confirmacion de forma de pago-->
-  <div class="container mx-auto text-center text-white">
-    <div class="flex justify-center space-x-16"> <!-- Cambié el valor a 'space-x-16' para un espacio mayor -->
-      <!-- Información Personal -->
-      <div class="max-w-md px-4 mb-4">
-        <div class="bg-[#45382E] rounded-3xl p-4 mb-4">
-          <h3 class="text-2xl font-bold text-white uppercase">Información Personal</h3>
-        </div>
-        <div class="mb-3">
-          <h5 class="text-lg font-semibold mb-2 text-white text-left">Nombre</h5>
-          <input type="name" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
-        </div>
-        <div class="mb-3">
-          <h5 class="text-lg font-semibold mb-2 text-white text-left">Apellido</h5>
-          <input type="lname" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
-        </div>
-        <div class="mb-3">
-          <h5 class="text-lg font-semibold mb-2 text-white text-left">Tarjeta Club Filmania</h5>
-          <input type="password" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
-        </div>
-        <div class="mb-3">
-          <h5 class="text-lg font-semibold mb-2 text-white text-left">Correo Electrónico</h5>
-          <input type="email" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
-        </div>
-      </div>
-
-      <!-- Datos de la Tarjeta -->
-      <div class="max-w-md px-4 mb-4">
-        <div class="bg-[#45382E] rounded-3xl p-4 mb-4 z-10">
-          <h3 class="text-2xl font-bold text-white">DATOS DE LA TARJETA</h3>
-        </div>
-
-        <div class="mb-3">
-          <h5 class="text-lg font-semibold mb-2 text-white text-left">Número de la tarjeta</h5>
-          <input type="password" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
-        </div>
-        <div class="mb-3">
-          <h5 class="text-lg font-semibold mb-2 text-white text-left">Fecha Expiración </h5>
-          <div class="flex mb-3">
-            <!-- Columna Izquierda -->
-            <div class="w-1/2 pr-2">
-              <input type="text" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" aria-label="FECHA"
-                placeholder="MM/YY">
-            </div>
-            <!-- Columna Derecha -->
-            <div class="w-1/2 pl-2 relative">
-              <input type="text" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" aria-label="CW"
-                placeholder="">
-              <p class="absolute bottom-[34px] text-semibold transform -translate-y-1/2 left-2 text-xl text-white ">CW
-              </p>
-            </div>
+  <form action="" method="post">
+    <div class="container mx-auto text-center text-white">
+      <div class="flex justify-center space-x-16 max-sm:flex-col max-sm:space-x-0">
+        <!-- Información Personal -->
+        <div class="max-w-md px-4 mb-4">
+          <div class="bg-[#45382E] rounded-3xl p-4 mb-4">
+            <h3 class="text-xl font-bold text-white uppercase">Información Personal</h3>
+          </div>
+          <div class="mb-3">
+            <h5 class="text-lg font-semibold mb-2 text-white text-left">Nombre</h5>
+            <input type="name" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
+          </div>
+          <div class="mb-3">
+            <h5 class="text-lg font-semibold mb-2 text-white text-left">Apellido</h5>
+            <input type="lname" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
+          </div>
+          <div class="mb-3">
+            <h5 class="text-lg font-semibold mb-2 text-white text-left">Tarjeta Club Filmania</h5>
+            <input type="password" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
+          </div>
+          <div class="mb-3">
+            <h5 class="text-lg font-semibold mb-2 text-white text-left">Correo Electrónico</h5>
+            <input type="email" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
           </div>
         </div>
+        <!-- Datos de la Tarjeta -->
+        <div class="max-w-md px-4 mb-4">
+          <div class="bg-[#45382E] rounded-3xl p-4 mb-4 z-10">
+            <h3 class="text-xl font-bold text-white">DATOS DE LA TARJETA</h3>
+          </div>
 
-        <!-- Checkboxes -->
-        <div class="flex items-center">
-          <input type="checkbox" class="form-checkbox mt-1 mr-2">
-          <p class="text-lg text-white text-justify">
-            He leído y estoy de acuerdo con los
-            <a href="#" class="text-blue-700">Términos y Condiciones</a>
-            y
-            <a href="#" class="text-blue-700">Aviso de Privacidad</a>.
-          </p>
+          <div class="mb-3">
+            <h5 class="text-lg font-semibold mb-2 text-white text-left">Número de la tarjeta</h5>
+            <input type="password" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
+          </div>
+          <div class="mb-3">
+            <h5 class="text-lg font-semibold mb-2 text-white text-left">Fecha Expiración </h5>
+            <div class="flex mb-3">
+              <!-- Columna Izquierda -->
+              <div class="w-1/2 pr-2">
+                <input type="text" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" aria-label="FECHA"
+                  placeholder="MM/YY">
+              </div>
+              <!-- Columna Derecha -->
+              <div class="w-1/2 pl-2 relative">
+                <input type="text" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" aria-label="CW"
+                  placeholder="">
+                <p class="absolute bottom-[34px] text-semibold transform -translate-y-1/2 left-2 text-xl text-white ">CW
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Checkboxes -->
+          <div class="flex items-center">
+            <input type="checkbox" class="form-checkbox mt-1 mr-2">
+            <p class="text-lg text-white text-justify">
+              He leído y estoy de acuerdo con los
+              <a href="#" class="text-blue-700">Términos y Condiciones</a>
+              y
+              <a href="#" class="text-blue-700">Aviso de Privacidad</a>.
+            </p>
+          </div>
+
         </div>
-
       </div>
     </div>
-  </div>
+  </form>
 
 
 
   <!-- botones de finalizacion de compra o retroceder -->
 
-  <section id="container-buttons" class="mx-52 flex justify-between text-white mt-8">
+  <section id="container-buttons"
+    class="mx-52 max-sm:mx-0 mt-8 flex justify-between max-sm:justify-around text-white mb-5">
     <!-- Botón Atrás -->
-    <a href="./compra-paso-2(asientos).html" class="mr-32">
+    <a href="./infoPeli.html" class="mr-32 max-sm:mr-10">
       <button id="button-back" class="w-32 h-12 px-8 py-2 relative rounded-2xl bg-Mulled-Cider">
-        <img id="buttons-leftarrow" src="./assets/icon/left-arrow.svg"
-          class="w-10 flex top-[6px] left-2 absolute fill-Délicieux-au-Chocolat">
+        <img id="buttons-leftarrow" class="w-10 flex top-[6px] left-2 absolute fill-Délicieux-au-Chocolat"
+          src="./assets/icon/left-arrow.svg">
         <p class="absolute top-3 right-9">Atrás</p>
       </button>
     </a>
-
-    <!-- Botón Siguiente con el mismo margen -->
-    <a href="./compra-final(qr).html" class="mr-38">
-      <button id="button-next" class="w-32 h-12 px-8 py-2 relative rounded-2xl bg-Mulled-Cider">
-        <img id="buttons-rightarrow" class="w-10 flex top-[6px] right-2 absolute fill-Délicieux-au-Chocolat"
-          src="\Cine\src\main\resources\static\dist\assets\icon\right-arrow.svg" alt="" />
-        <p class="absolute top-3 left-3">Pagar</p>
-      </button>
-    </a>
+    <!-- Botón Siguiente // SUBMIT-->
+    <!--PARA LOS DE BACKEND, NECESITO QUE ESTO SE VAYA A ./compra-final(qr).html usen el window.location.href='./compra-final(qr).html'-->
+    <input type="submit" id="button-next" value="Siguiente" class="w-32 h-12 px-8 py-2 relative rounded-2xl bg-Mulled-Cider cursor-pointer"></input>
   </section>
+
   <!--Seccion de mensajes de inactividad-->
   <section id="tiempoExcedido"
-    class="w-full h-full flex z-30 justify-center items-center absolute top-0 left-0 bg-Piano-Black/80 hidden">
+    class="w-full h-full max-sm:h-[1000px] flex z-30 justify-center items-center absolute top-0 left-0 bg-Piano-Black/80 hidden">
     <!--Mensaje de inactividad 1-->
-    <section id="container-message1" class="w-[30%] h-28 flex flex-col items-center rounded-xl bg-gray-200">
+    <section id="container-message1"
+      class="w-[30%] max-sm:w-72 h-28 max-sm:h-36 flex max-sm:sticky max-sm:top-0 max-sm:bottom-0 flex-col items-center rounded-xl bg-gray-200">
       <p id="message" class="py-3 px-8 text-center font-bold">
         Ha excedido el tiempo limite, usted sera redirigido a la página de
         cartelera
@@ -191,17 +196,17 @@
 
     <!--Mensaje de inactividad 2-->
     <section id="container-message2"
-      class="w-[30%] h-28 flex flex-col justify-center items-center rounded-xl bg-gray-200 hidden">
+      class="w-[30%] max-sm:w-72 h-28 flex max-sm:sticky max-sm:top-0 max-sm:bottom-0 flex-col justify-center items-center rounded-xl bg-gray-200 hidden">
       <p id="message" class="py-3 px-8 text-center font-bold">
         ¿Desea seguir en la página?
       </p>
       <div class="w-60 flex justify-around">
-        <a id="message-link" href="\Cine\src\main\resources\static\dist\asientos.html">
+        <a id="message-link" href="./compra-paso-3(pago).html">
           <button id="message-button" class="w-14 h-8 text-white bg-Piano-Black/75 rounded-lg">
             Si
           </button>
         </a>
-        <a id="message-link" href="\Cine\src\main\resources\static\dist\home.html">
+        <a id="message-link" href="./home.html">
           <button id="message-button" class="w-14 h-8 text-white bg-Piano-Black/75 rounded-lg">
             No
           </button>
@@ -209,7 +214,8 @@
       </div>
     </section>
   </section>
-  <script src="\Cine\src\main\resources\static\dist\assets\js\asientos.js"></script>
+  <script src="./assets/js/header.js"></script>
+  <script src="./assets/js/asientos.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,892 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Creadores</title>
+        <link rel="stylesheet" href="output.css" />
+        <script
+            src="https://kit.fontawesome.com/da2008d449.js"
+            crossorigin="anonymous"
+        ></script>
+        <style>
+            .slider-content {
+                transition: transform 0.3s ease-in-out;
+            }
+        </style>
+    </head>
+
+    <body
+        class="bg-radial-gradient at-[50.02% 52.33%] from-[#431B19] via-[#431B19] to-[#141414]"
+    >
+        <header>
+            <!--nav principal-->
+            <nav class="bg-black max-sm:hidden">
+                <ul class="flex justify-end">
+                    <li>
+                        <a href="#" class="text-white mr-16 text-xl">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-white mr-16 text-xl">Cines</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-white mr-16 text-xl"
+                            >Cartelera</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#" class="text-white mr-36 text-xl"
+                            >Preguntas Frecuentes</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+            <!--seccion del logo-->
+            <section
+                class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0"
+            >
+                <div class="cursor-pointer">
+                    <a href="./home.html">
+                        <img
+                            src="../dist/assets/img/logo.png"
+                            alt=""
+                            class="w-auto h-12 max-sm:h-10 max-sm:w-auto"
+                        />
+                    </a>
+                </div>
+                <div
+                    class="search-container flex items-center relative w-[25rem] h-12 max-sm:w-40"
+                >
+                    <input
+                        type="text"
+                        id="busqueda"
+                        placeholder="Busca tu Pelicula"
+                        class="bg-[rgba(247,246,245,0.53)] placeholder:text-black rounded-[20px] w-full pt-1 pb-1 indent-5 text-sm"
+                    />
+                    <img
+                        src="../dist/assets/icon/busqueda-de-lupa%20(1).png"
+                        class="w-6 absolute right-2"
+                    />
+                </div>
+                <div
+                    class="user-container flex items-center w-44 h-12 justify-center relative space-x-2 max-sm:m-0 max-sm:space-x-0 max-sm:w-32"
+                >
+                    <div class="ml-4 cursor-pointer max-sm:ml-0">
+                        <img
+                            src="../dist/assets/icon/usuario.png"
+                            class="w-auto h-10 max-sm:h-10"
+                        />
+                    </div>
+                    <div class="flex max-sm:hidden">
+                        <div class="cursor-pointer">
+                            <p class="text-lg font-semibold">Username</p>
+                        </div>
+                        <div class="absolute right-0 bottom-3 cursor-pointer">
+                            <img
+                                src="../dist/assets/icon/flecha-hacia-abajo-para-navegar.png"
+                                class="w-3"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+        <main>
+            <!-- sección de creadores de contenido -->
+            <h1 class="w-full bg-black text-white text-center text-xl">
+                Creadores de la página
+            </h1>
+
+            <!-- sección de lider -->
+            <section class="text-center flex justify-center items-center flex-col w-full max-sm:space-y-3">
+                <h2 class="text-white">Líder General</h2>
+                <div
+                    class="rounded-full my-3 w-24 md:w-36 h-24 md:h-36 relative overflow-hidden mb-2"
+                >
+                    <img
+                        src="../dist/assets/img/creadores/lider general/Izaamar Navarro .jpeg"
+                        alt="Creador 1"
+                        class="object-cover"
+                    />
+                </div>
+                <p class="bg-black text-white px-5 rounded-xl">
+                    Izaamar Navarro
+                </p>
+            </section>
+            <hr class="my-4 border-t-4 border-black" />
+            <!-- seccion lideres -->
+            <section class="text-center">
+                <h2 class="text-white mb-4">Líderes</h2>
+                <div class="flex justify-center items-center">
+                    <div class="w-3/4 md:w-full rounded-lg shadow-lg">
+                        <!-- Contenido del Slider -->
+                        <div
+                            class="flex transition-transform ease-in-out duration-300 transform"
+                        >
+                            <div
+                                class="w-full flex flex-wrap justify-center items-center max-sm:space-y-12"
+                            >
+                                <div
+                                    class="flex flex-col items-center text-center px-3"
+                                >
+                                    <p
+                                        class="text-white bg-black px-3 rounded-full mb-3"
+                                    >
+                                        Prototipo
+                                    </p>
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/lideres/Minerva Garcia.jpg"
+                                            alt="Creador 2"
+                                            class="object-cover w-full h-full"
+                                        />
+                                    </div>
+                                    <p
+                                        class="text-sm rounded-full bg-black text-white px-5 font-bold"
+                                    >
+                                        Minerva Garcia
+                                    </p>
+                                </div>
+                                <div
+                                    class="flex flex-col items-center text-center px-3"
+                                >
+                                    <p
+                                        class="text-white bg-black px-3 rounded-full mb-3"
+                                    >
+                                        Frontend
+                                    </p>
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/lideres/Enrique Wen.jpg"
+                                            alt="Creador 5"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p
+                                        class="text-sm rounded-full bg-black text-white px-5 font-bold"
+                                    >
+                                        Enrique Wen
+                                    </p>
+                                </div>
+                                <div
+                                    class="flex flex-col items-center text-center px-3"
+                                >
+                                    <p
+                                        class="text-white bg-black px-3 rounded-full mb-3"
+                                    >
+                                        Backend
+                                    </p>
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/lideres/Jeremy_Aizprua.png"
+                                            alt="Creador 3"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p
+                                        class="text-sm rounded-full bg-black text-white px-5 font-bold"
+                                    >
+                                        Jeremy Aizpurua
+                                    </p>
+                                </div>
+                                <div
+                                    class="flex flex-col items-center text-center px-3"
+                                >
+                                    <p
+                                        class="text-white bg-black px-3 rounded-full mb-3"
+                                    >
+                                        Base de Datos
+                                    </p>
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/lideres/Jonathan Ortiz.jpg"
+                                            alt="Creador 2"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p
+                                        class="text-sm rounded-full bg-black text-white px-5 font-bold"
+                                    >
+                                        Jonathan Ortiz
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr class="my-4 border-t-4 border-black" />
+
+            <!-- seccion equipo de prototipo -->
+            <section class="text-center">
+                <h2 class="text-white">Equipo de Prototipo</h2>
+                <div id="slider2" class="flex justify-center items-center">
+                    <div
+                        class="w-3/4 overflow-scroll md:overflow-hidden rounded-lg shadow-lg"
+                    >
+                        <!-- Contenido del Slider -->
+                        <div
+                            class="p-5 flex transition-transform ease-in-out duration-300 transform"
+                        >
+                            <div
+                                id="slider2Content"
+                                class="w-full flex items-center"
+                            >
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Prototipo/Carlos Avilés.jpg"
+                                            alt="Creador 8"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Carlos Áviles</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Prototipo/Castulo Castillo.jpeg"
+                                            alt="Creador 8"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Castulo Castillo</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Prototipo/Cristian Andrade.jpg"
+                                            alt="Creador 8"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Cristian Andrade</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Prototipo/DorisMora.jpeg"
+                                            alt="Creador 8"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Doris Mora</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Prototipo/Miguel Acosta.jpg"
+                                            alt="Creador 8"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Miguel Acosta</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Prototipo/Neil Marin.jpg"
+                                            alt="Creador 8"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Neil Marin</p>
+                                </div>                                
+                                <!-- Agregar más imágenes y nombres si se necesita -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Navigation Arrows -->
+                    <button
+                        onclick="prevSlideslider2()"
+                        class="absolute left-0 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M15 19l-7-7 7-7"
+                            ></path>
+                        </svg>
+                    </button>
+                    <button
+                        onclick="nextSlideslider2()"
+                        class="absolute right-0 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 5l7 7-7 7"
+                            ></path>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+            <hr class="my-4 border-t-4 border-black" />
+
+            <!-- seccion equipo de frontend -->
+            <section class="text-center">
+                <h2 class="text-white">Equipo de Frontend</h2>
+                <div id="slider3" class="flex justify-center items-center">
+                    <div
+                        class="w-3/4 overflow-scroll md:overflow-hidden rounded-lg shadow-lg"
+                    >
+                        <!-- Contenido del Slider -->
+                        <div
+                            class="flex transition-transform ease-in-out duration-300 transform"
+                        >
+                            <div
+                                id="slider3Content"
+                                class="w-full flex items-center"
+                            >
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Frontend/Carlos Rodríguez.jpg"
+                                            alt="Creador FrontEnd"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Carlos Rodriguez</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Frontend/Edgar_Mora.jpeg"
+                                            alt="Creador FrontEnd"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Edgar Mora</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Frontend/Gabriel Ariza.png"
+                                            alt="Creador FrontEnd"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Gabriel Ariza</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Frontend/Gustavo Estevez.png"
+                                            alt="Creador FrontEnd"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Gustavo Estevez</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Frontend/Jaider Rico.JPG"
+                                            alt="Creador FrontEnd"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Jaider Rico</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Frontend/Joshua_Castrejón.jpg"
+                                            alt="Creador FrontEnd"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Joshua Castrejón</p>
+                                </div> 
+                                <!-- Agregar más imágenes y nombres si se necesita -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Navigation Arrows -->
+                    <button
+                        onclick="prevSlideslider3()"
+                        class="absolute left-0 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M15 19l-7-7 7-7"
+                            ></path>
+                        </svg>
+                    </button>
+                    <button
+                        onclick="nextSlideslider3()"
+                        class="absolute right-0 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 5l7 7-7 7"
+                            ></path>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+            <hr class="my-4 border-t-4 border-black" />
+
+            <!-- seccion equipo de backend -->
+            <section class="text-center">
+                <h2 class="text-white">Equipo de Backend</h2>
+                <div id="slider4" class="flex justify-center items-center">
+                    <div
+                        class="w-3/4 overflow-scroll md:overflow-hidden rounded-lg shadow-lg"
+                    >
+                        <!-- Contenido del Slider -->
+                        <div
+                            class="flex transition-transform ease-in-out duration-300 transform"
+                        >
+                            <div
+                                id="slider4Content"
+                                class="w-full flex items-center"
+                            >
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Backend/Alejandro Carrasco.jpeg"
+                                            alt="Creador Backend"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Alejandro Carrasco</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Backend/Carlos_Quiros.JPG"
+                                            alt="Creador Backend"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Carlos Quirós</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Backend/Didier Villalaz.png"
+                                            alt="Creador Backend"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Didier Villalaz</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Backend/José Caraballo.jpg"
+                                            alt="Creador Backend"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">José Caraballo</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Backend/Livan-gonzalez.jpg"
+                                            alt="Creador Backend"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Livan González</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Backend/Miguel Vallejo.jfif"
+                                            alt="Creador Backend"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Miguel Vallejo</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Backend/Roberto Luo.jpg"
+                                            alt="Creador Backend"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Roberto Luo</p>
+                                </div>
+                                <!-- Agregar más imágenes y nombres si se necesita -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Navigation Arrows -->
+                    <button
+                        onclick="prevSlideslider4()"
+                        class="absolute left-0 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M15 19l-7-7 7-7"
+                            ></path>
+                        </svg>
+                    </button>
+                    <button
+                        onclick="nextSlideslider4()"
+                        class="absolute right-0 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 5l7 7-7 7"
+                            ></path>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+            <hr class="my-4 border-t-4 border-black" />
+
+            <!-- seccion equipo de Base de Datos -->
+            <section class="mb-5 text-center">
+                <h2 class="text-white">Equipo de Base de Datos</h2>
+                <div id="slider5" class="flex justify-center items-center">
+                    <div
+                        class="w-3/4 overflow-scroll md:overflow-hidden rounded-lg shadow-lg"
+                    >
+                        <!-- Contenido del Slider -->
+                        <div
+                            class="flex transition-transform ease-in-out duration-300 transform"
+                        >
+                            <div
+                                id="slider5Content"
+                                class="w-full flex items-center"
+                            >
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Base de Datos/Alexis.Pinel.jpg"
+                                            alt="Creador Base de Datos"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Alexis Pinel</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Base de Datos/Carlos Rivera.jpg"
+                                            alt="Creador Base de Datos"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Carlos Rivera</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Base de Datos/Emily Pérez.jpg"
+                                            alt="Creador Base de Datos"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Emily Pérez</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Base de Datos/Gaspar de Gracia.jpg"
+                                            alt="Creador Base de Datos"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Gaspar de Gracia</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Base de Datos/Keny Tang.jpg"
+                                            alt="Creador Base de Datos"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Keny Tang</p>
+                                </div>
+                                <div class="text-center px-2">
+                                    <div
+                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                    >
+                                        <img
+                                            src="../dist/assets/img/creadores/Base de Datos/Marcos De Los Santos.jpg"
+                                            alt="Creador Base de Datos"
+                                            class="object-cover"
+                                        />
+                                    </div>
+                                    <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Marcos De Los Santos</p>
+                                </div>
+                                <!-- Agrega más imágenes y nombres si se necesita -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Navigation Arrows -->
+                    <button
+                        onclick="prevSlideslider5()"
+                        class="absolute left-0 md:left-14 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M15 19l-7-7 7-7"
+                            ></path>
+                        </svg>
+                    </button>
+                    <button
+                        onclick="nextSlideslider5()"
+                        class="absolute right-0 md:right-14 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 5l7 7-7 7"
+                            ></path>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <footer
+            class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] py-5 w-full relative"
+        >
+            <div id="footerItems" class="max-sm:pr-0">
+                <div class="flex pl-36 max-sm:pl-3 space-x-1">
+                    <div>
+                        <div class="flex items-center">
+                            <img
+                                src="../dist/assets/icon/ayudar.png"
+                                class="w-4 mr-3"
+                            />
+                            <a href="#" class="text-white max-sm:text-sm"
+                                >Preguntas Frecuentes</a
+                            >
+                        </div>
+                        <div class="flex items-center">
+                            <img
+                                src="../dist/assets/icon/seguro.png"
+                                class="w-4 mr-3"
+                            />
+                            <a href="#" class="text-white max-sm:text-sm"
+                                >Politicas de la Empresa</a
+                            >
+                        </div>
+                        <div class="flex items-center">
+                            <img
+                                src="../dist/assets/icon/apoyo%20(1).png"
+                                class="w-4 mr-3"
+                            />
+                            <a href="#" class="text-white max-sm:text-sm"
+                                >Atencion al Cliente</a
+                            >
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center">
+                            <img
+                                src="../dist/assets/icon/grupo.png"
+                                class="w-4 mr-3"
+                            />
+                            <a href="#" class="text-white max-sm:text-sm"
+                                >Creadores de la página</a
+                            >
+                        </div>
+                        <div class="flex items-center">
+                            <img
+                                src="../dist/assets/icon/seguridad.png"
+                                class="w-4 mr-3"
+                            />
+                            <a href="#" class="text-white max-sm:text-sm"
+                                >Politicas de Privacidad</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex absolute top-3 right-16 max-sm:top-20">
+                <img src="../dist/assets/icon/facebook.png" class="w-8 h-8" />
+                <img src="../dist/assets/icon/instagram.png" class="w-8 h-8" />
+                <img src="../dist/assets/icon/tik-tok.png" class="w-8 h-8" />
+            </div>
+        </footer>
+
+        <script>
+            let busquedaInput = document.getElementById("busqueda");
+            //cambios responsive
+            function cambios() {
+                if (window.innerWidth < 640) {
+                    busquedaInput.placeholder = "Buscar";
+                }
+            }
+            cambios();
+            window.addEventListener("resize", function () {
+                cambios();
+            });
+        </script>
+        <script>
+            let nextSlide;
+            let prevSlide;
+
+            function initializeSlider(sliderId) {
+                const slider = document.getElementById(sliderId + "Content");
+                let currentIndex = 0;
+
+                const firstElementClone = slider.children[0].cloneNode(true);
+                slider.appendChild(firstElementClone);
+
+                function showSlide(index) {
+                    const numberOfElements = slider.children.length;
+                    const translateValue = -index * (100 / numberOfElements);
+                    slider.style.transform = `translateX(${translateValue}%)`;
+                }
+
+                window["nextSlide" + sliderId] = function () {
+                    currentIndex = (currentIndex + 1) % slider.children.length;
+                    showSlide(currentIndex);
+                };
+
+                window["prevSlide" + sliderId] = function () {
+                    currentIndex =
+                        (currentIndex - 1 + slider.children.length) %
+                        slider.children.length;
+                    showSlide(currentIndex);
+                };
+
+                setInterval(window["nextSlide" + sliderId], 5000);
+            }
+
+            initializeSlider("slider2");
+            initializeSlider("slider3");
+            initializeSlider("slider4");
+            initializeSlider("slider5");
+        </script>
+    </body>
+</html>
