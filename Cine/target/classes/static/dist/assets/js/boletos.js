@@ -7,12 +7,24 @@ function increment(type) {
     cantidadElement.innerText = cantidad;
 
     let total = parseFloat(totalElement.innerText.replace('$', ''));
-    if (type === 'jubilado') {
+    if (type === 'jubilado' || type === 'discapacitado') {
         total += 2.00;
     } else {
         total += 3.00;
     }
     totalElement.innerText = `$${total.toFixed(2)}`;
+
+    //Verifica cuantos boletos hay en el almacenamiento
+	const tickeState = localStorage.getItem("boletos");
+	const { ticket: storedTicket} =
+		JSON.parse(tickeState);
+	boletosTotal = storedTicket;
+    boletosTotal++;
+     //Guardar boletos en almacenamiento para usarlo en asientos
+     localStorage.setItem(
+        "boletos",
+        JSON.stringify({ ticket: boletosTotal})
+    );
 }
 
 function decrement(type) {
@@ -25,11 +37,30 @@ function decrement(type) {
         cantidadElement.innerText = cantidad;
 
         let total = parseFloat(totalElement.innerText.replace('$', ''));
-        if (type === 'jubilado') {
+        if (type === 'jubilado' || type === 'discapacitado') {
             total -= 2.00;
         } else {
             total -= 3.00;
         }
         totalElement.innerText = `$${total.toFixed(2)}`;
+
+        //Verifica cuantos boletos hay en el almacenamiento
+	    const tickeState = localStorage.getItem("boletos");
+	    const { ticket: storedTicket} =
+		    JSON.parse(tickeState);
+	    boletosTotal = storedTicket;
+        boletosTotal--;
+        //Guardar boletos en almacenamiento para usarlo en asientos
+        localStorage.setItem(
+            "boletos",
+            JSON.stringify({ ticket: boletosTotal})
+        );
     }
+}
+
+function reiniciarBoletos(){
+    localStorage.setItem(
+        "boletos",
+        JSON.stringify({ ticket: 0})
+    );
 }

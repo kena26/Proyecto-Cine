@@ -10,7 +10,9 @@
     <script src="https://kit.fontawesome.com/da2008d449.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="h-screen bg-gradient-to-b from-Délicieux-au-Chocolat to-Piano-Black">
+<body 
+    onload="reiniciarBoletos()"
+    class="h-screen max-sm:h-full bg-gradient-to-b from-Délicieux-au-Chocolat to-Piano-Black">
     <!--HEADER-->
     <header>
         <!--nav principal-->
@@ -65,7 +67,7 @@
             <section class="flex">
                 <div class="w-[0.1px] h-full absolute top-0 bg-white"></div>
             </section>
-            <p class="max-sm:w-36 text-center pointer-events-none">
+            <p class="max-sm:w-28 text-center pointer-events-none">
                 PASO 2<br />
                 Selecciona tus asientos
             </p>
@@ -80,15 +82,15 @@
     </section>
 
     <div class="flex justify-center">
-        <div class="max-sm:w-[630px] p-8 rounded shadow-md mx-auto">
+        <div class="max-sm:w-full max-sm:h-[430px] p-8 rounded shadow-md mx-auto">
             <h2 class="text-2xl font-bold mb-4 text-white flex justify-center ">Selecciona Tus Boletos</h2>
 
             <!-- Opción Adulto -->
             <div class="flex items-center justify-between mb-6 text-white">
                 <span class="w-32">Adulto</span>
-                <span class="mr-10">$3.00</span>
+                <span class="mr-10 max-sm:mr-5">$3.00</span>
                 <div class="flex items-center">
-                    <div class="px-0 py-0 border rounded bg-Buckskin-Brown text-white mr-2 max-sm:mr-10">
+                    <div class="px-0 py-0 border rounded bg-Buckskin-Brown text-white mr-2 max-sm:mr-5">
                         <span id="adultoCantidad" class="mx-2">0</span>
                     </div>
                     <div class="flex items-center">
@@ -103,9 +105,9 @@
             <!-- Opción Niño -->
             <div class="flex items-center justify-between mb-6 text-white">
                 <span class="w-32">Niño</span>
-                <span class="mr-10">$3.00</span>
+                <span class="mr-10 max-sm:mr-5">$3.00</span>
                 <div class="flex items-center">
-                    <div class="px-0 py-0 border rounded bg-Buckskin-Brown text-white mr-2 max-sm:mr-10">
+                    <div class="px-0 py-0 border rounded bg-Buckskin-Brown text-white mr-2 max-sm:mr-5">
                         <span id="ninoCantidad" class="mx-2">0</span>
                     </div>
                     <div class="flex items-center">
@@ -120,9 +122,9 @@
             <!-- Opción Jubilado -->
             <div class="flex items-center justify-between mb-6 text-white">
                 <span class="w-32">Jubilado</span>
-                <span class="mr-10">$2.00</span>
+                <span class="mr-10 max-sm:mr-5">$2.00</span>
                 <div class="flex items-center">
-                    <div class="px-0 py-0 border rounded bg-Buckskin-Brown text-white mr-2 max-sm:mr-10">
+                    <div class="px-0 py-0 border rounded bg-Buckskin-Brown text-white mr-2 max-sm:mr-5">
                         <span id="jubiladoCantidad" class="mx-2">0</span>
                     </div>
 
@@ -136,9 +138,9 @@
             <!-- Opción Discapacitado -->
             <div class="flex items-center justify-between mb-6 text-white">
                 <span class="w-32">Discapacitado</span>
-                <span class="mr-10">$2.00</span>
+                <span class="mr-10 max-sm:mr-5">$2.00</span>
                 <div class="flex items-center">
-                    <div class="px-0 py-0 border rounded bg-Buckskin-Brown text-white mr-2 max-sm:mr-10">
+                    <div class="px-0 py-0 border rounded bg-Buckskin-Brown text-white mr-2 max-sm:mr-5">
                         <span id="discapacitadoCantidad" class="mx-2">0</span>
                     </div>
                     <div class="flex items-center">
@@ -157,9 +159,9 @@
             </div>
 
             <!-- Seccion de botones -->
-            <section id="container-buttons" class="mx-52 flex justify-between max-sm:justify-around text-white mt-8">
+            <section id="container-buttons" class="mx-52 max-sm:mx-0 mt-8 flex justify-between max-sm:justify-around text-white">
                 <!-- Botón Atrás -->
-                <a href="./infoPeli.html" class="mr-32">
+                <a href="./infoPeli.html" class="mr-32 max-sm:mr-10">
                     <button id="button-back" class="w-32 h-12 px-8 py-2 relative rounded-2xl bg-Mulled-Cider">
                         <img id="buttons-leftarrow"
                             class="w-10 flex top-[6px] left-2 absolute fill-Délicieux-au-Chocolat">
