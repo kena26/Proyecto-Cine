@@ -6,23 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="output.css">
+    <link href="https://fonts.cdnfonts.com/css/imbue" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Inknut Antiqua' rel='stylesheet'>
 </head>
 
 <body
     class="min-h-screen bg-gradient-to-b at-[50.02% 52.33%] from-[#431B19] via-[#431B19] to-[#141414] text-white text-sm">
-    <header>
+    <header class="">
         <!--nav principal-->
         <nav class="bg-black max-sm:hidden">
             <ul class="flex justify-end">
-                <li><a href="./home.html" class="text-white mr-16 text-xl">Inicio</a></li>
-                <li><a href="#" class="text-white mr-16 text-xl">Peliculas</a></li>
-                <li><a href="#" class="text-white mr-16 text-xl">Cartelera</a></li>
-                <li><a href="#" class="text-white mr-36 text-xl">Ayuda</a></li>
-            </ul>
+				<li><a href="./home.html" class="text-white mr-16 text-xl">Inicio</a></li>
+				<li><a href="#" class="text-white mr-16 text-xl">Peliculas</a></li>
+				<li><a href="#" class="text-white mr-16 text-xl">Cartelera</a></li>
+				<li><a href="#" class="text-white mr-36 text-xl">Ayuda</a></li>
+			</ul>
         </nav>
         <!--seccion del logo-->
         <section
             class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
+            <div class="hidden max-sm:block">
+                <i class="fa-solid fa-bars max-sm:block text-2xl"></i>
+            </div>
             <div class="cursor-pointer">
                 <img src="/Cine/src/main/resources/static/dist/assets/img/logo.png" alt=""
                     class="w-auto h-12 max-sm:h-10 max-sm:w-auto">
@@ -41,65 +46,56 @@
                 </div>
                 <div class="flex max-sm:hidden">
                     <div class="cursor-pointer">
-                        <p class="text-lg font-semibold">Username</p>
+                        <p class="text-lg font-semibold text-black">Username</p>
                     </div>
-                    <div onclick="userNavBar()" class="absolute right-0 bottom-3 cursor-pointer">
-                        <img src="/Cine/src/main/resources/static/dist/assets/icon/flecha-hacia-abajo-para-navegar.png"
-                            class="w-3">
+                    <!-- ICONO V-->
+                    <div class="absolute right-0 bottom-4 cursor-pointer">
+                        <img src="../dist/assets/icon/flecha-hacia-abajo-para-navegar.png" class="w-3" alt="">
                     </div>
-                </div>
-                <div id="user-slide"
-                    class="absolute w-52 h-44 bg-white top-12 right-[-10px] z-50 rounded-lg text-center hidden">
-                    <p class="mt-2">Inicie Sesión en Filmania</p>
-                    <button onclick="window.location.href='./inicio-sesion.html'"
-                        class="mt-2 bg-[#996c45] w-40 py-2 rounded-full font-bold">Inicie Sesión</button>
-                    <p class="mt-2">o</p>
-                    <button onclick="window.location.href='./registro.html'"
-                        class="mt-2 bg-[#996c45] w-40 py-2 rounded-full font-bold">Registrese</button>
                 </div>
             </div>
         </section>
         <!--seccion de ubicacion-->
-        <section class="bg-black flex justify-center gap-20">
-            <div class="search-container flex items-center relative w-80 h-12">
-                <select name="provincia" id="provincia"
-                    class="bg-[rgba(247,246,245,0.53)] placeholder:text-black text-center rounded-[20px] w-full py-1 mx-3">
-                    <option value="" disabled selected>Provincia</option>
-                    <option value="panamaEste">Panamá Este</option>
-                    <option value="panamaOeste">Panamá Oeste</option>
-                    <option value="bocas">Bocas del Toro</option>
-                    <option value="chiriqui">Chiriquí</option>
-                    <option value="colon">Colón</option>
-                    <option value="veraguas">Veraguas</option>
-                </select>
-            </div>
-            <div class="search-container flex items-center relative w-80 h-12">
-                <select name="cine" id="cine"
-                    class="bg-[rgba(247,246,245,0.53)] placeholder:text-black text-center rounded-[20px] w-full py-1 mx-3">
-                    <option value="" disabled selected>Cine</option>
-                </select>
-            </div>
-        </section>
+		<section class="bg-black flex justify-center gap-20">
+			<div class="search-container flex items-center relative w-80 h-12">
+				<select name="provincia" id="provincia"
+					class="bg-[rgba(247,246,245,0.53)] placeholder:text-black text-center rounded-[20px] w-full py-1 mx-3">
+					<option value="" disabled selected>Provincia</option>
+					<option value="panamaEste">Panamá Este</option>
+					<option value="panamaOeste">Panamá Oeste</option>
+					<option value="bocas">Bocas del Toro</option>
+					<option value="chiriqui">Chiriquí</option>
+					<option value="colon">Colón</option>
+					<option value="veraguas">Veraguas</option>
+				</select>
+			</div>
+			<div class="search-container flex items-center relative w-80 h-12">
+				<select name="cine" id="cine"
+					class="bg-[rgba(247,246,245,0.53)] placeholder:text-black text-center rounded-[20px] w-full py-1 mx-3">
+					<option value="" disabled selected>Cine</option>
+				</select>
+			</div>
+		</section>
     </header>
 
     <div
         class="mt-10 grid m-auto justify-center gap-5 md:grid-rows-custom4 md:grid-cols-1f4f md:items-start md:w-[95%] lg:w-[90%]">
-        <h1 class="bg-[#45362D] px-4 py-1 text-center font-bold md:text-start md:text-base md:w-[70%] lg:text-xl">
+        <h1 class="bg-[#45362D] font-[Imbue] px-4 py-1 text-center text-xl  md:text-start md:text-2xl  md:w-[70%]">
             Reporte de Boletos Diciembre - 2023</h1>
         <aside
-            class="bg-[#45362D] shadow-2xl py-4 rounded-2xl md:-order-1 md:row-span-4 overflow-hidden md:text-center md:min-w-[250px]">
-            <h2 class="font-bold text-center md:text-2xl">Sucursales</h2>
-            <ul class="my-6">
-                <li class="px-5 py-1 md:py-5 md:text-base  hover:bg-[#D9D9D9] hover:bg-opacity-10">Sucursal #X</li>
-                <li class="px-5 py-1 md:py-5 md:text-base  hover:bg-[#D9D9D9] hover:bg-opacity-10">Sucursal #X</li>
-                <li class="px-5 py-1 md:py-5 md:text-base  hover:bg-[#D9D9D9] hover:bg-opacity-10">Sucursal #X</li>
-                <li class="px-5 py-1 md:py-5 md:text-base  hover:bg-[#D9D9D9] hover:bg-opacity-10">Sucursal #X</li>
-                <li class="px-5 py-1 md:py-5 md:text-base  hover:bg-[#D9D9D9] hover:bg-opacity-10">Sucursal #X</li>
+            class="bg-[#45362D] font-[Imbue] shadow-2xl py-4 rounded-2xl md:-order-1 md:row-span-4 overflow-hidden md:text-center md:min-w-[250px] ">
+            <h2 class="text-center text-2xl font-semibold md:text-4xl">Sucursales</h2>
+            <ul class="my-6 text-xl md:text-2xl">
+                <li class="px-5 py-1 md:py-5 hover:bg-[#D9D9D9] hover:bg-opacity-10">Sucursal #1</li>
+                <li class="px-5 py-1 md:py-5 hover:bg-[#D9D9D9] hover:bg-opacity-10">Sucursal #2</li>
+                <li class="px-5 py-1 md:py-5 hover:bg-[#D9D9D9] hover:bg-opacity-10">Sucursal #3</li>
+                <li class="px-5 py-1 md:py-5 hover:bg-[#D9D9D9] hover:bg-opacity-10">Sucursal #4</li>
+                <li class="px-5 py-1 md:py-5 hover:bg-[#D9D9D9] hover:bg-opacity-10">Sucursal #5</li>
             </ul>
         </aside>
         <section
-            class="flex gap-5 bg-[#573C2C] py-2 px-3 rounded-md items-center md:col-start-2 md:row-start-2 md:justify-between md:font-medium md:text-sm">
-            <form action="" class="flex gap-3">
+            class="flex gap-5 bg-[#573C2C] py-2 px-3 text-xs rounded-md items-center md:col-start-2 md:row-start-2 md:justify-between md:font-medium md:text-sm">
+            <form action="" class="flex gap-3 font-Inknut">
                 <label for="mes" class="relative flex gap-3 items-center">Mes
                     <input list="meses" name="mes" id="mes" class="w-16 rounded-2xl md:rounded-md cursor-pointer md:py-2">
                     <img src="/Cine/src/main/resources/static/dist/assets/icon/flecha-hacia-abajo-para-navegar.png" class="absolute w-2 right-2">
@@ -133,13 +129,13 @@
                 <button class="flex items-center bg-[#441C1A] gap-2 px-2 py-1 rounded-xl md:rounded-md"><img
                         src="../dist/assets/icon/busqueda-de-lupa (1).png" class="w-3">Consultar</button>
                 <button class="flex items-center bg-[#B1834D] gap-2 px-2 py-1 rounded-xl md:rounded-md"><img
-                        src="../dist/assets/icon/imprimir.png" class="w-3">Reporte</button>
+                        src="../dist/assets/icon/imprimir.png" class="w-3">Generar Reporte</button>
             </div>
         </section>
         <main
-            class="flex flex-col items-center gap-20 md:flex-row md:items-start md:col-start-2 md:row-start-3 md:gap-10 md:justify-around ">
+            class="flex flex-col items-center gap-7 md:flex-row md:items-start md:col-start-2 md:row-start-3 lg:gap-12">
             <section class="flex flex-col gap-5">
-                <div class="flex gap-2 text-center">
+                <div class="flex gap-2 text-center text-xs font-Inknut">
                     <div>
                         <h2 class="bg-[#45382E] py-1 md:font-medium">Item</h2>
                         <div
@@ -183,39 +179,39 @@
                 </div>
             </section>
             <!--BOLETOS MAS VENDIDOS-->
-            <section class="flex flex-col gap-8">
+            <section class="flex flex-col gap-8 text-xs font-[Imbue]">
                 <div>
-                    <h2 class="text-lg font-medium mb-2 text-center">Boletos Mas-Vendidos</h2>
-                    <div class="flex gap-4 items-center">
+                    <h2 class="text-3xl font-medium mb-2 text-center md:text-2xl">Boletos más vendidos</h2>
+                    <div class="flex gap-2 items-center">
                         <img src="../dist/assets/img/img-reporte/grafico.png"
-                            class="min-w-[80px] md:min-w-[70px] md:max-w-[200px] md:w-[10vw] lg:w-[13vw]">
+                            class="min-w-[80px] max-w-[140px] md:min-w-[70px] md:max-w-[300px] md:w-[8vw] lg:w-[9vw]">
                         <form action="" class="flex flex-col gap-2">
-                            <label for="" class="flex items-center justify-center gap-2">
+                            <label for="" class="flex items-center text-xl justify-center gap-2">
                                 <input type="checkbox" class="scale-125">Boleto 1
                             </label>
-                            <label for="" class="flex items-center justify-center gap-2">
+                            <label for="" class="flex items-center text-xl justify-center gap-2">
                                 <input type="checkbox" class="scale-125">Boleto 2
                             </label>
-                            <label for="" class="flex items-center justify-center gap-2">
+                            <label for="" class="flex items-center text-xl justify-center gap-2">
                                 <input type="checkbox" class="scale-125">Boleto 3
                             </label>
                         </form>
                     </div>
                 </div>
                 <div>
-                    <h2 class="text-lg font-medium mb-2 text-center">Total de Ingresos por Pelicula</h2>
-                    <div class="flex gap-4 items-center">
+                    <h2 class="text-3xl font-medium  mb-2 text-center md:text-2xl">Total de Ingresos por Pelicula</h2>
+                    <div class="flex gap-2 items-center">
                         <img src="../dist/assets/img/img-reporte/grafico.png"
-                            class="min-w-[80px] md:min-w-[70px] md:max-w-[200px] md:w-[10vw] lg:w-[13vw]">
+                            class="min-w-[80px] max-w-[140px] md:min-w-[70px] md:max-w-[300px] md:w-[8vw] lg:w-[9vw]">
                         <form action="" class="flex flex-col gap-2">
-                            <label for="" class="flex items-center justify-center gap-2">
-                                <input type="checkbox" class="scale-125">Boleto 1
+                            <label for="" class="flex items-center text-xl justify-center gap-2">
+                                <input type="checkbox" class="scale-125">Pelicula 1
                             </label>
-                            <label for="" class="flex items-center justify-center gap-2">
-                                <input type="checkbox" class="scale-125">Boleto 2
+                            <label for="" class="flex items-center text-xl justify-center gap-2">
+                                <input type="checkbox" class="scale-125">Pelicula 2
                             </label>
-                            <label for="" class="flex items-center justify-center gap-2">
-                                <input type="checkbox" class="scale-125">Boleto 3
+                            <label for="" class="flex items-center text-xl justify-center gap-2">
+                                <input type="checkbox" class="scale-125">Pelicula 3
                             </label>
                         </form>
                     </div>
