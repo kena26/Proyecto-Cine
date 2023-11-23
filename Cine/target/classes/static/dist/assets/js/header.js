@@ -4,6 +4,9 @@ function cambios() {
     if (window.innerWidth < 640) {
         busquedaInput.placeholder = 'Buscar'
     }
+    else{
+        busquedaInput.placeholder = 'Busca tu Película'
+    }
 }
 cambios()
 window.addEventListener('resize', function () {
