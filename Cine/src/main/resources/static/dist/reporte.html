@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reporte</title>
-    <link rel="icon" href="\Cine\src\main\resources\static\dist\assets\icon\favicon.ico" />
+    <link rel="icon" href="\Cine\src\main\resources\static\dist\assets\icon\favicon.ico ">
     <link rel="stylesheet" href="output.css">
 </head>
 
@@ -67,7 +67,7 @@
     </header>
 
     <div
-        class="mt-10 grid m-auto justify-center gap-5 md:grid-rows-custom4 md:grid-cols-1f4f md:items-start md:w-[95%] lg:w-[90%]">
+        class="mt-10 grid m-auto justify-center gap-5  md:grid-rows-custom4 md:grid-cols-1f4f md:items-start md:w-[95%] lg:w-[90%]">
         <h1 class="bg-[#45362D] px-4 py-1 text-center font-bold md:text-start md:text-base md:w-[70%] lg:text-xl">
             Reporte de Boletos Diciembre - 2023</h1>
         <aside
@@ -82,9 +82,9 @@
             </ul>
         </aside>
         <section
-            class="flex gap-5 bg-[#573C2C] py-2 px-3 rounded-md items-center md:col-start-2 md:row-start-2 md:justify-between md:font-medium md:text-sm">
-            <form action="" class="flex gap-3">
-                <label for="mes" class="relative flex gap-3 items-center">Mes
+            class="flex gap-5 bg-[#573C2C] py-2 px-3 rounded-md items-center text-[10px] sm:text-xs md:col-start-2 md:row-start-2 md:justify-between md:font-medium md:text-sm">
+            <form action="" class="flex gap-2">
+                <label for="mes" class="relative flex gap-1 items-center">Mes
                     <input list="meses" name="mes" id="mes" class="w-16 rounded-2xl md:rounded-md cursor-pointer md:py-2">
                     <img src="/Cine/src/main/resources/static/dist/assets/icon/flecha-hacia-abajo-para-navegar.png" class="absolute w-2 right-2">
                 </label>
@@ -102,7 +102,7 @@
                     <option value="Noviembre">
                     <option value="Diciembre">
                 </datalist>
-                <label for="anio" class="relative flex gap-3 items-center">
+                <label for="anio" class="relative flex gap-1 items-center">
                     Año
                     <input list="anios" name="anio" id="anio" class="w-16 rounded-2xl md:rounded-md cursor-pointer md:py-2">
                     <img src="/Cine/src/main/resources/static/dist/assets/icon/flecha-hacia-abajo-para-navegar.png" class="absolute w-2 right-2">
@@ -114,9 +114,9 @@
                 </datalist>
             </form>
             <div class="flex gap-2">
-                <button class="flex items-center bg-[#441C1A] gap-2 px-2 py-1 rounded-xl md:rounded-md"><img
+                <button class="flex items-center bg-[#441C1A] min-w-[80px] gap-2 px-2 py-1 rounded-xl md:rounded-md"><img
                         src="../dist/assets/icon/busqueda-de-lupa (1).png" class="w-3">Consultar</button>
-                <button class="flex items-center bg-[#B1834D] gap-2 px-2 py-1 rounded-xl md:rounded-md"><img
+                <button class="flex items-center bg-[#B1834D] min-w-[80px] gap-2 px-2 py-1 rounded-xl md:rounded-md"><img
                         src="../dist/assets/icon/imprimir.png" class="w-3">Generar Reporte</button>
             </div>
         </section>
@@ -193,13 +193,13 @@
                             class="min-w-[80px] md:min-w-[70px] md:max-w-[200px] md:w-[10vw] lg:w-[13vw]">
                         <form action="" class="flex flex-col gap-2">
                             <label for="" class="flex items-center justify-center gap-2">
-                                <input type="checkbox" class="scale-125">Boleto 1
+                                <input type="checkbox" class="scale-125">Pelicula 1
                             </label>
                             <label for="" class="flex items-center justify-center gap-2">
-                                <input type="checkbox" class="scale-125">Boleto 2
+                                <input type="checkbox" class="scale-125">Pelicula 2
                             </label>
                             <label for="" class="flex items-center justify-center gap-2">
-                                <input type="checkbox" class="scale-125">Boleto 3
+                                <input type="checkbox" class="scale-125">Pelicula 3
                             </label>
                         </form>
                     </div>
