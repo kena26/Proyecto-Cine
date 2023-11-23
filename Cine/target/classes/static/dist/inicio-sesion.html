@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="output.css">
+  <link rel="icon" href="\Cine\src\main\resources\static\dist\assets\icon\favicon.ico">
+  <script src="https://kit.fontawesome.com/da2008d449.js" crossorigin="anonymous"></script>
+  <title>Inicio de Sesión</title>
+</head>
+<style>
+  #background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+</style>
+</head>
+
+<body class="bg-cover bg-center h-screen">
+  <header>
+    <!--nav principal-->
+    <nav class="bg-black max-sm:hidden">
+      <ul class="flex justify-end">
+        <li><a href="./home.html" class="text-white mr-16 text-xl">Inicio</a></li>
+        <li><a href="#" class="text-white mr-16 text-xl">Peliculas</a></li>
+        <li><a href="#" class="text-white mr-16 text-xl">Cartelera</a></li>
+      </ul>
+    </nav>
+    <!--seccion del logo-->
+    <section
+      class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
+      <div class="hidden max-sm:block">
+        <i class="fa-solid fa-bars max-sm:block max-sm:ml-5 text-2xl"></i>
+      </div>
+      <a href="./home.html">
+        <div class="cursor-pointer">
+          <img src="/Cine/src/main/resources/static/dist/assets/img/logo.png" alt=""
+            class="w-auto h-12 max-sm:h-10 max-sm:w-auto">
+        </div>
+      </a>
+      
+    </section>
+  </header>
+
+  <img id="background-image" src="./assets/img/fondo-IS.png" alt="Fondo" />
+  <div class="h-full flex flex-col justify-center items-center">
+    <div class="p-8 rounded-lg shadow-lg text-center">
+      <img src="./assets/img/minilogo.png" alt="Logo" class="w-33 h-32 mx-auto rounded-full mb-4">
+      <form class="bg-transparent">
+        <div class="mb-4">
+          <label for="email" class="text-black"></label>
+          <input type="email" id="email"
+            class="w-64 h-15 border border-gray-300 rounded-lg focus:outline-none bg-[#f8f8f8] p-2"
+            placeholder="Correo Electrónico">
+        </div>
+        <div class="mb-4 max-sm:mb-10">
+          <label for="password" class="text-black"></label>
+          <input type="password" id="password"
+            class="w-64 border border-gray-300 rounded-lg focus:outline-none bg-[#f8f8f8] p-2" placeholder="Contraseña">
+        </div>
+        <p class="text-center text-white mb-4"><a href="#">¿Has olvidado tu contraseña?</a></p>
+        <button class="w-64 max-sm:w-40 py-3 rounded-full bg-white text-black mx-auto">Iniciar Sesión</button>
+      </form>
+      <div class="mt-10">
+        <p class="text-center text-white mb-3"><a href="#">¿No te has registrado?</a></p>
+        <a href="./registro.html">
+          <button class="w-64 max-sm:w-32 py-3 rounded-full bg-white text-black mx-auto">Registrarse</button>
+        </a>
+      </div>
+    </div>
+  </div>
+  <script>
+    let busquedaInput = document.getElementById('busqueda')
+    //cambios responsive
+    function cambios() {
+      if (window.innerWidth < 640) {
+        busquedaInput.placeholder = 'Buscar'
+      }
+    }
+    cambios()
+    window.addEventListener('resize', function () {
+      cambios()
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./output.css">
+    <script src="https://kit.fontawesome.com/da2008d449.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="\Cine\src\main\resources\static\dist\assets\icon\favicon.ico" />
+</head>
+
+<body class="bg-[url('./assets/img/Fondo.png')] bg-cover bg-top">
+    <!--header-->
+    <header>
+        <!--nav principal-->
+        <nav class="bg-black max-sm:hidden">
+            <ul class="flex justify-end">
+                <li><a href="./home.html" class="text-white mr-16 text-xl">Inicio</a></li>
+                <li><a href="#" class="text-white mr-16 text-xl">Peliculas</a></li>
+                <li><a href="#" class="text-white mr-16 text-xl">Cartelera</a></li>
+            </ul>
+        </nav>
+        <!--seccion del logo-->
+        <section
+            class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
+            <div class="hidden max-sm:block">
+                <i class="fa-solid fa-bars max-sm:block text-2xl"></i>
+            </div>
+            <a href="./home.html">
+                <div class="cursor-pointer">
+                    <img src="/Cine/src/main/resources/static/dist/assets/img/logo.png" alt=""
+                        class="w-auto h-12 max-sm:h-10 max-sm:w-auto">
+                </div>
+            </a>
+
+        </section>
+    </header>
+
+    <!--Seccion de datos-->
+    <section class="flex justify-center pt-12 flex-col items-center">
+        <h1 class="text-white font-bold text-3xl">INGRESE SUS DATOS</h1>
+        <div class="flex justify-center items-center pt-12">
+            <form id="registroForm" action="http://localhost:8080/Cine/registro" method="post"
+                class="flex flex-col space-y-10">
+                <div class="flex space-x-80 max-sm:flex-col max-sm:space-x-0 max-sm:space-y-4">
+                    <input required type="text" name="nombre" placeholder="Nombre*"
+                        class="w-64 h-12 rounded-lg bg-[#D9D9D9] text-black indent-5 placeholder:text-black">
+                    <input required type="text" name="apellido" placeholder="Apellido*"
+                        class="w-64 h-12 bg-[#D9D9D9] indent-5 placeholder:text-black rounded-lg text-black">
+                </div>
+                <div class="flex space-x-96 max-sm:flex-col max-sm:space-x-0 max-sm:space-y-4">
+                    <div class="mr-8 flex flex-col">
+                        <label for="dia" class="text-white">Fecha de nacimiento*</label>
+                        <input required type="date" id="dia" name="fechaNacimiento" placeholder="Dia/Mes/Año"
+                            class="w-40 h-12 bg-[#D9D9D9] rounded-lg text-center placeholder:text-black text-black">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="tel" class="opacity-0">a</label>
+                        <input required type="tel" id="tel" name="telefono" placeholder="Teléfono"
+                            class="w-64 h-12 bg-[#D9D9D9] rounded-lg text-black indent-5 placeholder:text-black">
+                    </div>
+                </div>
+
+                <div class="mb-10">
+                    <input type="email" placeholder="Correo Eléctronico*" name="email" required
+                        class="w-64 h-12 rounded-lg bg-[#D9D9D9] text-black indent-5 placeholder:text-black">
+                </div>
+                <div class="flex space-x-80  max-sm:flex-col max-sm:space-x-0 max-sm:space-y-4">
+                    <input type="password" placeholder="Contraseña*" name="contrasena" required
+                        class="w-64 h-12 rounded-lg bg-[#D9D9D9] text-black indent-5 placeholder:text-black">
+                    <input type="password" placeholder="Confirma tu Contraseña" name="confirmarContrasena" required
+                        class="rounded-lg w-64 h-12 bg-[#D9D9D9] text-black indent-5 placeholder:text-black">
+                </div>
+                <div class="h-24 text-center">
+                    <input type="submit" value="Registrarse"
+                        class="w-48 h-12 bg-white rounded-full text-black cursor-pointer">
+                </div>
+            </form>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const registroForm = document.getElementById('registroForm');
+
+            registroForm.addEventListener('submit', function (event) {
+                event.preventDefault(); // Evitar la presentación del formulario por defecto
+
+                // Obtener valores de los campos del formulario
+                const nombre = document.querySelector('input[name="nombre"]').value;
+                const apellido = document.querySelector('input[name="apellido"]').value;
+                const email = document.querySelector('input[name="email"]').value;
+                const contrasena = document.querySelector('input[name="contrasena"]').value;
+                const confirmarContrasena = document.querySelector('input[name="confirmarContrasena"]').value;
+                const telefono = document.getElementById('tel').value;
+                const fechaNacimiento = document.getElementById('dia').value;
+
+                // Validar que las contraseñas coincidan
+                if (contrasena !== confirmarContrasena) {
+                    alert('Las contraseñas no coinciden. Por favor, inténtelo de nuevo.');
+                    return;
+                }
+
+                // Construir el objeto de datos para enviar al servidor
+                const usuario = {
+                    nombre: nombre,
+                    apellido: apellido,
+                    email: email,
+                    contrasena: contrasena,
+                    telefono: telefono,
+                    fechaNacimiento: fechaNacimiento
+                };
+
+                // Realizar la solicitud POST al servidor
+                fetch('http://localhost:8080/Cine/registro', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(usuario),
+                })
+                    .then(response => response.text())
+                    .then(data => {
+                        // Manejar la respuesta del servidor
+                        console.log(data);
+                        if (data.includes("Registro exitoso")) {
+                            // Si el registro es exitoso, mostrar una alerta
+                            alert('¡Registro exitoso!');
+                            // Puedes redirigir al usuario a otra página o realizar otras acciones aquí
+                            window.location.href='./inicio-sesion.html'
+                        } else {
+                            // Si hay algún problema con el registro, mostrar un mensaje diferente
+                            alert('Error en el registro. Por favor, inténtelo de nuevo.');
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                        // Manejar errores aquí
+                    });
+            });
+        });
+    </script>
+</body>
+
+</html>
