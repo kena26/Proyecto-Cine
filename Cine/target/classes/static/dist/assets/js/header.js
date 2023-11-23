@@ -47,15 +47,37 @@ function addOption(selectElement, value, text) {
     selectElement.add(option);
 }
 
-let userNav = document.getElementById('user-slide')
-
-
 // Deslizable del usuario
+// logeado en su cuenta
 function userNavBar(){
+    let userNav = document.getElementById('user-slide')
     if(userNav.classList.contains('hidden')){
         userNav.classList.remove('hidden')
     }
     else{
         userNav.classList.add('hidden')
+    }
+}
+
+//no logeado en su cuenta
+function guestNavBar(){
+    let guestNav = document.getElementById('guest-slide')
+    if(guestNav.classList.contains('hidden')){
+        guestNav.classList.remove('hidden')
+    }
+    else{
+        guestNav.classList.add('hidden')
+    }
+}
+
+// los de backend, necesitan a ayuda del bd para esta parte
+
+function userLogged(){
+    let logged = false;
+    if(logged===false){
+        guestNavBar()
+    }
+    else{
+        userNavBar()
     }
 }
