@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Creadores</title>
         <link rel="stylesheet" href="output.css" />
+        <link rel="icon" href="\Cine\src\main\resources\static\dist\assets\icon\favicon.ico" />
         <script
             src="https://kit.fontawesome.com/da2008d449.js"
             crossorigin="anonymous"
@@ -18,7 +19,7 @@
     </head>
 
     <body
-        class="bg-radial-gradient at-[50.02% 52.33%] from-[#431B19] via-[#431B19] to-[#141414]"
+        class="overflow-x-hidden bg-radial-gradient at-[50.02% 52.33%] from-[#431B19] via-[#431B19] to-[#141414]"
     >
         <header>
             <!--nav principal-->
@@ -82,12 +83,11 @@
                         <div class="cursor-pointer">
                             <p class="text-lg font-semibold">Username</p>
                         </div>
-                        <div class="absolute right-0 bottom-3 cursor-pointer">
-                            <img
-                                src="../dist/assets/icon/flecha-hacia-abajo-para-navegar.png"
-                                class="w-3"
-                            />
-                        </div>
+                        <div class="absolute -right-6 -bottom-3 cursor-pointer">
+                            <svg class="w-5 h-5 ml-2 -mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -228,9 +228,9 @@
             <hr class="my-4 border-t-4 border-black" />
 
             <!-- seccion equipo de prototipo -->
-            <section class="text-center">
+            <section class="flex flex-col justify-center items-center text-center">
                 <h2 class="text-white">Equipo de Prototipo</h2>
-                <div id="slider2" class="flex justify-center items-center">
+                <div id="slider2" class="w-[88%] flex justify-center items-center">
                     <div
                         class="w-3/4 overflow-scroll md:overflow-hidden rounded-lg shadow-lg"
                     >
@@ -240,7 +240,7 @@
                         >
                             <div
                                 id="slider2Content"
-                                class="w-full flex items-center"
+                                class="w-full flex items-center duration-1000"
                             >
                                 <div class="text-center px-2">
                                     <div
@@ -321,7 +321,7 @@
                     <!-- Navigation Arrows -->
                     <button
                         onclick="prevSlideslider2()"
-                        class="absolute left-0 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
+                        class="absolute left-5 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
                     >
                         <svg
                             class="w-6 h-6"
@@ -340,7 +340,7 @@
                     </button>
                     <button
                         onclick="nextSlideslider2()"
-                        class="absolute right-0 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
+                        class="absolute right-5 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
                     >
                         <svg
                             class="w-6 h-6"
@@ -362,9 +362,9 @@
             <hr class="my-4 border-t-4 border-black" />
 
             <!-- seccion equipo de frontend -->
-            <section class="text-center">
+            <section class="flex flex-col justify-center items-center text-center">
                 <h2 class="text-white">Equipo de Frontend</h2>
-                <div id="slider3" class="flex justify-center items-center">
+                <div id="slider3" class="w-[88%] flex justify-center items-center">
                     <div
                         class="w-3/4 overflow-scroll md:overflow-hidden rounded-lg shadow-lg"
                     >
@@ -374,7 +374,7 @@
                         >
                             <div
                                 id="slider3Content"
-                                class="w-full flex items-center"
+                                class="w-full flex items-center duration-1000"
                             >
                                 <div class="text-center px-2">
                                     <div
@@ -414,12 +414,12 @@
                                 </div>
                                 <div class="text-center px-2">
                                     <div
-                                        class="mb-2 relative overflow-hidden rounded-full w-16 md:w-32 h-16 md:h-32"
+                                        class="mb-2 relative rounded-full w-16 md:w-32 h-16 md:h-32"
                                     >
                                         <img
                                             src="../dist/assets/img/creadores/Frontend/Gustavo Estevez.png"
                                             alt="Creador FrontEnd"
-                                            class="object-cover"
+                                            class="object-cover rounded-full"
                                         />
                                     </div>
                                     <p class="text-sm rounded-full bg-black text-white px-5 font-bold">Gustavo Estevez</p>
@@ -455,7 +455,7 @@
                     <!-- Navigation Arrows -->
                     <button
                         onclick="prevSlideslider3()"
-                        class="absolute left-0 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
+                        class="absolute left-5 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
                     >
                         <svg
                             class="w-6 h-6"
@@ -474,7 +474,7 @@
                     </button>
                     <button
                         onclick="nextSlideslider3()"
-                        class="absolute right-0 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
+                        class="absolute right-5 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
                     >
                         <svg
                             class="w-6 h-6"
@@ -496,9 +496,9 @@
             <hr class="my-4 border-t-4 border-black" />
 
             <!-- seccion equipo de backend -->
-            <section class="text-center">
+            <section class="flex flex-col justify-center items-center text-center">
                 <h2 class="text-white">Equipo de Backend</h2>
-                <div id="slider4" class="flex justify-center items-center">
+                <div id="slider4" class="w-[88%] flex justify-center items-center">
                     <div
                         class="w-3/4 overflow-scroll md:overflow-hidden rounded-lg shadow-lg"
                     >
@@ -508,7 +508,7 @@
                         >
                             <div
                                 id="slider4Content"
-                                class="w-full flex items-center"
+                                class="w-full flex items-center duration-1000"
                             >
                                 <div class="text-center px-2">
                                     <div
@@ -601,7 +601,7 @@
                     <!-- Navigation Arrows -->
                     <button
                         onclick="prevSlideslider4()"
-                        class="absolute left-0 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
+                        class="absolute left-5 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
                     >
                         <svg
                             class="w-6 h-6"
@@ -620,7 +620,7 @@
                     </button>
                     <button
                         onclick="nextSlideslider4()"
-                        class="absolute right-0 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
+                        class="absolute right-5 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
                     >
                         <svg
                             class="w-6 h-6"
@@ -642,9 +642,9 @@
             <hr class="my-4 border-t-4 border-black" />
 
             <!-- seccion equipo de Base de Datos -->
-            <section class="mb-5 text-center">
+            <section class="mb-5 flex flex-col justify-center items-center text-center">
                 <h2 class="text-white">Equipo de Base de Datos</h2>
-                <div id="slider5" class="flex justify-center items-center">
+                <div id="slider5" class="w-[88%] flex justify-center items-center">
                     <div
                         class="w-3/4 overflow-scroll md:overflow-hidden rounded-lg shadow-lg"
                     >
@@ -654,7 +654,7 @@
                         >
                             <div
                                 id="slider5Content"
-                                class="w-full flex items-center"
+                                class="w-full flex items-center duration-1000"
                             >
                                 <div class="text-center px-2">
                                     <div
@@ -735,7 +735,7 @@
                     <!-- Navigation Arrows -->
                     <button
                         onclick="prevSlideslider5()"
-                        class="absolute left-0 md:left-14 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
+                        class="absolute left-5 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
                     >
                         <svg
                             class="w-6 h-6"
@@ -754,7 +754,7 @@
                     </button>
                     <button
                         onclick="nextSlideslider5()"
-                        class="absolute right-0 md:right-14 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
+                        class="absolute right-5 transform -translate-y-1/2 bg-white text-black px-2 py-2 rounded-full"
                     >
                         <svg
                             class="w-6 h-6"
@@ -858,29 +858,31 @@
             function initializeSlider(sliderId) {
                 const slider = document.getElementById(sliderId + "Content");
                 let currentIndex = 0;
+                const cloneCount = 1; // Número de veces que se clonarán los elementos
 
-                const firstElementClone = slider.children[0].cloneNode(true);
-                slider.appendChild(firstElementClone);
-
+                // Clonar cada elemento existente y agregarlo al final
+                const numberOfElements = slider.children.length;
+                for (let i = 0; i < numberOfElements * cloneCount; i++) {
+                    const elementClone = slider.children[i % numberOfElements].cloneNode(true);
+                    slider.appendChild(elementClone);
+                }
+                //Mueve el slide dependiendo de la cantidad de elementos
                 function showSlide(index) {
-                    const numberOfElements = slider.children.length;
-                    const translateValue = -index * (100 / numberOfElements);
+                    const translateValue = -index * (120 / (numberOfElements * cloneCount));
                     slider.style.transform = `translateX(${translateValue}%)`;
                 }
-
+                //Siguiente slide
                 window["nextSlide" + sliderId] = function () {
-                    currentIndex = (currentIndex + 1) % slider.children.length;
+                    currentIndex = (currentIndex + 1) % (numberOfElements * cloneCount);
                     showSlide(currentIndex);
                 };
-
+                //Anterior slide
                 window["prevSlide" + sliderId] = function () {
-                    currentIndex =
-                        (currentIndex - 1 + slider.children.length) %
-                        slider.children.length;
+                    currentIndex = (currentIndex - 1 + numberOfElements * cloneCount) % (numberOfElements * cloneCount);
                     showSlide(currentIndex);
                 };
 
-                setInterval(window["nextSlide" + sliderId], 5000);
+                //setInterval(window["nextSlide" + sliderId], 5000);
             }
 
             initializeSlider("slider2");

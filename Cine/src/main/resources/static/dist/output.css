@@ -588,6 +588,14 @@ video {
   position: relative;
 }
 
+.-bottom-3 {
+  bottom: -0.75rem;
+}
+
+.-right-6 {
+  right: -1.5rem;
+}
+
 .bottom-0 {
   bottom: 0px;
 }
@@ -648,6 +656,10 @@ video {
   left: 11rem;
 }
 
+.left-5 {
+  left: 1.25rem;
+}
+
 .left-6 {
   left: 1.5rem;
 }
@@ -678,6 +690,10 @@ video {
 
 .right-40 {
   right: 10rem;
+}
+
+.right-5 {
+  right: 1.25rem;
 }
 
 .right-60 {
@@ -1253,6 +1269,10 @@ video {
 
 .w-\[85\%\] {
   width: 85%;
+}
+
+.w-\[88\%\] {
+  width: 88%;
 }
 
 .w-\[90\%\] {
@@ -2241,6 +2261,10 @@ video {
   transition-duration: 150ms;
 }
 
+.duration-1000 {
+  transition-duration: 1000ms;
+}
+
 .duration-300 {
   transition-duration: 300ms;
 }
@@ -2769,14 +2793,6 @@ video {
 }
 
 @media (min-width: 768px) {
-  .md\:left-14 {
-    left: 3.5rem;
-  }
-
-  .md\:right-14 {
-    right: 3.5rem;
-  }
-
   .md\:-order-1 {
     order: -1;
   }
