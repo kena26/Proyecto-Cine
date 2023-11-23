@@ -1,4 +1,5 @@
 let asientos = [];
+let cantidad;
 
 // Verifica si antes habia segundos o minutos
 const storedState = localStorage.getItem("timerState");
@@ -60,13 +61,23 @@ function cargarSegundo() {
 let timer = setInterval(cargarSegundo, 1000);
 
 function validarDisponibilidad(asiento) {
+	//Verifica cuantos boletos hay en el almacenamiento
+	const tickeState = localStorage.getItem("boletos");
+	const { ticket: storedTicket} =
+		JSON.parse(tickeState);
+	cantidad = storedTicket;
 	// Verificar si el checkbox está marcado
 	if (document.getElementById(asiento).checked) {
 		//Cuando esta marcado
-		document.getElementById(`${asiento}-S`).classList.remove("hidden");
-		document.getElementById(`${asiento}-D`).classList.add("hidden");
-		asientos.push(`\n${asiento}`);
-		mapearAsientos(asientos);
+		if(asientos.length < cantidad){//Verifica que sea menor a la cantidad de boletos seleccionados
+			document.getElementById(`${asiento}-S`).classList.remove("hidden");
+			document.getElementById(`${asiento}-D`).classList.add("hidden");
+			asientos.push(`\n${asiento}`);
+			mapearAsientos(asientos);
+		}else{
+			alert(`Solo puede seleccionar hasta ${cantidad} asientos`);
+			document.getElementById(asiento).checked = false;
+		}
 	} else {
 		//Cuando esta desmarcado
 		document.getElementById(`${asiento}-S`).classList.add("hidden");

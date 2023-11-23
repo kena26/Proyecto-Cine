@@ -23,7 +23,6 @@
 				  <li><a href="./home.html" class="text-white mr-16 text-xl">Inicio</a></li>
 				  <li><a href="#" class="text-white mr-16 text-xl">Peliculas</a></li>
 				  <li><a href="#" class="text-white mr-16 text-xl">Cartelera</a></li>
-				  <li><a href="#" class="text-white mr-36 text-xl">Ayuda</a></li>
 				</ul>
 			  </nav>
 			<!--seccion del logo-->
@@ -52,11 +51,12 @@
 						<div class="cursor-pointer">
 							<p class="text-lg font-semibold">Username</p>
 						</div>
-						<div class="absolute right-0 bottom-3 cursor-pointer">
-							<img
-								src="/Cine/src/main/resources/static/dist/assets/icon/flecha-hacia-abajo-para-navegar.png"
-								class="w-3" />
-						</div>
+						<!-- ICONO V-->
+                        <div class="absolute right-0 bottom-3 cursor-pointer">
+                            <svg class="w-5 h-5 ml-2 -mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
 					</div>
 				</div>
 			</section>
@@ -65,7 +65,7 @@
 		<section class="flex flex-col">
 			<section
 				class="flex relative gap-5 max-sm:gap-2 items-center justify-center mt-2 text-white/50">
-				<p class="max-sm:w-36 text-center pointer-events-none">
+				<p class="max-sm:w-28 text-center pointer-events-none">
 					PASO 1<br />
 					Selecciona tus boletos
 				</p>
@@ -86,7 +86,7 @@
 				</p>
 			</section>
 			<!--Seccion de la disponibilidad de asientos-->
-			<section class="flex relative mt-5 max-sm:mt-20 gap-5 max-sm:gap-20 justify-center">
+			<section class="flex relative mt-5 max-sm:mt-20 gap-5 max-sm:gap-[10%] justify-center">
 				<section class="flex flex-col items-center">
 					<span class="font-semibold text-white">Disponible</span>
 					<span
@@ -107,7 +107,7 @@
 				<!--Seccion de timer-->
 				<section
 					id="timer"
-					class="w-52 absolute max-sm:-top-16 right-60 max-sm:right-10 text-center rounded-3xl px-4 bg-Buckeye-brown text-white">
+					class="w-52 absolute max-sm:-top-16 right-60 max-sm:right-[5%] text-center rounded-3xl px-4 bg-Buckeye-brown text-white">
 					<p class="">Tiempo de Compra</p>
 					<div class="inline-block" id="timer-container">
 						<div class="" id="container-minutos">--</div>
@@ -120,14 +120,14 @@
 			</section>
 			<!--Seccion de los asientos-->
 			<section
-				class="w-full h-[350px] flex flex-col relative top-5 items-center font-bold text-xs text-black">
+				class="w-full h-[350px] max-sm:h-[450px] flex flex-col relative top-5 items-center font-bold text-xs text-black overflow-hidden">
 				<section class="grid grid-cols-15 mb-1 select-none">
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<span class="pointer-events-none text-white">F</span>
 					</div>
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="F1-D"
 							class="w-full absolute rotate-180"
@@ -157,7 +157,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="F2-D"
 							class="w-full absolute rotate-180"
@@ -187,7 +187,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="F3-D"
 							class="w-full absolute rotate-180"
@@ -217,7 +217,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="F4-D"
 							class="w-full absolute rotate-180"
@@ -247,7 +247,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="F5-D"
 							class="w-full absolute rotate-180"
@@ -277,7 +277,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="F6-D"
 							class="w-full absolute rotate-180"
@@ -307,7 +307,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="F7-D"
 							class="w-full absolute rotate-180"
@@ -337,7 +337,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="F8-D"
 							class="w-full absolute rotate-180"
@@ -367,7 +367,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="F9-D"
 							class="w-full absolute rotate-180"
@@ -397,7 +397,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="F10-D"
 							class="w-full absolute rotate-180"
@@ -427,7 +427,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="F11-D"
 							class="w-full absolute rotate-180"
@@ -457,7 +457,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="F12-D"
 							class="w-full absolute rotate-180"
@@ -487,7 +487,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="F13-D"
 							class="w-full absolute rotate-180"
@@ -517,19 +517,19 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<span class="pointer-events-none text-white">F</span>
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<span class="pointer-events-none text-white">E</span>
 					</div>
 
 					<div class="col-span-1"></div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="E1-D"
 							class="w-full absolute rotate-180"
@@ -559,7 +559,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="E2-D"
 							class="w-full absolute rotate-180"
@@ -589,7 +589,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="E3-D"
 							class="w-full absolute rotate-180"
@@ -619,7 +619,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="E4-D"
 							class="w-full absolute rotate-180"
@@ -649,7 +649,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="E5-D"
 							class="w-full absolute rotate-180"
@@ -679,7 +679,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="E6-D"
 							class="w-full absolute rotate-180"
@@ -709,7 +709,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="E7-D"
 							class="w-full absolute rotate-180"
@@ -739,7 +739,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="E8-D"
 							class="w-full absolute rotate-180"
@@ -769,7 +769,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="E9-D"
 							class="w-full absolute rotate-180"
@@ -799,7 +799,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="E10-D"
 							class="w-full absolute rotate-180"
@@ -831,19 +831,19 @@
 					<div class="col-span-2"></div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<span class="pointer-events-none text-white">E</span>
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<span class="pointer-events-none text-white">D</span>
 					</div>
 
 					<div class="col-span-1"></div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="D1-D"
 							class="w-full absolute rotate-180"
@@ -873,7 +873,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="D2-D"
 							class="w-full absolute rotate-180"
@@ -903,7 +903,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="D3-D"
 							class="w-full absolute rotate-180"
@@ -933,7 +933,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="D4-D"
 							class="w-full absolute rotate-180"
@@ -963,7 +963,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="D5-D"
 							class="w-full absolute rotate-180"
@@ -993,7 +993,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="D6-D"
 							class="w-full absolute rotate-180"
@@ -1023,7 +1023,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="D7-D"
 							class="w-full absolute rotate-180"
@@ -1053,7 +1053,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="D8-D"
 							class="w-full absolute rotate-180"
@@ -1083,7 +1083,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="D9-D"
 							class="w-full absolute rotate-180"
@@ -1113,7 +1113,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="D10-D"
 							class="w-full absolute rotate-180"
@@ -1145,19 +1145,19 @@
 					<div class="col-span-2"></div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<span class="pointer-events-none text-white">D</span>
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<span class="pointer-events-none text-white">C</span>
 					</div>
 
 					<div class="col-span-1"></div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="C1-D"
 							class="w-full absolute rotate-180"
@@ -1187,7 +1187,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="C2-D"
 							class="w-full absolute rotate-180"
@@ -1217,7 +1217,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="C3-D"
 							class="w-full absolute rotate-180"
@@ -1247,7 +1247,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="C4-D"
 							class="w-full absolute rotate-180"
@@ -1277,7 +1277,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="C5-D"
 							class="w-full absolute rotate-180"
@@ -1307,7 +1307,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="C6-D"
 							class="w-full absolute rotate-180"
@@ -1337,7 +1337,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="C7-D"
 							class="w-full absolute rotate-180"
@@ -1367,7 +1367,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="C8-D"
 							class="w-full absolute rotate-180"
@@ -1397,7 +1397,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="C9-D"
 							class="w-full absolute rotate-180"
@@ -1427,7 +1427,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="C10-D"
 							class="w-full absolute rotate-180"
@@ -1459,19 +1459,19 @@
 					<div class="col-span-2"></div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<span class="pointer-events-none text-white">C</span>
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<span class="pointer-events-none text-white">B</span>
 					</div>
 
 					<div class="col-span-1"></div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="B1-D"
 							class="w-full absolute rotate-180"
@@ -1501,7 +1501,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="B2-D"
 							class="w-full absolute rotate-180"
@@ -1531,7 +1531,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="B3-D"
 							class="w-full absolute rotate-180"
@@ -1561,7 +1561,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="B4-D"
 							class="w-full absolute rotate-180"
@@ -1591,7 +1591,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="B5-D"
 							class="w-full absolute rotate-180"
@@ -1621,7 +1621,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="B6-D"
 							class="w-full absolute rotate-180"
@@ -1651,7 +1651,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="B7-D"
 							class="w-full absolute rotate-180"
@@ -1681,7 +1681,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="B8-D"
 							class="w-full absolute rotate-180"
@@ -1711,7 +1711,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="B9-D"
 							class="w-full absolute rotate-180"
@@ -1741,7 +1741,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="B10-D"
 							class="w-full absolute rotate-180"
@@ -1773,19 +1773,19 @@
 					<div class="col-span-2"></div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<span class="pointer-events-none text-white">B</span>
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<span class="pointer-events-none text-white">A</span>
 					</div>
 
 					<div class="col-span-1"></div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="A1-D"
 							class="w-full absolute rotate-180"
@@ -1815,7 +1815,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="A2-D"
 							class="w-full absolute rotate-180"
@@ -1845,7 +1845,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="A3-D"
 							class="w-full absolute rotate-180"
@@ -1875,7 +1875,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="A4-D"
 							class="w-full absolute rotate-180"
@@ -1905,7 +1905,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="A5-D"
 							class="w-full absolute rotate-180"
@@ -1935,7 +1935,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="A6-D"
 							class="w-full absolute rotate-180"
@@ -1965,7 +1965,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="A7-D"
 							class="w-full absolute rotate-180"
@@ -1995,7 +1995,7 @@
 					</div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<img
 							id="A8-D"
 							class="w-full absolute rotate-180"
@@ -2027,14 +2027,14 @@
 					<div class="col-span-4"></div>
 
 					<div
-						class="w-8 h-10 flex text-center items-center justify-center relative">
+						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<span class="pointer-events-none text-white">A</span>
 					</div>
 				</section>
 				<!--Imagen de pantalla de cine-->
 				<img
 					id=""
-					class="w-[550px] max-sm:w-[435px] flex absolute max-sm:left-[85px] bottom-0 max-sm:bottom-5"
+					class="w-[550px] max-sm:w-[87%] flex absolute max-sm:left-[4%] bottom-0 max-sm:bottom-[30%] max-sm:"
 					src="\Cine\src\main\resources\static\dist\assets\icon\Pantalla de Cine.png"
 					alt="" />
 				<!--Seccion de asientos seleccionados-->
@@ -2043,41 +2043,41 @@
 					class="max-sm:w-full absolute top-12 max-sm:top-80 right-40 max-sm:right-0 text-center text-lg text-white">
 					<p id="sala-S" class="max-sm:flex max-sm:justify-center">Sala</p>
 
-					<p class="max-sm:absolute max-sm:left-36">Usted ha seleccionado:</p>
+					<p class="max-sm:absolute max-sm:left-[5%] max-sm:text-sm">Usted ha seleccionado:</p>
 
 					<p
 						id="asiento-S"
-						class="max-w-[200px] h-[120px] max-sm:absolute max-sm:left-96 whitespace-normal overflow-hidden">
+						class="max-w-[200px] max-sm:max-w-[150px] h-[120px] max-sm:relative max-sm:left-[47%] max-sm:text-sm whitespace-normal overflow-hidden">
 					</p>
 				</section>
 			</section>
 			<!--Seccion de botones-->
 			<section
 				id="container-buttons"
-				class="mx-52 max-sm:mx-10 max-sm:mt-60 flex justify-around max-sm:justify-between text-white">
+				class="mx-52 max-sm:mx-10 max-sm:mt-14 flex justify-around max-sm:justify-between text-white">
 				<a href="\Cine\src\main\resources\static\dist\boletos-Paso-1.html">
 					<button
 						id="button-back"
-						class="w-32 h-12 px-8 py-2 relative rounded-2xl bg-Mulled-Cider">
+						class="w-32 h-12 max-sm:h-10 px-8 py-2 relative rounded-2xl bg-Mulled-Cider">
 						<img
 							id="buttons-leftarrow"
-							class="w-10 flex top-[6px] left-2 absolute fill-Délicieux-au-Chocolat"
+							class="w-10 flex top-[6px] max-sm:top-[5%] left-2 absolute fill-Délicieux-au-Chocolat"
 							src="\Cine\src\main\resources\static\dist\assets\icon\left-arrow.svg"
 							alt="" />
-						<p class="absolute top-3 right-7">Atrás</p>
+						<p class="absolute top-3 max-sm:top-2 right-7">Atrás</p>
 					</button>
 				</a>
 
 				<a href="./compra-paso-3(pago).html">
 					<button
 						id="button-next"
-						class="w-32 h-12 px-8 py-2 relative rounded-2xl bg-Mulled-Cider">
+						class="w-32 h-12 max-sm:h-10 px-8 py-2 relative rounded-2xl bg-Mulled-Cider">
 						<img
 							id="buttons-rightarrow"
-							class="w-10 flex top-[6px] right-2 absolute fill-Délicieux-au-Chocolat"
+							class="w-10 flex top-[6px] max-sm:top-[5%] right-2 absolute fill-Délicieux-au-Chocolat"
 							src="\Cine\src\main\resources\static\dist\assets\icon\right-arrow.svg"
 							alt="" />
-						<p class="absolute top-3 left-3">Siguiente</p>
+						<p class="absolute top-3 max-sm:top-2 left-3">Siguiente</p>
 					</button>
 				</a>
 			</section>
@@ -2085,11 +2085,11 @@
 		<!--Seccion de mensajes de inactividad-->
 		<section
 			id="tiempoExcedido"
-			class="w-full h-full flex z-30 justify-center items-center absolute top-0 left-0 bg-Piano-Black/80 hidden">
+			class="w-full h-full max-sm:h-[1000px] flex z-30 justify-center items-center absolute top-0 left-0 bg-Piano-Black/80 hidden">
 			<!--Mensaje de inactividad 1-->
 			<section
 				id="container-message1"
-				class="w-[30%] h-28 flex flex-col items-center rounded-xl bg-gray-200">
+				class="w-[30%] max-sm:w-72 h-28 max-sm:h-36 flex max-sm:sticky max-sm:top-0 max-sm:bottom-0 flex-col items-center rounded-xl bg-gray-200">
 				<p id="message" class="py-3 px-8 text-center font-bold">
 					Ha excedido el tiempo limite, usted sera redirigido a la página de
 					cartelera
@@ -2105,7 +2105,7 @@
 			<!--Mensaje de inactividad 2-->
 			<section
 				id="container-message2"
-				class="w-[30%] h-28 flex flex-col justify-center items-center rounded-xl bg-gray-200 hidden">
+				class="w-[30%] max-sm:w-72 h-28 flex max-sm:sticky max-sm:top-0 max-sm:bottom-0 flex-col justify-center items-center rounded-xl bg-gray-200 hidden">
 				<p id="message" class="py-3 px-8 text-center font-bold">
 					¿Desea seguir en la página?
 				</p>

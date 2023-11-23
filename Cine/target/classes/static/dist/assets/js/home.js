@@ -12,17 +12,6 @@ let rad2 = document.getElementById('car2rad')
 let rad3 = document.getElementById('car3rad')
 let rad4 = document.getElementById('car4rad')
 let rad5 = document.getElementById('car5rad')
-let busquedaInput = document.getElementById('busqueda')
-//cambios responsive
-function cambios() {
-    if (window.innerWidth < 640) {
-        busquedaInput.placeholder = 'Buscar'
-    }
-}
-cambios()
-window.addEventListener('resize', function () {
-    cambios()
-})
 //contenedor del scroll de trending
 let scrollTrend = document.getElementById('scroll')
 //funcion para ocultar imagen actual
@@ -139,41 +128,4 @@ function scrollDer() {
         left: 480,
         behavior: 'smooth'
     })
-}
-
-//Funcionalidad para la seleccion de localizacion de cine
-
-document.getElementById('provincia').addEventListener('change', function () {
-    console.log('Change event triggered');
-    var provinciaSelect = document.getElementById('provincia');
-    var cineSelect = document.getElementById('cine');
-    var selectedProvincia = provinciaSelect.value;
-    cineSelect.innerHTML = '';
-    if (selectedProvincia === 'panamaEste') {
-        addOption(cineSelect, 'CVLS', 'Campus Victor Levi Sasso');
-        addOption(cineSelect, 'TOC', 'Sede de Tocumen');
-        addOption(cineSelect, 'HOW', 'Sede de Howard')
-    }
-    else if (selectedProvincia === 'panamaOeste') {
-        addOption(cineSelect, 'CPO', 'Centro Regional de Panamá Oeste');
-    }
-    else if (selectedProvincia === 'bocas') {
-        addOption(cineSelect, 'CBT', 'Centro Regional de Bocas del Toro');
-    }
-    else if (selectedProvincia === 'chiriqui') {
-        addOption(cineSelect, 'CHI', 'Centro Regional de Chiriquí');
-    }
-    else if (selectedProvincia === 'colon') {
-        addOption(cineSelect, 'COL', 'Centro Regional de Colón');
-    }
-    else if (selectedProvincia === 'veraguas') {
-        addOption(cineSelect, 'VER', 'Centro Regional de Veraguas');
-    }
-});
-
-function addOption(selectElement, value, text) {
-    var option = document.createElement('option');
-    option.value = value;
-    option.text = text;
-    selectElement.add(option);
 }
