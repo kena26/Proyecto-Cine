@@ -5,11 +5,17 @@ document.addEventListener("DOMContentLoaded", function () {
 	const chatbotContainer = document.getElementById("chatbot-container");
 	const chatbotImage = document.getElementById("chatbot-image");
 	const closeChatbotButton = document.getElementById("close-chatbot");
+	const chatbotAyuda = document.getElementById("chatbot-ayuda")
 
 	chatbotImage.addEventListener("click", function () {
 		chatbotContainer.style.display = "block";
 		chatbotContainer.style.position = "sticky";
 	});
+
+	chatbotAyuda.addEventListener("click", function(){
+		chatbotContainer.style.display = "block";
+		chatbotContainer.style.position = "sticky";
+	})
 
 	closeChatbotButton.addEventListener("click", function () {
 		chatbotContainer.style.display = "none";
@@ -115,8 +121,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		// Agrega la imagen de perfil al lado del nombre
 		const avatar = document.createElement("img");
 		avatar.src = isUser
-			? "/Cine/src/main/resources/static/dist/assets/img/logo.png"
-			: "/Cine/src/main/resources/static/dist/assets/img/logo.png";
+			? "./assets/img/minilogo.png"
+			: "./assets/img/minilogo.png";
 		avatar.alt = isUser ? "Usuario" : "Chatbot";
 		avatar.style.width = "30px"; // Ajusta el tamaño de la imagen de perfil
 		avatar.style.height = "30px";
