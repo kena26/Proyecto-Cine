@@ -17,7 +17,7 @@
         <nav class="bg-black max-sm:hidden">
             <ul class="flex justify-end">
                 <li><a href="./home.html" class="text-white mr-16 text-xl">Inicio</a></li>
-                <li><a href="./busqueda.html" class="text-white mr-16 text-xl">Peliculas</a></li>
+                <li><a href="#" class="text-white mr-16 text-xl">Peliculas</a></li>
                 <li><a href="#" class="text-white mr-16 text-xl">Cartelera</a></li>
             </ul>
         </nav>
@@ -79,6 +79,10 @@
             </form>
         </div>
     </section>
+
+
+    <!-- ... (código posterior) ... -->
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const registroForm = document.getElementById('registroForm');
@@ -127,7 +131,6 @@
                             // Si el registro es exitoso, mostrar una alerta
                             alert('¡Registro exitoso!');
                             // Puedes redirigir al usuario a otra página o realizar otras acciones aquí
-                            window.location.href='./inicio-sesion.html'
                         } else {
                             // Si hay algún problema con el registro, mostrar un mensaje diferente
                             alert('Error en el registro. Por favor, inténtelo de nuevo.');

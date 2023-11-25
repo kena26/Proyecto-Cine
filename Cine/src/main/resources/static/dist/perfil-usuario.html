@@ -37,7 +37,8 @@
                     </div>
                     <div class="flex max-sm:hidden">
                         <div class="cursor-pointer">
-                            <p class="text-lg font-semibold">Username</p>
+                            <p id="nombreNavBar" class="text-lg font-semibold">Username</p>
+                            <p class="text-lg font-semibold" id="apellidoNavBar"></p>
                         </div>
                         <div onclick="userLogged()" class="absolute right-0 bottom-3 cursor-pointer ">
                             <svg class="w-5 h-5 ml-2 -mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -102,62 +103,78 @@
                         <div class="font-serif relative mt-10">
                             <h1 class="font-bold text-xl mb-2" style="margin-left: 45px;"> - Datos Personales - </h1>
                             <div class="font-bold w-full font-serif text-sm" style="margin-left: 45px;">
-                                <p class="mt-1">Nombre Completo</p>
-                                <p class="mt-1">Genero</p>
-                                <p class="mt-1">Fecha de Nacimientoc</p>
-                                <p class="mt-1">Cedula</p>
-                                <p class="mt-1">Email</p>
-                                <p class="mt-1">Telefono</p>
+                                <h1 class="text-xl mb-2">DATOS GENERALES</h1>
+                                    <p class="text-sm py-1">Nombre: <span id="nombreDatos"></span></p>
+                                    <p class="text-sm py-1">Apellido: <span id="apellidoDatos"></span></p>
+                                    <p class="text-sm py-1">Fecha de Nacimiento: <span id="fechaNacimiento"></span></p>
+                                    <p class="text-sm py-1">Email: <span id="email"></span></p>
+                                    <p class="text-sm py-1">Teléfono: <span id="telefono"></span></p>
                             </div>
                             <div class="flex space-x-3" style="margin-left: 25px; margin-top: 55px;">
                                 <div style="margin-right: 5px;">
                                     <button class=" text-black bg-gray-300 rounded-2xl h-10 w-28">Actualizar</button>
                                 </div>
                                 <div style="margin-right: 5px;">
-                                    <button class=" text-black bg-gray-300 rounded-2xl h-10 w-28">Cerrar Sesion</button>
+                                    <button id="cerrarSesionBtn" class=" text-black bg-gray-300 rounded-2xl h-10 w-28">Cerrar Sesion</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="h-full bg-gray-300 bg-opacity-40 rounded-3xl flex flex-col space-y-3" style="margin-left: 40px; width: 800px;">
-                    <div>
-                        <h1 class="text-white font-bold text-3xl ml-11 mt-4">Peliculas Vistas</h1>
+                 <section id="Peliculas" >
+                        <div class="h-full bg-gray-300 bg-opacity-40 rounded-3xl flex flex-col space-y-3" style="margin-left: 40px; width: 800px;">
+                        <div>
+                            <h1 class="text-white font-bold text-3xl ml-11 mt-4">Peliculas Vistas</h1>
+                        </div>
+                        <div class="flex items-center justify-center space-x-3">
+                            <div>
+                                <img src="./assets/img/img-home/carrusel1.png" alt="" class="w-[231px] h-[130px] object-cover">
+                                <p class="text-white text-center font-bold">CARS</p>
+                            </div>
+                            <div>
+                                <img src="./assets/img/img-home/carrusel1.png" alt="" class="w-[231px] h-[130px] object-cover">
+                                <p class="text-white text-center font-bold">INCEPTION</p>
+                            </div>
+                            <div>
+                                <img src="./assets/img/img-home/carrusel1.png" alt="" class="w-[231px] h-[130px] object-cover">
+                                <p class="text-white text-center font-bold">OPPENHEIMER</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-center space-x-3">
+                            <div>
+                                <img src="./assets/img/img-home/carrusel2.jpg" alt="" class="w-[231px] h-[130px] object-cover">
+                                <p class="text-white text-center font-bold">AKIRA</p>
+                            </div>
+                            <div>
+                                <img src="./assets/img/img-home/carrusel2.jpg" alt="" class="w-[231px] h-[130px] object-cover">
+                                <p class="text-white text-center font-bold">PRINCESS MONONOKE</p>
+                            </div>
+                            <div>
+                                <img src="./assets/img/img-home/carrusel2.jpg" alt="" class="w-[231px] h-[130px] object-cover">
+                                <p class="text-white text-center font-bold">STAR WARS ROGUE ONE</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-center items-center">
+                            <button class="text-2xl">
+                                VER MÁS
+                            </button>
+                        </div>
                     </div>
-                    <div class="flex items-center justify-center space-x-3">
-                        <div>
-                            <img src="./assets/img/img-home/carrusel1.png" alt="" class="w-[231px] h-[130px] object-cover">
-                            <p class="text-white text-center font-bold">CARS</p>
-                        </div>
-                        <div>
-                            <img src="./assets/img/img-home/carrusel1.png" alt="" class="w-[231px] h-[130px] object-cover">
-                            <p class="text-white text-center font-bold">INCEPTION</p>
-                        </div>
-                        <div>
-                            <img src="./assets/img/img-home/carrusel1.png" alt="" class="w-[231px] h-[130px] object-cover">
-                            <p class="text-white text-center font-bold">OPPENHEIMER</p>
-                        </div>
+                </section> 
+                <section style="display: none;" id="reporte">
+                <div class="h-full bg-gray-300 bg-opacity-40 rounded-3xl" style="margin-left: 40px; width: 800px;">
+                <div class="text-xl font-serif font-bold h-full flex space-x-3 justify-center items-center">
+                    <div class="w-80 bg-white rounded-3xl text-center" style="height: 335px;">
+                        <img class="relative h-64 w-64" style="left: 32px;" src="/Cine/src/main/resources/static/dist/assets/img/WhatsApp_Image_2023-11-04_at_1.04.33_PM-transformed-removebg-preview.png">
+                        <p>Reportes</p>
                     </div>
-                    <div class="flex items-center justify-center space-x-3">
-                        <div>
-                            <img src="./assets/img/img-home/carrusel2.jpg" alt="" class="w-[231px] h-[130px] object-cover">
-                            <p class="text-white text-center font-bold">AKIRA</p>
-                        </div>
-                        <div>
-                            <img src="./assets/img/img-home/carrusel2.jpg" alt="" class="w-[231px] h-[130px] object-cover">
-                            <p class="text-white text-center font-bold">PRINCESS MONONOKE</p>
-                        </div>
-                        <div>
-                            <img src="./assets/img/img-home/carrusel2.jpg" alt="" class="w-[231px] h-[130px] object-cover">
-                            <p class="text-white text-center font-bold">STAR WARS ROGUE ONE</p>
-                        </div>
-                    </div>
-                    <div class="flex justify-center items-center">
-                        <button class="text-2xl">
-                            VER MÁS
-                        </button>
+                    <div class="w-80 bg-white rounded-3xl text-center" style="height: 335px;">
+                        <img class="relative h-64 w-64" style="left: 32px;" src="/Cine/src/main/resources/static/dist/assets/img/formulario (1).png">
+                        <p>Formulario</p>
                     </div>
                 </div>
+                </div>
+            </section>
             </section>
         </main>
 
@@ -206,5 +223,52 @@
         </footer>
         <script src="./assets/js/header.js"></script>
         <script src="./assets/js/perfil_admin.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const usuarioDataString = sessionStorage.getItem('usuarioData');
+        
+                if (usuarioDataString) {
+                    const usuarioData = JSON.parse(usuarioDataString);
+        
+                    document.getElementById('nombreNavBar').innerText = usuarioData.nombre;
+                    document.getElementById('apellidoNavBar').innerText = usuarioData.apellido;
+        
+                    document.getElementById('nombreDatos').innerText = usuarioData.nombre;
+                    document.getElementById('apellidoDatos').innerText = usuarioData.apellido;
+                    document.getElementById('fechaNacimiento').innerText = usuarioData.fechaNacimiento;
+        
+                    if (usuarioData.email) {
+                        document.getElementById('email').innerText = usuarioData.email;
+                    } else {
+                        console.error('Error: El campo "email" en usuarioData está vacío o undefined.');
+                    }
+        
+                    document.getElementById('telefono').innerText = usuarioData.telefono;
+        
+                    console.log('Datos del usuario:', usuarioData);
+        
+                    
+                    if (usuarioData.tipoUsuario === "Admin") {
+                        
+                        document.getElementById('reporte').style.display = 'block';
+                        document.getElementById('Peliculas').style.display = 'none';
+                    } else {
+                        
+                        document.getElementById('Peliculas').style.display = 'block';
+                    }
+        
+                } else {
+                    console.error('Error: Datos del usuario no encontrados en sessionStorage');
+                }
+        
+                const cerrarSesionBtn = document.getElementById('cerrarSesionBtn');
+                cerrarSesionBtn.addEventListener('click', function () {
+                    
+                    sessionStorage.removeItem('usuarioData');
+                    
+                    window.location.href = './index.html';
+                });
+            });
+        </script>
 </body>
 </html>
