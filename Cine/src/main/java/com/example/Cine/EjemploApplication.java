@@ -8,27 +8,26 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-
-
 @SpringBootApplication
 public class EjemploApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(EjemploApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(EjemploApplication.class, args);
+    }
 
-	@Configuration
-	public class CorsConfig {
-    @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")
-                        .allowedOrigins("null");
-            }
-        };
+    @Configuration
+    public class CorsConfig {
+        @Bean
+        public WebMvcConfigurer corsConfigurer() {
+            return new WebMvcConfigurer() {
+                @Override
+                public void addCorsMappings(CorsRegistry registry) {
+                    registry.addMapping("/**")
+                            .allowedOrigins("null")
+                            .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                            .allowedHeaders("Origin", "Content-Type", "Accept", "Authorization");
+                }
+            };
+        }
     }
 }
-}
-
