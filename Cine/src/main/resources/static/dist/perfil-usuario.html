@@ -34,7 +34,7 @@
             <div
                 class="user-container flex items-center w-44 h-12 justify-center relative space-x-2 max-sm:m-0 max-sm:space-x-0 max-sm:w-32">
                 <div onclick="window.location.href='./perfil-usuario.html'" class="ml-4 cursor-pointer max-sm:ml-0">
-                    <img src="/Cine/src/main/resources/static/dist/assets/icon/usuario.png"
+                    <img id="perfilUsuario" src="/Cine/src/main/resources/static/dist/assets/icon/usuario.png"
                         class="w-auto h-10 max-sm:h-10">
                 </div>
                 <div class="flex max-sm:hidden">
@@ -117,12 +117,26 @@
                     <div class="font-bold w-full font-serif text-sm ml-10 sm:ml-0">
                         <h1 class="text-xl mb-2">DATOS GENERALES</h1>
                         <ul>
-                            <li class="text-sm mt-5">Nombre: <span id="nombreDatos" onclick="Cambios(1)">Fulanito</span></li>
-                            <li class="text-sm mt-5">Apellido: <span id="apellidoDatos" onclick="Cambios(2)">De Tal</span></li>
-                            <li class="text-sm mt-5">Fecha de Nacimiento: <span id="fechaNacimiento" onclick="Cambios(3)">
-                                    06/02/2001</span></li>
-                            <li class="text-sm mt-5">Email: <span id="email" onclick="Cambios(4)">fulanitolamaquina@gmail.com</span></li>
-                            <li class="text-sm mt-5">Telefono: <span id="telefono" onclick="Cambios(5)">+507-3411243</span></li>
+                            <li class="text-sm mt-5">Nombre: 
+                                <span id="nombreDatos" onclick="Cambios(1)">Fulanito</span>
+                                <input type="text" id="inputNombre" style="display:none" placeholder="Nuevo nombre" >
+                            </li>
+                            <li class="text-sm mt-5">Apellido: 
+                                <span id="apellidoDatos" onclick="Cambios(2)">De Tal</span>
+                                <input type="text" id="inputApellido" style="display:none" placeholder="Nuevo apellido">
+                            </li>
+                            <li class="text-sm mt-5">Fecha de Nacimiento: 
+                                <span id="fechaNacimiento" onclick="Cambios(3)">06/02/2001</span>
+                                <input type="date" id="inputFechaNacimiento" style="display:none">
+                            </li>
+                            <li class="text-sm mt-5">Email: 
+                                <span id="email" onclick="Cambios(4)">fulanitolamaquina@gmail.com</span>
+                                <input type="email" id="inputEmail" style="display:none" placeholder="Nuevo email">
+                            </li>
+                            <li class="text-sm mt-5">Telefono: 
+                                <span id="telefono" onclick="Cambios(5)">+507-3411243</span>
+                                <input type="tel" id="inputTelefono" style="display:none" placeholder="Nuevo teléfono">
+                            </li>
                         </ul>
                     </div>
                     <div class="flex mt-10 justify-center gap-4 md:justify-evenly md:gap-0">
@@ -221,7 +235,7 @@
                     <a href="#" class="text-white max-sm:text-sm">Politicas de Privacidad</a>
                 </div>
             </div>
-        </div>  
+        </div>  
         <div class="flex absolute gap-2 right-14 bottom-2 md:right-14 md:top-5">
             <a href=""><img src="/Cine/src/main/resources/static/dist/assets/icon/facebook.png" class="w-8 h-8"></a>
             <a href=""><img src="/Cine/src/main/resources/static/dist/assets/icon/instagram.png" class="w-8 h-8"></a>

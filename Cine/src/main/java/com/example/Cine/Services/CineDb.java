@@ -1,19 +1,17 @@
 package com.example.Cine.Services;
 
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.example.Cine.modelos.Usuarios;
-import org.springframework.stereotype.Component;
 
-@Component
 public class CineDb {
-    Connection cn;
+  Connection cn;
 
     public CineDb() {
         cn = new Conexion().openDb();
@@ -35,7 +33,7 @@ public class CineDb {
                     usuarioEncontrado = true;
 
                     if (contrasena.equals(usuario.getContrasena())) {
-                        // Aquí puedes realizar acciones adicionales si el inicio de sesión es exitoso
+                        
                         return "Inicio de sesión exitoso";
                     } else {
                         return "Error de contraseña";
@@ -59,7 +57,7 @@ public class CineDb {
 
     // Obtener datos del usuario por email y contraseña
     public Usuarios obtenerDatosUsuario(String email, String contrasena) {
-        String query = "SELECT id_usuario, nombre, apellido, email, telefono, tipoUsuario, tipoUsuario, fechaNacimiento FROM Usuario WHERE email = ? AND contrasena = ?";
+        String query = "SELECT id_usuario, nombre, apellido, email, telefono, tipoUsuario, fechaNacimiento FROM Usuario WHERE email = ? AND contrasena = ?";
         try (PreparedStatement pstmt = cn.prepareStatement(query)) {
             pstmt.setString(1, email);
             pstmt.setString(2, contrasena);
@@ -73,7 +71,6 @@ public class CineDb {
                     usuario.setEmail(resultSet.getString("email")); 
                     usuario.setTelefono(resultSet.getString("telefono"));
                     usuario.setTipoUsuario(resultSet.getString("tipoUsuario"));
-                    usuario.setTipoUsuario(resultSet.getString("tipoUsuario"));
                     usuario.setFechaNacimiento(resultSet.getString("fechaNacimiento"));
 
                     return usuario;
@@ -84,12 +81,11 @@ public class CineDb {
         }
         return null;
     }
-
     // Pantalla de registro
     public String registro(Usuarios usuario) {
         String resultado = "Registrando cuenta de usuario...";
         try {
-            String query = "CALL InsertarUsuario(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String query = "CALL InsertarUsuario(?, ?, ?, ?, ?, ?, ?, ?)";
 
             try (PreparedStatement pstmt = cn.prepareStatement(query)) {
                 pstmt.setString(1, usuario.getNombre());
@@ -100,7 +96,6 @@ public class CineDb {
                 pstmt.setString(6, usuario.getContrasena());
                 pstmt.setString(7, usuario.getConfirmarContrasena());
                 pstmt.setString(8, usuario.getFechaNacimiento());
-                pstmt.setBytes(9, usuario.getPeliculas_Vistas());
 
                 pstmt.executeUpdate();
                 cn.commit();
@@ -113,6 +108,7 @@ public class CineDb {
         }
         return resultado;
     }
+    
 
     // Obtener lista de usuarios
     public List<Usuarios> obtenerUsuarios() {
@@ -159,5 +155,25 @@ public class CineDb {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public void actualizarDatosUsuario(Usuarios usuario) {
+    try {
+        String query = "UPDATE Usuario SET nombre = ?, apellido = ?, fechaNacimiento = ?, email = ?, telefono = ? WHERE id_usuario = ?";
+        try (PreparedStatement pstmt = cn.prepareStatement(query)) {
+                pstmt.setString(1, usuario.getNombre());
+                pstmt.setString(2, usuario.getApellido());
+                pstmt.setString(3, usuario.getFechaNacimiento());
+                pstmt.setString(4, usuario.getEmail());
+                pstmt.setString(5, usuario.getTelefono());
+                pstmt.setInt(6, usuario.getId_usuario());
+
+                pstmt.executeUpdate();
+                cn.commit();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error al actualizar los datos del usuario");
+        }
     }
 }
