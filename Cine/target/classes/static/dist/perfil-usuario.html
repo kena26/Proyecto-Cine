@@ -29,7 +29,7 @@
             class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
             <div class="cursor-pointer">
                 <img src="/Cine/src/main/resources/static/dist/assets/img/logo.png" alt=""
-                    class="w-auto h-12 max-sm:h-10 max-sm:w-auto">
+                    class="w-auto h-12 max-sm:h-10 max-sm:w-auto" onclick="window.location.href='./home.html'">
             </div>
             <div
                 class="user-container flex items-center w-44 h-12 justify-center relative space-x-2 max-sm:m-0 max-sm:space-x-0 max-sm:w-32">
@@ -74,14 +74,12 @@
     <!--INICIO DE EL CODIGO PRINCIPAL-->
     <main>
             <section id="selector" class="absolute h-full w-full flex" style="display: none; z-index: 1;">
-                <div class="absolute bg-black rounded-3xl items-center"
-                    style="width:810px; height:410px; top: 5%; left: 20%;">
-                    <div class="absolute bg-[#9C6D46] rounded-3xl"
-                        style="width:800px; height:400px; top: 5px; left: 5px;">
+                <div class="absolute bg-black rounded-3xl items-center w-[810px] max-sm:left-8 h-[410px] top-[5%] left-[20%] max-sm:w-10/12">
+                    <div class="absolute bg-[#9C6D46] rounded-3xl w-[800px] h-[400px] top-[5px] max-sm:left-6 left-[5px] max-sm:w-10/12">
                         <div class="text-center" style="height: 25px; margin: 10px;">
                             <h1 class="font-serif text-xl">ELIGE TU FOTO DE PERFIL</h1>
                         </div>
-                        <div class="flex">
+                        <div class="flex flex-wrap overflow-y-scroll">
                             <img src="/Cine/src/main/resources/static/dist/assets/icon/servicio-al-cliente.png"
                                 class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
                                 onclick="cambiarFotoPerfil(this)">
@@ -95,15 +93,14 @@
 
                     </div>
                     <div>
-                        <button class="absolute text-white bg-stone-500 hover:bg-red-600 rounded-2xl h-10 w-28"
-                            style="top: 350px; left: 350px;" onclick="cerrarSelector()">Cancelar</button>
+                        <button class="absolute text-white bg-stone-500 top-[350px] left-[350px] max-sm:left-[50px] hover:bg-red-600 rounded-2xl h-10 w-28" onclick="cerrarSelector()">Cancelar</button>
                     </div>
                 </div>
             </section>
      
         <section class="flex flex-col md:flex-row justify-center items-center gap-10 w-[90%] m-auto md:mt-0 md:[95%]">
             <!--SECCION DE LA IZQUIERDA(PERFIL)-->
-            <section id="usuario" class="bg-gray-300 mt-5 bg-opacity-40  p-12 rounded-3xl md:p-10">
+            <section id="usuario" class="bg-gray-300 mt-5 bg-opacity-40  p-12 rounded-3xl max-sm:p-8">
                 <div class="flex flex-col items-center -mt-20 justify-center gap-4 md:flex-row md:mt-0  ">
                     <div class="relative">
                         <img src="/Cine/src/main/resources/static/dist/assets/icon/user-icon-profile.png"
@@ -114,22 +111,22 @@
                             </a>
                         </div>
                     </div>
-                    <h1 class="font-serif font-bold text-xl">Usuario (Admin)</h1>
+                    <h1 class="font-serif font-bold text-xl">Usuario</h1>
                 </div>
                 <div class="font-serif relative mt-10">
                     <div class="font-bold w-full font-serif text-sm ml-10 sm:ml-0">
                         <h1 class="text-xl mb-2">DATOS GENERALES</h1>
                         <ul>
-                            <li class="text-sm mt-5">Nombre: <span id="nombreDatos">Fulanito</span></li>
-                            <li class="text-sm mt-5">Apellido: <span id="apellidoDatos">De Tal</span></li>
-                            <li class="text-sm mt-5">Fecha de Nacimiento: <span id="fechaNacimiento">
+                            <li class="text-sm mt-5">Nombre: <span id="nombreDatos" onclick="Cambios(1)">Fulanito</span></li>
+                            <li class="text-sm mt-5">Apellido: <span id="apellidoDatos" onclick="Cambios(2)">De Tal</span></li>
+                            <li class="text-sm mt-5">Fecha de Nacimiento: <span id="fechaNacimiento" onclick="Cambios(3)">
                                     06/02/2001</span></li>
-                            <li class="text-sm mt-5">Email: <span id="email">fulanitolamaquina@gmail.com</span></li>
-                            <li class="text-sm mt-5">Telefono: <span id="telefono">+507-3411243</span></li>
+                            <li class="text-sm mt-5">Email: <span id="email" onclick="Cambios(4)">fulanitolamaquina@gmail.com</span></li>
+                            <li class="text-sm mt-5">Telefono: <span id="telefono" onclick="Cambios(5)">+507-3411243</span></li>
                         </ul>
                     </div>
                     <div class="flex mt-10 justify-center gap-4 md:justify-evenly md:gap-0">
-                        <button class=" text-black bg-gray-300 rounded-2xl h-10 w-28">Actualizar</button>
+                        <button class=" text-black bg-gray-300 rounded-2xl h-10 w-28" onclick="actualizar()">Actualizar</button>
                         <button id="cerrarSesionBtn" class=" text-black bg-gray-300 rounded-2xl h-10 w-28">Cerrar
                             Sesion</button>
                     </div>
@@ -236,53 +233,7 @@
 
     <script src="./assets/js/header.js"></script>
     <script src="./assets/js/perfil_admin.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const usuarioDataString = sessionStorage.getItem('usuarioData');
-
-            if (usuarioDataString) {
-                const usuarioData = JSON.parse(usuarioDataString);
-
-                document.getElementById('nombreNavBar').innerText = usuarioData.nombre;
-                document.getElementById('apellidoNavBar').innerText = usuarioData.apellido;
-
-                document.getElementById('nombreDatos').innerText = usuarioData.nombre;
-                document.getElementById('apellidoDatos').innerText = usuarioData.apellido;
-                document.getElementById('fechaNacimiento').innerText = usuarioData.fechaNacimiento;
-
-                if (usuarioData.email) {
-                    document.getElementById('email').innerText = usuarioData.email;
-                } else {
-                    console.error('Error: El campo "email" en usuarioData está vacío o undefined.');
-                }
-
-                document.getElementById('telefono').innerText = usuarioData.telefono;
-
-                console.log('Datos del usuario:', usuarioData);
-
-
-                if (usuarioData.tipoUsuario === "Admin") {
-
-                    document.getElementById('reporte').style.display = 'block';
-                    document.getElementById('Peliculas').style.display = 'none';
-                } else {
-
-                    document.getElementById('Peliculas').style.display = 'block';
-                }
-
-            } else {
-                console.error('Error: Datos del usuario no encontrados en sessionStorage');
-            }
-
-            const cerrarSesionBtn = document.getElementById('cerrarSesionBtn');
-            cerrarSesionBtn.addEventListener('click', function () {
-
-                sessionStorage.removeItem('usuarioData');
-
-                window.location.href = './index.html';
-            });
-        });
-    </script>
+    <script src="./assets/js/perfil.js"></script>
 </body>
 
 </html>

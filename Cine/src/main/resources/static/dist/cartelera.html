@@ -6,7 +6,7 @@
     <title>Cartelera</title>
     <link rel="stylesheet" href="./output.css" />
 	<link rel="icon" href="\Cine\src\main\resources\static\dist\assets\icon\favicon.ico" />
-	<link rel="stylesheet" href="/Cine/src/main/resources/static/dist/assets/css-chatbox/chatbox.css" />
+	<link rel="stylesheet" href="./assets/css-chatbox/chatbox.css" />
 	<script src="https://kit.fontawesome.com/da2008d449.js" crossorigin="anonymous"></script>
 </head>
 <body class="bg-radial-gradient at-[50.02% 52.33%] from-[#431B19] via-[#431B19] to-[#141414]">
@@ -71,205 +71,246 @@
 				</select>
 			</div>
 		</section>
-		    
 	</header>
 
+	<!--Seccion del CHATBOX-->
+	<section class="w-full h-[1600px] max-sm:h-[1800px] absolute top-[145px] max-sm:top-[80px] z-50">
+		<!--CHATBOX-->
+		<button id="show-chatbot" class="chatbot-toggle-button z-50">
+			<div class="bg-[#63432e] flex items-center">
+				<img id="chatbot-image" src="/Cine/src/main/resources/static/dist/assets/icon/servicio-al-cliente.png"
+					alt="Chatbot" onclick="showChat()" />
+			</div>
+		</button>
+		<!-- Contenedor del chatbot (inicialmente oculto) -->
+		<div id="chatbot-container" class="chatbot-container top-0">
+			<button id="close-chatbot" class="close-button">X</button>
+			<div class="chat-header">
+				<div class="chatbot-info">
+					<img class="w-full" src="/Cine/src/main/resources/static/dist/assets/img/logo.png"
+						alt="Logo Ñequepolis" />
+				</div>
+			</div>
+			<div class="chat-messages" id="chat-messages">
+				<h3>Bienvenido a Film Mania</h3>
+			</div>
+			<div class="chat-input">
+				<input type="text" id="user-input" placeholder="Bienvenido" />
+				<button id="send-button">Enviar</button>
+			</div>
+		</div>
+	</section>
+
     <!-- Sección de cartelera -->
-    <section class="flex flex-col w-[100%] h-[600px] justify-center items-center mx-4 my-4 px-4 py-4 gap-1">
+    <section class="flex flex-col w-full justify-center items-center  my-4 px-4 py-4 gap-1">
+
+		<!-- titulo (el original se perdió) -->
+		<section class="flex w-full flex-col justify-center items-center mx-4 px-4 my-4 py-4 gap-1">
+			<h1 class="text-white text-5xl justify-center">Cartelera</h1>
+			<h3 class="text-white text-2xl justify-center"><span>Cine Urracá</span></h3>
+		</section>
 
 
-		<!-- tercera barra-->
-		<section class="grid grid-cols-1 sm:flex sm:flex-col w-[88%] h-[50px] px-1 my-2 items-center justify-center">
-			<div class="flex flex-row w-[95%] h-[95%] gap-2 mx-1 my-1 px-1 py-1 bg-gradient-to-b from-[#9C6D46] to-[#684A31] rounded-lg">
-				<ul class="bg-current flex justify-end gap-2">
-					<li class="flex flex-wrap w-7 justify-center items-center mx-1 gap-1">
-						<div class="relative flex min-h-screen items-center justify-center overflow-hidden">
-							<div class="mx-auto max-w-md">
-							  <ul class="shadow-xl flex w-[150px]">
-								<li class="relative flex w-30 items-center justify-center border-b-2 py-1 px-1">
-									<img src="/Cine/src/main/resources/static/dist/assets/icon/busqueda-de-lupa (1).png" class="w-6 h-5">
-								</li>
-								<li class="flex w-30 items-center border-b-2 py-1">
-									<select name="genero" id="genero"
-							class="bg-[rgba(247,246,245,0.53)] placeholder:text-black text-center rounded-[20px] w-full h-[95%] py-1 justify-center items-center">
-							<option value="" disabled selected>Genero</option>
-							<option value="accion">Acción</option>
-							<option value="comedy">Comedia</option>
-							<option value="drama">Drama</option>
-							<option value="adventure">Aventura</option>
-							<option value="animation">Animación</option>
-							<option value="romance">Romance</option>
-						</select>
-								</li>
-							  </ul>
-							</div>
-						  </div>
-					</li>	
-					<li class="flex flex-wrap w-7 justify-center items-center mx-1 gap-1">
-						<div class="relative flex min-h-screen items-center justify-center overflow-hidden">
-							<div class="mx-auto max-w-md">
-							  <ul class="shadow-xl flex px-3">
-								<li class="relative flex w-30 items-center justify-center border-b-2 py-1">
-									<img src="/Cine/src/main/resources/static/dist/assets/icon/calendario.png" class="w-6 h-5">
-								</li>
-								<li class="flex w-30 items-center border-b-2 py-1">
-								  <input type="date" name="" id="" class="rounded-full mx-1 gap-1">
-								</li>
-							  </ul>
-							</div>
-						  </div>
-					</li>
-					<li class="flex flex-wrap w-7 justify-center items-center mx-1 gap-1">
-						<div class="relative flex min-h-screen items-center justify-center overflow-hidden">
-							<div class="mx-auto max-w-md">
-							  <ul class="shadow-xl flex">
-								<li class="relative flex w-30 items-center justify-center gap-1.5 border-b-2 px-3 py-1">
-									<img src="/Cine/src/main/resources/static/dist/assets/icon/camara-de-video (3).png" class="w-6 h-5">
-								  </li>
-								<li class="relative flex w-30 items-center justify-center gap-1.5 border-b-2 px-1 py-1 hover:border-gray-400">
-								  <input type="checkbox" id="checkbox1" class="peer relative h-5 w-5 shrink-0 appearance-none rounded-full border after:absolute after:left-0 after:top-0 after:h-full after:w-full after:bg-[url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjZmZmZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgdmVyc2lvbj0iMS4xIiB4PSIwcHgiIHk9IjBweCI+PHRpdGxlPmljb25fYnlfUG9zaGx5YWtvdjEwPC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZyBmaWxsPSIjZmZmZmZmIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNi4wMDAwMDAsIDI2LjAwMDAwMCkiPjxwYXRoIGQ9Ik0xNy45OTk5ODc4LDMyLjQgTDEwLjk5OTk4NzgsMjUuNCBDMTAuMjI2Nzg5MSwyNC42MjY4MDE0IDguOTczMTg2NDQsMjQuNjI2ODAxNCA4LjE5OTk4Nzc5LDI1LjQgTDguMTk5OTg3NzksMjUuNCBDNy40MjY3ODkxNCwyNi4xNzMxOTg2IDcuNDI2Nzg5MTQsMjcuNDI2ODAxNCA4LjE5OTk4Nzc5LDI4LjIgTDE2LjU4NTc3NDIsMzYuNTg1Nzg2NCBDMTcuMzY2ODIyOCwzNy4zNjY4MzUgMTguNjMzMTUyOCwzNy4zNjY4MzUgMTkuNDE0MjAxNCwzNi41ODU3ODY0IEw0MC41OTk5ODc4LDE1LjQgQzQxLjM3MzE4NjQsMTQuNjI2ODAxNCA0MS4zNzMxODY0LDEzLjM3MzE5ODYgNDAuNTk5OTg3OCwxMi42IEw0MC41OTk5ODc4LDEyLjYgQzM5LjgyNjc4OTEsMTEuODI2ODAxNCAzOC41NzMxODY0LDExLjgyNjgwMTQgMzcuNzk5OTg3OCwxMi42IEwxNy45OTk5ODc4LDMyLjQgWiI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==')] after:bg-[length:40px] after:bg-center after:bg-no-repeat after:content-[''] checked:bg-gray-500 hover:ring hover:ring-gray-300 focus:outline-none" />
-								  <label for="checkbox1" class="w-full cursor-pointer font-medium text-white"> 2D </label>
-								</li>
-								<li class="flex w-30 items-center gap-1.5 border-b-2 px-1 py-1 hover:border-gray-400">
-								  <input type="checkbox" id="checkbox2" class="peer relative left-0 h-5 w-5 shrink-0 appearance-none rounded-full border outline-none after:absolute after:left-0 after:top-0 after:h-full after:w-full after:bg-[url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjZmZmZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgdmVyc2lvbj0iMS4xIiB4PSIwcHgiIHk9IjBweCI+PHRpdGxlPmljb25fYnlfUG9zaGx5YWtvdjEwPC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZyBmaWxsPSIjZmZmZmZmIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNi4wMDAwMDAsIDI2LjAwMDAwMCkiPjxwYXRoIGQ9Ik0xNy45OTk5ODc4LDMyLjQgTDEwLjk5OTk4NzgsMjUuNCBDMTAuMjI2Nzg5MSwyNC42MjY4MDE0IDguOTczMTg2NDQsMjQuNjI2ODAxNCA4LjE5OTk4Nzc5LDI1LjQgTDguMTk5OTg3NzksMjUuNCBDNy40MjY3ODkxNCwyNi4xNzMxOTg2IDcuNDI2Nzg5MTQsMjcuNDI2ODAxNCA4LjE5OTk4Nzc5LDI4LjIgTDE2LjU4NTc3NDIsMzYuNTg1Nzg2NCBDMTcuMzY2ODIyOCwzNy4zNjY4MzUgMTguNjMzMTUyOCwzNy4zNjY4MzUgMTkuNDE0MjAxNCwzNi41ODU3ODY0IEw0MC41OTk5ODc4LDE1LjQgQzQxLjM3MzE4NjQsMTQuNjI2ODAxNCA0MS4zNzMxODY0LDEzLjM3MzE5ODYgNDAuNTk5OTg3OCwxMi42IEw0MC41OTk5ODc4LDEyLjYgQzM5LjgyNjc4OTEsMTEuODI2ODAxNCAzOC41NzMxODY0LDExLjgyNjgwMTQgMzcuNzk5OTg3OCwxMi42IEwxNy45OTk5ODc4LDMyLjQgWiI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==')] after:bg-[length:40px] after:bg-center after:bg-no-repeat after:content-[''] checked:bg-gray-500 hover:ring hover:ring-gray-300" />
-								  <label for="checkbox2" class="inline-block w-full cursor-pointer font-medium text-white"> 3D </label>
-								</li>
-								<li class="flex w-30 items-center gap-1.5 border-b-2 px-1 py-1 hover:border-gray-400">
-								  <input type="checkbox" id="checkbox3" class="peer relative left-0 h-5 w-5 shrink-0 appearance-none rounded-full border outline-none after:absolute after:left-0 after:top-0 after:h-full after:w-full after:bg-[url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjZmZmZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgdmVyc2lvbj0iMS4xIiB4PSIwcHgiIHk9IjBweCI+PHRpdGxlPmljb25fYnlfUG9zaGx5YWtvdjEwPC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZyBmaWxsPSIjZmZmZmZmIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNi4wMDAwMDAsIDI2LjAwMDAwMCkiPjxwYXRoIGQ9Ik0xNy45OTk5ODc4LDMyLjQgTDEwLjk5OTk4NzgsMjUuNCBDMTAuMjI2Nzg5MSwyNC42MjY4MDE0IDguOTczMTg2NDQsMjQuNjI2ODAxNCA4LjE5OTk4Nzc5LDI1LjQgTDguMTk5OTg3NzksMjUuNCBDNy40MjY3ODkxNCwyNi4xNzMxOTg2IDcuNDI2Nzg5MTQsMjcuNDI2ODAxNCA4LjE5OTk4Nzc5LDI4LjIgTDE2LjU4NTc3NDIsMzYuNTg1Nzg2NCBDMTcuMzY2ODIyOCwzNy4zNjY4MzUgMTguNjMzMTUyOCwzNy4zNjY4MzUgMTkuNDE0MjAxNCwzNi41ODU3ODY0IEw0MC41OTk5ODc4LDE1LjQgQzQxLjM3MzE4NjQsMTQuNjI2ODAxNCA0MS4zNzMxODY0LDEzLjM3MzE5ODYgNDAuNTk5OTg3OCwxMi42IEw0MC41OTk5ODc4LDEyLjYgQzM5LjgyNjc4OTEsMTEuODI2ODAxNCAzOC41NzMxODY0LDExLjgyNjgwMTQgMzcuNzk5OTg3OCwxMi42IEwxNy45OTk5ODc4LDMyLjQgWiI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==')] after:bg-[length:40px] after:bg-center after:bg-no-repeat after:content-[''] checked:bg-gray-500 hover:ring hover:ring-gray-300" />
-								  <label for="checkbox3" class="inline-block w-full cursor-pointer font-medium text-white"> Digital </label>
-								</li>
-							  </ul>
-							</div>
-						  </div>
-					</li>
-				</ul>
+		<!--cuarta barra, a ver si esta sirve-->
+		<section class="flex flex-col md:flex md:flex-wrap w-[94%] px-1 my-2 items-center justify-center">
+			<div class="flex flex-col sm:flex-row w-full h-[95%] gap-2 mx-1 my-1 px-1 py-1 bg-gradient-to-b from-[#9C6D46] to-[#684A31] rounded-lg">
+				<div class="flex flex-wrap w-1/3 h-full justify-center items-center mx-1 gap-1">
+					<div class="relative flex h-full w-full items-center justify-center overflow-hidden">
+						<div class="mx-auto w-full">
+						  <ul class="shadow-xl flex w-full">
+							<li class="relative flex w-30 items-center justify-center border-b-2 py-1 px-1">
+								<img src="/Cine/src/main/resources/static/dist/assets/icon/busqueda-de-lupa (1).png" class="w-6 h-5">
+							</li>
+							<li class="flex w-full items-center border-b-2 py-1">
+								<select name="genero" id="genero"
+						class="bg-[rgba(247,246,245,0.53)] placeholder:text-black text-center rounded-[20px] w-full h-[95%] py-1 justify-center items-center">
+						<option value="" disabled selected>Genero</option>
+						<option value="accion">Acción</option>
+						<option value="comedy">Comedia</option>
+						<option value="drama">Drama</option>
+						<option value="adventure">Aventura</option>
+						<option value="animation">Animación</option>
+						<option value="romance">Romance</option>
+					</select>
+							</li>
+						  </ul>
+						</div>
+					</div>
+				</div>
+				<div class="flex flex-wrap w-1/3 h-full justify-center items-center mx-1 gap-1">
+					<div class="relative flex h-full w-full items-center justify-center">
+						<div class="mx-auto w-full">
+						  <ul class="shadow-xl w-full flex">
+							<li class="relative flex w-30 items-center justify-center border-b-2 py-1">
+								<img src="/Cine/src/main/resources/static/dist/assets/icon/calendario.png" class="w-6 h-5">
+							</li>
+							<li class="flex w-full items-center border-b-2 py-1">
+							  <input type="date" name="" id="" class="rounded-full w-full mx-1 gap-1">
+							</li>
+						  </ul>
+						</div>
+					  </div>
+				</div>
+				<div class="flex flex-wrap w-1/3 h-full justify-center items-center mx-1 gap-1">
+					<div class="relative flex h-full items-center justify-center">
+						<div class="mx-auto max-w-md">
+						  <ul class="shadow-xl flex">
+							<li class="relative flex w-30 items-center justify-center gap-1.5 border-b-2 px-3 py-1">
+								<img src="/Cine/src/main/resources/static/dist/assets/icon/camara-de-video (3).png" class="w-6 h-5">
+							  </li>
+							<li class="relative flex w-30 items-center justify-center gap-1.5 border-b-2 px-1 py-1 hover:border-black">
+							  <input type="checkbox" id="checkbox1" class="peer relative left-0 h-5 w-5 shrink-0 appearance-none rounded-full border outline-none after:absolute after:left-0 after:top-0 
+							  after:h-full after:w-full after:bg-[] after:bg-[length:40px] after:bg-center after:bg-no-repeat after:content-[''] checked:bg-gray-500 hover:ring hover:ring-gray-300" />
+							  <label for="checkbox1" class="w-full cursor-pointer font-medium text-white"> 2D </label>
+							</li>
+							<li class="flex w-30 items-center gap-1.5 border-b-2 px-1 py-1 hover:border-gray-400">
+							  <input type="checkbox" id="checkbox2" class="peer relative left-0 h-5 w-5 shrink-0 appearance-none rounded-full border outline-none after:absolute after:left-0 after:top-0 
+							  after:h-full after:w-full after:bg-[] after:bg-[length:40px] after:bg-center after:bg-no-repeat after:content-[''] checked:bg-gray-500 hover:ring hover:ring-gray-300" />
+							  <label for="checkbox2" class="inline-block w-full cursor-pointer font-medium text-white"> 3D </label>
+							</li>
+							<li class="flex w-30 items-center gap-1.5 border-b-2 px-1 py-1 hover:border-gray-400">
+							  <input type="checkbox" id="checkbox3" class="peer relative left-0 h-5 w-5 shrink-0 appearance-none rounded-full border outline-none after:absolute after:left-0 after:top-0 
+							  after:h-full after:w-full after:bg-[] after:bg-[length:40px] after:bg-center after:bg-no-repeat after:content-[''] checked:bg-gray-500 hover:ring hover:ring-gray-300" />
+							  <label for="checkbox3" class="inline-block w-full cursor-pointer font-medium text-white"> Digital </label>
+							</li>
+						  </ul>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 
-		<!-- prueba de responsive -->
-		<section class="grid grid-cols-1 sm:flex sm:flex-wrap w-[88%] h-[500px] sm:h-[350px] mx-2 my-2 px-5 py-6 align-baseline rounded-md border-[2px] border-white border-solid ">
-            <div class="h-[95%] md:h-[95%] md:w-1/3 md:mx-[1px] md:my-1 gap-1 flex flex-col justify-center items-center">
-				<div class="relative flex flex-col justify-center items-center h-[100%] w-[60%] rounded-md mx-2 px-2">
-					<img src="/Cine/src/main/resources/static/dist/assets/img/img-infoPeli/guardianes.jpeg"
-					class="image-item max-w-none rounded-md w-[120px] h-[180px] object-cover md:w-[200px] md:h-[260px] lg:w-[220px] lg:h-[280px] md:mx-3 lg:mx-3">
+		<!--gran caja-->
+		<section class="flex flex-col w-full justify-center items-center">
+			<section class="w-[95%] py-4 flex flex-col justify-center items-center gap-5 sm:flex-row sm:items-start rounded-md border-[2px] border-white border-solid ">
+				<div class="h-[95%] sm:h-[95%] sm:w-1/3 md:mx-[1px] md:my-1 gap-1 flex flex-col justify-center items-center">
+					<div class="relative flex flex-col justify-center items-center h-[100%] w-[60%] rounded-md mx-2 px-2">
+						<img src="/Cine/src/main/resources/static/dist/assets/img/img-infoPeli/guardianes.jpeg"
+						class="image-item max-w-none rounded-md w-[120px] h-[180px] object-cover md:w-[200px] md:h-[260px] lg:w-[220px] lg:h-[280px] md:mx-3 lg:mx-3">
+					</div>
 				</div>
-            </div>
-            <div class="md:h-full md:w-full md:mx-[1px] md:my-1 md:px-3 grid grid-flow-col items-left place-content-between">
-				<ul class="md:h-[98%] md:w-11/12 md:mx-3 md:px-3">
-					<li><h2 class="text-white text-left px-2 font-mono w-11/12 h-1 mx-1 my-1">Guardians of the Galaxy</h2></li>
-					<li class="flex flex-wrap">
-						<div class="w-[70px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
-						<h2 class="text-white text-left px-1 font-mono w-[70px]">PG</h2></div>
-						<div class="w-[70px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
-							<h2 class="text-white text-left px-1 font-mono w-[70px]">125m</h2></div>
-							<div class="w-[70px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
-								<h2 class="text-white text-left px-1 font-mono w-[70px]">2D</h2></div>
-					</li>
-					<li>
-						<hr class="my-4 w-2">
-					</li>
-					<li class="flex flex-wrap">
-						<div class="h-3 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
-							<h2 class="text-white text-left px-1 font-mono w-[48px]">Dub</h2></div>
-						<button class="bg-[#9C6D46] w-[90px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-full border-[2px] 
-							hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-20">12:00 p.m.</p></button>
-						<button class="bg-[#9C6D46] w-[90px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-full border-[2px]  
-							hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-20">4:20 p.m.</p></button>
-					</li>
-					<li class="flex flex-wrap">
-						<div class="h-3 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
-							<h2 class="text-white text-left px-1 font-mono w-[48px]">Sub</h2></div>
-						<button class="bg-[#9C6D46] w-[90px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-full border-[2px]  
-							hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-20">2:10 p.m.</p></button>
-						<button class="bg-[#9C6D46] w-[90px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-full border-[2px]  
-							hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-20">6:30 p.m.</p></button>	
-					</li>
-				</ul>
-			</div>
-        </section>
-		<section class="grid grid-cols-1 sm:flex sm:flex-wrap w-[88%] h-[500px] sm:h-[350px] mx-2 my-2 px-5 py-6 align-baseline rounded-md border-[2px] border-white border-solid ">
-            <div class="h-[95%] md:h-[95%] md:w-1/3 md:mx-[1px] md:my-1 gap-1 flex flex-col justify-center items-center">
-				<div class="relative flex flex-col justify-center items-center h-[100%] w-[60%] rounded-md mx-2 px-2">
-					<img src="/Cine/src/main/resources/static/dist/assets/img/img-infoPeli/guardianes.jpeg"
-					class="image-item max-w-none rounded-md w-[120px] h-[180px] object-cover md:w-[200px] md:h-[260px] lg:w-[220px] lg:h-[280px] md:mx-3 lg:mx-3">
+				<div class="md:h-full md:w-2/3 md:mx-[1px] md:my-1 md:px-3 grid grid-flow-col items-left place-items-start">
+					<ul class="md:h-[98%] w-[390px]">
+						<li class="h-8 w-full">
+							<h2 class="text-white text-left font-mono w-11/12 text-lg mx-1 my-1">Guardians of the Galaxy</h2></li>
+						<li class="flex flex-wrap h-8 items-center justify-start">
+							<div class="w-[70px] h-7 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
+							<h2 class="text-white text-left px-1 font-mono w-[65px]">PG</h2></div>
+							<div class="w-[70px] h-7 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
+								<h2 class="text-white text-left px-1 font-mono w-[70px]">125m</h2></div>
+								<div class="w-[70px] h-7 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
+									<h2 class="text-white text-left px-1 font-mono w-[70px]">2D</h2></div>
+						</li>
+						<li class="w-full">
+							<hr class="my-4 w-[400px]">
+						</li>
+						<li class="flex flex-wrap h-8 my-3 items-center justify-start">
+							<div class="h-7 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
+								<h2 class="text-white text-left px-1 font-mono w-[48px]">Dub</h2></div>
+							<button class="h-7 bg-[#9C6D46] w-[90px] mx-1 my-1 px-1 py-1 justify-start rounded-full border-[2px] 
+								hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-[68px] h-5 text-center">12:00 p.m.</p></button>
+							<button class="h-7 bg-[#9C6D46] w-[90px] mx-1 my-1 px-1 py-1 justify-start rounded-full border-[2px]  
+								hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-[68px] h-5 text-center">4:20 p.m.</p></button>
+						</li>
+						<li class="flex flex-wrap h-8 my-3 items-center justify-start">
+							<div class="h-7 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
+								<h2 class="text-white text-left px-1 font-mono w-[48px]">Dub</h2></div>
+							<button class="h-7 bg-[#9C6D46] w-[90px] mx-1 my-1 px-1 py-1 justify-start rounded-full border-[2px] 
+								hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-[68px] h-5 text-center">12:00 p.m.</p></button>
+							<button class="h-7 bg-[#9C6D46] w-[90px] mx-1 my-1 px-1 py-1 justify-start rounded-full border-[2px]  
+								hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-[68px] h-5 text-center">4:20 p.m.</p></button>
+						</li>
+						
+					</ul>
 				</div>
-            </div>
-            <div class="md:h-full md:w-full md:mx-[1px] md:my-1 md:px-3 grid grid-flow-col items-left place-content-between">
-				<ul class="md:h-[98%] md:w-11/12 md:mx-3 md:px-3">
-					<li><h2 class="text-white text-left px-2 font-mono w-11/12 h-1 mx-1 my-1">Guardians of the Galaxy</h2></li>
-					<li class="flex flex-wrap">
-						<div class="w-[70px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
-						<h2 class="text-white text-left px-1 font-mono w-[70px]">PG</h2></div>
-						<div class="w-[70px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
-							<h2 class="text-white text-left px-1 font-mono w-[70px]">125m</h2></div>
-							<div class="w-[70px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
-								<h2 class="text-white text-left px-1 font-mono w-[70px]">Digital</h2></div>
-					</li>
-					<li>
-						<hr class="my-4 w-2">
-					</li>
-					<li class="flex flex-wrap">
-						<div class="h-3 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
-							<h2 class="text-white text-left px-1 font-mono w-[48px]">Dub</h2></div>
-						<button class="bg-[#9C6D46] w-[90px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-full border-[2px] 
-							hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-20">12:00 p.m.</p></button>
-						<button class="bg-[#9C6D46] w-[90px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-full border-[2px]  
-							hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-20">4:20 p.m.</p></button>
-					</li>
-					<li class="flex flex-wrap">
-						<div class="h-3 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
-							<h2 class="text-white text-left px-1 font-mono w-[48px]">Sub</h2></div>
-						<button class="bg-[#9C6D46] w-[90px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-full border-[2px]  
-							hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-20">2:10 p.m.</p></button>
-						<button class="bg-[#9C6D46] w-[90px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-full border-[2px]  
-							hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-20">6:30 p.m.</p></button>	
-					</li>
-				</ul>
-			</div>
-        </section>
-		<section class="grid grid-cols-1 sm:flex sm:flex-wrap w-[88%] h-[500px] sm:h-[350px] mx-2 my-2 px-5 py-6 align-baseline rounded-md border-[2px] border-white border-solid ">
-            <div class="h-[95%] md:h-[95%] md:w-1/3 md:mx-[1px] md:my-1 gap-1 flex flex-col justify-center items-center">
-				<div class="relative flex flex-col justify-center items-center h-[100%] w-[60%] rounded-md mx-2 px-2">
-					<img src="/Cine/src/main/resources/static/dist/assets/img/img-infoPeli/guardianes.jpeg"
-					class="image-item max-w-none rounded-md w-[120px] h-[180px] object-cover md:w-[200px] md:h-[260px] lg:w-[220px] lg:h-[280px] md:mx-3 lg:mx-3">
+			</section>
+			<section class="w-[95%] py-4 flex flex-col justify-center items-center gap-5 sm:flex-row sm:items-start rounded-md border-[2px] border-white border-solid ">
+				<div class="h-[95%] sm:h-[95%] sm:w-1/3 md:mx-[1px] md:my-1 gap-1 flex flex-col justify-center items-center">
+					<div class="relative flex flex-col justify-center items-center h-[100%] w-[60%] rounded-md mx-2 px-2">
+						<img src="/Cine/src/main/resources/static/dist/assets/img/img-infoPeli/guardianes.jpeg"
+						class="image-item max-w-none rounded-md w-[120px] h-[180px] object-cover md:w-[200px] md:h-[260px] lg:w-[220px] lg:h-[280px] md:mx-3 lg:mx-3">
+					</div>
 				</div>
-            </div>
-            <div class="md:h-full md:w-full md:mx-[1px] md:my-1 md:px-3 grid grid-flow-col items-left place-content-between">
-				<ul class="md:h-[98%] md:w-11/12 md:mx-3 md:px-3">
-					<li><h2 class="text-white text-left px-2 font-mono w-11/12 h-1 mx-1 my-1">Guardians of the Galaxy</h2></li>
-					<li class="flex flex-wrap">
-						<div class="w-[70px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
-						<h2 class="text-white text-left px-1 font-mono w-[70px]">PG</h2></div>
-						<div class="w-[70px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
-							<h2 class="text-white text-left px-1 font-mono w-[70px]">125m</h2></div>
-							<div class="w-[70px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
-								<h2 class="text-white text-left px-1 font-mono w-[70px]">3D</h2></div>
-					</li>
-					<li>
-						<hr class="my-4 w-2">
-					</li>
-					<li class="flex flex-wrap">
-						<div class="h-3 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
-							<h2 class="text-white text-left px-1 font-mono w-[48px]">Dub</h2></div>
-						<button class="bg-[#9C6D46] w-[90px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-full border-[2px] 
-							hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-20">12:00 p.m.</p></button>
-						<button class="bg-[#9C6D46] w-[90px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-full border-[2px]  
-							hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-20">4:20 p.m.</p></button>
-					</li>
-					<li class="flex flex-wrap">
-						<div class="h-3 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
-							<h2 class="text-white text-left px-1 font-mono w-[48px]">Sub</h2></div>
-						<button class="bg-[#9C6D46] w-[90px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-full border-[2px]  
-							hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-20">2:10 p.m.</p></button>
-						<button class="bg-[#9C6D46] w-[90px] h-3 mx-1 my-1 px-1 py-1 justify-center rounded-full border-[2px]  
-							hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-20">6:30 p.m.</p></button>	
-					</li>
-				</ul>
-			</div>
-        </section>
-		
+				<div class="md:h-full md:w-2/3 md:mx-[1px] md:my-1 md:px-3 grid grid-flow-col items-left place-items-start">
+					<ul class="md:h-[98%] w-[390px]">
+						<li class="h-8 w-full">
+							<h2 class="text-white text-left font-mono w-11/12 text-lg mx-1 my-1">Guardians of the Galaxy</h2></li>
+						<li class="flex flex-wrap h-8 items-center justify-start">
+							<div class="w-[70px] h-7 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
+							<h2 class="text-white text-left px-1 font-mono w-[65px]">PG</h2></div>
+							<div class="w-[70px] h-7 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
+								<h2 class="text-white text-left px-1 font-mono w-[70px]">125m</h2></div>
+								<div class="w-[70px] h-7 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
+									<h2 class="text-white text-left px-1 font-mono w-[70px]">2D</h2></div>
+						</li>
+						<li class="w-full">
+							<hr class="my-4 w-[400px]">
+						</li>
+						<li class="flex flex-wrap h-8 my-3 items-center justify-start">
+							<div class="h-7 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
+								<h2 class="text-white text-left px-1 font-mono w-[48px]">Dub</h2></div>
+							<button class="h-7 bg-[#9C6D46] w-[90px] mx-1 my-1 px-1 py-1 justify-start rounded-full border-[2px] 
+								hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-[68px] h-5 text-center">12:00 p.m.</p></button>
+							<button class="h-7 bg-[#9C6D46] w-[90px] mx-1 my-1 px-1 py-1 justify-start rounded-full border-[2px]  
+								hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-[68px] h-5 text-center">4:20 p.m.</p></button>
+						</li>
+						<li class="flex flex-wrap h-8 my-3 items-center justify-start">
+							<div class="h-7 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
+								<h2 class="text-white text-left px-1 font-mono w-[48px]">Dub</h2></div>
+							<button class="h-7 bg-[#9C6D46] w-[90px] mx-1 my-1 px-1 py-1 justify-start rounded-full border-[2px] 
+								hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-[68px] h-5 text-center">12:00 p.m.</p></button>
+							<button class="h-7 bg-[#9C6D46] w-[90px] mx-1 my-1 px-1 py-1 justify-start rounded-full border-[2px]  
+								hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-[68px] h-5 text-center">4:20 p.m.</p></button>
+						</li>
+						
+					</ul>
+				</div>
+			</section>
+			<section class="w-[95%] py-4 flex flex-col justify-center items-center gap-5 sm:flex-row sm:items-start rounded-md border-[2px] border-white border-solid ">
+				<div class="h-[95%] sm:h-[95%] sm:w-1/3 md:mx-[1px] md:my-1 gap-1 flex flex-col justify-center items-center">
+					<div class="relative flex flex-col justify-center items-center h-[100%] w-[60%] rounded-md mx-2 px-2">
+						<img src="/Cine/src/main/resources/static/dist/assets/img/img-infoPeli/guardianes.jpeg"
+						class="image-item max-w-none rounded-md w-[120px] h-[180px] object-cover md:w-[200px] md:h-[260px] lg:w-[220px] lg:h-[280px] md:mx-3 lg:mx-3">
+					</div>
+				</div>
+				<div class="md:h-full md:w-2/3 md:mx-[1px] md:my-1 md:px-3 grid grid-flow-col items-left place-items-start">
+					<ul class="md:h-[98%] w-[390px]">
+						<li class="h-8 w-full">
+							<h2 class="text-white text-left font-mono w-11/12 text-lg mx-1 my-1">Guardians of the Galaxy</h2></li>
+						<li class="flex flex-wrap h-8 items-center justify-start">
+							<div class="w-[70px] h-7 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
+							<h2 class="text-white text-left px-1 font-mono w-[65px]">PG</h2></div>
+							<div class="w-[70px] h-7 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
+								<h2 class="text-white text-left px-1 font-mono w-[70px]">125m</h2></div>
+								<div class="w-[70px] h-7 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
+									<h2 class="text-white text-left px-1 font-mono w-[70px]">2D</h2></div>
+						</li>
+						<li class="w-full">
+							<hr class="my-4 w-[400px]">
+						</li>
+						<li class="flex flex-wrap h-8 my-3 items-center justify-start">
+							<div class="h-7 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
+								<h2 class="text-white text-left px-1 font-mono w-[48px]">Dub</h2></div>
+							<button class="h-7 bg-[#9C6D46] w-[90px] mx-1 my-1 px-1 py-1 justify-start rounded-full border-[2px] 
+								hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-[68px] h-5 text-center">12:00 p.m.</p></button>
+							<button class="h-7 bg-[#9C6D46] w-[90px] mx-1 my-1 px-1 py-1 justify-start rounded-full border-[2px]  
+								hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-[68px] h-5 text-center">4:20 p.m.</p></button>
+						</li>
+						<li class="flex flex-wrap h-8 my-3 items-center justify-start">
+							<div class="h-7 mx-1 my-1 px-1 py-1 justify-center rounded-md border-[2px]">
+								<h2 class="text-white text-left px-1 font-mono w-[48px]">Dub</h2></div>
+							<button class="h-7 bg-[#9C6D46] w-[90px] mx-1 my-1 px-1 py-1 justify-start rounded-full border-[2px] 
+								hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-[68px] h-5 text-center">12:00 p.m.</p></button>
+							<button class="h-7 bg-[#9C6D46] w-[90px] mx-1 my-1 px-1 py-1 justify-start rounded-full border-[2px]  
+								hover:bg-amber-700 active:bg-amber-900"><p class="text-white w-[68px] h-5 text-center">4:20 p.m.</p></button>
+						</li>
+						
+					</ul>
+				</div>
+			</section>
+			
+		</section>
     </section>
-
 
 
     <footer class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] py-5 w-full relative z-50">
@@ -312,10 +353,8 @@
 				<img src="/Cine/src/main/resources/static/dist/assets/icon/tik-tok.png" class="w-8 h-8" />
 			</a>
 		</div>
-		    
 	</footer>
 	<script src="/Cine/src/main/resources/static/dist/assets/js/home.js"></script>
 	<script src="/Cine/src/main/resources/static/dist/assets/js/chatbot.js"></script>
-	<script></script>
 </body>
 </html>

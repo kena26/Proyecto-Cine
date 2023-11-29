@@ -87,10 +87,12 @@ function Cambios(span) {
 }
 
 function deshacerCambios(input, text) {
-    let spanElement = document.createElement("span");
-    spanElement.textContent = input.value;
-    spanElement.setAttribute("id", text)
-    input.parentNode.replaceChild(spanElement, input);
+    if (input.tagName === "INPUT") {
+        let spanElement = document.createElement("span");
+        spanElement.textContent = input.value;
+        spanElement.setAttribute("id", text)
+        input.parentNode.replaceChild(spanElement, input);
+    }
 }
 
 function actualizar() {
@@ -103,14 +105,14 @@ function actualizar() {
         let spanEmail = document.getElementById('email')
         let spanTel = document.getElementById('telefono')
 
-
         deshacerCambios(spanNombre, "nombreDatos");
         deshacerCambios(spanApellido, "apellidoDatos");
         deshacerCambios(spanFecha, "fechaNacimiento");
         deshacerCambios(spanEmail, "email");
         deshacerCambios(spanTel, "telefono");
+        cambiado = false;
     }
-    else{
+    else {
         window.alert("No hay datos por actualizar")
     }
 }

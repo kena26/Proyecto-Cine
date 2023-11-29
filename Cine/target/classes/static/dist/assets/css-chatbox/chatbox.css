@@ -17,6 +17,7 @@ body {
 	justify-content: space-between;
 	border: 1px solid #000000;
 	border-radius: 10%;
+	z-index: 10000;
 }
 
 .chat-header {
@@ -195,8 +196,7 @@ body {
 		left: 580px;
 	}
 	.chatbot-container{
-		top: 375px;
-		left: 270px;
+		left: 20px;
 	}
 	.chatbot-container-open{
 		top: 150px;
