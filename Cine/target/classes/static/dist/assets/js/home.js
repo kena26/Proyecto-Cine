@@ -129,3 +129,24 @@ function scrollDer() {
         behavior: 'smooth'
     })
 }
+document.addEventListener('DOMContentLoaded', function () {
+    const usuarioDataString = sessionStorage.getItem('usuarioData');
+
+    if (usuarioDataString) {
+        const usuarioData = JSON.parse(usuarioDataString);
+
+        const usernamePlaceholder = document.getElementById('usernamePlaceholder');
+        if (usernamePlaceholder) {
+            usernamePlaceholder.innerText = `${usuarioData.nombre} ${usuarioData.apellido}`;
+        }
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const rutaImagenPerfil = localStorage.getItem('rutaImagenPerfil');
+    
+    const perfilUsuario = document.getElementById('perfilUsuario');
+    if (perfilUsuario && rutaImagenPerfil) {
+        perfilUsuario.src = rutaImagenPerfil;
+    }
+});
