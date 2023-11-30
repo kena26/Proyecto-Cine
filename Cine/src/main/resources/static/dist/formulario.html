@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmMania | Formulario</title>
+    <link rel="stylesheet" href="\Cine\src\main\resources\static\dist\output.css" />
+    <link rel="icon" href="\Cine\src\main\resources\static\dist\assets\icon\favicon.ico" />
+
+	<!--Este style solo es para cambiar un scroll bar, que tailwind no tiene y se ve feo sin eso xD-->
+	<style>
+		.custom-scrollbar::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 1em;
+            border: 2px solid #fff;
+        }
+		.custom-scrollbar::-webkit-scrollbar-track {
+		background-color: #f1f1f1;
+		border-radius: 6px;
+		}
+	</style>
+</head>
+<body onload="cargarPeliculas()" class="h-[1200px] bg-gradient-to-b from-Délicieux-au-Chocolat to-Piano-Black">
+    <!--HEADER-->
+		<header>
+			<!--seccion del logo-->
+			<section
+				class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
+				<div class="hidden max-sm:block">
+					<i class="fa-solid fa-bars max-sm:block max-sm:ml-5 text-2xl"></i>
+				</div>
+				<a href="./home.html">
+					<div class="cursor-pointer max-sm:absolute max-sm:left-1 max-sm:top-1">
+						<img
+							src="/Cine/src/main/resources/static/dist/assets/img/logo.png"
+							alt=""
+							class="w-auto h-12 max-sm:h-10 max-sm:w-auto" />
+					</div>
+				</a>
+				
+				<div
+					class="user-container flex items-center w-44 h-12 justify-center relative space-x-2 max-sm:m-0 max-sm:space-x-0 max-sm:w-32">
+					<div class="ml-4 absolute right-0 max-sm:right-2 cursor-pointer max-sm:ml-0">
+						<img
+							src="/Cine/src/main/resources/static/dist/assets/icon/usuario.png"
+							class="w-auto h-10 max-sm:h-10" />
+					</div>
+				</div>
+			</section>
+			<!--Seccion de busqueda de peliculas-->
+			<section class="w-full h-10 flex items-center bg-black">
+				<!--Boton flecha abajo(MENU DESPLEGABLE SUCURSALES) ARREGLAR EL DROPDOWN cambiar colores y arreglar el display-->
+				<div class="boton-flecha-abajo">
+					<button id="boton-flecha-abajo" data-dropdown-toggle="dropdown" data-dropdown-trigger="click" class="w-14 h-5 max-sm:h-4 flex justify-center items-center relative left-5 bg-gray-300/80 rounded-xl">
+						<div class="pointer-events-none">
+							<svg fill="#878787" height="25px" width="25px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 386.257 386.257" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="0,96.879 193.129,289.379 386.257,96.879 "></polygon> </g></svg>
+						</div>  
+					</button> 					
+                        <!-- Dropdown menu -->
+                    <div id="dropdown" class="z-50 hidden absolute left-6 bg-Délicieux-au-Chocolat divide-y divide-transparent rounded-lg shadow w-44 dark:bg-Délicieux-au-Chocolat">
+						<h1 class="pointer-events-none text-center text-3xl text-white">Sucursales</h1>
+						<ul class="py-2 text-sm text-center text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+							<li>
+								<button onclick="cargarPeliculas(this.id), ocultarClickDropdwown()" id="all" class="block w-full px-4 py-2 hover:bg-Brown-Sugar dark:hover:bg-Brown-Sugar dark:hover:text-white">
+									Todas las sucursales
+								</button>
+							</li>
+							<li>
+								<button onclick="cargarPeliculas(this.id), ocultarClickDropdwown()" id="CVLS" class="block w-full px-4 py-2 hover:bg-Brown-Sugar dark:hover:bg-Brown-Sugar dark:hover:text-white">
+									Campus Victor Levi Sasso
+								</button>
+							</li>
+							<li>
+								<button onclick="cargarPeliculas(this.id), ocultarClickDropdwown()" id="TOC" class="block w-full px-4 py-2 hover:bg-Brown-Sugar dark:hover:bg-Brown-Sugar dark:hover:text-white">
+									Sede de Tocumen
+								</button>
+							</li>
+							<li>
+								<button onclick="cargarPeliculas(this.id), ocultarClickDropdwown()" id="HOW" class="block w-full px-4 py-2 hover:bg-Brown-Sugar dark:hover:bg-Brown-Sugar dark:hover:text-white">
+									Sede de Howard
+								</button>
+							</li>
+							<li>
+								<button onclick="cargarPeliculas(this.id), ocultarClickDropdwown()" id="CPO" class="block w-full px-4 py-2 hover:bg-Brown-Sugar dark:hover:bg-Brown-Sugar dark:hover:text-white">
+									Centro Regional de Panamá Oeste
+								</button>
+							</li>
+							<li>
+								<button onclick="cargarPeliculas(this.id), ocultarClickDropdwown()" id="CBT" class="block w-full px-4 py-2 hover:bg-Brown-Sugar dark:hover:bg-Brown-Sugar dark:hover:text-white">
+									Centro Regional de Bocas del Toro
+								</button>
+							</li>
+							<li>
+								<button onclick="cargarPeliculas(this.id), ocultarClickDropdwown()" id="CHI" class="block w-full px-4 py-2 hover:bg-Brown-Sugar dark:hover:bg-Brown-Sugar dark:hover:text-white">
+									Centro Regional de Chiriquí
+								</button>
+							</li>
+							<li>
+								<button onclick="cargarPeliculas(this.id), ocultarClickDropdwown()" id="COL" class="block w-full px-4 py-2 hover:bg-Brown-Sugar dark:hover:bg-Brown-Sugar dark:hover:text-white">
+									Centro Regional de Colón
+								</button>
+							</li>
+							<li>
+								<button onclick="cargarPeliculas(this.id), ocultarClickDropdwown()" id="VER" class="block w-full px-4 py-2 hover:bg-Brown-Sugar dark:hover:bg-Brown-Sugar dark:hover:text-white">
+									Centro Regional de Veraguas
+								</button>
+							</li>
+						</ul>
+                    </div>								
+			    </div>
+				<!--Busqueda-->
+				<div class="relative left-16"> 
+					<input id="" type="search" placeholder="Buscar pelicula....." class="w-[200px] pl-4 pr-6 rounded-xl focus:outline-none bg-white text-base font-semibold outline-0">
+					<svg viewBox="0 0 20 20" aria-hidden="true" class="absolute top-0.5 right-2 pointer-events-none w-5 fill-black">
+						<path d="M16.72 17.78a.75.75 0 1 0 1.06-1.06l-1.06 1.06ZM9 14.5A5.5 5.5 0 0 1 3.5 9H2a7 7 0 0 0 7 7v-1.5ZM3.5 9A5.5 5.5 0 0 1 9 3.5V2a7 7 0 0 0-7 7h1.5ZM9 3.5A5.5 5.5 0 0 1 14.5 9H16a7 7 0 0 0-7-7v1.5Zm3.89 10.45 3.83 3.83 1.06-1.06-3.83-3.83-1.06 1.06ZM14.5 9a5.48 5.48 0 0 1-1.61 3.89l1.06 1.06A6.98 6.98 0 0 0 16 9h-1.5Zm-1.61 3.89A5.48 5.48 0 0 1 9 14.5V16a6.98 6.98 0 0 0 4.95-2.05l-1.06-1.06Z"></path>
+					</svg>
+				</div>
+			</section>
+		</header>
+		<!--Fondo gris para el desplegable-->
+		<section id="bgDropdown" class="w-full h-[1112px] hidden absolute bg-Piano-Black/70 z-40"></section>
+
+		<!--Seccion de las peliculas-->
+		<section class="w-full h-[92.5%] flex relative justify-center items-center">
+			<section class="w-[92%] max-sm:w-[88%] h-[90%] max-sm:h-[87%] max-sm:relative max-sm:-top-[3%] rounded-t-xl max-sm:rounded-t-3xl flex flex-col items-center bg-white">
+				<div id="containerPeliculas" class="w-full h-14 rounded-t-lg max-sm:rounded-t-2xl flex justify-between items-center bg-Buckeye-brown">
+					<div class="flex items-center">
+						<label class="w-5 h-5 relative left-[14px] cursor-pointer overflow-hidden flex justify-center items-center rounded-sm bg-gray-600 max-sm:bg-gray-400">
+							<input type="checkbox" id="seleccionarTodos" class="checkboxes peer hidden">
+							<img 
+									class="w-5 max-sm:w-4 h-5 max-sm:h-4 rounded-sm opacity-0 peer-checked:opacity-100 scale-0 transition-all z-20 duration-300 peer-checked:transition-all top-2 left-2 peer-checked:scale-100 peer-checked:duration-300"
+									src="\Cine\src\main\resources\static\dist\assets\icon\cheque.png">
+						</label>
+						<p class="pointer-events-none relative left-7 text-zinc-50 text-xl font-bold">Películas</p>
+					</div>
+					<div class="flex">
+						<button onclick="mostrarAddPeli('agregarBtn'), scrollASeccion('containerEdit')" id="agregarBtn" class="max-sm:h-8 py-1 rounded-md relative right-8 max-sm:right-[4%] bg-Délicieux-au-Chocolat">
+							<p class="pointer-events-none pl-3 pr-7 flex items-center max-sm:text-base text-zinc-50 text-xl font-bold">Añadir<span class="w-1 h-1 px-0 mx-3 absolute top-0 max-sm:-top-1 right-2 text-3xl font-light max-sm:font-bold">+</span>
+							</p>
+						</button>
+						<button onclick="mostrarContainerEliminar(), scrollASeccion('eliminar')" class="max-sm:h-8 px-2 py-1 rounded-md flex items-center relative right-4 max-sm:right-[2%] bg-Délicieux-au-Chocolat">
+							<p class="pointer-events-none flex items-center max-sm:text-base justify-center text-zinc-50 text-xl font-bold">Eliminar</p>
+							<img 
+								class="w-5 h-5 ml-2"
+								src="\Cine\src\main\resources\static\dist\assets\icon\eliminaricon.svg" alt="Eliminar">
+						</button>
+					</div>
+				</div>
+
+				<!--Sección de la tabla donde estan todas las peliculas-->
+				<div class="w-[98%] h-full overflow-y-auto">
+					<table class="w-[98%] max-sm:w-[90%] relative top-3 max-sm:left-3">
+						<tbody id="allMovies">
+							
+						</tbody>
+					</table>
+				</div>
+
+				<!--Seccion de Editar las peliculas (Inicialmente oculto)-->
+				<section id="editPeli" class="w-[92%] max-sm:w-full h-[946px] max-sm:h-[913px] hidden flex justify-center absolute top-[9.8%] max-sm:top-[5.5%] bg-Piano-Black/80 z-10">
+					<div id="containerEdit" class="custom-scrollbar w-80 max-sm:w-[80%] h-[91%] px-8 py-4 overflow-x-hidden overflow-y-auto relative top-[2%] rounded-t-xl bg-Délicieux-au-Chocolat">
+						<form action="" class="relative">
+							<div id="formPeli" class="relative grid grid-cols-4 gap-x-5 gap-y-2 place-content-center">
+								<!--Titulo y Duración-->
+								<label for="titulo" class="col-span-2 text-white">Título:</label>
+								<label for="duracion" class="col-span-2 text-white">Duración:</label>
+								<input onkeyup="agregarTituloEscribir(this.id)" id="titulo" type="text" class="px-2 py-1 rounded-lg focus:outline-none col-span-2">
+								<input onkeyup="agregarDuracionEscribir(this.id)" id="duracion" type="text" class="px-2 rounded-lg focus:outline-none col-span-2">
+								<!--Descripción-->
+								<label for="sinopsis" class="col-span-4 text-white text-justify">Descripción:</label>
+								<textarea onkeyup="agregarDescripcionEscribir(this.id)" name="sinopsis" id="sinopsis" rows="4" class="p-2 text-sm rounded-xl focus:outline-none col-span-4"></textarea>
+								<!--Clasificación y Género-->
+								<label for="clasificacion" class="col-span-2 text-white">Clasificación:</label>
+								<label for="genero" class="col-span-2 text-white">Género:</label>
+								<input onkeyup="agregarClasificacionEscribir(this.id)" id="clasificacion" type="text" class="px-2 py-1 rounded-lg focus:outline-none col-span-2">
+								<input onkeyup="agregarGeneroEscribir(this.id)" id="genero" type="text" class="px-2 rounded-lg focus:outline-none col-span-2">
+								<!--Poster Media-->
+								<label for="poster" class="col-span-4 text-center text-white">Poster media:</label>
+								<input onkeyup="agregarPosterEscribir(this.id)" id ="foto_poster" type="url" placeholder="URL" class="px-2 py-1 rounded-lg focus:outline-none  placeholder:font-bold col-span-4">
+								<!--Calificación y Trailer-->
+								<label for="calificacion" class="col-span-2 text-white">Calificación:</label>
+								<label for="trailer" class="col-span-2 text-white">Trailer(idioma):</label>
+								<input onchange="agregarCalificacionEscribir(this.id)" id="calificacion" type="number" class="px-2 py-1 rounded-lg focus:outline-none col-span-2">
+								<input onkeyup="agregarTrailerEscribir(this.id)" id="trailer" type="url" class="px-2 rounded-lg focus:outline-none col-span-2">
+								<!--Sucursales-->
+								<label for="sucursal" class="col-span-2 text-white">Sucursal(es):</label>
+								<button onclick="mostrarSucursales(), scrollASeccion('containerSucursales')" type="button" class="w-20 h-8 px-2 py-1 relative left-[35%] max-sm:left-[15%] col-span-2 whitespace-nowrap rounded-lg text-white bg-Piano-Black">+ Añadir</button>
+								<div id="divSucursales" class="custom-scrollbar h-14 p-1 flex overflow-y-hidden overflow-x-auto rounded-lg col-span-4 bg-white">
+									<button 
+										onclick="ocultarBtnSucursal(this.name)"
+										name="CVLS" 
+										type="button" 
+										class="buttonSucursal group h-8 p-1 hidden flex justify-center items-center rounded-3xl bg-slate-500 hover:bg-slate-700">
+										<p class="p-1 text-xs text-white whitespace-nowrap group-hover:font-bold">
+											Panama Este - Campus Victor Levi Sasso 
+											<span class="mx-1 text-base font-bold text-red-700 group-hover:text-red-500">X</span>
+										</p>
+									</button>
+									<button 
+										onclick="ocultarBtnSucursal(this.name)"
+										name="TOC"
+										type="button" 
+										class="buttonSucursal group h-8 p-1 hidden flex justify-center items-center rounded-3xl bg-slate-500 hover:bg-slate-700">
+										<p class="p-1 text-xs text-white whitespace-nowrap group-hover:font-bold">
+											Panama Este - Sede Tocumen
+											<span class="mx-1 text-base font-bold text-red-700 group-hover:text-red-500">X</span>
+										</p>
+									</button>
+									<button 
+										onclick="ocultarBtnSucursal(this.name)"
+										name="HOW" 
+										type="button" 
+										class="buttonSucursal group h-8 p-1 hidden flex justify-center items-center rounded-3xl bg-slate-500 hover:bg-slate-700">
+										<p class="p-1 text-xs text-white whitespace-nowrap group-hover:font-bold">
+											Panama Este - Sede de Howard
+											<span class="mx-1 text-base font-bold text-red-700 group-hover:text-red-500">X</span>
+										</p>
+									</button>
+									<button 
+										onclick="ocultarBtnSucursal(this.name)"
+										name="CPO" 
+										type="button" 
+										class="buttonSucursal group h-8 p-1 hidden flex justify-center items-center rounded-3xl bg-slate-500 hover:bg-slate-700">
+										<p class="p-1 text-xs text-white whitespace-nowrap group-hover:font-bold">
+											Panama Oeste - Centro Regional de Panamá Oeste 
+											<span class="mx-1 text-base font-bold text-red-700 group-hover:text-red-500">X</span>
+										</p>
+									</button>
+									<button 
+										onclick="ocultarBtnSucursal(this.name)"
+										name="CBT" 
+										type="button" 
+										class="buttonSucursal group h-8 p-1 hidden flex justify-center items-center rounded-3xl bg-slate-500 hover:bg-slate-700">
+										<p class="p-1 text-xs text-white whitespace-nowrap group-hover:font-bold">
+											Bocas del Toro - Centro Regional de Bocas del Toro
+											<span class="mx-1 text-base font-bold text-red-700 group-hover:text-red-500">X</span>
+										</p>
+									</button>
+									<button 
+										onclick="ocultarBtnSucursal(this.name)"
+										name="CHI" 
+										type="button" 
+										class="buttonSucursal group h-8 p-1 hidden flex justify-center items-center rounded-3xl bg-slate-500 hover:bg-slate-700">
+										<p class="p-1 text-xs text-white whitespace-nowrap group-hover:font-bold">
+											Chiriquí - Centro Regional de Chiriquí
+											<span class="mx-1 text-base font-bold text-red-700 group-hover:text-red-500">X</span>
+										</p>
+									</button>
+									<button 
+										onclick="ocultarBtnSucursal(this.name)"
+										name="COL" 
+										type="button" 
+										class="buttonSucursal group h-8 p-1 hidden flex justify-center items-center rounded-3xl bg-slate-500 hover:bg-slate-700">
+										<p class="p-1 text-xs text-white whitespace-nowrap group-hover:font-bold">
+											Colon - Centro Regional de Colon
+											<span class="mx-1 text-base font-bold text-red-700 group-hover:text-red-500">X</span>
+										</p>
+									</button>
+									<button 
+										onclick="ocultarBtnSucursal(this.name)"
+										name="VER" 
+										type="button" 
+										class="buttonSucursal group h-8 p-1 hidden flex justify-center items-center rounded-3xl bg-slate-500 hover:bg-slate-700">
+										<p class="p-1 text-xs text-white whitespace-nowrap group-hover:font-bold">
+											Veraguas - Centro Regional de Veraguas 
+											<span class="mx-1 text-base font-bold text-red-700 group-hover:text-red-500">X</span>
+										</p>
+									</button>
+								</div>
+								
+
+								<label for="director" class="col-span-2 text-white">Director(es):</label>
+								<button onclick="agregarDirectores('agregarBtn')" type="button" class="w-20 h-8 px-2 py-1 m-0 relative left-[35%] max-sm:left-[15%] col-span-2 whitespace-nowrap rounded-lg text-white bg-Piano-Black">+ Añadir</button>
+								<!--Contenedor de los directores de pelicula-->
+								<div id="containerFilmDirector" class="col-span-4 grid grid-cols-4 gap-x-[14px] max-sm:gap-x-0 gap-y-2 place-content-center">
+									
+								</div>
+
+								<p class="col-span-4 text-center text-white">Elenco</p>
+
+								<div id="containerActor" class="col-span-4 grid grid-cols-4 gap-x-5 gap-y-2 place-content-center">
+									
+								</div>
+							</div>
+							
+							<div class="hidden sticky w-full h-[50%]"></div>
+						</form>
+					</div>
+					<!--Contenedor para los botones de cancelar, añadir/editar-->
+					<div id="containerBtn" class="w-80 max-sm:w-[80%] h-16 mr-[1px] max-sm:mr-0 flex justify-center items-center absolute bottom-2 max-sm:bottom-2 rounded-b-xl bg-Délicieux-au-Chocolat">
+								
+					</div>
+				</section>
+				<!--Seccion de las sucursales (Inicialmente Oculto)-->
+				<section id="editSucursales" class="w-[92%] max-sm:w-full h-[946px] max-sm:h-[913px] hidden flex justify-center items-center absolute top-[9.8%] max-sm:top-[5.5%] bg-Piano-Black/50 z-20">
+					<div id="containerSucursales" class="w-52 max-sm:w-[70%] h-[67%] px-3 py-2 max-sm:py-5 space-y-4 flex flex-col items-center relative rounded-xl bg-Délicieux-au-Chocolat">
+						<div class="w-[95%] h-14 p-1 rounded-xl bg-Piano-Black">
+							<h2 class="text-sm text-white text-justify">Selecciona las sucursal(es) en la que estara la pelicula:</h2>
+						</div>
+
+						<div class="space-x-3 flex items-center text-sm text-white">
+							<label class="w-5 h-5 cursor-pointer overflow-hidden flex justify-center items-center rounded-sm bg-white">
+								<input name="CVLS" type="checkbox" id="" class="checkSucursales peer hidden">
+								<img 
+									class="w-5 h-5 rounded-sm opacity-0 peer-checked:opacity-100 scale-0 transition-all z-20 duration-300 peer-checked:transition-all top-2 left-2 peer-checked:scale-100 peer-checked:duration-300"
+									src="\Cine\src\main\resources\static\dist\assets\icon\cheque.png">
+								</label>
+							<p class="w-40">Panama Este - Campus Victor Levi Sasso</p>
+						</div>
+						
+						<div class="space-x-3 flex items-center text-sm text-white">
+							<label class="w-5 h-5 cursor-pointer overflow-hidden flex justify-center items-center rounded-sm bg-white">
+								<input name="TOC" type="checkbox" id="" class="checkSucursales peer hidden">
+								<img 
+									class="w-5 h-5 rounded-sm opacity-0 peer-checked:opacity-100 scale-0 transition-all z-20 duration-300 peer-checked:transition-all top-2 left-2 peer-checked:scale-100 peer-checked:duration-300"
+									src="\Cine\src\main\resources\static\dist\assets\icon\cheque.png">
+								</label>
+							<p class="w-40">Panama Este - Sede Tocumen</p>
+						</div>
+
+						<div class="space-x-3 flex items-center text-sm text-white">
+							<label class="w-5 h-5 cursor-pointer overflow-hidden flex justify-center items-center rounded-sm bg-white">
+								<input name="HOW" type="checkbox" id="" class="checkSucursales peer hidden">
+								<img 
+									class="w-5 h-5 rounded-sm opacity-0 peer-checked:opacity-100 scale-0 transition-all z-20 duration-300 peer-checked:transition-all top-2 left-2 peer-checked:scale-100 peer-checked:duration-300"
+									src="\Cine\src\main\resources\static\dist\assets\icon\cheque.png">
+								</label>
+							<p class="w-40">Panama Este - Sede de Howard</p>
+						</div>
+
+						<div class="space-x-3 flex items-center text-sm text-white">
+							<label class="w-5 h-5 cursor-pointer overflow-hidden flex justify-center items-center rounded-sm bg-white">
+								<input name="CPO" type="checkbox" id="" class="checkSucursales peer hidden">
+								<img 
+									class="w-5 h-5 rounded-sm opacity-0 peer-checked:opacity-100 scale-0 transition-all z-20 duration-300 peer-checked:transition-all top-2 left-2 peer-checked:scale-100 peer-checked:duration-300"
+									src="\Cine\src\main\resources\static\dist\assets\icon\cheque.png">
+								</label>
+							<p class="w-40">Panama Oeste - Centro Regional de Panamá Oeste</p>
+						</div>
+
+						<div class="space-x-3 flex items-center text-sm text-white">
+							<label class="w-5 h-5 cursor-pointer overflow-hidden flex justify-center items-center rounded-sm bg-white">
+								<input name="CBT" type="checkbox" id="" class="checkSucursales peer hidden">
+								<img 
+									class="w-5 h-5 rounded-sm opacity-0 peer-checked:opacity-100 scale-0 transition-all z-20 duration-300 peer-checked:transition-all top-2 left-2 peer-checked:scale-100 peer-checked:duration-300"
+									src="\Cine\src\main\resources\static\dist\assets\icon\cheque.png">
+								</label>
+							<p class="w-40">Bocas del Toro - Centro Regional de Bocas del Toro</p>
+						</div>
+
+						<div class="space-x-3 flex items-center text-sm text-white">
+							<label class="w-5 h-5 cursor-pointer overflow-hidden flex justify-center items-center rounded-sm bg-white">
+								<input name="CHI" type="checkbox" id="" class="checkSucursales peer hidden">
+								<img 
+									class="w-5 h-5 rounded-sm opacity-0 peer-checked:opacity-100 scale-0 transition-all z-20 duration-300 peer-checked:transition-all top-2 left-2 peer-checked:scale-100 peer-checked:duration-300"
+									src="\Cine\src\main\resources\static\dist\assets\icon\cheque.png">
+								</label>
+							<p class="w-40">Chiriquí - Centro Regional de Chiriquí</p>
+						</div>
+
+						<div class="space-x-3 flex items-center text-sm text-white">
+							<label class="w-5 h-5 cursor-pointer overflow-hidden flex justify-center items-center rounded-sm bg-white">
+								<input name="COL" type="checkbox" id="" class="checkSucursales peer hidden">
+								<img 
+									class="w-5 h-5 rounded-sm opacity-0 peer-checked:opacity-100 scale-0 transition-all z-20 duration-300 peer-checked:transition-all top-2 left-2 peer-checked:scale-100 peer-checked:duration-300"
+									src="\Cine\src\main\resources\static\dist\assets\icon\cheque.png">
+								</label>
+							<p class="w-40">Colon - Centro Regional de Colon</p>
+						</div>
+
+						<div class="space-x-3 flex items-center text-sm text-white">
+							<label class="w-5 h-5 cursor-pointer overflow-hidden flex justify-center items-center rounded-sm bg-white">
+								<input name="VER" type="checkbox" id="" class="checkSucursales peer hidden">
+								<img 
+									class="w-5 h-5 rounded-sm opacity-0 peer-checked:opacity-100 scale-0 transition-all z-20 duration-300 peer-checked:transition-all top-2 left-2 peer-checked:scale-100 peer-checked:duration-300"
+									src="\Cine\src\main\resources\static\dist\assets\icon\cheque.png">
+								</label>
+							<p class="w-40">Veraguas - Centro Regional de Veraguas</p>
+						</div>
+
+						<button onclick="ocultarSucursales()" class="w-36 px-2 py-1 mx-1 rounded-2xl font-bold text-white bg-Buckeye-brown hover:bg-Brown-Sugar">Listo</button>
+					</div>
+				</section>
+
+				<!--Seccion de eliminar pelicula (Inicialmente oculto)-->
+				<section id="containerEliminar" class="w-[92%] max-sm:w-full h-[946px] max-sm:h-[913px] hidden flex justify-center items-center absolute top-[9.8%] max-sm:top-[5.5%] bg-Piano-Black/50 z-20">
+					<section id="eliminar" class="w-[30%] max-sm:w-[95%] h-[25%] flex flex-col justify-center items-center absolute rounded-xl bg-[#89613E]">
+						<p class="w-[90%] h-[40%] flex relative -top-[10%] justify-center items-center text-white bg-Délicieux-au-Chocolat">¿Esta seguro que desea eliminar?</p>
+						<div class="w-full h-[15%] flex relative top-[10%] justify-around">
+							<button onclick="ocultarContainerEliminar(), scrollASeccion('containerPeliculas')" class="px-10 text-white bg-Délicieux-au-Chocolat">Cancelar</button>
+							<button onclick="botonEliminar(), ocultarContainerEliminar(), scrollASeccion('containerPeliculas')" class="px-10 text-white bg-Délicieux-au-Chocolat">Eliminar</button>
+						</div>
+					</section>
+				</section>
+			</section>
+		</section>
+		<script src="./assets/js/formulario.js"></script>
+
+		<!--Div para guardar las clases del JS que no compilan-->
+		<div class="hidden ringring-green-500 ring-inset left-[35%] m-0 left-[41%] cols-span-1 max-sm:col-span-2 max-sm:left-[45%] w-[120%] max-sm:w-16 max-sm:left-[90%] left-[90%] max-sm:rotate-90 max-sm:text-base w-20 ml-5 px-2 rounded-lg focus:outline-none placeholder:font-bold justify-around relative top-10 w-36 px-2 py-1 mx-1 rounded-2xl font-bold
+		 text-white bg-Buckeye-brown hover:bg-Brown-Sugar h-10 border-b border-gray-500 hover:border-black
+		 table-row table-cell w-8 h-5 w-5 h-5 cursor-pointer overflow-hidden flex justify-center items-center rounded-sm bg-gray-600
+		 checkboxes peer hidden w-3 h-3 rounded-sm opacity-0 peer-checked:opacity-100 scale-0 bg-white transition-all duration-300 
+		 peer-checked:transition-all top-2 left-2 peer-checked:scale-100 peer-checked:duration-300
+		 table-cell max-w-[400px] font-bold text-xl table-cell absolute left-[40%] flex justify-center items-center
+		 w-5 h-5 hover:w-6 hover:h-6 transition-all duration-300 "></div>
+</body>
+</html>

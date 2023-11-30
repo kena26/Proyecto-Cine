@@ -71,6 +71,7 @@
     </div>
   </div>
   <script>
+    const urlbase = 'http://localhost:8080';
     document.addEventListener('DOMContentLoaded', function () {
         const loginForm = document.getElementById('loginForm');
 
@@ -85,7 +86,7 @@
                 contrasena: password,
             };
 
-            fetch('http://localhost:8080/Cine/login', {
+            fetch(`${urlbase}/Cine/registro`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
