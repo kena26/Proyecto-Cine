@@ -25,8 +25,8 @@ public class EjemploApplication {
                 @Override
                 public void addCorsMappings(CorsRegistry registry) {
                     registry.addMapping("/**")
-                            .allowedOrigins("http://127.0.0.1:5501/")
-                            .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH")
+                            .allowedOrigins("http://localhost:5501")
+                            .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                             .allowedHeaders("Origin", "Content-Type", "Accept", "Authorization");
                 }
             };

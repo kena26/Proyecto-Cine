@@ -84,13 +84,14 @@
     <!-- ... (código posterior) ... -->
 
     <script>
+        const urlbase = 'http://localhost:8080';
         document.addEventListener('DOMContentLoaded', function () {
             const registroForm = document.getElementById('registroForm');
 
             registroForm.addEventListener('submit', function (event) {
-                event.preventDefault(); // Evitar la presentación del formulario por defecto
+                event.preventDefault(); 
 
-                // Obtener valores de los campos del formulario
+                
                 const nombre = document.querySelector('input[name="nombre"]').value;
                 const apellido = document.querySelector('input[name="apellido"]').value;
                 const email = document.querySelector('input[name="email"]').value;
@@ -99,13 +100,13 @@
                 const telefono = document.getElementById('tel').value;
                 const fechaNacimiento = document.getElementById('dia').value;
 
-                // Validar que las contraseñas coincidan
+                
                 if (contrasena !== confirmarContrasena) {
                     alert('Las contraseñas no coinciden. Por favor, inténtelo de nuevo.');
                     return;
                 }
 
-                // Construir el objeto de datos para enviar al servidor
+                
                 const usuario = {
                     nombre: nombre,
                     apellido: apellido,
@@ -115,8 +116,8 @@
                     fechaNacimiento: fechaNacimiento
                 };
 
-                // Realizar la solicitud POST al servidor
-                fetch('http://localhost:8080/Cine/registro', {
+                
+                fetch(`${urlbase}/Cine/registro`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -125,20 +126,20 @@
                 })
                     .then(response => response.text())
                     .then(data => {
-                        // Manejar la respuesta del servidor
+                        
                         console.log(data);
                         if (data.includes("Registro exitoso")) {
-                            // Si el registro es exitoso, mostrar una alerta
+                            
                             alert('¡Registro exitoso!');
-                            // Puedes redirigir al usuario a otra página o realizar otras acciones aquí
+                            
                         } else {
-                            // Si hay algún problema con el registro, mostrar un mensaje diferente
+                            
                             alert('Error en el registro. Por favor, inténtelo de nuevo.');
                         }
                     })
                     .catch((error) => {
                         console.error('Error:', error);
-                        // Manejar errores aquí
+
                     });
             });
         });
