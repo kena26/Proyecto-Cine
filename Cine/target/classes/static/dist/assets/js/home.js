@@ -131,6 +131,8 @@ function scrollDer() {
 }
 document.addEventListener('DOMContentLoaded', function () {
     const usuarioDataString = sessionStorage.getItem('usuarioData');
+    const botonPerfil = document.getElementById('perfilUsuarioBtn');
+    const imagenPerfil = document.getElementById('perfilUsuario');
 
     if (usuarioDataString) {
         const usuarioData = JSON.parse(usuarioDataString);
@@ -139,6 +141,25 @@ document.addEventListener('DOMContentLoaded', function () {
         if (usernamePlaceholder) {
             usernamePlaceholder.innerText = `${usuarioData.nombre} ${usuarioData.apellido}`;
         }
+    } 
+});
+
+function irAPerfilUsuario() {
+    const usuarioDataString = sessionStorage.getItem('usuarioData');
+    
+    if (usuarioDataString) {
+        window.location.href = './perfil-usuario.html';
+    } else {
+        window.location.href = './inicio-sesion.html';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const rutaImagenPerfil = localStorage.getItem('rutaImagenPerfil');
+    
+    const perfilUsuario = document.getElementById('perfilUsuario');
+    if (perfilUsuario && rutaImagenPerfil) {
+        perfilUsuario.src = rutaImagenPerfil;
     }
 });
 
