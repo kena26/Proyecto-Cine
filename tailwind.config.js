@@ -10,6 +10,8 @@ module.exports = {
 			backgroundImage: {
 				"radial-gradient":
 					"radial-gradient(86.94% 47.67% at 50.02% 52.33%, #431B19 35.42%, #141414 73.96%)",
+				"perfil-usuario":
+					"url('./assets/img/fondoPerfil.jpeg')"
 			},
 			colors: {
 				"Délicieux-au-Chocolat": "#431B19",

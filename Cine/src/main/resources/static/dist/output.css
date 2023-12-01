@@ -2301,6 +2301,10 @@ video {
   background-image: radial-gradient(86.94% 47.67% at 50.02% 52.33%, #431B19 35.42%, #141414 73.96%);
 }
 
+.bg-perfil-usuario {
+  background-image: url('./assets/img/fondoPerfil.jpeg');
+}
+
 .from-D\E9licieux-au-Chocolat {
   --tw-gradient-from: #431B19 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(67 27 25 / 0) var(--tw-gradient-to-position);
@@ -3165,10 +3169,6 @@ video {
 
   .max-sm\:right-0 {
     right: 0px;
-  }
-
-  .max-sm\:right-2 {
-    right: 0.5rem;
   }
 
   .max-sm\:right-\[2\%\] {

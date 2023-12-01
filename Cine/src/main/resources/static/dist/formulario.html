@@ -27,6 +27,15 @@
 <body onload="cargarPeliculas()" class="h-[1200px] bg-gradient-to-b from-Délicieux-au-Chocolat to-Piano-Black">
     <!--HEADER-->
 		<header>
+			 <!--nav principal-->
+			 <nav class="bg-black max-sm:hidden">
+				<ul class="flex justify-end">
+					<li><a href="./home.html" class="text-white mr-16 text-xl">Inicio</a></li>
+					<li><a href="#" class="text-white mr-16 text-xl"
+							onclick="window.location.href='./busqueda.html'">Peliculas</a></li>
+					<li><a href="./cartelera.html" class="text-white mr-16 text-xl">Cartelera</a></li>
+				</ul>
+			</nav>
 			<!--seccion del logo-->
 			<section
 				class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
@@ -35,20 +44,31 @@
 				</div>
 				<a href="./home.html">
 					<div class="cursor-pointer max-sm:absolute max-sm:left-1 max-sm:top-1">
-						<img
-							src="/Cine/src/main/resources/static/dist/assets/img/logo.png"
-							alt=""
-							class="w-auto h-12 max-sm:h-10 max-sm:w-auto" />
+						<a href="./home.html" class="cursor-pointer">
+							<img src="/Cine/src/main/resources/static/dist/assets/img/logo.png" alt="" 
+								class="w-auto h-12 max-sm:h-10 max-sm:w-auto">
+						</a>
 					</div>
 				</a>
 				
 				<div
-					class="user-container flex items-center w-44 h-12 justify-center relative space-x-2 max-sm:m-0 max-sm:space-x-0 max-sm:w-32">
-					<div class="ml-4 absolute right-0 max-sm:right-2 cursor-pointer max-sm:ml-0">
-						<img
-							src="/Cine/src/main/resources/static/dist/assets/icon/usuario.png"
-							class="w-auto h-10 max-sm:h-10" />
-					</div>
+                class="user-container flex items-center w-44 h-12 justify-center relative space-x-2 max-sm:m-0 max-sm:space-x-0 max-sm:w-32">
+                <div onclick="window.location.href='./perfil-usuario.html'" class="ml-4 cursor-pointer max-sm:ml-0">
+                    <img id="perfilUsuario" src="/Cine/src/main/resources/static/dist/assets/icon/usuario.png"
+                        class="w-auto h-10 max-sm:h-10">
+                </div>
+                <div class="flex max-sm:hidden">
+                    <div class="cursor-pointer">
+                        <p id="usernamePlaceholder" class="text-lg font-semibold">Username</p>
+                    </div>
+                    <div onclick="userLogged()" class="absolute right-0 bottom-3 cursor-pointer ">
+                        <svg class="w-5 h-5 ml-2 -mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
 				</div>
 			</section>
 			<!--Seccion de busqueda de peliculas-->
