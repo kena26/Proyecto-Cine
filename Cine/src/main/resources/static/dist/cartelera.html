@@ -15,18 +15,18 @@
 		<nav class="bg-black max-sm:hidden">
 			<ul class="flex justify-end">
 				<li><a href="./home.html" class="text-white mr-16 text-xl">Inicio</a></li>
-				<li><a href="#" class="text-white mr-16 text-xl">Peliculas</a></li>
-				<li><a href="#" class="text-white mr-16 text-xl">Cartelera</a></li>
-				<li><a href="#" class="text-white mr-36 text-xl">Ayuda</a></li>
+				<li><a href="./busqueda.html" class="text-white mr-16 text-xl">Peliculas</a></li>
+				<li><a href="./cartelera.html" class="text-white mr-16 text-xl">Cartelera</a></li>
+				<li id="chatbot-ayuda"><a href="#" class="text-white mr-36 text-xl">Ayuda</a></li>
 			</ul>
 		</nav>
 		<!--seccion del logo-->
 		<section
 			class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
-			<div class="cursor-pointer">
-				<img src="/Cine/src/main/resources/static/dist/assets/img/logo.png" alt=""
-					class="w-auto h-12 max-sm:h-10 max-sm:w-auto">
-			</div>
+			<a href="./home.html" class="cursor-pointer">
+                <img src="/Cine/src/main/resources/static/dist/assets/img/logo.png" alt="" 
+                    class="w-auto h-12 max-sm:h-10 max-sm:w-auto">
+            </a>
 			<div class="search-container flex items-center relative w-[25rem] h-12 max-sm:w-40">
 				<input type="text" id="busqueda" placeholder="Busca tu Pelicula"
 					class="bg-[rgba(247,246,245,0.53)] placeholder:text-black rounded-[20px] w-full pt-1 pb-1 indent-5 text-sm">
@@ -40,14 +40,17 @@
 						class="w-auto h-10 max-sm:h-10">
 				</div>
 				<div class="flex max-sm:hidden">
-					<div class="cursor-pointer">
-						<p class="text-lg font-semibold">Username</p>
-					</div>
-					<div class="absolute right-0 bottom-3 cursor-pointer">
-						<img src="/Cine/src/main/resources/static/dist/assets/icon/flecha-hacia-abajo-para-navegar.png"
-							class="w-3">
-					</div>
-				</div>
+                    <div class="cursor-pointer">
+                        <p id="usernamePlaceholder" class="text-lg font-semibold">Username</p>
+                    </div>
+                    <div onclick="userLogged()" class="absolute right-0 bottom-3 cursor-pointer ">
+                        <svg class="w-5 h-5 ml-2 -mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
 			</div>
 		</section>
 		<!--seccion de ubicacion-->
@@ -112,16 +115,16 @@
 
 
 		<!--cuarta barra, a ver si esta sirve-->
-		<section class="flex flex-col md:flex md:flex-wrap w-[94%] px-1 my-2 items-center justify-center">
-			<div class="flex flex-col sm:flex-row w-full h-[95%] gap-2 mx-1 my-1 px-1 py-1 bg-gradient-to-b from-[#9C6D46] to-[#684A31] rounded-lg">
+		<section class="flex flex-col md:flex md:flex-wrap w-[94%] px-1 my-2 items-center justify-center ">
+			<div class="flex flex-col sm:flex-row w-full h-[95%] gap-2 mx-1 my-1 px-1 py-1 bg-gradient-to-b from-[#9C6D46] to-[#684A31] rounded-lg ">
 				<div class="flex flex-wrap w-1/3 h-full justify-center items-center mx-1 gap-1">
-					<div class="relative flex h-full w-full items-center justify-center overflow-hidden">
-						<div class="mx-auto w-full">
+					<div class="relative flex h-full w-full items-center justify-center overflow-hidden ">
+						<div class="mx-auto w-full ">
 						  <ul class="shadow-xl flex w-full">
 							<li class="relative flex w-30 items-center justify-center border-b-2 py-1 px-1">
 								<img src="/Cine/src/main/resources/static/dist/assets/icon/busqueda-de-lupa (1).png" class="w-6 h-5">
 							</li>
-							<li class="flex w-full items-center border-b-2 py-1">
+							<li class="flex w-full items-center border-b-2 py-1 ">
 								<select name="genero" id="genero"
 						class="bg-[rgba(247,246,245,0.53)] placeholder:text-black text-center rounded-[20px] w-full h-[95%] py-1 justify-center items-center">
 						<option value="" disabled selected>Genero</option>

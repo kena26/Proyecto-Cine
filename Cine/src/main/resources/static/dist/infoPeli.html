@@ -35,17 +35,17 @@
                 <li><a href="./home.html" class="text-white mr-16 text-xl">Inicio</a></li>
                 <li><a href="#" class="text-white mr-16 text-xl"
                         onclick="window.location.href='./busqueda.html'">Peliculas</a></li>
-                <li><a href="#" class="text-white mr-16 text-xl">Cartelera</a></li>
+                <li><a href="./cartelera.html" class="text-white mr-16 text-xl">Cartelera</a></li>
                 <li id="chatbot-ayuda"><a href="#" class="text-white mr-36 text-xl">Ayuda</a></li>
             </ul>
         </nav>
         <!--seccion del logo-->
         <section
             class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
-            <div class="cursor-pointer">
-                <img src="/Cine/src/main/resources/static/dist/assets/img/logo.png" alt=""
+            <a href="./home.html" class="cursor-pointer">
+                <img src="/Cine/src/main/resources/static/dist/assets/img/logo.png" alt="" 
                     class="w-auto h-12 max-sm:h-10 max-sm:w-auto">
-            </div>
+            </a>
             <div class="search-container flex items-center w-[25rem] h-12 max-sm:w-40">
                 <form action="" method="post" class="w-full">
                     <div class="flex relative w-full">
@@ -189,8 +189,11 @@
                     </div>
                 </div>
             </div>
-            <button class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] py-3 px-2 rounded-xl text-sm sm:self-end sm:text-base sm:px-6 lg:text-xl">Compra
-                tu Boleto</button>
+            <a href="./boletos-Paso-1.html" class="cursor-pointer bg-gradient-to-b from-[#9C6D46] to-[#684A31] py-3 px-2 rounded-xl text-sm sm:self-end sm:text-base sm:px-6 lg:text-xl z-10">
+                <button>Compra tu Boleto</button>
+            </a>
+            
+            
         </section>
         <!--Slider-->
         <section class="md:text-base lg:text-xl">
