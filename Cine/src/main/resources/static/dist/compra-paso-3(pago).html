@@ -7,7 +7,7 @@
   <title>FilmMania | Paso 3</title>
   <link rel="stylesheet" href="output.css">
   <script src="https://kit.fontawesome.com/da2008d449.js" crossorigin="anonymous"></script>
-  <link rel="icon" href="\Cine\src\main\resources\static\dist\assets\icon\favicon.ico" />
+  <link rel="icon" href="./assets/icon/favicon.ico">
 </head>
 
 <body class="bg-gradient-to-b from-[#431B19] via-[#351918] to-[#261716]">
@@ -25,13 +25,13 @@
     <section
       class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
       <a href="./home.html" class="cursor-pointer">
-        <img src="/Cine/src/main/resources/static/dist/assets/img/logo.png" alt=""
+        <img src="./assets/img/logo.png" alt=""
           class="w-auto h-12 max-sm:h-10 max-sm:w-auto">
       </a>
       <div class="user-container flex items-center w-44 h-12 justify-center relative space-x-2 max-sm:m-0 max-sm:space-x-0
       max-sm:w-32" >
       <div onclick=" window.location.href='./perfil-usuario.html'" class=" ml-4 cursor-pointer max-sm:ml-0">
-        <img src="/Cine/src/main/resources/static/dist/assets/icon/usuario.png" class="w-auto h-10 max-sm:h-10">
+        <img src="./assets/icon/usuario.png" class="w-auto h-10 max-sm:h-10">
       </div>
       <div class="flex max-sm:hidden">
         <div class="cursor-pointer">
@@ -115,19 +115,19 @@
           </div>
           <div class="mb-3">
             <h5 class="text-lg font-semibold mb-2 text-white text-left">Nombre</h5>
-            <input type="name" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
+            <input type="name" required class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
           </div>
           <div class="mb-3">
             <h5 class="text-lg font-semibold mb-2 text-white text-left">Apellido</h5>
-            <input type="lname" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
+            <input type="lname" required class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
           </div>
           <div class="mb-3">
             <h5 class="text-lg font-semibold mb-2 text-white text-left">Tarjeta Club Filmania</h5>
-            <input type="password" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
+            <input type="password" required class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
           </div>
           <div class="mb-3">
             <h5 class="text-lg font-semibold mb-2 text-white text-left">Correo Electrónico</h5>
-            <input type="email" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
+            <input type="email" required class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
           </div>
         </div>
         <!-- Datos de la Tarjeta -->
@@ -138,19 +138,19 @@
 
           <div class="mb-3">
             <h5 class="text-lg font-semibold mb-2 text-white text-left">Número de la tarjeta</h5>
-            <input type="password" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
+            <input type="password required" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
           </div>
           <div class="mb-3">
             <h5 class="text-lg font-semibold mb-2 text-white text-left">Fecha Expiración </h5>
             <div class="flex mb-3">
               <!-- Columna Izquierda -->
               <div class="w-1/2 pr-2">
-                <input type="text" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" aria-label="FECHA"
+                <input type="text" required class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" aria-label="FECHA"
                   placeholder="MM/YY">
               </div>
               <!-- Columna Derecha -->
               <div class="w-1/2 pl-2 relative">
-                <input type="text" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" aria-label="CW"
+                <input type="text" required class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" aria-label="CW"
                   placeholder="">
                 <p class="absolute bottom-[34px] text-semibold transform -translate-y-1/2 left-2 text-xl text-white ">CW
                 </p>
@@ -160,7 +160,7 @@
 
           <!-- Checkboxes -->
           <div class="flex items-center">
-            <input type="checkbox" class="form-checkbox mt-1 mr-2">
+            <input type="checkbox" required class="form-checkbox mt-1 mr-2">
             <p class="text-lg text-white text-justify">
               He leído y estoy de acuerdo con los
               <a href="#" class="text-blue-700">Términos y Condiciones</a>
@@ -190,8 +190,8 @@
     </a>
     <!-- Botón Siguiente // SUBMIT-->
     <!--PARA LOS DE BACKEND, NECESITO QUE ESTO SE VAYA A ./compra-final(qr).html usen el window.location.href='./compra-final(qr).html'-->
-    <input type="submit" id="button-next" value="Siguiente"
-      class="w-32 h-12 px-8 py-2 relative rounded-2xl bg-Mulled-Cider cursor-pointer"></input>
+    <input onclick="window.location.href='./compra-final(qr).html'" type="submit" id="button-next" value="Siguiente"
+     class="w-32 h-12 px-8 py-2 relative rounded-2xl bg-Mulled-Cider cursor-pointer"></input>
   </section>
 
   <!--Seccion de mensajes de inactividad-->

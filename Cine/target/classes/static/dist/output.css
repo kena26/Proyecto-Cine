@@ -876,6 +876,18 @@ video {
   z-index: 5;
 }
 
+.z-\[100\] {
+  z-index: 100;
+}
+
+.z-\[150\] {
+  z-index: 150;
+}
+
+.z-\[500\] {
+  z-index: 500;
+}
+
 .col-span-1 {
   grid-column: span 1 / span 1;
 }
@@ -2297,12 +2309,12 @@ video {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
 
-.bg-radial-gradient {
-  background-image: radial-gradient(86.94% 47.67% at 50.02% 52.33%, #431B19 35.42%, #141414 73.96%);
-}
-
 .bg-perfil-usuario {
   background-image: url('./assets/img/fondoPerfil.jpeg');
+}
+
+.bg-radial-gradient {
+  background-image: radial-gradient(86.94% 47.67% at 50.02% 52.33%, #431B19 35.42%, #141414 73.96%);
 }
 
 .from-D\E9licieux-au-Chocolat {
@@ -2363,6 +2375,10 @@ video {
 
 .bg-top {
   background-position: top;
+}
+
+.bg-no-repeat {
+  background-repeat: no-repeat;
 }
 
 .fill-D\E9licieux-au-Chocolat {
@@ -2502,6 +2518,16 @@ video {
   padding-bottom: 1.75rem;
 }
 
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .pb-1 {
   padding-bottom: 0.25rem;
 }
@@ -2592,6 +2618,10 @@ video {
 
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pt-11 {
+  padding-top: 2.75rem;
 }
 
 .text-left {
@@ -3555,6 +3585,11 @@ video {
     padding-bottom: 1.25rem;
   }
 
+  .max-sm\:py-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
   .max-sm\:py-8 {
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -3590,6 +3625,10 @@ video {
 
   .max-sm\:pt-\[30rem\] {
     padding-top: 30rem;
+  }
+
+  .max-sm\:pt-14 {
+    padding-top: 3.5rem;
   }
 
   .max-sm\:text-base {

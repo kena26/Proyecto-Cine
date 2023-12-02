@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cartelera</title>
     <link rel="stylesheet" href="./output.css" />
-	<link rel="icon" href="\Cine\src\main\resources\static\dist\assets\icon\favicon.ico" />
+	<link rel="icon" href="./assets/icon/favicon.ico">
 	<link rel="stylesheet" href="./assets/css-chatbox/chatbox.css" />
 	<script src="https://kit.fontawesome.com/da2008d449.js" crossorigin="anonymous"></script>
 </head>
@@ -24,19 +24,19 @@
 		<section
 			class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
 			<a href="./home.html" class="cursor-pointer">
-                <img src="/Cine/src/main/resources/static/dist/assets/img/logo.png" alt="" 
+                <img src="./assets/img/logo.png" alt="" 
                     class="w-auto h-12 max-sm:h-10 max-sm:w-auto">
             </a>
 			<div class="search-container flex items-center relative w-[25rem] h-12 max-sm:w-40">
 				<input type="text" id="busqueda" placeholder="Busca tu Pelicula"
 					class="bg-[rgba(247,246,245,0.53)] placeholder:text-black rounded-[20px] w-full pt-1 pb-1 indent-5 text-sm">
-				<img src="/Cine/src/main/resources/static/dist/assets/icon/busqueda-de-lupa%20(1).png"
+				<img src="./assets/icon/busqueda-de-lupa%20(1).png"
 					class="w-6 absolute right-2">
 			</div>
 			<div
 				class="user-container flex items-center w-44 h-12 justify-center relative space-x-2 max-sm:m-0 max-sm:space-x-0 max-sm:w-32">
 				<div class="ml-4 cursor-pointer max-sm:ml-0">
-					<img src="/Cine/src/main/resources/static/dist/assets/icon/usuario.png"
+					<img src="./assets/icon/usuario.png"
 						class="w-auto h-10 max-sm:h-10">
 				</div>
 				<div class="flex max-sm:hidden">
@@ -50,6 +50,22 @@
                             </path>
                         </svg>
                     </div>
+                </div>
+				<div id="guest-slide"
+                    class="absolute w-52 h-44 bg-white top-12 right-[-10px] z-[500] rounded-lg text-center hidden">
+                    <p class="mt-2">Inicie Sesión en Filmania</p>
+                    <button onclick="window.location.href='./inicio-sesion.html'"
+                        class="mt-2 bg-[#996c45] w-40 py-2 rounded-full font-bold">Inicie Sesión</button>
+                    <p class="mt-2">o</p>
+                    <button onclick="window.location.href='./registro.html'"
+                        class="mt-2 bg-[#996c45] w-40 py-2 rounded-full font-bold z-[150]">Registrese</button>
+                </div>
+                <div id="user-slide"
+                    class="absolute w-52 h-44 bg-white top-12 right-[-10px] z-[500] rounded-lg hidden text-center">
+                    <p class="mt-2">Bienvenido a Filmania</p>
+                    <button onclick="window.location.href='./perfil-usuario.html'"
+                        class="mt-4 bg-[#996c45] w-40 py-2 rounded-full font-bold">Perfil</button>
+                    <button onclick="" class="mt-4 bg-[#996c45] w-40 py-2 rounded-full font-bold z-[100]">Cerrar Sesión</button>
                 </div>
 			</div>
 		</section>
@@ -81,7 +97,7 @@
 		<!--CHATBOX-->
 		<button id="show-chatbot" class="chatbot-toggle-button z-50">
 			<div class="bg-[#63432e] flex items-center">
-				<img id="chatbot-image" src="/Cine/src/main/resources/static/dist/assets/icon/servicio-al-cliente.png"
+				<img id="chatbot-image" src="./assets/icon/servicio-al-cliente.png"
 					alt="Chatbot" onclick="showChat()" />
 			</div>
 		</button>
@@ -90,7 +106,7 @@
 			<button id="close-chatbot" class="close-button">X</button>
 			<div class="chat-header">
 				<div class="chatbot-info">
-					<img class="w-full" src="/Cine/src/main/resources/static/dist/assets/img/logo.png"
+					<img class="w-full" src="./assets/img/logo.png"
 						alt="Logo Ñequepolis" />
 				</div>
 			</div>
@@ -122,7 +138,7 @@
 						<div class="mx-auto w-full ">
 						  <ul class="shadow-xl flex w-full">
 							<li class="relative flex w-30 items-center justify-center border-b-2 py-1 px-1">
-								<img src="/Cine/src/main/resources/static/dist/assets/icon/busqueda-de-lupa (1).png" class="w-6 h-5">
+								<img src="./assets/icon/busqueda-de-lupa (1).png" class="w-6 h-5">
 							</li>
 							<li class="flex w-full items-center border-b-2 py-1 ">
 								<select name="genero" id="genero"
@@ -145,7 +161,7 @@
 						<div class="mx-auto w-full">
 						  <ul class="shadow-xl w-full flex">
 							<li class="relative flex w-30 items-center justify-center border-b-2 py-1">
-								<img src="/Cine/src/main/resources/static/dist/assets/icon/calendario.png" class="w-6 h-5">
+								<img src="./assets/icon/calendario.png" class="w-6 h-5">
 							</li>
 							<li class="flex w-full items-center border-b-2 py-1">
 							  <input type="date" name="" id="" class="rounded-full w-full mx-1 gap-1">
@@ -159,7 +175,7 @@
 						<div class="mx-auto max-w-md">
 						  <ul class="shadow-xl flex">
 							<li class="relative flex w-30 items-center justify-center gap-1.5 border-b-2 px-3 py-1">
-								<img src="/Cine/src/main/resources/static/dist/assets/icon/camara-de-video (3).png" class="w-6 h-5">
+								<img src="./assets/icon/camara-de-video (3).png" class="w-6 h-5">
 							  </li>
 							<li class="relative flex w-30 items-center justify-center gap-1.5 border-b-2 px-1 py-1 hover:border-black">
 							  <input type="checkbox" id="checkbox1" class="peer relative left-0 h-5 w-5 shrink-0 appearance-none rounded-full border outline-none after:absolute after:left-0 after:top-0 
@@ -188,7 +204,7 @@
 			<section class="w-[95%] py-4 flex flex-col justify-center items-center gap-5 sm:flex-row sm:items-start rounded-md border-[2px] border-white border-solid ">
 				<div class="h-[95%] sm:h-[95%] sm:w-1/3 md:mx-[1px] md:my-1 gap-1 flex flex-col justify-center items-center">
 					<div class="relative flex flex-col justify-center items-center h-[100%] w-[60%] rounded-md mx-2 px-2">
-						<img src="/Cine/src/main/resources/static/dist/assets/img/img-infoPeli/guardianes.jpeg"
+						<img src="./assets/img/img-infoPeli/guardianes.jpeg"
 						class="image-item max-w-none rounded-md w-[120px] h-[180px] object-cover md:w-[200px] md:h-[260px] lg:w-[220px] lg:h-[280px] md:mx-3 lg:mx-3">
 					</div>
 				</div>
@@ -230,7 +246,7 @@
 			<section class="w-[95%] py-4 flex flex-col justify-center items-center gap-5 sm:flex-row sm:items-start rounded-md border-[2px] border-white border-solid ">
 				<div class="h-[95%] sm:h-[95%] sm:w-1/3 md:mx-[1px] md:my-1 gap-1 flex flex-col justify-center items-center">
 					<div class="relative flex flex-col justify-center items-center h-[100%] w-[60%] rounded-md mx-2 px-2">
-						<img src="/Cine/src/main/resources/static/dist/assets/img/img-infoPeli/guardianes.jpeg"
+						<img src="./assets/img/img-infoPeli/guardianes.jpeg"
 						class="image-item max-w-none rounded-md w-[120px] h-[180px] object-cover md:w-[200px] md:h-[260px] lg:w-[220px] lg:h-[280px] md:mx-3 lg:mx-3">
 					</div>
 				</div>
@@ -272,7 +288,7 @@
 			<section class="w-[95%] py-4 flex flex-col justify-center items-center gap-5 sm:flex-row sm:items-start rounded-md border-[2px] border-white border-solid ">
 				<div class="h-[95%] sm:h-[95%] sm:w-1/3 md:mx-[1px] md:my-1 gap-1 flex flex-col justify-center items-center">
 					<div class="relative flex flex-col justify-center items-center h-[100%] w-[60%] rounded-md mx-2 px-2">
-						<img src="/Cine/src/main/resources/static/dist/assets/img/img-infoPeli/guardianes.jpeg"
+						<img src="./assets/img/img-infoPeli/guardianes.jpeg"
 						class="image-item max-w-none rounded-md w-[120px] h-[180px] object-cover md:w-[200px] md:h-[260px] lg:w-[220px] lg:h-[280px] md:mx-3 lg:mx-3">
 					</div>
 				</div>
@@ -321,25 +337,25 @@
 			<div class="flex pl-36 max-sm:pl-3 space-x-3">
 				<div class="space-y-1">
 					<div class="flex items-center">
-						<img src="/Cine/src/main/resources/static/dist/assets/icon/ayudar.png" class="w-4 mr-3" />
+						<img src="./assets/icon/ayudar.png" class="w-4 mr-3" />
 						<a href="#" class="text-white max-sm:text-sm">Preguntas Frecuentes</a>
 					</div>
 					<div class="flex items-center">
-						<img src="/Cine/src/main/resources/static/dist/assets/icon/seguro.png" class="w-4 mr-3" />
+						<img src="./assets/icon/seguro.png" class="w-4 mr-3" />
 						<a href="#" class="text-white max-sm:text-sm">Politicas de la Empresa</a>
 					</div>
 					<div class="flex items-center">
-						<img src="/Cine/src/main/resources/static/dist/assets/icon/apoyo (1).png" class="w-4 mr-3" />
+						<img src="./assets/icon/apoyo (1).png" class="w-4 mr-3" />
 						<a href="#" class="text-white max-sm:text-sm">Atencion al Cliente</a>
 					</div>
 				</div>
 				<div class="space-y-1">
 					<div class="flex items-center">
-						<img src="/Cine/src/main/resources/static/dist/assets/icon/grupo.png" class="w-4 mr-3" />
+						<img src="./assets/icon/grupo.png" class="w-4 mr-3" />
 						<a href="#" class="text-white max-sm:text-sm">Creadores de la página</a>
 					</div>
 					<div class="flex items-center">
-						<img src="/Cine/src/main/resources/static/dist/assets/icon/seguridad.png" class="w-4 mr-3" />
+						<img src="./assets/icon/seguridad.png" class="w-4 mr-3" />
 						<a href="#" class="text-white max-sm:text-sm">Politicas de Privacidad</a>
 					</div>
 				</div>
@@ -347,17 +363,18 @@
 		</div>
 		<div class="flex absolute top-3 right-16 max-sm:top-20 space-x-1">
 			<a href="">
-				<img src="/Cine/src/main/resources/static/dist/assets/icon/facebook.png" class="w-8 h-8" />
+				<img src="./assets/icon/facebook.png" class="w-8 h-8" />
 			</a>
 			<a href="">
-				<img src="/Cine/src/main/resources/static/dist/assets/icon/instagram.png" class="w-8 h-8" />
+				<img src="./assets/icon/instagram.png" class="w-8 h-8" />
 			</a>
 			<a href="">
-				<img src="/Cine/src/main/resources/static/dist/assets/icon/tik-tok.png" class="w-8 h-8" />
+				<img src="./assets/icon/tik-tok.png" class="w-8 h-8" />
 			</a>
 		</div>
 	</footer>
-	<script src="/Cine/src/main/resources/static/dist/assets/js/home.js"></script>
-	<script src="/Cine/src/main/resources/static/dist/assets/js/chatbot.js"></script>
+	<script src="./assets/js/home.js"></script>
+	<script src="./assets/js/chatbot.js"></script>
+	<script src="./assets/js/header.js"></script>
 </body>
 </html>
