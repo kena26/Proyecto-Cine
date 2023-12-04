@@ -1,37 +1,36 @@
 package com.example.Cine.modelos;
 
-public class Actor {
-    private int idActor;
+
+public class Director {
+
+    private int idDirector;
     private String nombre;
     private String apellido;
-    private String foto;
     private int id_pelicula;
 
-    public Actor() {
+    public Director() {
 
     }
 
-    public Actor(String nombre, String apellido, String foto, int id_pelicula) {
+    public Director(int idDirector, String nombre, String apellido) {
+        this.idDirector = idDirector;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.foto = foto;
+    }
+
+    public Director(int idDirector, String nombre, String apellido, int id_pelicula) {
+        this.idDirector = idDirector;
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.id_pelicula=id_pelicula;
     }
 
-    public Actor(int idActor, String nombre, String apellido, String foto, int id_pelicula) {
-        this.idActor=idActor;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.foto = foto;
-        this.id_pelicula=id_pelicula;
+	public int getIdDirector() {
+        return idDirector;
     }
 
-    public int getIdActor() {
-        return idActor;
-    }
-
-    public void setIdActor(int idActor) {
-        this.idActor = idActor;
+    public void setIdDirector(int idDirector) {
+        this.idDirector = idDirector;
     }
 
     public String getNombre() {
@@ -48,14 +47,6 @@ public class Actor {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
     }
 
     public int getIdPelicula(){
