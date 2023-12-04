@@ -74,22 +74,86 @@ function cargarPeliculas(filtro){
         .catch(error => {
             console.error("Error al obtener las películas:", error);
         });
-    }else if(filtro === 'CVLS'){//Va a imprimir la pelicula de la sucursal que ha seleccionado
-
-    }else if(filtro === 'TOC'){//Va a imprimir la pelicula de la sucursal que ha seleccionado
-
-    }else if(filtro === 'HOW'){//Va a imprimir la pelicula de la sucursal que ha seleccionado
-
-    }else if(filtro === 'CPO'){//Va a imprimir la pelicula de la sucursal que ha seleccionado
-
-    }else if(filtro === 'CBT'){//Va a imprimir la pelicula de la sucursal que ha seleccionado
-
-    }else if(filtro === 'CHI'){//Va a imprimir la pelicula de la sucursal que ha seleccionado
-
-    }else if(filtro === 'COL'){//Va a imprimir la pelicula de la sucursal que ha seleccionado
-
-    }else if(filtro === 'VER'){//Va a imprimir la pelicula de la sucursal que ha seleccionado
-
+    }else if(filtro === 'CVLS'){
+        fetch(`${urlbase}/Cine/peliculasPorSucursal/${1}`)
+            .then(response => response.json())
+            .then(json => {
+                peliculas = json;
+                ImprimirPeliculas();
+            })
+            .catch(error => {
+                console.error("Error al obtener las películas por sucursal:", error);
+        });
+    }else if(filtro === 'TOC'){
+        fetch(`${urlbase}/Cine/peliculasPorSucursal/${2}`)
+        .then(response => response.json())
+        .then(json => {
+            peliculas = json;
+            ImprimirPeliculas();
+        })
+        .catch(error => {
+            console.error("Error al obtener las películas por sucursal:", error);
+        });
+    }else if(filtro === 'HOW'){
+        fetch(`${urlbase}/Cine/peliculasPorSucursal/${3}`)
+            .then(response => response.json())
+            .then(json => {
+                peliculas = json;
+                ImprimirPeliculas();
+            })
+            .catch(error => {
+                console.error("Error al obtener las películas por sucursal:", error);
+        });
+    }else if(filtro === 'CPO'){
+        fetch(`${urlbase}/Cine/peliculasPorSucursal/${4}`)
+            .then(response => response.json())
+            .then(json => {
+                peliculas = json;
+                ImprimirPeliculas();
+            })
+            .catch(error => {
+                console.error("Error al obtener las películas por sucursal:", error);
+        });
+    }else if(filtro === 'CBT'){
+        fetch(`${urlbase}/Cine/peliculasPorSucursal/${5}`)
+            .then(response => response.json())
+            .then(json => {
+                peliculas = json;
+                ImprimirPeliculas();
+            })
+            .catch(error => {
+                console.error("Error al obtener las películas por sucursal:", error);
+        });
+    }else if(filtro === 'CHI'){
+        fetch(`${urlbase}/Cine/peliculasPorSucursal/${6}`)
+            .then(response => response.json())
+            .then(json => {
+                peliculas = json;
+                ImprimirPeliculas();
+            })
+            .catch(error => {
+                console.error("Error al obtener las películas por sucursal:", error);
+        });
+    }else if(filtro === 'COL'){
+        fetch(`${urlbase}/Cine/peliculasPorSucursal/${7}`)
+            .then(response => response.json())
+            .then(json => {
+                peliculas = json;
+                ImprimirPeliculas();
+            })
+            .catch(error => {
+                console.error("Error al obtener las películas por sucursal:", error);
+        });
+    }else if(filtro === 'VER'){
+        fetch(`${urlbase}/Cine/peliculasPorSucursal/${8}`)
+            .then(response => response.json())
+            .then(json => {
+                peliculas = json;
+                ImprimirPeliculas();
+            })
+            .catch(error => {
+                console.error("Error al obtener las películas por sucursal:", error);
+        });
     }else{//Va a imprimir todas las peliculas al cargar la pagina
         fetch(`${urlbase}/Cine/peliculas`)
         .then((response) => {response.json()
