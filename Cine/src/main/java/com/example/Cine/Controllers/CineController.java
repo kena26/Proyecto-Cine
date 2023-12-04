@@ -213,4 +213,8 @@ public class CineController {
         }
     }
 
+     @GetMapping("/Cine/peliculasPorSucursal/{idSucursal}")
+    public List<Pelicula> obtenerPeliculasPorSucursal(@PathVariable int idSucursal) {
+        return cineDb.obtenerPeliculasPorSucursal(idSucursal);
+    }
 }

@@ -586,5 +586,37 @@ public boolean existeDirector(int idDirector) {
         }
     }
 
+    public List<Pelicula> obtenerPeliculasPorSucursal(int idSucursal) {
+    List<Pelicula> peliculas = new ArrayList<>();
+    
+    try (PreparedStatement pstmt = cn.prepareStatement(
+            "SELECT P.* FROM Pelicula P JOIN Sucursales_Pelicula SP ON P.id_pelicula = SP.id_pelicula WHERE SP.id_sucursal = ?")) {
+        pstmt.setInt(1, idSucursal);
+        
+        try (ResultSet result = pstmt.executeQuery()) {
+            while (result.next()) {
+                Pelicula pelicula = new Pelicula(
+                        result.getInt("id_pelicula"),
+                        result.getString("titulo"),
+                        result.getString("sinopsis"),
+                        result.getString("genero"),
+                        result.getString("linkQR"),
+                        result.getString("linkInfo"),
+                        result.getString("clasificacion"),
+                        result.getString("duracion"),
+                        result.getString("foto_poster"),
+                        result.getFloat("calificacion")
+                );
+                peliculas.add(pelicula);
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        System.out.println("Error al obtener películas por sucursal: " + e.getMessage());
+    }
+
+    return peliculas;
+}
+
 
 }
