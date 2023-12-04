@@ -203,16 +203,17 @@
 								<input onkeyup="agregarPosterEscribir(this.id)" id ="foto_poster" type="url" placeholder="URL" class="px-2 py-1 rounded-lg focus:outline-none  placeholder:font-bold col-span-4">
 								<!--Calificación y Trailer-->
 								<label for="calificacion" class="col-span-2 text-white">Calificación:</label>
-								<label for="trailer" class="col-span-2 text-white">Trailer(idioma):</label>
 								<input onchange="agregarCalificacionEscribir(this.id)" id="calificacion" type="number" class="px-2 py-1 rounded-lg focus:outline-none col-span-2">
-								<input onkeyup="agregarTrailerEscribir(this.id)" id="trailer" type="url" class="px-2 rounded-lg focus:outline-none col-span-2">
+								<label for="trailers" class="col-span-4 text-white">Trailers:</label>
+								<input onkeyup="agregarLinkQREscribir(this.id)" id="linkQR" type="url" placeholder="Link QR" class="px-2 rounded-lg focus:outline-none placeholder:font-bold col-span-4">
+								<input onkeyup="agregarLinkInfoEscribir(this.id)" id="linkInfo" type="url" placeholder="Link Info" class="px-2 rounded-lg focus:outline-none placeholder:font-bold col-span-4">
 								<!--Sucursales-->
 								<label for="sucursal" class="col-span-2 text-white">Sucursal(es):</label>
 								<button onclick="mostrarSucursales(), scrollASeccion('containerSucursales')" type="button" class="w-20 h-8 px-2 py-1 relative left-[35%] max-sm:left-[15%] col-span-2 whitespace-nowrap rounded-lg text-white bg-Piano-Black">+ Añadir</button>
 								<div id="divSucursales" class="custom-scrollbar h-14 p-1 flex overflow-y-hidden overflow-x-auto rounded-lg col-span-4 bg-white">
 									<button 
 										onclick="ocultarBtnSucursal(this.name)"
-										name="CVLS" 
+										name="1"  
 										type="button" 
 										class="buttonSucursal group h-8 p-1 hidden flex justify-center items-center rounded-3xl bg-slate-500 hover:bg-slate-700">
 										<p class="p-1 text-xs text-white whitespace-nowrap group-hover:font-bold">
@@ -222,7 +223,7 @@
 									</button>
 									<button 
 										onclick="ocultarBtnSucursal(this.name)"
-										name="TOC"
+										name="2" 
 										type="button" 
 										class="buttonSucursal group h-8 p-1 hidden flex justify-center items-center rounded-3xl bg-slate-500 hover:bg-slate-700">
 										<p class="p-1 text-xs text-white whitespace-nowrap group-hover:font-bold">
@@ -232,7 +233,7 @@
 									</button>
 									<button 
 										onclick="ocultarBtnSucursal(this.name)"
-										name="HOW" 
+										name="3"  
 										type="button" 
 										class="buttonSucursal group h-8 p-1 hidden flex justify-center items-center rounded-3xl bg-slate-500 hover:bg-slate-700">
 										<p class="p-1 text-xs text-white whitespace-nowrap group-hover:font-bold">
@@ -242,7 +243,7 @@
 									</button>
 									<button 
 										onclick="ocultarBtnSucursal(this.name)"
-										name="CPO" 
+										name="4"  
 										type="button" 
 										class="buttonSucursal group h-8 p-1 hidden flex justify-center items-center rounded-3xl bg-slate-500 hover:bg-slate-700">
 										<p class="p-1 text-xs text-white whitespace-nowrap group-hover:font-bold">
@@ -252,7 +253,7 @@
 									</button>
 									<button 
 										onclick="ocultarBtnSucursal(this.name)"
-										name="CBT" 
+										name="5"  
 										type="button" 
 										class="buttonSucursal group h-8 p-1 hidden flex justify-center items-center rounded-3xl bg-slate-500 hover:bg-slate-700">
 										<p class="p-1 text-xs text-white whitespace-nowrap group-hover:font-bold">
@@ -262,7 +263,7 @@
 									</button>
 									<button 
 										onclick="ocultarBtnSucursal(this.name)"
-										name="CHI" 
+										name="6"  
 										type="button" 
 										class="buttonSucursal group h-8 p-1 hidden flex justify-center items-center rounded-3xl bg-slate-500 hover:bg-slate-700">
 										<p class="p-1 text-xs text-white whitespace-nowrap group-hover:font-bold">
@@ -272,7 +273,7 @@
 									</button>
 									<button 
 										onclick="ocultarBtnSucursal(this.name)"
-										name="COL" 
+										name="7"  
 										type="button" 
 										class="buttonSucursal group h-8 p-1 hidden flex justify-center items-center rounded-3xl bg-slate-500 hover:bg-slate-700">
 										<p class="p-1 text-xs text-white whitespace-nowrap group-hover:font-bold">
@@ -282,7 +283,7 @@
 									</button>
 									<button 
 										onclick="ocultarBtnSucursal(this.name)"
-										name="VER" 
+										name="8" 
 										type="button" 
 										class="buttonSucursal group h-8 p-1 hidden flex justify-center items-center rounded-3xl bg-slate-500 hover:bg-slate-700">
 										<p class="p-1 text-xs text-white whitespace-nowrap group-hover:font-bold">
@@ -324,7 +325,7 @@
 
 						<div class="space-x-3 flex items-center text-sm text-white">
 							<label class="w-5 h-5 cursor-pointer overflow-hidden flex justify-center items-center rounded-sm bg-white">
-								<input name="CVLS" type="checkbox" id="" class="checkSucursales peer hidden">
+								<input name="1"  type="checkbox" id="" class="checkSucursales peer hidden">
 								<img 
 									class="w-5 h-5 rounded-sm opacity-0 peer-checked:opacity-100 scale-0 transition-all z-20 duration-300 peer-checked:transition-all top-2 left-2 peer-checked:scale-100 peer-checked:duration-300"
 									src="./assets/icon/cheque.png">
@@ -334,7 +335,7 @@
 						
 						<div class="space-x-3 flex items-center text-sm text-white">
 							<label class="w-5 h-5 cursor-pointer overflow-hidden flex justify-center items-center rounded-sm bg-white">
-								<input name="TOC" type="checkbox" id="" class="checkSucursales peer hidden">
+								<input name="2"  type="checkbox" id="" class="checkSucursales peer hidden">
 								<img 
 									class="w-5 h-5 rounded-sm opacity-0 peer-checked:opacity-100 scale-0 transition-all z-20 duration-300 peer-checked:transition-all top-2 left-2 peer-checked:scale-100 peer-checked:duration-300"
 									src="./assets/icon/cheque.png">
@@ -344,7 +345,7 @@
 
 						<div class="space-x-3 flex items-center text-sm text-white">
 							<label class="w-5 h-5 cursor-pointer overflow-hidden flex justify-center items-center rounded-sm bg-white">
-								<input name="HOW" type="checkbox" id="" class="checkSucursales peer hidden">
+								<input name="3"  type="checkbox" id="" class="checkSucursales peer hidden">
 								<img 
 									class="w-5 h-5 rounded-sm opacity-0 peer-checked:opacity-100 scale-0 transition-all z-20 duration-300 peer-checked:transition-all top-2 left-2 peer-checked:scale-100 peer-checked:duration-300"
 									src="./assets/icon/cheque.png">
@@ -354,7 +355,7 @@
 
 						<div class="space-x-3 flex items-center text-sm text-white">
 							<label class="w-5 h-5 cursor-pointer overflow-hidden flex justify-center items-center rounded-sm bg-white">
-								<input name="CPO" type="checkbox" id="" class="checkSucursales peer hidden">
+								<input name="4"  type="checkbox" id="" class="checkSucursales peer hidden">
 								<img 
 									class="w-5 h-5 rounded-sm opacity-0 peer-checked:opacity-100 scale-0 transition-all z-20 duration-300 peer-checked:transition-all top-2 left-2 peer-checked:scale-100 peer-checked:duration-300"
 									src="./assets/icon/cheque.png">
@@ -364,7 +365,7 @@
 
 						<div class="space-x-3 flex items-center text-sm text-white">
 							<label class="w-5 h-5 cursor-pointer overflow-hidden flex justify-center items-center rounded-sm bg-white">
-								<input name="CBT" type="checkbox" id="" class="checkSucursales peer hidden">
+								<input name="5"  type="checkbox" id="" class="checkSucursales peer hidden">
 								<img 
 									class="w-5 h-5 rounded-sm opacity-0 peer-checked:opacity-100 scale-0 transition-all z-20 duration-300 peer-checked:transition-all top-2 left-2 peer-checked:scale-100 peer-checked:duration-300"
 									src="./assets/icon/cheque.png">
@@ -374,7 +375,7 @@
 
 						<div class="space-x-3 flex items-center text-sm text-white">
 							<label class="w-5 h-5 cursor-pointer overflow-hidden flex justify-center items-center rounded-sm bg-white">
-								<input name="CHI" type="checkbox" id="" class="checkSucursales peer hidden">
+								<input name="6"  type="checkbox" id="" class="checkSucursales peer hidden">
 								<img 
 									class="w-5 h-5 rounded-sm opacity-0 peer-checked:opacity-100 scale-0 transition-all z-20 duration-300 peer-checked:transition-all top-2 left-2 peer-checked:scale-100 peer-checked:duration-300"
 									src="./assets/icon/cheque.png">
@@ -384,7 +385,7 @@
 
 						<div class="space-x-3 flex items-center text-sm text-white">
 							<label class="w-5 h-5 cursor-pointer overflow-hidden flex justify-center items-center rounded-sm bg-white">
-								<input name="COL" type="checkbox" id="" class="checkSucursales peer hidden">
+								<input name="7"  type="checkbox" id="" class="checkSucursales peer hidden">
 								<img 
 									class="w-5 h-5 rounded-sm opacity-0 peer-checked:opacity-100 scale-0 transition-all z-20 duration-300 peer-checked:transition-all top-2 left-2 peer-checked:scale-100 peer-checked:duration-300"
 									src="./assets/icon/cheque.png">
@@ -394,7 +395,7 @@
 
 						<div class="space-x-3 flex items-center text-sm text-white">
 							<label class="w-5 h-5 cursor-pointer overflow-hidden flex justify-center items-center rounded-sm bg-white">
-								<input name="VER" type="checkbox" id="" class="checkSucursales peer hidden">
+								<input name="8" type="checkbox" id="" class="checkSucursales peer hidden">
 								<img 
 									class="w-5 h-5 rounded-sm opacity-0 peer-checked:opacity-100 scale-0 transition-all z-20 duration-300 peer-checked:transition-all top-2 left-2 peer-checked:scale-100 peer-checked:duration-300"
 									src="./assets/icon/cheque.png">

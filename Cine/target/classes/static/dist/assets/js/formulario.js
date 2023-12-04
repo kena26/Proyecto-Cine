@@ -4,23 +4,28 @@ let editarPelis = [];
 let actoresData = {
     "actores":[]
 };
+let actoresOriginales = [];
 let directoresData = {
     "directores": []
 };
+let directoresOriginales = [];
 let sucursales = [];
+let sucursalesOriginales = [];
 let contDirectorNuevo;
 let contDirectorGuardado;
 let contActorNuevo;
 let contActorGuardado;
+let accionDirector;
 
-let nombrePelicula;
+let titulo;
 let duracion;
 let sinopsis;
 let clasificacion;
 let genero;
-let foto_poster;
-let id_tipoP;
-let trailer;
+let fotoPoster;
+let calificacion;
+let linkQR;
+let linkInfo;
 
 function scrollEditToBottom() {
     const containerEdit = document.getElementById("containerEdit");
@@ -116,17 +121,17 @@ function MapearPeliculas(pelicula){
             <div class="table-row">
                 <div class="table-cell w-8 h-5">
                     <label class="w-5 h-5 cursor-pointer overflow-hidden flex justify-center items-center rounded-sm bg-gray-600 max-sm:bg-gray-400">
-                        <input type="checkbox" id="${pelicula.id_pelicula}" class="checkboxes peer hidden">
+                        <input type="checkbox" id="${pelicula.idPelicula}" class="checkboxes peer hidden">
                         <img 
 							class="w-5 max-sm:w-4 h-5 max-sm:h-4 rounded-sm opacity-0 peer-checked:opacity-100 scale-0 transition-all z-20 duration-300 peer-checked:transition-all top-2 left-2 peer-checked:scale-100 peer-checked:duration-300"
 							src="/Cine/src/main/resources/static/dist/assets/icon/cheque.png">
                     </label>
                 </div>
                 <div class="table-cell">
-                    <p class="max-w-[400px] font-bold text-xl max-sm:text-base">${pelicula.nombrePelicula} #${pelicula.id_pelicula}</p>
+                    <p class="max-w-[400px] font-bold text-xl max-sm:text-base">${pelicula.titulo} #${pelicula.idPelicula}</p>
                 </div>
                 <div class="table-cell absolute left-[40%] max-sm:left-[90%]">
-                    <button onclick="mostrarAddPeli('editarBtn', ${pelicula.id_pelicula})" id="editarBtn" class="flex justify-center items-center">
+                    <button onclick="mostrarAddPeli('editarBtn', ${pelicula.idPelicula})" id="editarBtn" class="flex justify-center items-center">
                         <img class="w-5 h-5 hover:w-6 hover:h-6 max-sm:rotate-90 transition-all duration-300 "
                         src="/Cine/src/main/resources/static/dist/assets/icon/lapiz-editar.svg" alt="">
                     </button>
@@ -150,32 +155,27 @@ function cargarPeli(idPeli) {
         .then(data => {
 
             editarPelis = data;
-            
         })
         .catch(error => {
             console.error("Error al buscar la película:", error);
         });
 }
 
-
 //Logica para añadir la pelicula a la base de datos
 function agregarPeli() {
-    let director = "directorPrueba";
-
     const peli = {
-        duracion,
-        director,
-        sinopsis,
-        clasificacion,
-        genero,
-        nombrePelicula,
-        trailer,
-        id_tipoP,
-        foto_poster
+        "titulo": titulo,
+        "sinopsis": sinopsis,
+        "genero": genero,
+        "linkQR": linkQR,
+        "linkInfo": linkInfo,
+        "clasificacion": clasificacion,
+        "duracion": duracion,
+        "fotoPoster": fotoPoster,
+        "calificacion": calificacion
     };
 
-    console.log(peli);
-    
+
     fetch(`${urlbase}/Cine/agregar`, {
         method: 'POST',
         headers: {
@@ -183,26 +183,32 @@ function agregarPeli() {
         },
         body: JSON.stringify(peli),
     })
-    .then(response => {
-        
-        const contentType = response.headers.get('Content-Type');
-        if (response.ok && contentType && contentType.includes('application/json')) {
-            return response.json();
-        } else {
-            return null; 
-        }
-    })
-    .then(data => {
-        if (data !== null) {
-            console.log('Película guardada con éxito:', data);
-        } else {
-            console.log('Película guardada con éxito, pero la respuesta no es JSON o está vacía.');
-        }
-    })
-    .catch(error => {
-        console.error('Error al realizar la solicitud:', error);
-    });
-    cargarPeliculas('all');
+        .then(response => {
+            const contentType = response.headers.get('Content-Type');
+            if (response.ok && contentType && contentType.includes('application/json')) {
+                return response.json();
+            } else {
+                return null;
+            }
+        })
+        .then(data => {
+            if (data !== null) {
+                console.log('Película guardada con éxito:', data);
+
+                agregarActoresEnBaseDeDatos(data);
+                agregarDirectoresEnBaseDeDatos(data);
+                agregarSucursalesEnBaseDatosDeDatos(data);
+            } else {
+                console.log('Película guardada con éxito, pero la respuesta no es JSON o está vacía.');
+            }
+        })
+        .catch(error => {
+            console.error('Error al realizar la solicitud:', error);
+        });
+
+    setTimeout(() => {
+        cargarPeliculas('all');
+    }, 700);
 }
  
 //Logica para actualizar/modificar la pelicula en la base de datos
@@ -213,19 +219,18 @@ function actualizarPeli(){
     }
 
     const peliculaActualizada = {
-        duracion: document.getElementById('nuevaDuracion').value,
-        director: document.getElementById('nuevoDirector').value,
-        sinopsis: document.getElementById('nuevaSinopsis').value,
-        clasificacion: document.getElementById('nuevaClasificacion').value,
-        genero: document.getElementById('nuevoGenero').value,
-        nombrePelicula: document.getElementById('nuevoNombrePelicula').value,
-        trailer: document.getElementById('nuevoTrailer').value,
-        id_tipoP: document.getElementById('nuevoIdTipoP').value,
-        foto_poster: document.getElementById('nuevaFotoPoster').value,
-        // Agrega otros campos según sea necesario
+        duracion: document.getElementById('duracion').value,
+        sinopsis: document.getElementById('sinopsis').value,
+        clasificacion: document.getElementById('clasificacion').value,
+        genero: document.getElementById('genero').value,
+        titulo: document.getElementById('titulo').value,
+        linkQR: document.getElementById('linkQR').value,
+        linkInfo: document.getElementById('linkInfo').value,
+        calificacion: document.getElementById('calificacion').value,
+        "fotoPoster": document.getElementById('foto_poster').value,
     };
 
-    fetch(`${urlbase}/Cine/actualizarPelicula/${editarPelis.id_pelicula}`, {
+    fetch(`${urlbase}/Cine/actualizarPelicula/${editarPelis.idPelicula}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -243,8 +248,117 @@ function actualizarPeli(){
     .catch(error => {
         console.error('Error al realizar la solicitud:', error);
     });
-
+    setTimeout(() => {
+        cargarPeliculas('all');
+    }, 700);
 }
+
+function verificarActores(){
+    actoresData={
+        "actores": []
+    };
+    
+    for(let i = 0 ; i < contActorGuardado ; i++){
+        let nombre = document.getElementById(`actorNombre${i+1}`).value;
+        let apellido = document.getElementById(`actorApellido${i+1}`).value;
+        let foto = document.getElementById(`foto${i+1}`).value;
+        let nuevoActor = {
+        "nombre": nombre || "" ,
+        "apellido": apellido || "",
+        "foto": foto || ""
+        };
+        actoresData.actores.push(nuevoActor);
+    }
+    
+    for (let i = 0; i < actoresData.actores.length; i++) {
+        if(actoresOriginales.length > i){
+            actualizarActor(actoresOriginales[i].idActor, actoresData.actores[i]);
+        }else{
+            agregarActorIndividual(actoresOriginales[0].idPelicula, actoresData.actores[i]);
+        }
+    }
+}
+
+function actualizarActor(idActor, actorActualizado) {
+    
+    const url = `${urlbase}/Cine/actualizarActor/${idActor}`;
+
+    fetch(url, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(actorActualizado),
+    })
+        .then(response => {
+            const contentType = response.headers.get('Content-Type');
+            if (response.ok && contentType && contentType.includes('application/json')) {
+                return response.json();
+            } else {
+                return null;
+            }
+        })
+        .then(data => {
+            if (data !== null) {
+                
+                if (data.includes('Actor actualizado con éxito')) {
+                    console.log('Actor actualizado con éxito');
+                } else {
+                    console.log('Error al actualizar el actor:', data);
+                }
+            } else {
+                console.log('Error al actualizar el actor. La respuesta no es JSON o está vacía.');
+            }
+        })
+        .catch(error => {
+            console.error('Error al realizar la solicitud:', error);
+        });
+}
+
+function verificarDirectores(){
+    directoresData={
+        "directores": []
+    };
+    for(let i = 0 ; i < contDirectorGuardado ; i++){
+        let nombre = document.getElementById(`directorNombre${i+1}`).value;
+        let apellido = document.getElementById(`directorApellido${i+1}`).value;
+        let nuevoDirector = {
+        "nombre": nombre || "" ,
+        "apellido": apellido || ""
+        };
+        directoresData.directores.push(nuevoDirector);
+    }
+    
+    for (let i = 0; i < directoresData.directores.length; i++) {
+        if(directoresOriginales.length > i){
+            actualizarDirector(directoresOriginales[i].idDirector, directoresData.directores[i]);
+        }else{
+            agregarDirectorIndividual(directoresOriginales[0].idPelicula, directoresData.directores[i]);
+        }
+    }
+}
+
+function actualizarDirector(idDirector, directorActualizado) {
+    fetch(`${urlbase}/Cine/actualizarDirector/${idDirector}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(directorActualizado),
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Director actualizado con éxito');
+        } else {
+            console.error('Error al actualizar el director:', response.statusText);
+        }
+    })
+    .catch(error => {
+        console.error('Error al realizar la solicitud:', error);
+    });
+}
+
+
 //Logica para eliminar la pelicula de la base de datos
 function eliminarPelis(idPelicula) {
     fetch(`${urlbase}/Cine/eliminarPelicula/${idPelicula}`, {
@@ -265,6 +379,9 @@ function eliminarPelis(idPelicula) {
     .catch(error => {
         console.error('Error en la solicitud:', error);
     });
+    setTimeout(() => {
+        cargarPeliculas('all'); 
+    }, 700);
 }
 
 function botonEliminar(){
@@ -275,6 +392,29 @@ function botonEliminar(){
             eliminarPelis(idPeliculaAEliminar);
         }
     }
+}
+
+function eliminarSucursal(){
+    let idPelicula = sucursalesOriginales[0].idPelicula;
+    
+    fetch(`${urlbase}/Cine/eliminarSucursalPorPelicula/${idPelicula}`,{
+        method: 'DELETE',
+        headers:{
+            'Content-Type':'application/json'
+        },
+    })
+    .then(response =>{
+        if(response.ok){
+            console.log('Sucural eliminada con exito');
+            agregarSucursalesEnBaseDatosDeDatos(idPelicula);
+        }else{
+            console.console.error('Error al eliminar sucursal:', response.statusText);
+        }
+        
+    })
+    .catch(error=>{
+        console.error('Error al hacer la solicitud:', error);
+    });
 }
 
 //Mostrar la ventana de añadir/editar peliculas
@@ -292,18 +432,19 @@ function mostrarAddPeli(accion, idPeli){
 
     //Esto rellena el formulario dependiendo si es en añadir/editar
     if(accion === 'editarBtn'){
-        //Logica para traer los datos a todos los campos para editar
+        accionDirector=accion;
         cargarPeli(idPeli);
         
         setTimeout(() => {
-            document.getElementById('titulo').value = editarPelis.nombrePelicula;
+            document.getElementById('titulo').value = editarPelis.titulo;
             document.getElementById('duracion').value = editarPelis.duracion;
             document.getElementById('sinopsis').value = editarPelis.sinopsis;
             document.getElementById('clasificacion').value = editarPelis.clasificacion;
             document.getElementById('genero').value = editarPelis.genero;
-            document.getElementById('foto_poster').value = editarPelis.foto_poster;
-            document.getElementById('calificacion').value = editarPelis.id_tipoP;
-            document.getElementById('trailer').value = editarPelis.trailer;
+            document.getElementById('foto_poster').value = editarPelis.fotoPoster;
+            document.getElementById('calificacion').value = editarPelis.calificacion;
+            document.getElementById('linkQR').value = editarPelis.linkQR;
+            document.getElementById('linkInfo').value = editarPelis.linkInfo;
             //Directores
             directoresData ={
                 "directores": []
@@ -317,12 +458,13 @@ function mostrarAddPeli(accion, idPeli){
             containerActor.innerHTML = "";
             contActorNuevo = 1;
             
-            /*mostrarSucursales(idPeli, accion);
+            cargarActores(idPeli);
             cargarDirectores(idPeli);
-            cargarActores(idPeli);*/
+            cargarSucursales(idPeli);
+            
         }, 700);
     }else if(accion === 'agregarBtn'){
-        //Logica para traer los datos a todos los campos para añadir
+        accionDirector=accion;
         //Directores
         containerDirector.innerHTML = "";
         contDirectorNuevo = 1;
@@ -354,97 +496,105 @@ function mostrarAddPeli(accion, idPeli){
     containerBtn.innerHTML = realizarAccion(accion);
 }
 
-function cargarDirectores(idPeli){
+function cargarDirectores(idPeli) {
+    fetch(`${urlbase}/Cine/directores/${idPeli}`)
+        .then(response => response.json())
+        .then(directores => {
+            mostrarDirectores(directores);
+            directoresOriginales = directores;
+        })
+        .catch(error => {
+            console.error("Error al cargar los directores:", error);
+        });
+}
+
+function mostrarDirectores(directores){
     let containerDirector = document.getElementById('containerFilmDirector');
-    contDirectorGuardado = editarPelis[idPeli].directores.length;
-    editarPelis[idPeli].directores.forEach(director => {
-        let nuevoDirector = {
-            "nombre": director.nombre ,
-            "apellido": director.apellido
-        };
-        directoresData.directores.push(nuevoDirector);
-    });
+    contDirectorGuardado = directores.length;
 
     containerDirector.innerHTML=`
-        <input value="${directoresData.directores[0].nombre}" id="directorNombre${contDirectorNuevo}" onkeyup="agregarDirectoresEscribir(this.id)" type="text" placeholder="Nombre" class="px-2 py-1 mx-1 rounded-lg focus:outline-none placeholder:font-bold placeholder:text-center col-span-2">
-        <input value="${directoresData.directores[0].apellido}" id="directorApellido${contDirectorNuevo}" onkeyup="agregarDirectoresEscribir(this.id)" type="text" placeholder="Apellido" class="px-2 py-1 mx-1 rounded-lg focus:outline-none placeholder:font-bold placeholder:text-center col-span-2">
+        <input value="${directores[0].nombre}" id="directorNombre${contDirectorNuevo}" onkeyup="agregarDirectoresEscribir(this.id)" type="text" placeholder="Nombre" class="px-2 py-1 mx-1 rounded-lg focus:outline-none placeholder:font-bold placeholder:text-center col-span-2">
+        <input value="${directores[0].apellido}" id="directorApellido${contDirectorNuevo}" onkeyup="agregarDirectoresEscribir(this.id)" type="text" placeholder="Apellido" class="px-2 py-1 mx-1 rounded-lg focus:outline-none placeholder:font-bold placeholder:text-center col-span-2">
     `;
 
     for(let i =  1 ; i < contDirectorGuardado ; i++){
         containerDirector.innerHTML+=`
-            <input value="${directoresData.directores[i].nombre}" id="directorNombre${i+1}" onkeyup="agregarDirectoresEscribir(this.id)" type="text" placeholder="Nombre" class="px-2 py-1 mx-1 rounded-lg focus:outline-none placeholder:font-bold placeholder:text-center col-span-2">
-            <input value="${directoresData.directores[i].apellido}" id="directorApellido${i+1}" onkeyup="agregarDirectoresEscribir(this.id)" type="text" placeholder="Apellido" class="px-2 py-1 mx-1 rounded-lg focus:outline-none placeholder:font-bold placeholder:text-center col-span-2">
+            <input value="${directores[i].nombre}" id="directorNombre${i+1}" onkeyup="agregarDirectoresEscribir(this.id)" type="text" placeholder="Nombre" class="px-2 py-1 mx-1 rounded-lg focus:outline-none placeholder:font-bold placeholder:text-center col-span-2">
+            <input value="${directores[i].apellido}" id="directorApellido${i+1}" onkeyup="agregarDirectoresEscribir(this.id)" type="text" placeholder="Apellido" class="px-2 py-1 mx-1 rounded-lg focus:outline-none placeholder:font-bold placeholder:text-center col-span-2">
             `;
     }
 }
 
-function cargarActores(idPeli){
+
+
+function cargarActores(idPeli) {
+    fetch(`${urlbase}/Cine/actores/${idPeli}`)
+        .then(response => response.json())
+        .then(actores => {
+            actoresOriginales = actores;
+            mostrarActores(actores);
+        })
+        .catch(error => {
+            console.error("Error al cargar los actores:", error);
+        });
+}
+
+function mostrarActores(actores) {
     let containerActor = document.getElementById('containerActor');
-    contActorGuardado = editarPelis[idPeli].actores.length;
-    editarPelis[idPeli].actores.forEach(actor => {
-        let nuevoActor = {
-            "nombre": actor.nombreActor ,
-            "apellido": actor.apellidoActor,
-            "perfil": actor.perfil
-        };
-        actoresData.actores.push(nuevoActor);
-    });
-
-
-    for(let i =  0 ; i < contActorGuardado ; i++){
-        containerActor.innerHTML+=`
-            <label for="actor" class="col-span-4 text-center text-white">Actor ${i+1}:</label>
-            <input value="${actoresData.actores[i].nombre}" id="actorNombre${i+1}" onkeyup="agregarActoresEscribir(this.id)" type="text" placeholder="Nombre" class="px-2 py-1 rounded-lg focus:outline-none placeholder:font-bold placeholder:text-center col-span-2">
-            <input value="${actoresData.actores[i].apellido}" id="actorApellido${i+1}" onkeyup="agregarActoresEscribir(this.id)" type="text" placeholder="Apellido" class="px-2 py-1 rounded-lg focus:outline-none placeholder:font-bold placeholder:text-center col-span-2">
+    containerActor.innerHTML = "";
+    
+    for (let i = 0; i < actores.length; i++) {
+        let actor = actores[i];
+        
+        containerActor.innerHTML += `
+            <label for="actor" class="col-span-4 text-center text-white">Actor ${i + 1}:</label>
+            <input value="${actor.nombre}" id="actorNombre${i + 1}" onkeyup="agregarActoresEscribir(this.id)" type="text" placeholder="Nombre" class="px-2 py-1 rounded-lg focus:outline-none placeholder:font-bold placeholder:text-center col-span-2">
+            <input value="${actor.apellido}" id="actorApellido${i + 1}" onkeyup="agregarActoresEscribir(this.id)" type="text" placeholder="Apellido" class="px-2 py-1 rounded-lg focus:outline-none placeholder:font-bold placeholder:text-center col-span-2">
             
             <label for="foto" class="col-span-4 text-center text-white">Foto:</label>
-            <input value="${actoresData.actores[i].foto}" onkeyup="agregarActoresEscribir(this.id)" id="foto${i+1}" type="url" placeholder="URL" class="px-2 py-1 rounded-lg focus:outline-none  placeholder:font-bold col-span-4">
+            <input value="${actor.foto}" onkeyup="agregarActoresEscribir(this.id)" id="foto${i + 1}" type="url" placeholder="URL" class="px-2 py-1 rounded-lg focus:outline-none  placeholder:font-bold col-span-4">
             <button onclick="agregarActores('editarBtn')" type="button" class="w-20 px-2 py-1 relative top-[30%] left-[35%] col-span-4 rounded-lg text-white bg-Piano-Black">+ Añadir</button>
         `;
     }
 }
 
 function agregarTituloEscribir(idInputs){
-    nombrePelicula=document.getElementById(idInputs).value;
-    
-    estilosInput(idInputs);
+    titulo=document.getElementById(idInputs).value;
+
 }
 
 function agregarDuracionEscribir(idInputs){
     duracion=document.getElementById(idInputs).value;
     
-    estilosInput(idInputs);
 }
 
 function agregarDescripcionEscribir(idInputs){
     sinopsis=document.getElementById(idInputs).value;
     
-    estilosInput(idInputs);
 }
 function agregarClasificacionEscribir(idInputs){
     clasificacion=document.getElementById(idInputs).value;
     
-    estilosInput(idInputs);
 }
 function agregarGeneroEscribir(idInputs){
     genero=document.getElementById(idInputs).value;
     
-    estilosInput(idInputs);
 }
 function agregarPosterEscribir(idInputs){
-    foto_poster=document.getElementById(idInputs).value;
+    fotoPoster=document.getElementById(idInputs).value;
     
-    estilosInput(idInputs);
 }
 function agregarCalificacionEscribir(idInputs){
-    id_tipoP=document.getElementById(idInputs).value;
+    calificacion=document.getElementById(idInputs).value;
     
-    estilosInput(idInputs);
 }
-function agregarTrailerEscribir(idInputs){
-    trailer=document.getElementById(idInputs).value;
+function agregarLinkQREscribir(idInputs){
+    linkQR = document.getElementById(idInputs).value;
     
-    estilosInput(idInputs);
+}
+function agregarLinkInfoEscribir(idInputs){
+    linkInfo = document.getElementById(idInputs).value;
+    
 }
 
 function agregarDirectoresEscribir(idInputs){
@@ -462,7 +612,6 @@ function agregarDirectoresEscribir(idInputs){
         directoresData.directores.push(nuevoDirector);
     }
 
-    estilosInput(idInputs);
 }
 
 function agregarActoresEscribir(idInputs){
@@ -471,38 +620,27 @@ function agregarActoresEscribir(idInputs){
     };
 
     for(let i = 0 ; i < contActorNuevo ; i++){
-        let nombreActor = document.getElementById(`actorNombre${i+1}`).value;
-        let apellidoActor = document.getElementById(`actorApellido${i+1}`).value;
-        let perfil = document.getElementById(`foto${i+1}`).value;
+        let nombre = document.getElementById(`actorNombre${i+1}`).value;
+        let apellido = document.getElementById(`actorApellido${i+1}`).value;
+        let foto = document.getElementById(`foto${i+1}`).value;
         let nuevoActor = {
-        "nombreActor": nombreActor || "" ,
-        "apellidoActor": apellidoActor || "",
-        "perfil": perfil || ""
+        "nombre": nombre || "" ,
+        "apellido": apellido || "",
+        "foto": foto || ""
         };
         actoresData.actores.push(nuevoActor);
     }
-    estilosInput(idInputs);
 }
 
-function estilosInput(idInputs){
-    document.getElementById(idInputs).classList.add('ring');
-    document.getElementById(idInputs).classList.add('ring-green-500');
-    document.getElementById(idInputs).classList.add('ring-inset');
-    setTimeout(() => {
-        document.getElementById(idInputs).classList.remove('ring');
-        document.getElementById(idInputs).classList.remove('ring-green-500');
-        document.getElementById(idInputs).classList.remove('ring-inset');
-    }, 500);
-}
-
-function agregarDirectores(accion){
+function agregarDirectores(){
     let containerDirector = document.getElementById('containerFilmDirector');
     
     directoresData ={
       "directores": []
     };
 
-    if(accion === 'editarBtn'){
+    contDirectorGuardado = directoresOriginales.length;
+    if(accionDirector === 'editarBtn'){
         for(let i = 0 ; i < contDirectorGuardado ; i++){
             let nombre = document.getElementById(`directorNombre${i+1}`).value;
             let apellido = document.getElementById(`directorApellido${i+1}`).value;
@@ -553,16 +691,16 @@ function agregarActores(accion){
     actoresData ={
       "actores": []
     };
-
+    contActorGuardado = actoresOriginales.length;
     if(accion === 'editarBtn'){
         for(let i = 0 ; i < contActorGuardado ; i++){
-            let nombreActor = document.getElementById(`actorNombre${i+1}`).value;
-            let apellidoActor = document.getElementById(`actorApellido${i+1}`).value;
-            let perfil = document.getElementById(`foto${i+1}`).value;
+            let nombre = document.getElementById(`actorNombre${i+1}`).value;
+            let apellido = document.getElementById(`actorApellido${i+1}`).value;
+            let foto = document.getElementById(`foto${i+1}`).value;
             let nuevoActor = {
-            "nombreActor": nombreActor || "" ,
-            "apellidoActor": apellidoActor || "",
-            "perfil": perfil || ""
+                "nombre": nombre || "" ,
+                "apellido": apellido || "",
+                "foto": foto || ""
             };
             actoresData.actores.push(nuevoActor);
         }
@@ -581,13 +719,13 @@ function agregarActores(accion){
         contActorGuardado++;
     }else if(accion === 'agregarBtn'){
         for(let i = 0 ; i < contActorNuevo ; i++){
-            let nombreActor = document.getElementById(`actorNombre${i+1}`).value;
-            let apellidoActor = document.getElementById(`actorApellido${i+1}`).value;
-            let perfil = document.getElementById(`foto${i+1}`).value;
+            let nombre = document.getElementById(`actorNombre${i+1}`).value;
+            let apellido = document.getElementById(`actorApellido${i+1}`).value;
+            let foto = document.getElementById(`foto${i+1}`).value;
             let nuevoActor = {
-            "nombreActor": nombreActor || "" ,
-            "apellidoActor": apellidoActor || "",
-            "perfil": perfil || ""
+            "nombre": nombre || "" ,
+            "apellido": apellido || "",
+            "foto": foto || ""
             };
             actoresData.actores.push(nuevoActor);
         }
@@ -606,27 +744,28 @@ function agregarActores(accion){
     }
 
     for(let i = 0 ; i < actoresData.actores.length ; i++){
-        document.getElementById(`actorNombre${i+1}`).value = actoresData.actores[i].nombreActor;
-        document.getElementById(`actorApellido${i+1}`).value = actoresData.actores[i].apellidoActor;
-        document.getElementById(`foto${i+1}`).value = actoresData.actores[i].perfil;
+        document.getElementById(`actorNombre${i+1}`).value = actoresData.actores[i].nombre;
+        document.getElementById(`actorApellido${i+1}`).value = actoresData.actores[i].apellido;
+        document.getElementById(`foto${i+1}`).value = actoresData.actores[i].foto;
     }
     contActorNuevo++;
     scrollEditToBottom();
 }
 
-function agregarActoresEnBaseDeDatos(){
+function agregarActoresEnBaseDeDatos(nuevaPeli){
 
     for (let i = 0; i < actoresData.actores.length; i++) {
-        let nombreActor = actoresData.actores[i].nombreActor;
-        let apellidoActor = actoresData.actores[i].apellidoActor;
-        let perfil = actoresData.actores[i].perfil;
+        let nombre = actoresData.actores[i].nombre;
+        let apellido = actoresData.actores[i].apellido;
+        let foto = actoresData.actores[i].foto;
 
         const actor ={
-            nombreActor,
-            apellidoActor,
-            perfil
+            "nombre": nombre,
+            "apellido": apellido,
+            "foto": foto,
+            "idPelicula": nuevaPeli
         }
-        console.log(actor);
+        
         fetch(`${urlbase}/Cine/agregarActor`, {
             method: 'POST',
             headers: {
@@ -651,7 +790,139 @@ function agregarActoresEnBaseDeDatos(){
 
     
 }
+function agregarActorIndividual(idPeli, actor){
+    
+    const nuevoActor = {
+        "nombre": actor.nombre,
+        "apellido": actor.apellido,
+        "foto": actor.foto,
+        "idPelicula": idPeli
+    }
+    
+    fetch(`${urlbase}/Cine/agregarActor`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(nuevoActor),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        
+        console.log('Respuesta del servidor:', data);
+    })
+    .catch(error => {
+        console.error('Error en la solicitud:', error);
+    })
 
+}
+function agregarDirectoresEnBaseDeDatos(nuevaPeli){
+
+    for (let i = 0; i < directoresData.directores.length; i++) {
+        let nombreDirector = directoresData.directores[i].nombre;
+        let apellidoDirector = directoresData.directores[i].apellido;
+
+        const director ={
+            "nombre": nombreDirector,
+            "apellido": apellidoDirector,
+            "idPelicula": nuevaPeli
+        }
+        
+        fetch(`${urlbase}/Cine/agregarDirector`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(director),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            
+            console.log('Respuesta del servidor:', data);
+        })
+        .catch(error => {
+            console.error('Error en la solicitud:', error);
+        });
+    }
+
+    
+}
+
+function agregarDirectorIndividual(nuevaPeli, director){
+
+    
+    const nuevodirector ={
+        "nombre": director.nombre,
+        "apellido": director.apellido,
+        "idPelicula": nuevaPeli
+    }
+    
+    fetch(`${urlbase}/Cine/agregarDirector`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(nuevodirector),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        
+        console.log('Respuesta del servidor:', data);
+    })
+    .catch(error => {
+        console.error('Error en la solicitud:', error);
+    });
+
+}
+
+function agregarSucursalesEnBaseDatosDeDatos(nuevaPeli) {
+
+    
+    for (let i = 0; i < sucursales.length; i++) {
+        let id_sucursal = sucursales[i].idSucursal;
+        
+        const enviarSucursal = {
+            "idSucursal": id_sucursal,
+            "idPelicula": nuevaPeli
+        };
+
+     
+        fetch(`${urlbase}/Cine/agregarSucursalesPelicula`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(enviarSucursal)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error al agregar SucursalesPelicula: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data); 
+        })
+        .catch(error => {
+            console.error('Error en la solicitud Fetch:', error);
+        });
+    }
+}
 
 //Ocultar la ventana de añadir/editar peliculas
 function ocultarEditPeli(){
@@ -662,7 +933,9 @@ function ocultarEditPeli(){
     formPeli.forEach(input => {
         input.value = "";
     });
-    sucursales=[];
+    setTimeout(() => {
+        sucursales=[];
+    }, 1000);
     let buttonSucursal = document.getElementsByClassName('buttonSucursal');
     Array.from(buttonSucursal).forEach(boton => {
         boton.classList.add('hidden');
@@ -692,30 +965,43 @@ Array.from(checkSucursales).forEach(check => {
     });
 });
 //Funcion para mostrar las sucursales
-function mostrarSucursales(idPeli, accion){
+
+function cargarSucursales(idPeli) {
+    fetch(`${urlbase}/Cine/sucursales/${idPeli}`)
+        .then(response => response.json())
+        .then(sucursal => {
+            sucursales=sucursal;
+            sucursalesOriginales=sucursal;
+            mostrarSucursales('editarBtn');
+        })
+        .catch(error => {
+            console.error("Error al cargar las sucursales:", error);
+        });
+}
+
+function mostrarSucursales(accion){
     document.getElementById('editSucursales').classList.remove('hidden');
     let checkSucursales = document.getElementsByClassName('checkSucursales');
     
-    for (let i = 0; i < checkSucursales.length; i++) {
-        if(accion === 'editarBtn'){//Si le da a editar carga las sucursales de la pelicula
-            document.getElementById('editSucursales').classList.add('hidden');
-            peliculas[idPeli].sucursales.forEach(sucursal => {
-                sucursales.push(sucursal);
-                for(let i = 0 ; i < checkSucursales.length ; i++){
-                    if(checkSucursales[i].getAttribute('name') === sucursal){
-                        checkSucursales[i].checked = true;
-                        mostrarBtnSucursal(sucursal);
-                    }
-                }
-            });
-        }else{//Sino demarca todos los checkbox
-            checkSucursales[i].checked = false;
-        }
+    if (accion === 'editarBtn') {
+        document.getElementById('editSucursales').classList.add('hidden');
+        sucursales.forEach(sucursal => {
+            const checkSucursal = Array.from(checkSucursales).find(element => element.getAttribute('name') === sucursal.idSucursal.toString());
+            
+            if (checkSucursal) {
+                mostrarBtnSucursal(sucursal);
+            }
+        });
+    } else{
+        Array.from(checkSucursales).forEach(check => {
+            check.checked = false;
+        });
     }
+    
     //Carga las sucursales
     for(let i = 0; i < sucursales.length;i++){
         for(let j = 0; j < checkSucursales.length;j++){
-            if(checkSucursales[j].getAttribute('name') === sucursales[i]){
+            if(checkSucursales[j].getAttribute('name') === sucursales[i].idSucursal.toString()){
                 checkSucursales[j].checked = true;
             }
         }
@@ -724,7 +1010,7 @@ function mostrarSucursales(idPeli, accion){
 }
 function mostrarBtnSucursal(data){
     checkSucursales.forEach(check => {
-        if(check.getAttribute('name') === data){
+        if(check.getAttribute('name') === data.idSucursal.toString()){
             check.checked = true;
             ocultarSucursales();
             let buttonSucursal = document.getElementsByClassName('buttonSucursal');
@@ -739,11 +1025,14 @@ function mostrarBtnSucursal(data){
 //Funcion para ocultar las sucursales
 function ocultarSucursales(){
     document.getElementById('editSucursales').classList.add('hidden');
-
+    sucursales=[];
     let checkSucursales = document.getElementsByClassName('checkSucursales');
     for (let i = 0; i < checkSucursales.length; i++) {
         if(checkSucursales[i].checked){
-            sucursales.push(checkSucursales[i].getAttribute('name'));
+            const sucur={
+                "idSucursal": checkSucursales[i].getAttribute('name')
+            }
+            sucursales.push(sucur);
         }else{
             sucursales = sucursales.filter((eliminar) => eliminar !== checkSucursales[i].getAttribute('name'));
         }
@@ -771,14 +1060,14 @@ function realizarAccion(accion){
         return `
         <div class="w-full h-[50%] flex justify-around relative">
             <button onclick="ocultarEditPeli(), scrollASeccion('containerPeliculas')" type="button" class="w-36 px-2 py-1 mx-1 relative top-8 rounded-2xl font-bold text-white bg-Buckeye-brown hover:bg-Brown-Sugar">Cancelar</button>
-            <button onclick="agregarPeli(), agregarActoresEnBaseDeDatos('agregarBtn'), ocultarEditPeli(), scrollASeccion('containerPeliculas')" type="button" class="w-36 px-2 py-1 mx-1 relative top-8 rounded-2xl font-bold text-white bg-Buckeye-brown hover:bg-Brown-Sugar">Añadir</button>
+            <button onclick="agregarPeli(), ocultarEditPeli(), scrollASeccion('containerPeliculas')" type="button" class="w-36 px-2 py-1 mx-1 relative top-8 rounded-2xl font-bold text-white bg-Buckeye-brown hover:bg-Brown-Sugar">Añadir</button>
         </div>
         `;
       } else if (accion === 'editarBtn') {
         return `
         <div class="w-full h-[50%] flex justify-around relative">
             <button onclick="ocultarEditPeli(), scrollASeccion('containerPeliculas')" type="button" class="w-36 px-2 py-1 mx-1 relative top-8 rounded-2xl font-bold text-white bg-Buckeye-brown hover:bg-Brown-Sugar">Cancelar</button>
-            <button onclick="actualizarPeli(), ocultarEditPeli(), scrollASeccion('containerPeliculas')" type="button" class="w-36 px-2 py-1 mx-1 relative top-8 rounded-2xl font-bold text-white bg-Buckeye-brown hover:bg-Brown-Sugar">Editar</button>
+            <button onclick="actualizarPeli(), verificarActores(), verificarDirectores(), eliminarSucursal(), ocultarEditPeli(), scrollASeccion('containerPeliculas')" type="button" class="w-36 px-2 py-1 mx-1 relative top-8 rounded-2xl font-bold text-white bg-Buckeye-brown hover:bg-Brown-Sugar">Editar</button>
         </div>
         `;
       };
@@ -797,3 +1086,42 @@ function scrollASeccion(idSeccion) {
         section.scrollIntoView({ behavior: "smooth" });
     }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const usuarioDataString = sessionStorage.getItem('usuarioData');
+    const botonPerfil = document.getElementById('perfilUsuarioBtn');
+    const imagenPerfil = document.getElementById('perfilUsuario');
+
+    if (usuarioDataString) {
+        const usuarioData = JSON.parse(usuarioDataString);
+        botonPerfil.style.display = 'block';
+        imagenPerfil.style.display = 'block';
+
+        const usernamePlaceholder = document.getElementById('usernamePlaceholder');
+        if (usernamePlaceholder) {
+            usernamePlaceholder.innerText = `${usuarioData.nombre} ${usuarioData.apellido}`;
+        }
+    } else {
+        botonPerfil.style.display = 'block';
+        imagenPerfil.style.display = 'block';
+    }
+});
+
+function irAPerfilUsuario() {
+    const usuarioDataString = sessionStorage.getItem('usuarioData');
+    
+    if (usuarioDataString) {
+        window.location.href = './perfil-usuario.html';
+    } else {
+        window.location.href = './inicio-sesion.html';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const rutaImagenPerfil = localStorage.getItem('rutaImagenPerfil');
+    
+    const perfilUsuario = document.getElementById('perfilUsuario');
+    if (perfilUsuario && rutaImagenPerfil) {
+        perfilUsuario.src = rutaImagenPerfil;
+    }
+});
