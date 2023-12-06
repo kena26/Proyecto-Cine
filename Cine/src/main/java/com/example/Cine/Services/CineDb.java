@@ -207,6 +207,8 @@ public class CineDb {
                     return idPelicula;
                 }
             }
+            
+            pstmt.close();
             return -1; // Indicar que no se pudo obtener el id_pelicula
         }
     } catch (SQLException e) {
@@ -236,6 +238,7 @@ public class CineDb {
                 );
                 peliculas.add(pelicula);
             }
+            stmt.close();
         }
     } catch (SQLException e) {
         e.printStackTrace();
@@ -264,6 +267,7 @@ public Pelicula buscarPelicula(int idPelicula) {
                             resultSet.getFloat("calificacion")
                     );
                 }
+                pstmt.close();
             }
         }
     } catch (SQLException e) {
@@ -285,6 +289,7 @@ public Pelicula buscarPelicula(int idPelicula) {
                 int rowsAffected = pstmt.executeUpdate();
                 cn.commit();
 
+                pstmt.close();
                 return rowsAffected > 0;
             }
         } catch (SQLException e) {
@@ -309,6 +314,7 @@ public Pelicula buscarPelicula(int idPelicula) {
                     );
                     actores.add(actor);
                 }
+                pstmt.close();
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -325,6 +331,7 @@ public Pelicula buscarPelicula(int idPelicula) {
             try (PreparedStatement pstmt = cn.prepareStatement(query)) {
                 pstmt.setString(1, idPelicula);
                 pstmt.executeUpdate();
+                pstmt.close();
             }
 
             System.out.println("Película eliminada exitosamente");
@@ -354,6 +361,7 @@ public Pelicula buscarPelicula(int idPelicula) {
 
                 int rowsAffected = pstmt.executeUpdate();
 
+                pstmt.close();
                 return rowsAffected > 0;
             }
         } else {
@@ -378,11 +386,12 @@ public Pelicula buscarPelicula(int idPelicula) {
                 int count = rs.getInt("count");
                 return count > 0;
             }
+            pstmt.close();
         }
     } catch (SQLException e) {
         e.printStackTrace();
         System.out.println("Error al verificar la existencia de la película en la base de datos: " + e.getMessage());
-        throw e; // Re-throw the exception to the calling method
+        throw e; 
     }
 
     return false;
@@ -400,6 +409,7 @@ public Pelicula buscarPelicula(int idPelicula) {
                     int rowsAffected = pstmt.executeUpdate();
                     cn.commit();
 
+                    pstmt.close();
                     return rowsAffected > 0;
                 }
             } catch (SQLException e) {
@@ -423,6 +433,7 @@ public Pelicula buscarPelicula(int idPelicula) {
                     );
                     directores.add(director);
                 }
+                pstmt.close();
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -444,6 +455,7 @@ public Pelicula buscarPelicula(int idPelicula) {
                 int rowsAffected = pstmt.executeUpdate();
                 cn.commit();
 
+                pstmt.close();
                 return rowsAffected > 0;
             }
         } catch (SQLException e) {
@@ -464,6 +476,7 @@ public Pelicula buscarPelicula(int idPelicula) {
                 );
                 sucursales.add(sucursal);
             }
+            pstmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Error al obtener sucursales por película: " + e.getMessage());
@@ -487,6 +500,7 @@ public Pelicula buscarPelicula(int idPelicula) {
 
                 int rowsAffected = pstmt.executeUpdate();
 
+                pstmt.close();
                 return rowsAffected > 0;
             }
         } else {
@@ -512,6 +526,7 @@ public boolean existeActor(int idActor) {
                     return count > 0;
                 }
             }
+            pstmt.close();
         }
     } catch (SQLException e) {
         e.printStackTrace();
@@ -534,6 +549,7 @@ public boolean existeActor(int idActor) {
 
                 int rowsAffected = pstmt.executeUpdate();
 
+                pstmt.close();
                 return rowsAffected > 0;
             }
         } else {
@@ -558,6 +574,7 @@ public boolean existeDirector(int idDirector) {
                     return count > 0;
                 }
             }
+            pstmt.close();
         }
     } catch (SQLException e) {
         e.printStackTrace();
@@ -577,6 +594,7 @@ public boolean existeDirector(int idDirector) {
 
                 int rowsAffected = pstmt.executeUpdate();
 
+                pstmt.close();
                 return rowsAffected > 0;
             }
         } catch (SQLException e) {
@@ -609,6 +627,7 @@ public boolean existeDirector(int idDirector) {
                 );
                 peliculas.add(pelicula);
             }
+            pstmt.close();
         }
     } catch (SQLException e) {
         e.printStackTrace();

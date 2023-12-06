@@ -1,4 +1,5 @@
 const urlbase="http://127.0.0.1:8080";
+let rutaOriginalImagenPerfil;
 document.addEventListener('DOMContentLoaded', function () {
     const usuarioDataString = sessionStorage.getItem('usuarioData');
 
@@ -40,16 +41,21 @@ document.addEventListener('DOMContentLoaded', function () {
     const perfilUsuario = document.getElementById('perfilUsuario');
     const rutaImagenAlmacenada = localStorage.getItem('rutaImagenPerfil');
 
+    rutaOriginalImagenPerfil = './assets/icon/usuario.png';
+
     if (fotoPerfil && perfilUsuario && rutaImagenAlmacenada) {
         fotoPerfil.src = rutaImagenAlmacenada;
         perfilUsuario.src = rutaImagenAlmacenada;
     }
 
-
     const cerrarSesionBtn = document.getElementById('cerrarSesionBtn');
     cerrarSesionBtn.addEventListener('click', function () {
-
         sessionStorage.removeItem('usuarioData');
+
+        
+        localStorage.setItem('rutaImagenPerfil', rutaOriginalImagenPerfil);
+        fotoPerfil.src = rutaOriginalImagenPerfil;
+        perfilUsuario.src = rutaOriginalImagenPerfil;
 
         window.location.href = './home.html';
     });
@@ -145,7 +151,7 @@ async function actualizar() {
 
     try {
         const response = await fetch(`${urlbase}/Cine/actualizarUsuario`, {
-            method: 'PATCH', // Utiliza el método PATCH para actualizaciones parciales
+            method: 'PATCH', 
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -209,9 +215,10 @@ function cambiarFotoPerfil(imagenSeleccionada) {
 }
 document.addEventListener('DOMContentLoaded', function () {
     const rutaImagenPerfil = localStorage.getItem('rutaImagenPerfil');
-   
+    
     const perfilUsuario = document.getElementById('perfilUsuario');
     if (perfilUsuario && rutaImagenPerfil) {
         perfilUsuario.src = rutaImagenPerfil;
     }
 });
+
