@@ -144,6 +144,26 @@ document.addEventListener('DOMContentLoaded', function () {
     } 
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const usuarioDataString = sessionStorage.getItem('usuarioData');
+    const botonPerfil = document.getElementById('perfilUsuarioBtn');
+    const imagenPerfil = document.getElementById('perfilUsuario');
+
+    if (usuarioDataString) {
+        const usuarioData = JSON.parse(usuarioDataString);
+        botonPerfil.style.display = 'block';
+        imagenPerfil.style.display = 'block';
+
+        const usernamePlaceholder = document.getElementById('usernamePlaceholder');
+        if (usernamePlaceholder) {
+            usernamePlaceholder.innerText = `${usuarioData.nombre} ${usuarioData.apellido}`;
+        }
+    } else {
+        botonPerfil.style.display = 'block';
+        imagenPerfil.style.display = 'block';
+    }
+});
+
 function irAPerfilUsuario() {
     const usuarioDataString = sessionStorage.getItem('usuarioData');
     
@@ -163,11 +183,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    const rutaImagenPerfil = localStorage.getItem('rutaImagenPerfil');
-    
+const cerrarSesionBtn = document.getElementById('cerrarSesionBtn');
+cerrarSesionBtn.addEventListener('click', function () {
+
+    const fotoPerfil = document.getElementById('fotoperfil');
     const perfilUsuario = document.getElementById('perfilUsuario');
-    if (perfilUsuario && rutaImagenPerfil) {
-        perfilUsuario.src = rutaImagenPerfil;
-    }
+    fotoPerfil.src = '/Cine/src/main/resources/static/dist/assets/icon/usuario.png';
+    perfilUsuario.src = '/Cine/src/main/resources/static/dist/assets/icon/usuario.png';
+
+    sessionStorage.removeItem('usuarioData');
+    localStorage.removeItem('rutaImagenPerfil');
+
+    window.location.href = './home.html';
 });
