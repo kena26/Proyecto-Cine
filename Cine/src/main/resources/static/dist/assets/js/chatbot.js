@@ -6,6 +6,12 @@ document.addEventListener("DOMContentLoaded", function () {
 	const chatbotImage = document.getElementById("chatbot-image");
 	const closeChatbotButton = document.getElementById("close-chatbot");
 	const chatbotAyuda = document.getElementById("chatbot-ayuda")
+	const chatbotAyudaFooter = document.getElementById("chatbot-ayuda-footer")
+
+	chatbotAyudaFooter.addEventListener("click", function () {
+		chatbotContainer.style.display = "block";
+		chatbotContainer.style.position = "sticky";
+	});
 
 	chatbotImage.addEventListener("click", function () {
 		chatbotContainer.style.display = "block";
