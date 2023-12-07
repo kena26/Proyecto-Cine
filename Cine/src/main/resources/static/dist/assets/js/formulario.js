@@ -607,6 +607,7 @@ function mostrarActores(actores) {
     let containerActor = document.getElementById('containerActor');
     containerActor.innerHTML = "";
     
+    contActorGuardado = actoresOriginales.length;
     for (let i = 0; i < actores.length; i++) {
         let actor = actores[i];
         
@@ -703,7 +704,7 @@ function agregarDirectores(){
       "directores": []
     };
 
-    contDirectorGuardado = directoresOriginales.length;
+    
     if(accionDirector === 'editarBtn'){
         for(let i = 0 ; i < contDirectorGuardado ; i++){
             let nombre = document.getElementById(`directorNombre${i+1}`).value;
@@ -755,7 +756,7 @@ function agregarActores(accion){
     actoresData ={
       "actores": []
     };
-    contActorGuardado = actoresOriginales.length;
+
     if(accion === 'editarBtn'){
         for(let i = 0 ; i < contActorGuardado ; i++){
             let nombre = document.getElementById(`actorNombre${i+1}`).value;
@@ -851,7 +852,21 @@ function agregarActoresEnBaseDeDatos(nuevaPeli){
             console.error('Error en la solicitud:', error);
         });
     }
-
+    fetch(`${urlbase}/Cine/eliminarActoresPelicula/${nuevaPeli}`, {
+        method: 'DELETE',
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Error al eliminar asociaciones de actores: ${response.status}`);
+        }
+        for (let i = 0; i < actoresData.actores.length; i++) {
+            let actor = actoresData.actores[i];
+            
+        }
+    })
+    .catch(error => {
+        console.error('Error en la solicitud Fetch:', error);
+    });
     
 }
 function agregarActorIndividual(idPeli, actor){
@@ -918,7 +933,20 @@ function agregarDirectoresEnBaseDeDatos(nuevaPeli){
             console.error('Error en la solicitud:', error);
         });
     }
-
+    fetch(`${urlbase}/Cine/eliminarDirectoresPelicula/${nuevaPeli}`, {
+        method: 'DELETE',
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Error al eliminar asociaciones de directores: ${response.status}`);
+        }
+        for (let i = 0; i < directoresData.directores.length; i++) {
+            let director = directoresData.directores[i];
+        }
+    })
+    .catch(error => {
+        console.error('Error en la solicitud Fetch:', error);
+    });
     
 }
 
@@ -955,17 +983,14 @@ function agregarDirectorIndividual(nuevaPeli, director){
 }
 
 function agregarSucursalesEnBaseDatosDeDatos(nuevaPeli) {
-
-    
     for (let i = 0; i < sucursales.length; i++) {
         let id_sucursal = sucursales[i].idSucursal;
-        
+
         const enviarSucursal = {
             "idSucursal": id_sucursal,
             "idPelicula": nuevaPeli
         };
 
-     
         fetch(`${urlbase}/Cine/agregarSucursalesPelicula`, {
             method: 'POST',
             headers: {
@@ -986,6 +1011,25 @@ function agregarSucursalesEnBaseDatosDeDatos(nuevaPeli) {
             console.error('Error en la solicitud Fetch:', error);
         });
     }
+    fetch(`${urlbase}/Cine/eliminarSucursalesPelicula/${nuevaPeli}`, {
+        method: 'DELETE',
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Error al eliminar asociaciones de sucursales: ${response.status}`);
+        }
+        for (let i = 0; i < sucursales.length; i++) {
+            let id_sucursal = sucursales[i].idSucursal;
+            const enviarSucursal = {
+                "idSucursal": id_sucursal,
+                "idPelicula": nuevaPeli
+            };
+        }
+    })
+    .catch(error => {
+        console.error('Error en la solicitud Fetch:', error);
+    });
+
 }
 
 //Ocultar la ventana de añadir/editar peliculas
@@ -1171,26 +1215,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    const usuarioDataString = sessionStorage.getItem('usuarioData');
-    const botonPerfil = document.getElementById('perfilUsuarioBtn');
-    const imagenPerfil = document.getElementById('perfilUsuario');
-
-    if (usuarioDataString) {
-        const usuarioData = JSON.parse(usuarioDataString);
-        botonPerfil.style.display = 'block';
-        imagenPerfil.style.display = 'block';
-
-        const usernamePlaceholder = document.getElementById('usernamePlaceholder');
-        if (usernamePlaceholder) {
-            usernamePlaceholder.innerText = `${usuarioData.nombre} ${usuarioData.apellido}`;
-        }
-    } else {
-        botonPerfil.style.display = 'block';
-        imagenPerfil.style.display = 'block';
-    }
-});
-
 function irAPerfilUsuario() {
     const usuarioDataString = sessionStorage.getItem('usuarioData');
     
@@ -1208,18 +1232,4 @@ document.addEventListener('DOMContentLoaded', function () {
     if (perfilUsuario && rutaImagenPerfil) {
         perfilUsuario.src = rutaImagenPerfil;
     }
-});
-
-const cerrarSesionBtn = document.getElementById('cerrarSesionBtn');
-cerrarSesionBtn.addEventListener('click', function () {
-
-    const fotoPerfil = document.getElementById('fotoperfil');
-    const perfilUsuario = document.getElementById('perfilUsuario');
-    fotoPerfil.src = '/Cine/src/main/resources/static/dist/assets/icon/usuario.png';
-    perfilUsuario.src = '/Cine/src/main/resources/static/dist/assets/icon/usuario.png';
-
-    sessionStorage.removeItem('usuarioData');
-    localStorage.removeItem('rutaImagenPerfil');
-
-    window.location.href = './home.html';
 });

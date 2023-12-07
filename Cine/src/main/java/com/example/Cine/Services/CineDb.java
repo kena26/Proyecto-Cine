@@ -290,6 +290,7 @@ public class CineDb {
                 int rowsAffected = pstmt.executeUpdate();
                 cn.commit();
 
+                pstmt.close();
                 return rowsAffected > 0;
             }
         } catch (SQLException e) {
@@ -297,6 +298,30 @@ public class CineDb {
             System.out.println("Error al agregar el actor a la base de datos: " + e.getMessage());
             return false;
         }
+    }
+
+    public List<Actor> obtenerActoresPorPelicula(int idPelicula) {
+    List<Actor> actores = new ArrayList<>();
+    try (PreparedStatement pstmt = cn.prepareStatement("SELECT * FROM Actores WHERE id_pelicula = ?")) {
+        pstmt.setInt(1, idPelicula);
+        try (ResultSet result = pstmt.executeQuery()) {
+                while (result.next()) {
+                    Actor actor = new Actor(
+                            result.getInt("id_actor"),
+                            result.getString("nombre"),
+                            result.getString("apellido"),
+                            result.getString("foto"),
+                            result.getInt("id_pelicula")
+                    );
+                    actores.add(actor);
+                }
+                pstmt.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error al obtener actores por película: " + e.getMessage());
+        }
+        return actores;
     }
 
     public void eliminarPelicula(String idPelicula) {
@@ -307,6 +332,7 @@ public class CineDb {
             try (PreparedStatement pstmt = cn.prepareStatement(query)) {
                 pstmt.setString(1, idPelicula);
                 pstmt.executeUpdate();
+                pstmt.close();
             }
 
             System.out.println("Película eliminada exitosamente");
