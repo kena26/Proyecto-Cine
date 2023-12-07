@@ -9,7 +9,6 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
-
 @SpringBootApplication
 public class EjemploApplication {
 
@@ -25,7 +24,7 @@ public class EjemploApplication {
                 @Override
                 public void addCorsMappings(CorsRegistry registry) {
                     registry.addMapping("/**")
-                            .allowedOrigins("http://localhost:5501", "http://127.0.0.1:5501")
+                            .allowedOrigins("http://127.0.0.1:5501")
                             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                             .allowedHeaders("Origin", "Content-Type", "Accept", "Authorization");
                 }

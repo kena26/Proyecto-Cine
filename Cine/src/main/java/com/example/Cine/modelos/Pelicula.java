@@ -1,110 +1,49 @@
 package com.example.Cine.modelos;
 
-import java.util.List;
-
 public class Pelicula {
-
-    private int idPelicula;
-    private String titulo;
-    private String sinopsis;
-    private String genero;
-    private String linkQR;
-    private String linkInfo;
-    private String clasificacion;
+    private String id_pelicula;
     private String duracion;
-    private String fotoPoster;
-    private Float calificacion;
-    private List<Director> directores;
-    private List<SucursalesPelicula> sucursales;
-     private List<Actor> actores;
+    private String director;
+    private Integer año;
+    private String sinopsis;
+    private String clasificacion;
+    private String genero;
+    private Float precio;
+    private String nombrePelicula;
+    private String trailer;
+    private String id_tipoP;
+    private String id_Qr;
+    private String foto_poster;
+    private String IDactor;
+
 
     public Pelicula() {
+        
     }
 
-
-    public Pelicula(int idPelicula, String titulo, String sinopsis, String genero, String linkQR, String linkInfo, String clasificacion, String duracion, String fotoPoster, Float calificacion) {
-    this.idPelicula = idPelicula;
-    this.titulo = titulo;
-    this.sinopsis = sinopsis;
-    this.genero = genero;
-    this.linkQR = linkQR;
-    this.linkInfo = linkInfo;
-    this.clasificacion = clasificacion;
-    this.duracion = duracion;
-    this.fotoPoster = fotoPoster;
-    this.calificacion = calificacion;
-}
-
-
-    public Pelicula(String titulo, String sinopsis, String genero, String linkQR, String linkInfo,
-                    String clasificacion, String duracion, String fotoPoster, float calificacion) {
-        this.titulo = titulo;
-        this.sinopsis = sinopsis;
-        this.genero = genero;
-        this.linkQR = linkQR;
-        this.linkInfo = linkInfo;
-        this.clasificacion = clasificacion;
+    public Pelicula(String id_pelicula, String duracion, String director,  String sinopsis, String clasificacion, String genero, Float precio, String nombrePelicula,
+                    String trailer, String id_tipoP, String id_Qr, String foto_poster, String IDactor) {
+        this.id_pelicula = id_pelicula;
         this.duracion = duracion;
-        this.fotoPoster = fotoPoster;
-        this.calificacion=calificacion;
-
-    }
-
-
-    public int getIdPelicula() {
-        return idPelicula;
-    }
-
-    public void setIdPelicula(int idPelicula) {
-        this.idPelicula = idPelicula;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getSinopsis() {
-        return sinopsis;
-    }
-
-    public void setSinopsis(String sinopsis) {
+        this.director = director;
         this.sinopsis = sinopsis;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public String getLinkQR() {
-        return linkQR;
-    }
-
-    public void setLinkQR(String linkQR) {
-        this.linkQR = linkQR;
-    }
-
-    public String getLinkInfo() {
-        return linkInfo;
-    }
-
-    public void setLinkInfo(String linkInfo) {
-        this.linkInfo = linkInfo;
-    }
-
-    public String getClasificacion() {
-        return clasificacion;
-    }
-
-    public void setClasificacion(String clasificacion) {
         this.clasificacion = clasificacion;
+        this.genero = genero;
+        this.precio = precio;
+        this.nombrePelicula = nombrePelicula;
+        this.trailer = trailer;
+        this.id_tipoP = id_tipoP;
+        this.id_Qr = id_Qr;
+        this.foto_poster = foto_poster;
+        this.IDactor = IDactor;
+    }
+
+	public String getId_pelicula() {
+        return id_pelicula;
+    }
+
+    public void setId_pelicula(String id_pelicula) {
+        this.id_pelicula = id_pelicula;
     }
 
     public String getDuracion() {
@@ -115,44 +54,103 @@ public class Pelicula {
         this.duracion = duracion;
     }
 
-    public String getFotoPoster() {
-        return fotoPoster;
+    public String getDirector() {
+        return director;
     }
 
-    public void setFotoPoster(String fotoPoster) {
-        this.fotoPoster = fotoPoster;
-    }
-    public Float getCalificacion() {
-        return calificacion;
+    public void setDirector(String director) {
+        this.director = director;
     }
 
-    public void setCalificacion(Float calificacion) {
-        this.calificacion = calificacion;
-    }
-     public List<Actor> getActores() {
-        return actores;
+    public Integer getAño() {
+        return año;
     }
 
-    public void setActores(List<Actor> actores) {
-        this.actores = actores;
+    public void setAño(String año) {
+    try {
+        this.año = Integer.parseInt(año);
+    } catch (NumberFormatException e) {
+
+            this.año = 0; 
+        }
     }
 
-    public List<Director> getDirectores() {
-        return directores;
+    public String getSinopsis() {
+        return sinopsis;
     }
 
-    public void setDirectores(List<Director> directores) {
-        this.directores = directores;
+    public void setSinopsis(String sinopsis) {
+        this.sinopsis = sinopsis;
+    }
+    public String getClasificacion() {
+        return clasificacion;
     }
 
-    public List<SucursalesPelicula> getSucursales() {
-        return sucursales;
+    public void setClasificacion(String clasificacion) {
+        this.clasificacion = clasificacion;
     }
 
-    public void setSucursales(List<SucursalesPelicula> sucursales) {
-        this.sucursales = sucursales;
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public Float getPrecio() {
+        return precio != null ? precio : 0.0f;
+    }
+
+    public void setPrecio(Float precio) {
+        this.precio = precio;
+    }
+
+    public String getNombrePelicula() {
+        return nombrePelicula;
+    }
+
+    public void setNombrePelicula(String nombrePelicula) {
+        this.nombrePelicula = nombrePelicula;
+    }
+
+    public String getTrailer() {
+        return trailer;
+    }
+
+    public void setTrailer(String trailer) {
+        this.trailer = trailer;
+    }
+
+    public String getId_tipoP() {
+        return id_tipoP;
+    }
+
+    public void setId_tipoP(String id_tipoP) {
+        this.id_tipoP = id_tipoP;
+    }
+
+    public String getId_Qr() {
+        return id_Qr;
+    }
+
+    public void setId_Qr(String id_Qr) {
+        this.id_Qr = id_Qr;
+    }
+
+    public String getFoto_poster() {
+        return foto_poster;
+    }
+
+    public void setFoto_poster(String foto_poster) {
+        this.foto_poster = foto_poster;
+    }
+
+    public String getIDactor() {
+        return IDactor;
+    }
+
+    public void setIDactor(String IDactor) {
+        this.IDactor = IDactor;
     }
 }
-
-
-
