@@ -1,68 +1,41 @@
 package com.example.Cine.modelos;
 
 public class Actor {
-    private int idActor;
-    private String nombre;
-    private String apellido;
-    private String foto;
-    private int id_pelicula;
+    private String nombreActor;
+    private String apellidoActor;
+    private String perfil;
 
     public Actor() {
 
     }
 
-    public Actor(String nombre, String apellido, String foto, int id_pelicula) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.foto = foto;
-        this.id_pelicula=id_pelicula;
+    public Actor(String nombreActor, String apellidoActor, String perfil) {
+        this.nombreActor = nombreActor;
+        this.apellidoActor = apellidoActor;
+        this.perfil = perfil;
     }
 
-    public Actor(int idActor, String nombre, String apellido, String foto, int id_pelicula) {
-        this.idActor=idActor;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.foto = foto;
-        this.id_pelicula=id_pelicula;
+    public String getNombreActor() {
+        return nombreActor;
     }
 
-    public int getIdActor() {
-        return idActor;
+    public void setNombreActor(String nombreActor) {
+        this.nombreActor = nombreActor;
     }
 
-    public void setIdActor(int idActor) {
-        this.idActor = idActor;
+    public String getApellidoActor() {
+        return apellidoActor;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void setApellidoActor(String apellidoActor) {
+        this.apellidoActor = apellidoActor;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public String getPerfil() {
+        return perfil;
     }
 
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
-
-    public int getIdPelicula(){
-        return id_pelicula;
-    }
-
-    public void setIdPelicula(int id_pelicula) {
-        this.id_pelicula = id_pelicula;
+    public void setPerfil(String perfil) {
+        this.perfil = perfil;
     }
 }
