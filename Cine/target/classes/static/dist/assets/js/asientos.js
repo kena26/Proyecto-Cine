@@ -1,5 +1,5 @@
 let asientos = [];
-let cantidad;
+let cantBoletos;
 
 // Verifica si antes habia segundos o minutos
 const storedState = localStorage.getItem("timerState");
@@ -57,77 +57,17 @@ function cargarSegundo() {
 	segundos--;
 }
 
-// Ejecutamos cada segundo
-let timer = setInterval(cargarSegundo, 1000);
-
-function validarDisponibilidad(asiento) {
-	//Verifica cuantos boletos hay en el almacenamiento
-	const tickeState = localStorage.getItem("boletos");
-	const { ticket: storedTicket} =
-		JSON.parse(tickeState);
-	cantidad = storedTicket;
-	// Verificar si el checkbox está marcado
-	if (document.getElementById(asiento).checked) {
-		//Cuando esta marcado
-		if(asientos.length < cantidad){//Verifica que sea menor a la cantidad de boletos seleccionados
-			document.getElementById(`${asiento}-S`).classList.remove("hidden");
-			document.getElementById(`${asiento}-D`).classList.add("hidden");
-			asientos.push(`\n${asiento}`);
-			mapearAsientos(asientos);
-		}else{
-			alert(`Solo puede seleccionar hasta ${cantidad} asientos`);
-			document.getElementById(asiento).checked = false;
-		}
-	} else {
-		//Cuando esta desmarcado
-		document.getElementById(`${asiento}-S`).classList.add("hidden");
-		document.getElementById(`${asiento}-D`).classList.remove("hidden");
-		asientos = asientos.filter((eliminar) => eliminar !== `\n${asiento}`);
-		mapearAsientos(asientos);
-	}
-}
-//Mapea los asientos seleccionados
-function mapearAsientos(asiento) {
-	let contenedor = document.getElementById("asiento-S");
-	contenedor.innerHTML = mapearPlantilla(asiento);
-}
-
-function mapearPlantilla(asiento) {
-	return `${asiento}`;
-}
-//Manda los asientos ocupados
-function asientosOcupados() {
-	let JSON = {
-		"ocupados": [
-			{
-				"asiento": "F1",
-			},
-			{
-				"asiento": "F2",
-			},
-			{
-				"asiento": "F3",
-			},
-			{
-				"asiento": "F4",
-			},
-		],
-	};
-
-	JSON.ocupados.forEach((ocupado) => {
-		document.getElementById(ocupado.asiento).disabled = true;
-		document.getElementById(`${ocupado.asiento}-D`).classList.add("hidden");
-		document.getElementById(`${ocupado.asiento}-O`).classList.remove("hidden");
-		document
-			.getElementById(`asiento-${ocupado.asiento}`)
-			.classList.remove("cursor-pointer");
-		document
-			.getElementById(`asiento-${ocupado.asiento}`)
-			.classList.add("pointer-events-none");
-	});
-}
 //Para que muestre el siguiente mensaje de inactividad
 function siguienteMensaje() {
 	document.getElementById("container-message1").classList.add("hidden");
 	document.getElementById("container-message2").classList.remove("hidden");
 }
+
+// Ejecutamos cada segundo
+let timer = setInterval(cargarSegundo, 1000);
+
+//Verifica cuantos boletos hay en el almacenamiento
+const tickeState = localStorage.getItem("boletos");
+const { ticket: storedTicket} =
+	JSON.parse(tickeState);
+cantBoletos = storedTicket;// (cantBoletos) es la cantidad de boletos que seleccionó, osea que no puede seleccionar más de esa cantidad

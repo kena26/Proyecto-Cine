@@ -128,401 +128,126 @@
 				</section>
 			</section>
 			<!--Seccion de los asientos-->
-			<section
-				class="w-full h-[350px] max-sm:h-[450px] flex flex-col relative top-5 items-center font-bold text-xs text-black overflow-hidden">
+			<section class="w-full h-[350px] max-sm:h-[450px] flex flex-col relative top-5 items-center font-bold text-xs text-black overflow-hidden">
 				<section class="grid grid-cols-15 mb-1 select-none">
 					<div
 						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
 						<span class="pointer-events-none text-white">F</span>
 					</div>
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="F1-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="F1-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="F1-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-F1"
-							for="F1"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>F1</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('F1')"
-							id="F1"
-							class="hidden" />
+					<!--F1-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="F1" value="F1" class="sr-only peer" />
+						<label for="F1" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">F1</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
+					</div>
+					<!--F2-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="F2" value="F2" class="sr-only peer" />
+						<label for="F2" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">F2</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="F2-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="F2-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="F2-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-F2"
-							for="F2"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>F2</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('F2')"
-							id="F2"
-							class="hidden" />
+					<!--F3-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="F3" value="F3" class="sr-only peer" />
+						<label for="F3" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">F3</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="F3-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="F3-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="F3-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-F3"
-							for="F3"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>F3</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('F3')"
-							id="F3"
-							class="hidden" />
+					<!--F4-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="F4" value="F4" class="sr-only peer" />
+						<label for="F4" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">F4</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="F4-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="F4-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="F4-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-F4"
-							for="F4"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>F4</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('F4')"
-							id="F4"
-							class="hidden" />
+					<!--F5-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="F5" value="F5" class="sr-only peer" />
+						<label for="F5" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">F5</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="F5-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="F5-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="F5-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-F5"
-							for="F5"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>F5</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('F5')"
-							id="F5"
-							class="hidden" />
+					<!--F6-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="F6" value="F6" class="sr-only peer" />
+						<label for="F6" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">F6</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="F6-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="F6-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="F6-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-F6"
-							for="F6"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>F6</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('F6')"
-							id="F6"
-							class="hidden" />
+					<!--F7-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="F7" value="F7" class="sr-only peer" />
+						<label for="F7" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">F7</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="F7-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="F7-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="F7-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-F7"
-							for="F7"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>F7</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('F7')"
-							id="F7"
-							class="hidden" />
+					<!--F8-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="F8" value="F8" class="sr-only peer" />
+						<label for="F8" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">F8</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="F8-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="F8-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="F8-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-F8"
-							for="F8"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>F8</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('F8')"
-							id="F8"
-							class="hidden" />
+					<!--F9-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="F9" value="F9" class="sr-only peer" />
+						<label for="F9" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">F9</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="F9-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="F9-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="F9-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-F9"
-							for="F9"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>F9</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('F9')"
-							id="F9"
-							class="hidden" />
+					<!--F10-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="F10" value="F10" class="sr-only peer" />
+						<label for="F10" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">F10</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="F10-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="F10-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="F10-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-F10"
-							for="F10"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>F10</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('F10')"
-							id="F10"
-							class="hidden" />
+					<!--F11-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="F11" value="F11" class="sr-only peer" />
+						<label for="F11" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">F11</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="F11-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="F11-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="F11-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-F11"
-							for="F11"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>F11</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('F11')"
-							id="F11"
-							class="hidden" />
+					<!--F12-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="F12" value="F12" class="sr-only peer" />
+						<label for="F12" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">F12</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="F12-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="F12-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="F12-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-F12"
-							for="F12"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>F12</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('F12')"
-							id="F12"
-							class="hidden" />
-					</div>
-
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="F13-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="F13-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="F13-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-F13"
-							for="F13"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>F13</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('F13')"
-							id="F13"
-							class="hidden" />
+					<!--F13-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="F13" value="F13" class="sr-only peer" />
+						<label for="F13" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">F13</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
 					<div
@@ -537,304 +262,94 @@
 
 					<div class="col-span-1"></div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="E1-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="E1-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="E1-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-E1"
-							for="E1"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>E1</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('E1')"
-							id="E1"
-							class="hidden" />
+					<!--E1-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="E1" value="E1" class="sr-only peer" />
+						<label for="E1" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">E1</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="E2-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="E2-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="E2-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-E2"
-							for="E2"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>E2</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('E2')"
-							id="E2"
-							class="hidden" />
+					<!--E2-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="E2" value="E2" class="sr-only peer" />
+						<label for="E2" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">E2</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="E3-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="E3-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="E3-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-E3"
-							for="E3"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>E3</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('E3')"
-							id="E3"
-							class="hidden" />
+					<!--E3-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="E3" value="E3" class="sr-only peer" />
+						<label for="E3" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">E3</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="E4-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="E4-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="E4-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-E4"
-							for="E4"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>E4</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('E4')"
-							id="E4"
-							class="hidden" />
+					<!--E4-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="E4" value="E4" class="sr-only peer" />
+						<label for="E4" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">E4</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="E5-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="E5-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="E5-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-E5"
-							for="E5"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>E5</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('E5')"
-							id="E5"
-							class="hidden" />
+					<!--E5-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="E5" value="E5" class="sr-only peer" />
+						<label for="E5" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">E5</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="E6-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="E6-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="E6-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-E6"
-							for="E6"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>E6</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('E6')"
-							id="E6"
-							class="hidden" />
+					<!--E6-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="E6" value="E6" class="sr-only peer" />
+						<label for="E6" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">E6</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="E7-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="E7-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="E7-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-E7"
-							for="E7"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>E7</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('E7')"
-							id="E7"
-							class="hidden" />
+					<!--E7-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="E7" value="E7" class="sr-only peer" />
+						<label for="E7" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">E7</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="E8-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="E8-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="E8-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-E8"
-							for="E8"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>E8</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('E8')"
-							id="E8"
-							class="hidden" />
+					<!--E8-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="E8" value="E8" class="sr-only peer" />
+						<label for="E8" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">E8</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="E9-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="E9-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="E9-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-E9"
-							for="E9"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>E9</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('E9')"
-							id="E9"
-							class="hidden" />
+					<!--E9-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="E9" value="E9" class="sr-only peer" />
+						<label for="E9" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">E9</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="E10-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="E10-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="E10-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-E10"
-							for="E10"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>E10</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('E10')"
-							id="E10"
-							class="hidden" />
+					<!--E10-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="E10" value="E10" class="sr-only peer" />
+						<label for="E10" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">E10</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
 					<div class="col-span-2"></div>
@@ -851,304 +366,94 @@
 
 					<div class="col-span-1"></div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="D1-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="D1-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="D1-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-D1"
-							for="D1"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>D1</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('D1')"
-							id="D1"
-							class="hidden" />
+					<!--D1-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="D1" value="D1" class="sr-only peer" />
+						<label for="D1" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">D1</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="D2-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="D2-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="D2-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-D2"
-							for="D2"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>D2</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('D2')"
-							id="D2"
-							class="hidden" />
+					<!--D2-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="D2" value="D2" class="sr-only peer" />
+						<label for="D2" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">D2</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="D3-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="D3-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="D3-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-D3"
-							for="D3"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>D3</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('D3')"
-							id="D3"
-							class="hidden" />
+					<!--D3-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="D3" value="D3" class="sr-only peer" />
+						<label for="D3" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">D3</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="D4-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="D4-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="D4-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-D4"
-							for="D4"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>D4</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('D4')"
-							id="D4"
-							class="hidden" />
+					<!--D4-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="D4" value="D4" class="sr-only peer" />
+						<label for="D4" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">D4</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="D5-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="D5-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="D5-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-D5"
-							for="D5"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>D5</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('D5')"
-							id="D5"
-							class="hidden" />
+					<!--D5-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="D5" value="D5" class="sr-only peer" />
+						<label for="D5" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">D5</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="D6-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="D6-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="D6-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-D6"
-							for="D6"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>D6</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('D6')"
-							id="D6"
-							class="hidden" />
+					<!--D6-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="D6" value="D6" class="sr-only peer" />
+						<label for="D6" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">D6</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="D7-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="D7-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="D7-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-D7"
-							for="D7"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>D7</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('D7')"
-							id="D7"
-							class="hidden" />
+					<!--D7-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="D7" value="D7" class="sr-only peer" />
+						<label for="D7" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">D7</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="D8-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="D8-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="D8-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-D8"
-							for="D8"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>D8</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('D8')"
-							id="D8"
-							class="hidden" />
+					<!--D8-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="D8" value="D8" class="sr-only peer" />
+						<label for="D8" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">D8</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="D9-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="D9-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="D9-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-D9"
-							for="D9"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>D9</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('D9')"
-							id="D9"
-							class="hidden" />
+					<!--D9-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="D9" value="D9" class="sr-only peer" />
+						<label for="D9" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">D9</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="D10-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="D10-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="D10-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-D10"
-							for="D10"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>D10</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('D10')"
-							id="D10"
-							class="hidden" />
+					<!--D10-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="D10" value="D10" class="sr-only peer" />
+						<label for="D10" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">D10</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
 					<div class="col-span-2"></div>
@@ -1165,304 +470,94 @@
 
 					<div class="col-span-1"></div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="C1-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="C1-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="C1-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-C1"
-							for="C1"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>C1</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('C1')"
-							id="C1"
-							class="hidden" />
+					<!--C1-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="C1" value="C1" class="sr-only peer" />
+						<label for="C1" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">C1</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="C2-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="C2-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="C2-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-C2"
-							for="C2"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>C2</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('C2')"
-							id="C2"
-							class="hidden" />
+					<!--C2-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="C2" value="C2" class="sr-only peer" />
+						<label for="C2" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">C2</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="C3-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="C3-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="C3-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-C3"
-							for="C3"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>C3</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('C3')"
-							id="C3"
-							class="hidden" />
+					<!--C3-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="C3" value="C3" class="sr-only peer" />
+						<label for="C3" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">C3</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="C4-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="C4-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="C4-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-C4"
-							for="C4"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>C4</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('C4')"
-							id="C4"
-							class="hidden" />
+					<!--C4-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="C4" value="C4" class="sr-only peer" />
+						<label for="C4" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">C4</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="C5-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="C5-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="C5-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-C5"
-							for="C5"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>C5</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('C5')"
-							id="C5"
-							class="hidden" />
+					<!--C5-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="C5" value="C5" class="sr-only peer" />
+						<label for="C5" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">C5</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="C6-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="C6-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="C6-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-C6"
-							for="C6"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>C6</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('C6')"
-							id="C6"
-							class="hidden" />
+					<!--C6-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="C6" value="C6" class="sr-only peer" />
+						<label for="C6" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">C6</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="C7-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="C7-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="C7-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-C7"
-							for="C7"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>C7</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('C7')"
-							id="C7"
-							class="hidden" />
+					<!--C7-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="C7" value="C7" class="sr-only peer" />
+						<label for="C7" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">C7</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="C8-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="C8-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="C8-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-C8"
-							for="C8"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>C8</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('C8')"
-							id="C8"
-							class="hidden" />
+					<!--C8-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="C8" value="C8" class="sr-only peer" />
+						<label for="C8" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">C8</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="C9-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="C9-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="C9-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-C9"
-							for="C9"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>C9</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('C9')"
-							id="C9"
-							class="hidden" />
+					<!--C9-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="C9" value="C9" class="sr-only peer" />
+						<label for="C9" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">C9</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="C10-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="C10-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="C10-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-C10"
-							for="C10"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>C10</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('C10')"
-							id="C10"
-							class="hidden" />
+					<!--C10-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="C10" value="C10" class="sr-only peer" />
+						<label for="C10" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">C10</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
 					<div class="col-span-2"></div>
@@ -1479,304 +574,94 @@
 
 					<div class="col-span-1"></div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="B1-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="B1-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="B1-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-B1"
-							for="B1"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>B1</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('B1')"
-							id="B1"
-							class="hidden" />
+					<!--B1-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="B1" value="B1" class="sr-only peer" />
+						<label for="B1" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">B1</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="B2-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="B2-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="B2-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-B2"
-							for="B2"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>B2</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('B2')"
-							id="B2"
-							class="hidden" />
+					<!--B2-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="B2" value="B2" class="sr-only peer" />
+						<label for="B2" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">B2</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="B3-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="B3-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="B3-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-B3"
-							for="B3"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>B3</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('B3')"
-							id="B3"
-							class="hidden" />
+					<!--B3-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="B3" value="B3" class="sr-only peer" />
+						<label for="B3" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">B3</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="B4-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="B4-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="B4-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-B4"
-							for="B4"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>B4</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('B4')"
-							id="B4"
-							class="hidden" />
+					<!--B4-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="B4" value="B4" class="sr-only peer" />
+						<label for="B4" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">B4</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="B5-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="B5-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="B5-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-B5"
-							for="B5"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>B5</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('B5')"
-							id="B5"
-							class="hidden" />
+					<!--B5-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="B5" value="B5" class="sr-only peer" />
+						<label for="B5" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">B5</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="B6-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="B6-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="B6-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-B6"
-							for="B6"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>B6</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('B6')"
-							id="B6"
-							class="hidden" />
+					<!--B6-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="B6" value="B6" class="sr-only peer" />
+						<label for="B6" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">B6</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="B7-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="B7-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="B7-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-B7"
-							for="B7"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>B7</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('B7')"
-							id="B7"
-							class="hidden" />
+					<!--B7-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="B7" value="B7" class="sr-only peer" />
+						<label for="B7" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">B7</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="B8-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="B8-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="B8-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-B8"
-							for="B8"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>B8</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('B8')"
-							id="B8"
-							class="hidden" />
+					<!--B8-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="B8" value="B8" class="sr-only peer" />
+						<label for="B8" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">B8</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="B9-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="B9-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="B9-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-B9"
-							for="B9"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>B9</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('B9')"
-							id="B9"
-							class="hidden" />
+					<!--B9-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="B9" value="B9" class="sr-only peer" />
+						<label for="B9" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">B9</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="B10-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="B10-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="B10-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-B10"
-							for="B10"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>B10</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('B10')"
-							id="B10"
-							class="hidden" />
+					<!--B10-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="B10" value="B10" class="sr-only peer" />
+						<label for="B10" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">B10</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
 					<div class="col-span-2"></div>
@@ -1793,244 +678,76 @@
 
 					<div class="col-span-1"></div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="A1-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="A1-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="A1-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-A1"
-							for="A1"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>A1</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('A1')"
-							id="A1"
-							class="hidden" />
+					<!--A1-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="A1" value="A1" class="sr-only peer" />
+						<label for="A1" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">A1</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="A2-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="A2-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="A2-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-A2"
-							for="A2"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>A2</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('A2')"
-							id="A2"
-							class="hidden" />
+					<!--A2-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="A2" value="A2" class="sr-only peer" />
+						<label for="A2" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">A2</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="A3-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="A3-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="A3-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-A3"
-							for="A3"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>A3</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('A3')"
-							id="A3"
-							class="hidden" />
+					<!--A3-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="A3" value="A3" class="sr-only peer" />
+						<label for="A3" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">A3</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="A4-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="A4-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="A4-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-A4"
-							for="A4"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>A4</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('A4')"
-							id="A4"
-							class="hidden" />
+					<!--A4-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="A4" value="A4" class="sr-only peer" />
+						<label for="A4" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">A4</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="A5-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="A5-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="A5-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-A5"
-							for="A5"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>A5</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('A5')"
-							id="A5"
-							class="hidden" />
+					<!--A5-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="A5" value="A5" class="sr-only peer" />
+						<label for="A5" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">A5</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="A6-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="A6-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="A6-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-A6"
-							for="A6"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>A6</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('A6')"
-							id="A6"
-							class="hidden" />
+					<!--A6-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="A6" value="A6" class="sr-only peer" />
+						<label for="A6" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">A6</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="A7-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="A7-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="A7-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-A7"
-							for="A7"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>A7</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('A7')"
-							id="A7"
-							class="hidden" />
+					<!--A7-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="A7" value="A7" class="sr-only peer" />
+						<label for="A7" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">A7</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
-					<div
-						class="w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
-						<img
-							id="A8-D"
-							class="w-full absolute rotate-180"
-							src="./assets/icon/Asiento disponible(pequeño).png"
-							alt="" />
-						<img
-							id="A8-S"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento seleccionado(pequeño).png"
-							alt="" />
-						<img
-							id="A8-O"
-							class="w-full absolute rotate-180 hidden"
-							src="./assets/icon/Asiento ocupado(pequeño).png"
-							alt="" />
-						<label
-							id="asiento-A8"
-							for="A8"
-							class="w-full h-full flex items-center justify-center z-10 cursor-pointer"
-							>A8</label
-						>
-						<input
-							type="checkbox"
-							onclick="validarDisponibilidad('A8')"
-							id="A8"
-							class="hidden" />
+					<!--A8-->
+					<div class="seat w-8 max-sm:w-7 h-10 flex text-center items-center justify-center relative">
+						<input type="checkbox" id="A8" value="A8" class="sr-only peer" />
+						<label for="A8" class="w-full h-full flex items-center justify-center z-10 cursor-pointer peer-disabled:pointer-events-none">A8</label>
+						<img class="w-full absolute peer-checked:opacity-0 peer-disabled:opacity-0" src="./assets/icon/Asiento disponible(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-0 peer-checked:opacity-100 peer-checked:animate-rubberbrand" src="./assets/icon/Asiento seleccionado(pequeño).png" alt="" />
+						<img class="w-full absolute opacity-0 peer-disabled:opacity-100 peer-disabled:pointer-events-none" src="./assets/icon/Asiento ocupado(pequeño).png" alt="" />
 					</div>
 
 					<div class="col-span-4"></div>
@@ -2047,19 +764,15 @@
 					src="./assets/icon/Pantalla de Cine.png"
 					alt="" />
 				<!--Seccion de asientos seleccionados-->
-				<section
-					id=""
-					class="max-sm:w-full absolute top-12 max-sm:top-80 right-40 max-sm:right-0 text-center text-lg text-white">
+				<section class="max-sm:w-full absolute top-12 max-sm:top-80 right-40 max-sm:right-0 text-center text-lg text-white">
 					<p id="sala-S" class="max-sm:flex max-sm:justify-center">Sala</p>
 
 					<p class="max-sm:absolute max-sm:left-[5%] max-sm:text-sm">Usted ha seleccionado:</p>
 
-					<p
-						id="asiento-S"
-						class="max-w-[200px] max-sm:max-w-[150px] h-[120px] max-sm:relative max-sm:left-[47%] max-sm:text-sm whitespace-normal overflow-hidden">
-					</p>
+					<p id="asiento-S" class="max-w-[200px] max-sm:max-w-[150px] h-[120px] max-sm:relative max-sm:left-[47%] max-sm:text-sm whitespace-normal overflow-hidden"></p>
 				</section>
 			</section>
+
 			<!--Seccion de botones-->
 			<section
 				id="container-buttons"
@@ -2119,21 +832,13 @@
 					¿Desea seguir en la página?
 				</p>
 				<div class="w-60 flex justify-around">
-					<a
-						id="message-link"
-						href="./compra-paso-2(asientos).html">
-						<button
-							id="message-button"
-							class="w-14 h-8 text-white bg-Piano-Black/75 rounded-lg">
+					<a id="message-link" href="./compra-paso-2(asientos).html">
+						<button id="message-button" class="w-14 h-8 text-white bg-Piano-Black/75 rounded-lg">
 							Si
 						</button>
 					</a>
-					<a
-						id="message-link"
-						href="./home.html">
-						<button
-							id="message-button"
-							class="w-14 h-8 text-white bg-Piano-Black/75 rounded-lg">
+					<a id="message-link" href="./home.html">
+						<button id="message-button" class="w-14 h-8 text-white bg-Piano-Black/75 rounded-lg">
 							No
 						</button>
 					</a>

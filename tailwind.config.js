@@ -26,6 +26,19 @@ module.exports = {
 			gridTemplateColumns: {
 				"15": "repeat(15, minmax(0, 1fr))",
 			},
+			keyframes:{
+				rubberbrand: {
+					'0%, 100%': {transform:'scale3d(1, 1, 1)'},
+					'30%': {transform: 'scale3d(1.25, 0.75, 1)'},
+					'40%': {transform: 'scale3d(0.75, 1.25, 1)'},
+					'50%': {transform: 'scale3d(1.15, 0.85, 1)'},
+					'65%': {transform: 'scale3d(0.95, 1.05, 1)'},
+					'75%': {transform: 'scale3d(1.05, 0.95, 1)'},
+				}
+			},
+			animation: {
+				rubberbrand: 'rubberbrand 1s ease-in-out',
+			},
 		},
 	},
 	plugins: [],
