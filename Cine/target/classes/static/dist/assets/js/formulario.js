@@ -370,8 +370,6 @@ function actualizarActor(idActor, actorActualizado) {
                 } else {
                     console.log('Error al actualizar el actor:', data);
                 }
-            } else {
-                console.log('Error al actualizar el actor. La respuesta no es JSON o está vacía.');
             }
         })
         .catch(error => {
@@ -459,7 +457,7 @@ function botonEliminar(){
 }
 
 function eliminarSucursal(){
-    let idPelicula = sucursalesOriginales[0].idPelicula;
+    let idPelicula = editarPelis.idPelicula;
     
     fetch(`${urlbase}/Cine/eliminarSucursalPorPelicula/${idPelicula}`,{
         method: 'DELETE',
@@ -469,16 +467,16 @@ function eliminarSucursal(){
     })
     .then(response =>{
         if(response.ok){
-            console.log('Sucural eliminada con exito');
-            agregarSucursalesEnBaseDatosDeDatos(idPelicula);
+            console.log('Sucursal eliminada con exito');
         }else{
-            console.console.error('Error al eliminar sucursal:', response.statusText);
+            console.error('Error al eliminar sucursal:', response.statusText);
         }
         
     })
     .catch(error=>{
         console.error('Error al hacer la solicitud:', error);
     });
+    agregarSucursalesEnBaseDatosDeDatos(idPelicula);
 }
 
 //Mostrar la ventana de añadir/editar peliculas
@@ -852,22 +850,6 @@ function agregarActoresEnBaseDeDatos(nuevaPeli){
             console.error('Error en la solicitud:', error);
         });
     }
-    fetch(`${urlbase}/Cine/eliminarActoresPelicula/${nuevaPeli}`, {
-        method: 'DELETE',
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`Error al eliminar asociaciones de actores: ${response.status}`);
-        }
-        for (let i = 0; i < actoresData.actores.length; i++) {
-            let actor = actoresData.actores[i];
-            
-        }
-    })
-    .catch(error => {
-        console.error('Error en la solicitud Fetch:', error);
-    });
-    
 }
 function agregarActorIndividual(idPeli, actor){
     
@@ -933,30 +915,15 @@ function agregarDirectoresEnBaseDeDatos(nuevaPeli){
             console.error('Error en la solicitud:', error);
         });
     }
-    fetch(`${urlbase}/Cine/eliminarDirectoresPelicula/${nuevaPeli}`, {
-        method: 'DELETE',
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`Error al eliminar asociaciones de directores: ${response.status}`);
-        }
-        for (let i = 0; i < directoresData.directores.length; i++) {
-            let director = directoresData.directores[i];
-        }
-    })
-    .catch(error => {
-        console.error('Error en la solicitud Fetch:', error);
-    });
-    
 }
 
 function agregarDirectorIndividual(nuevaPeli, director){
 
     
     const nuevodirector ={
-        "nombre": director.nombre,
-        "apellido": director.apellido,
-        "idPelicula": nuevaPeli
+        nombre: director.nombre,
+        apellido: director.apellido,
+        idPelicula: nuevaPeli
     }
     
     fetch(`${urlbase}/Cine/agregarDirector`, {
@@ -983,18 +950,29 @@ function agregarDirectorIndividual(nuevaPeli, director){
 }
 
 function agregarSucursalesEnBaseDatosDeDatos(nuevaPeli) {
-    for (let i = 0; i < sucursales.length; i++) {
-        let id_sucursal = sucursales[i].idSucursal;
+    let nuevasSucursales=[];
 
+    for(let i = 0 ; i < 8 ; i++){
+        if (sucursales[i] && sucursales[i].idSucursal) {
+            nuevasSucursales.push(sucursales[i].idSucursal);
+        }
+    }
+
+    for (let i = 0; i < 8; i++) {
+        let id_sucursal = i+1;
+        let activo = nuevasSucursales.includes(id_sucursal.toString()) ? 1 : 0;
+        
         const enviarSucursal = {
-            "idSucursal": id_sucursal,
-            "idPelicula": nuevaPeli
+            idSucursal: id_sucursal,
+            idPelicula: nuevaPeli,
+            activo: activo
         };
-
+        
+     
         fetch(`${urlbase}/Cine/agregarSucursalesPelicula`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                "Content-type": "application/json; charset=UTF-8",
             },
             body: JSON.stringify(enviarSucursal)
         })
@@ -1011,25 +989,49 @@ function agregarSucursalesEnBaseDatosDeDatos(nuevaPeli) {
             console.error('Error en la solicitud Fetch:', error);
         });
     }
-    fetch(`${urlbase}/Cine/eliminarSucursalesPelicula/${nuevaPeli}`, {
-        method: 'DELETE',
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`Error al eliminar asociaciones de sucursales: ${response.status}`);
-        }
-        for (let i = 0; i < sucursales.length; i++) {
-            let id_sucursal = sucursales[i].idSucursal;
-            const enviarSucursal = {
-                "idSucursal": id_sucursal,
-                "idPelicula": nuevaPeli
-            };
-        }
-    })
-    .catch(error => {
-        console.error('Error en la solicitud Fetch:', error);
-    });
+}
 
+function actualizarSucursalesBD(){
+    let editSucursales=[];
+
+    for(let i = 0 ; i < 8 ; i++){
+        if (sucursales[i] && sucursales[i].idSucursal) {
+            editSucursales.push(sucursales[i].idSucursal);
+        }
+    }
+
+    for (let i = 0; i < 8; i++) {
+        let id_sucursal = i+1;
+        let activo = editSucursales.includes(id_sucursal.toString()) ? 1 : 0;
+        
+        const enviarSucursal = {
+            idSucursal: id_sucursal,
+            idPelicula: editarPelis.idPelicula,
+            activo: activo
+        };
+        
+        
+        fetch(`${urlbase}/Cine/actualizarEstadoSucursal/`, {
+            method: 'PUT',
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+            },
+            body: JSON.stringify(enviarSucursal)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error al actualizar Estado de la Sucursal: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error en la solicitud Fetch:', error);
+        });
+
+    }
 }
 
 //Ocultar la ventana de añadir/editar peliculas
@@ -1043,7 +1045,7 @@ function ocultarEditPeli(){
     });
     setTimeout(() => {
         sucursales=[];
-    }, 1000);
+    }, 3000);
     let buttonSucursal = document.getElementsByClassName('buttonSucursal');
     Array.from(buttonSucursal).forEach(boton => {
         boton.classList.add('hidden');
@@ -1175,7 +1177,7 @@ function realizarAccion(accion){
         return `
         <div class="w-full h-[50%] flex justify-around relative">
             <button onclick="ocultarEditPeli(), scrollASeccion('containerPeliculas')" type="button" class="w-36 px-2 py-1 mx-1 relative top-8 rounded-2xl font-bold text-white bg-Buckeye-brown hover:bg-Brown-Sugar">Cancelar</button>
-            <button onclick="actualizarPeli(), verificarActores(), verificarDirectores(), eliminarSucursal(), ocultarEditPeli(), scrollASeccion('containerPeliculas')" type="button" class="w-36 px-2 py-1 mx-1 relative top-8 rounded-2xl font-bold text-white bg-Buckeye-brown hover:bg-Brown-Sugar">Editar</button>
+            <button onclick="actualizarPeli(), verificarActores(), verificarDirectores(), actualizarSucursalesBD(), ocultarEditPeli(), scrollASeccion('containerPeliculas')" type="button" class="w-36 px-2 py-1 mx-1 relative top-8 rounded-2xl font-bold text-white bg-Buckeye-brown hover:bg-Brown-Sugar">Editar</button>
         </div>
         `;
       };
