@@ -25,6 +25,7 @@ import com.example.Cine.modelos.Usuarios;
 import com.example.Cine.modelos.Cartelera;
 import com.example.Cine.modelos.Director;
 import com.example.Cine.modelos.PasoQr;
+import com.example.Cine.modelos.QrLink;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
@@ -229,10 +230,21 @@ public class CineController {
 
     // Obtener información de paso 4 compra-finalqr
 
-    @GetMapping("/Cine/datosQr/{id_ticket}")   
-    public PasoQr getDatosqr(@PathVariable("id_ticket") int id_ticket) {
+
+    @GetMapping("/Cine/datosQr/{codigoConfirmacion}")
+    public PasoQr getDatosqr(@PathVariable("codigoConfirmacion") String codigoConfirmacion) {
         CineDb cineDb = new CineDb();
-        return cineDb.getDatosqr(id_ticket);
+        return cineDb.getDatosqr(codigoConfirmacion);
     }
+
+    // Para la pagina destino cuando escaneen el qr
+    @GetMapping("/Cine/qr_target/{codigoConfirmacion}")
+    public QrLink getObjLink(@PathVariable("codigoConfirmacion") String codigoConfirmacion) {
+        CineDb cineDb = new CineDb();
+        return cineDb.getQrLink(codigoConfirmacion);
+    }
+
+
+
 
 }

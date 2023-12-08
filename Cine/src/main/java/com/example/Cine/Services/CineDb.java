@@ -13,6 +13,7 @@ import com.example.Cine.modelos.Pelicula;
 import com.example.Cine.modelos.SucursalesPelicula;
 import com.example.Cine.modelos.Usuarios;
 import com.example.Cine.modelos.PasoQr;
+import com.example.Cine.modelos.QrLink;
 import com.example.Cine.modelos.Cartelera;
 import com.example.Cine.modelos.Director;
 
@@ -616,44 +617,90 @@ public class CineDb {
         }
 
     // Servicios para PasosQr
-    public PasoQr getDatosqr(int id_ticket) {
+    public PasoQr getDatosqr(String codigoConfirmacion) {
         PasoQr qr = new PasoQr();
-        try {
-            Statement stmt = cn.createStatement();
-            String query = "SELECT ticket.id_ticket, sucursal.nombre FROM Ticket";
-            ResultSet result = stmt.executeQuery(query);
-            result.next();
 
+        String query = "SELECT\n" +
+                "Sucursales.cine,\n" +
+                "Pelicula.titulo,\n" +
+                "Ticket.id_sala,\n" +
+                "Ticket.fechaTicket,\n" +
+                "Ticket.horaTicket,\n" +
+                "Ticket.cantidadTicket\n" +
+                "FROM Ticket\n" +
+                "JOIN Sucursales ON Ticket.idSucursales = Sucursales.id_sucursal \n" +
+                "JOIN Pelicula ON Ticket.ID_PELICULA = Pelicula.ID_PELICULA " +
+                "WHERE Ticket.id_boleto = ?";
 
-            qr = new PasoQr(
+        try (PreparedStatement pstmt = cn.prepareStatement(query)) {
+            pstmt.setString(1, codigoConfirmacion);
+            ResultSet result = pstmt.executeQuery();
 
-                    result.getInt("id_ticket"),
-                    result.getString("Sede"),
-                    result.getString("Pelicula"),
-                    result.getInt("Sala"),
-                    result.getString("Fecha"),
-                    result.getString("Hora"),
-                    result.getInt("Boletos"),
-                    result.getString("Transaccion"),
-                    result.getFloat("totalCompra"),
-                    result.getString("link")
-
-            );
-            /*
-             * public PasoQr(String codigoConfirmacion, String Sede, String Pelicula, int
-             * Sala,
-             * String Fecha, String Hora, int Boletos, String Transaccion,
-             * float totalCompra, String link)
-             */
+            if (result.next()) {
+                qr = new PasoQr(
+                        result.getString("Sucursales.cine"),
+                        result.getString("Pelicula.titulo"),
+                        result.getInt("Ticket.id_sala"),
+                        result.getString("Ticket.fechaTicket"),
+                        result.getString("Ticket.horaTicket"),
+                        result.getInt("Ticket.cantidadTicket"));
+            }
 
             result.close();
-            stmt.close();
-
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Error al obtener información de registro");
         }
+
         return qr;
+    }
+
+
+    // Servicio de la pagina destino (cuando escanean el QR)
+    // cambia estacanjeado a true
+    public QrLink getQrLink(String codigoConfirmacion) {
+        QrLink qrlink = new QrLink();
+
+        String query = "SELECT Ticket.estacanjeado, Pelicula.linkInfo, Ticket.cantidadTicket FROM Ticket "
+                + "JOIN Pelicula ON Ticket.ID_PELICULA = Pelicula.ID_PELICULA "
+                + "WHERE Ticket.id_boleto = ?";
+
+        try (PreparedStatement pstmt = cn.prepareStatement(query)) {
+            pstmt.setString(1, codigoConfirmacion);
+            ResultSet result = pstmt.executeQuery();
+
+            if (result.next()) {
+                String originalString = result.getString("linkInfo");
+                String modifiedString = originalString;
+
+                // Ver si contiene 'watch?v='
+                if (originalString.contains("watch?v=")) {
+                    // Reemplazar 'watch?v=' con 'embed/'
+                    modifiedString = originalString.replace("watch?v=", "embed/");
+                }
+
+                qrlink = new QrLink(
+                        result.getBoolean("estacanjeado"),
+                        modifiedString,
+                        result.getInt("cantidadTicket"));
+
+                // Actualiza a TRUE cuando el ticket no ha sido canjeado
+                if (!qrlink.getFlag()) {
+                    query = "UPDATE Ticket SET estacanjeado = true WHERE id_boleto = ?";
+                    try (PreparedStatement updateStmt = cn.prepareStatement(query)) {
+                        updateStmt.setString(1, codigoConfirmacion);
+                        updateStmt.executeUpdate();
+                    }
+                }
+            }
+
+            result.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error al obtener información de registro");
+        }
+
+        return qrlink;
     }
 
 
