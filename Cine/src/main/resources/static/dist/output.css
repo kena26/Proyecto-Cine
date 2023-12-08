@@ -1724,36 +1724,6 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-@keyframes rubberbrand {
-  0%, 100% {
-    transform: scale3d(1, 1, 1);
-  }
-
-  30% {
-    transform: scale3d(1.25, 0.75, 1);
-  }
-
-  40% {
-    transform: scale3d(0.75, 1.25, 1);
-  }
-
-  50% {
-    transform: scale3d(1.15, 0.85, 1);
-  }
-
-  65% {
-    transform: scale3d(0.95, 1.05, 1);
-  }
-
-  75% {
-    transform: scale3d(1.05, 0.95, 1);
-  }
-}
-
-.animate-rubberbrand {
-  animation: rubberbrand 1s ease-in-out;
-}
-
 .cursor-pointer {
   cursor: pointer;
 }
@@ -3065,36 +3035,6 @@ video {
 
 .peer:checked ~ .peer-checked\:duration-300 {
   transition-duration: 300ms;
-}
-
-@keyframes rubberbrand {
-  0%, 100% {
-    transform: scale3d(1, 1, 1);
-  }
-
-  30% {
-    transform: scale3d(1.25, 0.75, 1);
-  }
-
-  40% {
-    transform: scale3d(0.75, 1.25, 1);
-  }
-
-  50% {
-    transform: scale3d(1.15, 0.85, 1);
-  }
-
-  65% {
-    transform: scale3d(0.95, 1.05, 1);
-  }
-
-  75% {
-    transform: scale3d(1.05, 0.95, 1);
-  }
-}
-
-.peer:enabled ~ .peer-enabled\:animate-rubberbrand {
-  animation: rubberbrand 1s ease-in-out;
 }
 
 .peer:disabled ~ .peer-disabled\:pointer-events-none {
