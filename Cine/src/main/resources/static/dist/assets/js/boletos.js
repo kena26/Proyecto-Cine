@@ -64,3 +64,11 @@ function reiniciarBoletos(){
         JSON.stringify({ ticket: 0})
     );
 }
+
+//Variables que serán usadas en la página comprafinalqr para el calculo del total
+function guardarTiposBoletos() {
+    sessionStorage.adultoCantidad = document.getElementById('adultoCantidad').innerText;
+    sessionStorage.ninoCantidad = document.getElementById('ninoCantidad').innerText;
+    sessionStorage.jubiladoCantidad = document.getElementById('jubiladoCantidad').innerText;
+    sessionStorage.discapacitadoCantidad = document.getElementById('discapacitadoCantidad').innerText;
+}

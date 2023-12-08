@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boleto</title>
+    <link href="../dist/output.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header>
+        <!--nav principal-->
+        <nav class="bg-black max-sm:hidden">
+            <ul class="flex justify-end">
+                <li><a href="./home.html" class="text-white mr-16 text-xl">Inicio</a></li>
+                <li><a href="#" class="text-white mr-16 text-xl"
+                        onclick="window.location.href='./busqueda.html'">Peliculas</a></li>
+                <li><a href="./cartelera.html" class="text-white mr-16 text-xl">Cartelera</a></li>
+            </ul>
+        </nav>
+        <!--seccion del logo-->
+        <section
+            class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
+            <a href="./home.html" class="cursor-pointer">
+                <img src="./assets/img/logo.png" alt="" class="w-auto h-12 max-sm:h-10 max-sm:w-auto">
+            </a>
+            <div
+                class="user-container flex items-center w-44 h-12 justify-center relative space-x-2 max-sm:m-0 max-sm:space-x-0 max-sm:w-32">
+                <div onclick="window.location.href='./perfil-usuario.html'" class="ml-4 cursor-pointer max-sm:ml-0">
+                    <img src="./assets/icon/usuario.png" class="w-auto h-10 max-sm:h-10">
+                </div>
+                <div class="flex max-sm:hidden">
+                    <div class="cursor-pointer">
+                        <p class="text-lg font-semibold">Username</p>
+                    </div>
+                    <div onclick="userLogged()" class="absolute right-0 bottom-3 cursor-pointer ">
+                        <svg class="w-5 h-5 ml-2 -mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <div id="guest-slide"
+                    class="absolute w-52 h-44 bg-white top-12 right-[-10px] z-50 rounded-lg text-center hidden">
+                    <p class="mt-2">Inicie Sesión en Filmania</p>
+                    <button onclick="window.location.href='./inicio-sesion.html'"
+                        class="mt-2 bg-[#996c45] w-40 py-2 rounded-full font-bold">Inicie Sesión</button>
+                    <p class="mt-2">o</p>
+                    <button onclick="window.location.href='./registro.html'"
+                        class="mt-2 bg-[#996c45] w-40 py-2 rounded-full font-bold">Registrese</button>
+                </div>
+                <div id="user-slide"
+                    class="absolute w-52 h-44 bg-white top-12 right-[-10px] z-50 rounded-lg hidden text-center">
+                    <p class="mt-2">Bienvenido a Filmania</p>
+                    <button onclick="window.location.href='./inicio-sesion.html'"
+                        class="mt-4 bg-[#996c45] w-40 py-2 rounded-full font-bold">Perfil</button>
+                    <button onclick="window.location.href='./registro.html'"
+                        class="mt-4 bg-[#996c45] w-40 py-2 rounded-full font-bold">Cerrar Sesión</button>
+                </div>
+            </div>
+        </section>
+    </header>
+
+
+
+
+    <main class="flex items-center flex-col h-screen bg-gradient-to-b from-[#431B19] to-[#1A1919] text-white pt-20">
+        <section>
+            <p id="mensaje" class="text-center"></p>
+        </section>
+
+        <section id="trailer" class="w-4/5  sm:w-full flex justify-center">
+
+        </section>
+    </main>
+
+
+
+    <footer class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] py-5 w-full relative">
+        <div id="footerItems" class="max-sm:pr-0">
+            <div class="flex pl-36 max-sm:pl-3 space-x-3">
+                <div class="space-y-1">
+                    <div class="flex items-center">
+                        <img src="./assets/icon/ayudar.png" class="w-4 mr-3">
+                        <a href="#" class="text-white max-sm:text-sm">Preguntas Frecuentes</a>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="./assets/icon/seguro.png" class="w-4 mr-3">
+                        <a href="#" class="text-white max-sm:text-sm">Politicas de la Empresa</a>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="./assets/icon/apoyo (1).png" class="w-4 mr-3">
+                        <a href="#" class="text-white max-sm:text-sm">Atencion al Cliente</a>
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <div class="flex items-center">
+                        <img src="./assets/icon/grupo.png" class="w-4 mr-3">
+                        <a href="#" class="text-white max-sm:text-sm">Creadores de la página</a>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="./assets/icon/seguridad.png" class="w-4 mr-3">
+                        <a href="#" class="text-white max-sm:text-sm">Politicas de Privacidad</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex absolute top-3 right-16 max-sm:top-20 space-x-1">
+            <a href="">
+                <img src="./assets/icon/facebook.png" class="w-8 h-8">
+            </a>
+            <a href="">
+                <img src="./assets/icon/instagram.png" class="w-8 h-8">
+            </a>
+            <a href="">
+                <img src="./assets/icon/tik-tok.png" class="w-8 h-8">
+            </a>
+        </div>
+    </footer>
+</body>
+
+<script>
+    let baseUrl = "http://localhost:8080";
+    
+    //let pruebas;
+    // let myObj = {
+    //     flag: false,
+    //     url: "https://www.youtube.com/embed/f-zqS2CiZqw",
+    //     cantidad: 1
+    // }
+
+    function mapObjLink(objUrl) {
+        let msg = document.getElementById("mensaje");
+        const playerDiv = document.getElementById('trailer');
+
+        if (objUrl.flag === null) {
+            msg.innerHTML = "Lo sentimos, este no es un código válido";
+        }
+        else if (objUrl.flag === true) {
+            msg.innerHTML = "Lo sentimos, este boleto ya ha sido canjeado anteriormente. <br>Gracias por Preferirnos!";
+        }
+        else {
+            msg.innerHTML = `Felicidades, ha canjeado su boleto exitosamente \
+            <br>Cantidad de personas: ${objUrl.cantidad}<br>Disfrute la película!`;
+
+            // Play the YouTube video after a delay or after ok button
+            setTimeout(function () {
+                const videoUrl = objUrl.url;
+                // YouTube player
+                playerDiv.innerHTML = `<iframe width="560" height="315" src="${videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+
+            }, 2000);
+        }
+    }
+
+    // mapObjLink(myObj);
+
+    
+    
+    function getObjLink(codigo) {
+
+        //recurso en backend
+        fetch(baseUrl + '/Cine/qr_target/' + codigo, { method: "Get" }).then(res => {
+            res.json()
+                .then(objLink => {
+                    //pruebas = objLink;
+                    mapObjLink(objLink);
+                });
+        });
+    }
+
+    // Extraer el codigoConfirmacion de los parametros
+    function getQueryParam(param) {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        return urlParams.get(param);
+    }
+
+    getObjLink(getQueryParam('cod'));
+</script>
+
+</html>

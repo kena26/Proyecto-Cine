@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compra</title>
     <link href="output.css" rel="stylesheet">
-    <script src="./assets/js/qrcode.js"></script>
     <link rel="icon" href="./assets/icon/favicon.ico">
 </head>
 
@@ -82,52 +81,58 @@
                 </p>
                 <div>
                     <p class="pb-2">Código de confirmación:</p>
-                    <div class="bg-gray-400 h-4 rounded-3xl"></div>
+                    <p id="compra-confirmacion" class="bg-white h-7 rounded-3xl text-black pl-4"></p>
                 </div>
                 <div>
                     <p class="pb-2">Sede:</p>
-                    <div class="bg-gray-400 w-full h-4 rounded-3xl"></div>
+                    <div id="compra-sede" class="bg-white h-7 rounded-3xl text-black pl-4"></div>
                 </div>
                 <div>
                     <p class="pb-2">Película:</p>
-                    <div class="bg-gray-400 w-full h-4 rounded-3xl"></div>
+                    <div id="compra-pelicula" class="bg-white h-7 rounded-3xl text-black pl-4"></div>
                 </div>
 
                 <div class="flex gap-x-16 flex-wrap">
                     <div class="pb-2">
                         <p class="pb-2">Sala:</p>
-                        <div class="bg-gray-400 w-48 h-4 rounded-3xl"></div>
+                        <div id="compra-sala" class="bg-white h-7 w-48 rounded-3xl text-black pl-4"></div>
                     </div>
 
                     <div class="pb-2">
                         <p class="pb-2">Fecha:</p>
-                        <div class="bg-gray-400 w-48 h-4 rounded-3xl"></div>
+                        <div id="compra-fecha" class="bg-white h-7 w-48 rounded-3xl text-black pl-4"></div>
                     </div>
 
                     <div class="pb-2">
                         <p class="pb-2">Hora:</p>
-                        <div class="bg-gray-400 w-48 h-4 rounded-3xl"></div>
+                        <div id="compra-hora" class="bg-white h-7 w-48 rounded-3xl text-black pl-4"></div>
                     </div>
                 </div>
 
                 <div>
                     <p class="pb-2">Boletos:</p>
-                    <div class="bg-gray-400 w-full h-4 rounded-3xl"></div>
+                    <div id="compra-boletos" class="bg-white w-full h-7 rounded-3xl text-black pl-4"></div>
                 </div>
+                <!--Se elimina transaccion porque nadie sabe que va aqui-->
+                <!--
                 <div>
                     <p class="pb-2">Transacción:</p>
-                    <div class="bg-gray-400 w-full h-4 rounded-3xl"></div>
+                    <div id="compra-transaccion" class="bg-white w-full h-7 rounded-3xl text-black pl-4"></div>
                 </div>
+                -->
                 <div class="flex justify-between w-full pt-5">
                     <p>Total de la compra:</p>
-                    <p>0.00</p>
+                    <p id="compra-total"></p>
                 </div>
             </div>
 
             <!--codigo QR-->
             <div class="border-solid border-1 flex flex-col items-center pt-4">
                 <p class="text-2xl pb-2">Escanee su código QR</p>
-                <div id="qrcode"></div>
+                <!--habilitar link para pruebas directas en el navegador
+                    <a href="#" id="paginaVideo">-->
+                    <div id="compra-qrcode"></div>
+                <!--</a>-->
 
             </div>
         </div>
@@ -176,15 +181,84 @@
         </div>
     </footer>
 
+    <script src="./assets/js/qrcode.js"></script>    
     <script src="./assets/js/header.js"></script>
+    
     <script>
-        var url = 'https://www.google.com';
-        // Generar QR code
-        var qrcode = new QRCode(document.getElementById('qrcode'), {
-            text: url,
-            width: 300,
-            height: 300
-        });
+
+        //PONER URL BASE DEL PROYECTO
+        let baseUrl = "http://localhost:8080";
+
+        //DEBE APUNTAR al qr_target.html que estará en el SERVER "https://www.ejem.com/qr_target.html" 
+        let targetUrl = "./qr_target.html";
+
+        let pruebas;
+        function ObtenerCompra(codigoConfirmacion) {
+
+            //recurso en backend
+            fetch(baseUrl + '/Cine/datosQr/' + codigoConfirmacion, { method: "Get" }).then(res => {
+                res.json()
+                    .then(compra => {
+                        pruebas = compra;
+                        ImprimirCompra(pruebas);
+
+                    });
+            });
+        }
+
+        function ImprimirCompra(compra) {
+
+            //Mapping
+            let confirmacion = document.getElementById("compra-confirmacion");
+            let total = document.getElementById("compra-total");
+
+            let sede = document.getElementById("compra-sede");
+            let pelicula = document.getElementById("compra-pelicula");
+            let sala = document.getElementById("compra-sala");
+            let fecha = document.getElementById("compra-fecha");
+            let hora = document.getElementById("compra-hora");
+            let boletos = document.getElementById("compra-boletos");
+
+            confirmacion.innerHTML = codigoConfirmacion;
+            total.innerHTML = compraTotal + ".00";
+
+            sede.innerHTML = compra.sede;
+            pelicula.innerHTML = compra.pelicula;
+            sala.innerHTML = compra.sala;
+            boletos.innerHTML = compra.boletos;
+            fecha.innerHTML = compra.fecha;
+
+            // Formatear hora segun las preferencias del usuario (HH:mm)
+            let hour = new Date("2023-01-01 " + compra.hora);
+            hora.innerHTML = hour.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+
+
+            // Generar QR code
+            let qrcode = new QRCode(document.getElementById('compra-qrcode'), {
+                text: paginaVideo,
+                width: 300,
+                height: 300
+            });
+
+            //qr clickeable
+            let qrlink = document.getElementById("paginaVideo");
+            qrlink.href = paginaVideo;
+
+            let qrpic = document.getElementById('compra-qrcode');
+            qrpic.classList.add('border-[10px]', 'border-white');
+        }
+
+        //Calculo del total de compra
+        let compraTotal = ((Number(sessionStorage.adultoCantidad) +
+            Number(sessionStorage.ninoCantidad)) * 3)
+            + ((Number(sessionStorage.jubiladoCantidad) +
+                Number(sessionStorage.discapacitadoCantidad)) * 2)
+        //
+        let codigoConfirmacion = sessionStorage.codigoConfirmacion;
+        let paginaVideo = targetUrl + "?cod=" + codigoConfirmacion;
+
+        ObtenerCompra(codigoConfirmacion);
+
     </script>
 </body>
 </html>
