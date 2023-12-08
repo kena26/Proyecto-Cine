@@ -3419,6 +3419,10 @@ video {
     max-width: 150px;
   }
 
+  .max-sm\:max-w-\[112px\] {
+    max-width: 112px;
+  }
+
   .max-sm\:rotate-90 {
     --tw-rotate: 90deg;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
