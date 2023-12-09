@@ -195,7 +195,7 @@ function MapearPeliculas(pelicula){
                     <p class="max-w-[400px] font-bold text-xl max-sm:text-base">${pelicula.titulo} #${pelicula.idPelicula}</p>
                 </div>
                 <div class="table-cell absolute left-[40%] max-sm:left-[90%]">
-                    <button onclick="mostrarAddPeli('editarBtn', ${pelicula.idPelicula})" id="editarBtn" class="flex justify-center items-center">
+                    <button onclick="mostrarAddPeli('editarBtn', ${pelicula.idPelicula}), scrollASeccion('editPeli')" id="editarBtn" class="flex justify-center items-center">
                         <img class="w-5 h-5 hover:w-6 hover:h-6 max-sm:rotate-90 transition-all duration-300 "
                         src="/Cine/src/main/resources/static/dist/assets/icon/lapiz-editar.svg" alt="">
                     </button>
