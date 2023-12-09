@@ -260,8 +260,12 @@ function agregarPeli() {
                 console.log('Película guardada con éxito:', data);
 
                 agregarActoresEnBaseDeDatos(data);
-                agregarDirectoresEnBaseDeDatos(data);
-                agregarSucursalesEnBaseDatosDeDatos(data);
+                setTimeout(() => {
+                    agregarDirectoresEnBaseDeDatos(data);
+                    setTimeout(() => {
+                        agregarSucursalesEnBaseDatosDeDatos(data);
+                    }, 1000);
+                }, 1000);
             } else {
                 console.log('Película guardada con éxito, pero la respuesta no es JSON o está vacía.');
             }
@@ -524,7 +528,7 @@ function mostrarAddPeli(accion, idPeli){
             cargarDirectores(idPeli);
             cargarSucursales(idPeli);
             
-        }, 700);
+        }, 1000);
     }else if(accion === 'agregarBtn'){
         accionDirector=accion;
         //Directores

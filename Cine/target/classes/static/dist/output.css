@@ -844,6 +844,78 @@ video {
   top: 9.8%;
 }
 
+.-top-2 {
+  top: -0.5rem;
+}
+
+.-top-1 {
+  top: -0.25rem;
+}
+
+.top-4 {
+  top: 1rem;
+}
+
+.top-\[7px\] {
+  top: 7px;
+}
+
+.top-\[8px\] {
+  top: 8px;
+}
+
+.-bottom-5 {
+  bottom: -1.25rem;
+}
+
+.-bottom-10 {
+  bottom: -2.5rem;
+}
+
+.-bottom-52 {
+  bottom: -13rem;
+}
+
+.-bottom-32 {
+  bottom: -8rem;
+}
+
+.-bottom-20 {
+  bottom: -5rem;
+}
+
+.left-10 {
+  left: 2.5rem;
+}
+
+.left-52 {
+  left: 13rem;
+}
+
+.-bottom-0 {
+  bottom: -0px;
+}
+
+.-bottom-\[50\%\] {
+  bottom: -50%;
+}
+
+.-bottom-\[40\%\] {
+  bottom: -40%;
+}
+
+.-bottom-\[20\%\] {
+  bottom: -20%;
+}
+
+.-bottom-\[30\%\] {
+  bottom: -30%;
+}
+
+.-bottom-\[27\%\] {
+  bottom: -27%;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -2189,6 +2261,11 @@ video {
   background-color: rgb(202 138 4 / var(--tw-bg-opacity));
 }
 
+.bg-green-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
 }
@@ -2753,6 +2830,10 @@ video {
   transition-duration: 500ms;
 }
 
+.duration-200 {
+  transition-duration: 200ms;
+}
+
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -2820,6 +2901,10 @@ video {
 
 .hover\:bg-opacity-10:hover {
   --tw-bg-opacity: 0.1;
+}
+
+.hover\:font-bold:hover {
+  font-weight: 700;
 }
 
 .hover\:opacity-100:hover {
@@ -3066,6 +3151,7 @@ video {
     top: 80px;
   }
 
+<<<<<<< Updated upstream
   .max-sm\:left-\[25x\] {
     left: 25x;
   }
@@ -3080,6 +3166,42 @@ video {
 
   .max-sm\:left-\[95px\] {
     left: 95px;
+=======
+  .max-sm\:top-\[6\%\] {
+    top: 6%;
+  }
+
+  .max-sm\:top-3 {
+    top: 0.75rem;
+  }
+
+  .max-sm\:top-\[7\%\] {
+    top: 7%;
+  }
+
+  .max-sm\:top-\[8\%\] {
+    top: 8%;
+  }
+
+  .max-sm\:top-\[10\%\] {
+    top: 10%;
+  }
+
+  .max-sm\:-top-20 {
+    top: -5rem;
+  }
+
+  .max-sm\:-top-60 {
+    top: -15rem;
+  }
+
+  .max-sm\:bottom-\[50\%\] {
+    bottom: 50%;
+  }
+
+  .max-sm\:left-52 {
+    left: 13rem;
+>>>>>>> Stashed changes
   }
 
   .max-sm\:col-span-2 {
@@ -3149,12 +3271,17 @@ video {
     margin-top: 5rem;
   }
 
+<<<<<<< Updated upstream
   .max-sm\:mb-2 {
     margin-bottom: 0.5rem;
   }
 
   .max-sm\:mb-12 {
     margin-bottom: 3rem;
+=======
+  .max-sm\:mt-40 {
+    margin-top: 10rem;
+>>>>>>> Stashed changes
   }
 
   .max-sm\:flex {
@@ -3225,6 +3352,7 @@ video {
     height: 913px;
   }
 
+<<<<<<< Updated upstream
   .max-sm\:h-\[610px\] {
     height: 610px;
   }
@@ -3251,6 +3379,18 @@ video {
 
   .max-sm\:h-\[700px\] {
     height: 700px;
+=======
+  .max-sm\:h-12 {
+    height: 3rem;
+  }
+
+  .max-sm\:h-14 {
+    height: 3.5rem;
+  }
+
+  .max-sm\:h-\[1100px\] {
+    height: 1100px;
+>>>>>>> Stashed changes
   }
 
   .max-sm\:min-h-full {
