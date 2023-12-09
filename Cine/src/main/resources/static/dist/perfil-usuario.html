@@ -75,13 +75,13 @@
     <main>
         <section id="selector" class="absolute h-full w-full flex" style="display: none; z-index: 1;">
             <div
-                class="absolute bg-black rounded-3xl items-center w-[810px] max-sm:left-8 h-[410px] top-[5%] left-[20%] max-sm:w-10/12">
+                class="absolute bg-black rounded-3xl items-center w-[810px] max-sm:left-8 h-[410px] max-sm:h-[700px] top-[5%] left-[20%] max-sm:w-10/12">
                 <div
-                    class="absolute bg-[#9C6D46] rounded-3xl w-[800px] h-[400px] top-[5px] max-sm:left-6 left-[5px] max-sm:w-10/12">
-                    <div class="text-center" style="height: 25px; margin: 10px;">
+                    class="absolute bg-[#9C6D46] rounded-3xl w-[800px] h-[400px] max-sm:h-[690px] top-[5px] max-sm:left-6 left-[5px] max-sm:w-10/12">
+                    <div class="text-center max-sm:mb-12 h-[25px] m-[10px]">
                         <h1 class="font-serif text-xl">ELIGE TU FOTO DE PERFIL</h1>
                     </div>
-                    <div class="flex flex-wrap overflow-y-scroll">
+                    <div class="flex flex-wrap overflow-y-scroll max-sm:justify-center max-sm:items-center">
                         <img src="./assets/img/img-user/03ebf92e-0754-48d6-8582-74e7713b1132.jpeg"
                             class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
                             onclick="cambiarFotoPerfil(this)">
@@ -116,7 +116,7 @@
                 </div>
                 <div>
                     <button
-                        class="absolute text-white bg-stone-500 top-[350px] left-[350px] max-sm:left-[50px] hover:bg-red-600 rounded-2xl h-10 w-28"
+                        class="absolute text-white bg-stone-500 bottom-5 left-[350px] max-sm:left-[95px] hover:bg-red-600 rounded-2xl h-10 w-28"
                         onclick="cerrarSelector()">Cancelar</button>
                 </div>
             </div>
