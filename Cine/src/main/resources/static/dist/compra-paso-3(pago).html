@@ -25,41 +25,43 @@
     <section
       class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
       <a href="./home.html" class="cursor-pointer">
-        <img src="./assets/img/logo.png" alt=""
-          class="w-auto h-12 max-sm:h-10 max-sm:w-auto">
+        <img src="./assets/img/logo.png" alt="" class="w-auto h-12 max-sm:h-10 max-sm:w-auto">
       </a>
-      <div class="user-container flex items-center w-44 h-12 justify-center relative space-x-2 max-sm:m-0 max-sm:space-x-0
-      max-sm:w-32" >
-      <div onclick=" window.location.href='./perfil-usuario.html'" class=" ml-4 cursor-pointer max-sm:ml-0">
-        <img src="./assets/icon/usuario.png" class="w-auto h-10 max-sm:h-10">
-      </div>
-      <div class="flex max-sm:hidden">
-        <div class="cursor-pointer">
-          <p class="text-lg font-semibold">Username</p>
+      <div
+        class="user-container flex items-center w-44 h-12 justify-center relative space-x-2 max-sm:m-0 max-sm:space-x-0 max-sm:w-32">
+        <div id="perfilUsuarioBtn" onclick="irAPerfilUsuario()" class="cursor-pointer max-sm:ml-0">
+          <img id="perfilUsuario" class="rounded-full h-10 w-10 cursor-pointer" src="./assets/icon/usuario.png"
+            class="w-auto h-10 max-sm:h-10">
         </div>
-        <div onclick="userLogged()" class="absolute right-0 bottom-3 cursor-pointer ">
-          <svg class="w-5 h-5 ml-2 -mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
-            </path>
-          </svg>
+        <div class="flex max-sm:hidden">
+          <div class="cursor-pointer">
+            <p id="usernamePlaceholder"
+              class="text-lg font-semibold text-ellipsis whitespace-nowrap overflow-hidden mr-3">Username</p>
+          </div>
+          <div onclick="userLogged()" class="absolute right-0 bottom-3 cursor-pointer ">
+            <svg class="w-5 h-5 ml-2 -mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+              </path>
+            </svg>
+          </div>
         </div>
-      </div>
-      <div id="guest-slide" class="absolute w-52 h-44 bg-white top-12 right-[-10px] z-50 rounded-lg text-center hidden">
-        <p class="mt-2">Inicie Sesión en Filmania</p>
-        <button onclick="window.location.href='./inicio-sesion.html'"
-          class="mt-2 bg-[#996c45] w-40 py-2 rounded-full font-bold">Inicie Sesión</button>
-        <p class="mt-2">o</p>
-        <button onclick="window.location.href='./registro.html'"
-          class="mt-2 bg-[#996c45] w-40 py-2 rounded-full font-bold">Registrese</button>
-      </div>
-      <div id="user-slide" class="absolute w-52 h-44 bg-white top-12 right-[-10px] z-50 rounded-lg hidden text-center">
-        <p class="mt-2">Bienvenido a Filmania</p>
-        <button onclick="window.location.href='./inicio-sesion.html'"
-          class="mt-4 bg-[#996c45] w-40 py-2 rounded-full font-bold">Perfil</button>
-        <button onclick="window.location.href='./registro.html'"
-          class="mt-4 bg-[#996c45] w-40 py-2 rounded-full font-bold">Cerrar Sesión</button>
-      </div>
+        <div id="guest-slide"
+          class="absolute w-52 h-44 bg-white top-12 right-[-10px] z-50 rounded-lg text-center hidden">
+          <p class="mt-2">Inicie Sesión en Filmania</p>
+          <button onclick="window.location.href='./inicio-sesion.html'"
+            class="mt-2 bg-[#996c45] w-40 py-2 rounded-full font-bold">Inicie Sesión</button>
+          <p class="mt-2">o</p>
+          <button onclick="window.location.href='./registro.html'"
+            class="mt-2 bg-[#996c45] w-40 py-2 rounded-full font-bold">Registrese</button>
+        </div>
+        <div id="user-slide"
+          class="absolute w-52 h-44 bg-white top-12 right-[-10px] z-50 rounded-lg hidden text-center">
+          <p class="mt-2">Bienvenido a Filmania</p>
+          <button onclick="window.location.href='./perfil-usuario.html'"
+            class="mt-4 bg-[#996c45] w-40 py-2 rounded-full font-bold">Perfil</button>
+          <button id="logoutButton" class="mt-4 bg-[#996c45] w-40 py-2 rounded-full font-bold">Cerrar Sesión</button>
+        </div>
       </div>
     </section>
   </header>
@@ -123,7 +125,8 @@
           </div>
           <div class="mb-3">
             <h5 class="text-lg font-semibold mb-2 text-white text-left">Tarjeta Club Filmania</h5>
-            <input type="password" required class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
+            <input type="password" required class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50"
+              placeholder="">
           </div>
           <div class="mb-3">
             <h5 class="text-lg font-semibold mb-2 text-white text-left">Correo Electrónico</h5>
@@ -138,20 +141,21 @@
 
           <div class="mb-3">
             <h5 class="text-lg font-semibold mb-2 text-white text-left">Número de la tarjeta</h5>
-            <input type="password required" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" placeholder="">
+            <input type="password required" class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50"
+              placeholder="">
           </div>
           <div class="mb-3">
             <h5 class="text-lg font-semibold mb-2 text-white text-left">Fecha Expiración </h5>
             <div class="flex mb-3">
               <!-- Columna Izquierda -->
               <div class="w-1/2 pr-2">
-                <input type="text" required class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" aria-label="FECHA"
-                  placeholder="MM/YY">
+                <input type="text" required class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50"
+                  aria-label="FECHA" placeholder="MM/YY">
               </div>
               <!-- Columna Derecha -->
               <div class="w-1/2 pl-2 relative">
-                <input type="text" required class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50" aria-label="CW"
-                  placeholder="">
+                <input type="text" required class="w-full px-3 py-2 border-b border-white bg-[#63432E]/50"
+                  aria-label="CW" placeholder="">
                 <p class="absolute bottom-[34px] text-semibold transform -translate-y-1/2 left-2 text-xl text-white ">CW
                 </p>
               </div>
@@ -191,7 +195,7 @@
     <!-- Botón Siguiente // SUBMIT-->
     <!--PARA LOS DE BACKEND, NECESITO QUE ESTO SE VAYA A ./compra-final(qr).html usen el window.location.href='./compra-final(qr).html'-->
     <input onclick="window.location.href='./compra-final(qr).html'" type="submit" id="button-next" value="Siguiente"
-     class="w-32 h-12 px-8 py-2 relative rounded-2xl bg-Mulled-Cider cursor-pointer"></input>
+      class="w-32 h-12 px-8 py-2 relative rounded-2xl bg-Mulled-Cider cursor-pointer"></input>
   </section>
 
   <!--Seccion de mensajes de inactividad-->

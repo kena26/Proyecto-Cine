@@ -73,14 +73,72 @@ function guestNavBar(){
     }
 }
 
-// los de backend, necesitan a ayuda del bd para esta parte
+document.addEventListener('DOMContentLoaded', function () {
+    const usuarioDataString = sessionStorage.getItem('usuarioData');
+    const guestSlide = document.getElementById('guest-slide');
+    const userSlide = document.getElementById('user-slide');
 
-function userLogged(){
-    let logged = false;
-    if(logged===false){
-        guestNavBar()
+    if (usuarioDataString) {
+        const usuarioData = JSON.parse(usuarioDataString);
+        const usernamePlaceholder = document.getElementById('usernamePlaceholder');
+        if (usernamePlaceholder) {
+            usernamePlaceholder.innerText = `${usuarioData.nombre} ${usuarioData.apellido}`;
+        }
+
+        const rutaImagenPerfil = localStorage.getItem('rutaImagenPerfil');
+        const perfilUsuario = document.getElementById('perfilUsuario');
+        if (perfilUsuario && rutaImagenPerfil) {
+            perfilUsuario.src = rutaImagenPerfil;
+        }
     }
-    else{
+});
+
+function userLogged() {
+    const usuarioDataString = sessionStorage.getItem('usuarioData');
+    const usuarioData = JSON.parse(usuarioDataString);
+    console.log(usuarioData)
+    if(usuarioData && Object.keys(usuarioData).length > 0){
         userNavBar()
     }
+    else{
+        guestNavBar()
+    }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const logoutButton = document.getElementById('logoutButton');
+
+    if (logoutButton) {
+        logoutButton.addEventListener('click', function () {
+            sessionStorage.removeItem('usuarioData');
+            window.location.href = './home.html';
+        });
+    }
+
+    const irPerfilUsuarioBtn = document.getElementById('perfilUsuarioBtn');
+    if (irPerfilUsuarioBtn) {
+        irPerfilUsuarioBtn.addEventListener('click', function () {
+            irAPerfilUsuario();
+        });
+    }
+});
+
+function irAPerfilUsuario() {
+    const usuarioDataString = sessionStorage.getItem('usuarioData');
+
+    if (usuarioDataString) {
+        window.location.href = './perfil-usuario.html';
+    } else {
+        window.location.href = './inicio-sesion.html';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const rutaImagenPerfil = localStorage.getItem('rutaImagenPerfil');
+    const perfilUsuario = document.getElementById('perfilUsuario');
+
+    if (perfilUsuario && rutaImagenPerfil) {
+        perfilUsuario.src = rutaImagenPerfil;
+    }
+});
+
