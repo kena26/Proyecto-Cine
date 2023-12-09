@@ -5,10 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (usuarioDataString) {
         const usuarioData = JSON.parse(usuarioDataString);
-
-        document.getElementById('nombreNavBar').innerText = usuarioData.nombre;
-        document.getElementById('apellidoNavBar').innerText = usuarioData.apellido;
-
         document.getElementById('nombreDatos').innerText = usuarioData.nombre;
         document.getElementById('apellidoDatos').innerText = usuarioData.apellido;
         document.getElementById('fechaNacimiento').innerText = usuarioData.fechaNacimiento;
@@ -69,37 +65,37 @@ let spanEmail = document.getElementById('email')
 let spanTel = document.getElementById('telefono')
 let cambiado = false;
 
-function Cambios(span) {
-    let currentSpan;
-    let input = document.createElement("input");
-    if (span == 1) {
-        currentSpan = spanNombre;
-        input.setAttribute("type", "text");
-        input.setAttribute("id", "nombreDatos")
-    }
-    else if (span == 2) {
-        currentSpan = spanApellido;
-        input.setAttribute("type", "text");
-        input.setAttribute("id", "apellidoDatos")
-    }
-    else if (span == 3) {
-        currentSpan = spanFecha;
-        input.setAttribute("type", "date");
-        input.setAttribute("id", "fechaNacimiento")
-    }
-    else if (span == 4) {
-        currentSpan = spanEmail;
-        input.setAttribute("type", "email");
-        input.setAttribute("id", "email")
-    }
-    else if (span == 5) {
-        currentSpan = spanTel
-        input.setAttribute("type", "tel");
-        input.setAttribute("id", "telefono")
-    }
-    input.value = currentSpan.textContent;
-    input.required = true;
-    currentSpan.parentNode.replaceChild(input, currentSpan)
+function Cambios() {
+    let inputNombre = document.createElement("input");
+    inputNombre.setAttribute("type", "text");
+    inputNombre.setAttribute("id", "nombreDatos")
+    inputNombre.required = true;
+    let inputApellido = document.createElement("input");
+    inputApellido.setAttribute("type", "text");
+    inputApellido.setAttribute("id", "apellidoDatos")
+    inputApellido.required = true;
+    let inputDOB = document.createElement("input");
+    inputDOB.setAttribute("type", "date");
+    inputDOB.setAttribute("id", "fechaNacimiento")
+    inputDOB.required = true;
+    let inputEmail = document.createElement("input");
+    inputEmail.setAttribute("type", "email");
+    inputEmail.setAttribute("id", "email")
+    inputEmail.required = true;
+    let inputTel = document.createElement("input");
+    inputTel.setAttribute("type", "tel");
+    inputTel.setAttribute("id", "telefono")
+    inputTel.required = true;
+    inputNombre.value = spanNombre.textContent;
+    inputApellido.value = spanApellido.textContent;
+    inputDOB.value = spanFecha.textContent;
+    inputEmail.value = spanEmail.textContent;
+    inputTel.value = spanTel.textContent;
+    spanNombre.parentNode.replaceChild(inputNombre, spanNombre)
+    spanApellido.parentNode.replaceChild(inputApellido, spanApellido)
+    spanFecha.parentNode.replaceChild(inputDOB, spanFecha)
+    spanEmail.parentNode.replaceChild(inputEmail, spanEmail)
+    spanTel.parentNode.replaceChild(inputTel, spanTel)
     cambiado = true;
 }
 

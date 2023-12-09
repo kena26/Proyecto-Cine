@@ -27,18 +27,20 @@
         <section
             class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] flex justify-between px-5 py-0 items-center w-full max-sm:px-0">
             <div class="cursor-pointer">
-                <img src="./assets/img/logo.png" alt=""
-                    class="w-auto h-12 max-sm:h-10 max-sm:w-auto" onclick="window.location.href='./home.html'">
+                <img src="./assets/img/logo.png" alt="" class="w-auto h-12 max-sm:h-10 max-sm:w-auto"
+                    onclick="window.location.href='./home.html'">
             </div>
             <div
                 class="user-container flex items-center w-44 h-12 justify-center relative space-x-2 max-sm:m-0 max-sm:space-x-0 max-sm:w-32">
                 <div id="perfilUsuarioBtn" onclick="irAPerfilUsuario()" class="cursor-pointer max-sm:ml-0">
-                    <img id="perfilUsuario" class="rounded-full h-10 w-10 cursor-pointer" src="./assets/icon/usuario.png"
-                        class="w-auto h-10 max-sm:h-10">
+                    <img id="perfilUsuario" class="rounded-full h-10 w-10 cursor-pointer"
+                        src="./assets/icon/usuario.png" class="w-auto h-10 max-sm:h-10">
                 </div>
                 <div class="flex max-sm:hidden">
                     <div class="cursor-pointer">
-                        <p id="usernamePlaceholder" class="text-lg font-semibold text-ellipsis whitespace-nowrap overflow-hidden mr-3">Username</p>
+                        <p id="usernamePlaceholder"
+                            class="text-lg font-semibold text-ellipsis whitespace-nowrap overflow-hidden max-w-[110px] mr-3">
+                            Username</p>
                     </div>
                     <div onclick="userLogged()" class="absolute right-0 bottom-3 cursor-pointer ">
                         <svg class="w-5 h-5 ml-2 -mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -62,7 +64,8 @@
                     <p class="mt-2">Bienvenido a Filmania</p>
                     <button onclick="window.location.href='./perfil-usuario.html'"
                         class="mt-4 bg-[#996c45] w-40 py-2 rounded-full font-bold">Perfil</button>
-                    <button id="logoutButton" class="mt-4 bg-[#996c45] w-40 py-2 rounded-full font-bold">Cerrar Sesión</button>
+                    <button id="logoutButton" class="mt-4 bg-[#996c45] w-40 py-2 rounded-full font-bold">Cerrar
+                        Sesión</button>
                 </div>
             </div>
         </section>
@@ -70,59 +73,61 @@
 
     <!--INICIO DE EL CODIGO PRINCIPAL-->
     <main>
-            <section id="selector" class="absolute h-full w-full flex" style="display: none; z-index: 1;">
-                <div class="absolute bg-black rounded-3xl items-center w-[810px] max-sm:left-8 h-[410px] top-[5%] left-[20%] max-sm:w-10/12">
-                    <div class="absolute bg-[#9C6D46] rounded-3xl w-[800px] h-[400px] top-[5px] max-sm:left-6 left-[5px] max-sm:w-10/12">
-                        <div class="text-center" style="height: 25px; margin: 10px;">
-                            <h1 class="font-serif text-xl">ELIGE TU FOTO DE PERFIL</h1>
-                        </div>
-                        <div class="flex flex-wrap overflow-y-scroll">
-                            <img src="./assets/img/img-user/03ebf92e-0754-48d6-8582-74e7713b1132.jpeg"
-                                class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
-                                onclick="cambiarFotoPerfil(this)">
-                            <img src="./assets/img/img-user/2081d935-660b-4b24-ae3c-6791954cbc58.jpeg"
-                                class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
-                                onclick="cambiarFotoPerfil(this)">
-                            <img src="./assets/img/img-user/41c5b750-e7f7-4c7d-8241-2425174be191.jpeg"
-                                class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
-                                onclick="cambiarFotoPerfil(this)">
-                            <img src="./assets/img/img-user/4d78a190-7b40-4737-9b2c-fa5805eca9c4.jpeg"
-                                class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
-                                onclick="cambiarFotoPerfil(this)">
-                            <img src="./assets/img/img-user/51d05228-82f3-46f9-91e9-a1c3f0eb894c.jpeg"
-                                class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
-                                onclick="cambiarFotoPerfil(this)">
-                            <img src="./assets/img/img-user/96dc4696-afe2-480f-9f72-fc3ce5f8f121.jpeg"
-                                class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
-                                onclick="cambiarFotoPerfil(this)">
-                            <img src="./assets/img/img-user/9def9d5b-262f-4aca-bfcc-600b2489bae4.jpeg"
-                                class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
-                                onclick="cambiarFotoPerfil(this)">
-                            <img src="./assets/img/img-user/d6bbf98d-2cab-4cb6-a768-38b5833b50f9.jpeg"
-                                class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
-                                onclick="cambiarFotoPerfil(this)">
-                            <img src="./assets/img/img-user/ead5a8ff-4e7c-4b31-8ffc-814aa6569b0f.jpeg"
-                                class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
-                                onclick="cambiarFotoPerfil(this)">
-                            <img src="./assets/img/img-user/thumbnail.jpeg"
-                                class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
-                                onclick="cambiarFotoPerfil(this)">
-                        </div>
+        <section id="selector" class="absolute h-full w-full flex" style="display: none; z-index: 1;">
+            <div
+                class="absolute bg-black rounded-3xl items-center w-[810px] max-sm:left-8 h-[410px] top-[5%] left-[20%] max-sm:w-10/12">
+                <div
+                    class="absolute bg-[#9C6D46] rounded-3xl w-[800px] h-[400px] top-[5px] max-sm:left-6 left-[5px] max-sm:w-10/12">
+                    <div class="text-center" style="height: 25px; margin: 10px;">
+                        <h1 class="font-serif text-xl">ELIGE TU FOTO DE PERFIL</h1>
+                    </div>
+                    <div class="flex flex-wrap overflow-y-scroll">
+                        <img src="./assets/img/img-user/03ebf92e-0754-48d6-8582-74e7713b1132.jpeg"
+                            class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
+                            onclick="cambiarFotoPerfil(this)">
+                        <img src="./assets/img/img-user/2081d935-660b-4b24-ae3c-6791954cbc58.jpeg"
+                            class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
+                            onclick="cambiarFotoPerfil(this)">
+                        <img src="./assets/img/img-user/41c5b750-e7f7-4c7d-8241-2425174be191.jpeg"
+                            class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
+                            onclick="cambiarFotoPerfil(this)">
+                        <img src="./assets/img/img-user/4d78a190-7b40-4737-9b2c-fa5805eca9c4.jpeg"
+                            class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
+                            onclick="cambiarFotoPerfil(this)">
+                        <img src="./assets/img/img-user/51d05228-82f3-46f9-91e9-a1c3f0eb894c.jpeg"
+                            class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
+                            onclick="cambiarFotoPerfil(this)">
+                        <img src="./assets/img/img-user/96dc4696-afe2-480f-9f72-fc3ce5f8f121.jpeg"
+                            class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
+                            onclick="cambiarFotoPerfil(this)">
+                        <img src="./assets/img/img-user/9def9d5b-262f-4aca-bfcc-600b2489bae4.jpeg"
+                            class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
+                            onclick="cambiarFotoPerfil(this)">
+                        <img src="./assets/img/img-user/d6bbf98d-2cab-4cb6-a768-38b5833b50f9.jpeg"
+                            class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
+                            onclick="cambiarFotoPerfil(this)">
+                        <img src="./assets/img/img-user/ead5a8ff-4e7c-4b31-8ffc-814aa6569b0f.jpeg"
+                            class="rounded-full h-20 w-20 cursor-pointer" style="margin: 15px;"
+                            onclick="cambiarFotoPerfil(this)">
+                        <img src="./assets/img/img-user/thumbnail.jpeg" class="rounded-full h-20 w-20 cursor-pointer"
+                            style="margin: 15px;" onclick="cambiarFotoPerfil(this)">
+                    </div>
 
-                    </div>
-                    <div>
-                        <button class="absolute text-white bg-stone-500 top-[350px] left-[350px] max-sm:left-[50px] hover:bg-red-600 rounded-2xl h-10 w-28" onclick="cerrarSelector()">Cancelar</button>
-                    </div>
                 </div>
-            </section>
-     
+                <div>
+                    <button
+                        class="absolute text-white bg-stone-500 top-[350px] left-[350px] max-sm:left-[50px] hover:bg-red-600 rounded-2xl h-10 w-28"
+                        onclick="cerrarSelector()">Cancelar</button>
+                </div>
+            </div>
+        </section>
+
         <section class="flex flex-col md:flex-row justify-center items-center gap-10 w-[90%] m-auto md:mt-0 md:[95%]">
             <!--SECCION DE LA IZQUIERDA(PERFIL)-->
             <section id="usuario" class="bg-gray-300 mt-5 bg-opacity-40  p-12 rounded-3xl max-sm:p-8">
                 <div class="flex flex-col items-center -mt-20 justify-center gap-4 md:flex-row md:mt-0  ">
                     <div class="relative">
-                        <img src="./assets/icon/user-icon-profile.png"
-                            id="fotoperfil" class=" rounded-full w-24">
+                        <img src="./assets/icon/user-icon-profile.png" id="fotoperfil" class=" rounded-full w-24">
                         <div class="absolute -right-3 -bottom-2">
                             <a onclick="mostrarSelector()"><img class="rounded-full w-10 cursor-pointer"
                                     src="./assets/icon/camara.jpg">
@@ -135,30 +140,31 @@
                     <div class="font-bold w-full font-serif text-sm ml-10 sm:ml-0">
                         <h1 class="text-xl mb-2">DATOS GENERALES</h1>
                         <ul>
-                            <li class="text-sm mt-5">Nombre: 
-                                <span id="nombreDatos" onclick="Cambios(1)">Fulanito</span>
-                                <input type="text" id="inputNombre" style="display:none" placeholder="Nuevo nombre" >
+                            <li class="text-sm mt-5">Nombre:
+                                <span id="nombreDatos" onclick="Cambios()">Fulanito</span>
+                                <input type="text" id="inputNombre" style="display:none" placeholder="Nuevo nombre">
                             </li>
-                            <li class="text-sm mt-5">Apellido: 
-                                <span id="apellidoDatos" onclick="Cambios(2)">De Tal</span>
+                            <li class="text-sm mt-5">Apellido:
+                                <span id="apellidoDatos" onclick="Cambios()">De Tal</span>
                                 <input type="text" id="inputApellido" style="display:none" placeholder="Nuevo apellido">
                             </li>
-                            <li class="text-sm mt-5">Fecha de Nacimiento: 
-                                <span id="fechaNacimiento" onclick="Cambios(3)">06/02/2001</span>
+                            <li class="text-sm mt-5">Fecha de Nacimiento:
+                                <span id="fechaNacimiento" onclick="Cambios()">06/02/2001</span>
                                 <input type="date" id="inputFechaNacimiento" style="display:none">
                             </li>
-                            <li class="text-sm mt-5">Email: 
-                                <span id="email" onclick="Cambios(4)">fulanitolamaquina@gmail.com</span>
+                            <li class="text-sm mt-5">Email:
+                                <span id="email" onclick="Cambios()">fulanitolamaquina@gmail.com</span>
                                 <input type="email" id="inputEmail" style="display:none" placeholder="Nuevo email">
                             </li>
-                            <li class="text-sm mt-5">Telefono: 
-                                <span id="telefono" onclick="Cambios(5)">+507-3411243</span>
+                            <li class="text-sm mt-5">Telefono:
+                                <span id="telefono" onclick="Cambios()">+507-3411243</span>
                                 <input type="tel" id="inputTelefono" style="display:none" placeholder="Nuevo teléfono">
                             </li>
                         </ul>
                     </div>
                     <div class="flex mt-10 justify-center gap-4 md:justify-evenly md:gap-0">
-                        <button class=" text-black bg-gray-300 rounded-2xl h-10 w-28" onclick="actualizar()">Actualizar</button>
+                        <button class=" text-black bg-gray-300 rounded-2xl h-10 w-28"
+                            onclick="actualizar()">Actualizar</button>
                         <button id="cerrarSesionBtn" class=" text-black bg-gray-300 rounded-2xl h-10 w-28">Cerrar
                             Sesion</button>
                     </div>
@@ -172,18 +178,24 @@
                         <div class="relative">
                             <img src="./assets/img/img-home/carrusel1.png" alt=""
                                 class="w-[100px] h-[100px] sm:w-[120px] sm:h-[80px] md:w-[210px] md:h-[150px] object-cover">
-                            <p class="text-white absolute right-0 left-0 text-center text-xs font-bold   mt-1 md:text-sm lg:text-base">CARS</p>
+                            <p
+                                class="text-white absolute right-0 left-0 text-center text-xs font-bold   mt-1 md:text-sm lg:text-base">
+                                CARS</p>
                         </div>
                         <div class="relative ">
                             <img src="./assets/img/img-home/carrusel1.png" alt=""
                                 class="w-[100px] h-[100px] sm:w-[120px] sm:h-[80px] md:w-[210px] md:h-[150px] object-cover">
-                            <p class="text-white absolute right-0 left-0 text-center text-xs font-bold   mt-1 md:text-sm lg:text-base">INCEPTION
+                            <p
+                                class="text-white absolute right-0 left-0 text-center text-xs font-bold   mt-1 md:text-sm lg:text-base">
+                                INCEPTION
                             </p>
                         </div>
                         <div class="relative ">
                             <img src="./assets/img/img-home/carrusel1.png" alt=""
                                 class="w-[100px] h-[100px] sm:w-[120px] sm:h-[80px] md:w-[210px] md:h-[150px] object-cover">
-                            <p class="text-white absolute right-0 left-0 text-center text-xs font-bold   mt-1 md:text-sm lg:text-base">OPPENHEIMER
+                            <p
+                                class="text-white absolute right-0 left-0 text-center text-xs font-bold   mt-1 md:text-sm lg:text-base">
+                                OPPENHEIMER
                             </p>
                         </div>
                     </div>
@@ -191,17 +203,23 @@
                         <div class="relative ">
                             <img src="./assets/img/img-home/carrusel2.jpg" alt=""
                                 class="w-[100px] h-[100px] sm:w-[120px] sm:h-[80px] md:w-[210px] md:h-[150px] object-cover">
-                            <p class="text-white absolute right-0 left-0 text-center text-xs font-bold   mt-1 md:text-sm lg:text-base">AKIRA</p>
+                            <p
+                                class="text-white absolute right-0 left-0 text-center text-xs font-bold   mt-1 md:text-sm lg:text-base">
+                                AKIRA</p>
                         </div>
                         <div class="relative ">
                             <img src="./assets/img/img-home/carrusel2.jpg" alt=""
                                 class="w-[100px] h-[100px] sm:w-[120px] sm:h-[80px] md:w-[210px] md:h-[150px] object-cover">
-                            <p class="text-white absolute right-0 left-0  text-center text-xs font-bold  mt-1 md:text-sm lg:text-base">PRINCESS MONONOKE</p>
+                            <p
+                                class="text-white absolute right-0 left-0  text-center text-xs font-bold  mt-1 md:text-sm lg:text-base">
+                                PRINCESS MONONOKE</p>
                         </div>
                         <div class="relative ">
                             <img src="./assets/img/img-home/carrusel2.jpg" alt=""
                                 class="w-[100px] h-[100px] sm:w-[120px] sm:h-[80px] md:w-[210px] md:h-[150px] object-cover">
-                            <p class="text-white absolute right-0 left-0 text-center text-xs font-bold   mt-1 md:text-sm lg:text-base">STAR WARS ROGUE ONE</p>
+                            <p
+                                class="text-white absolute right-0 left-0 text-center text-xs font-bold   mt-1 md:text-sm lg:text-base">
+                                STAR WARS ROGUE ONE</p>
                         </div>
                     </div>
                     <button class="font-medium text-xl mt-10 md:text-2xl    ">VER MÁS</button>
@@ -209,15 +227,16 @@
             </section>
             <section style="display: none;" id="reporte">
                 <div class="h-full bg-gray-300 bg-opacity-40 rounded-3xl" style="margin-left: 40px; width: 800px;">
-                    <div  class="text-xl font-serif font-bold h-full flex space-x-3 justify-center items-center">
-                        <div  class="w-80 bg-white rounded-3xl text-center" style="height: 335px;">
-                            <img onclick="window.location.href='./reporte.html'" class="relative h-64 w-64" style="left: 32px;"
+                    <div class="text-xl font-serif font-bold h-full flex space-x-3 justify-center items-center">
+                        <div class="w-80 bg-white rounded-3xl text-center" style="height: 335px;">
+                            <img onclick="window.location.href='./reporte.html'" class="relative h-64 w-64"
+                                style="left: 32px;"
                                 src="./assets/img/WhatsApp_Image_2023-11-04_at_1.04.33_PM-transformed-removebg-preview.png">
                             <p onclick="window.location.href='./reporte.html'">Reportes</p>
                         </div>
-                        <div  class="w-80 bg-white rounded-3xl text-center" style="height: 335px;">
-                            <img onclick="window.location.href='./formulario.html'" class="relative h-64 w-64" style="left: 32px;"
-                                src="./assets/img/formulario (1).png">
+                        <div class="w-80 bg-white rounded-3xl text-center" style="height: 335px;">
+                            <img onclick="window.location.href='./formulario.html'" class="relative h-64 w-64"
+                                style="left: 32px;" src="./assets/img/formulario (1).png">
                             <p onclick="window.location.href='./formulario.html'">Formulario</p>
                         </div>
                     </div>
@@ -227,33 +246,29 @@
     </main>
 
 
-    <footer class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] w-full relative pt-5 pb-2 max-sm:py-6">
-        <div class="flex gap-x-3 ml-3 md:ml-40">
-            <div class="flex flex-col gap-y-3">
+    <footer class="bg-gradient-to-b from-[#9C6D46] to-[#684A31] w-full relative py-6 max-sm:py-10">
+        <div class="flex pl-36 max-sm:pl-3 space-x-3">
+            <div class="space-y-1">
                 <div class="flex items-center">
-                    <img src="./assets/icon/ayudar.png" class="w-4">
-                    <a href="#" class="text-white max-sm:text-sm">Preguntas Frecuentes</a>
-                </div>
-                <div class="flex items-center">
-                    <img src="./assets/icon/seguro.png" class="w-4">
+                    <img src="./assets/icon/seguro.png" class="w-4 mr-3" />
                     <a href="#" class="text-white max-sm:text-sm">Politicas de la Empresa</a>
                 </div>
-                <div class="flex items-center">
-                    <img src="./assets/icon/apoyo (1).png" class="w-4">
-                    <a href="#" class="text-white max-sm:text-sm">Atencion al Cliente</a>
+                <div class="flex items-center cursor-pointer" id="chatbot-ayuda-footer">
+                    <img src="./assets/icon/apoyo (1).png" class="w-4 mr-3" />
+                    <p class="text-white max-sm:text-sm">Atencion al Cliente</p>
                 </div>
             </div>
-            <div class="flex flex-col gap-y-3">
+            <div class="space-y-1">
                 <div class="flex items-center">
-                    <img src="./assets/icon/grupo.png" class="w-4">
-                    <a href="#" class="text-white max-sm:text-sm">Creadores de la página</a>
+                    <img src="./assets/icon/grupo.png" class="w-4 mr-3" />
+                    <a href="./integrantes.html" class="text-white max-sm:text-sm">Creadores de la página</a>
                 </div>
                 <div class="flex items-center">
-                    <img src="./assets/icon/seguridad.png" class="w-4">
+                    <img src="./assets/icon/seguridad.png" class="w-4 mr-3" />
                     <a href="#" class="text-white max-sm:text-sm">Politicas de Privacidad</a>
                 </div>
             </div>
-        </div>  
+        </div>
         <div class="flex absolute gap-2 right-14 bottom-2 md:right-14 md:top-5">
             <a href=""><img src="./assets/icon/facebook.png" class="w-8 h-8"></a>
             <a href=""><img src="./assets/icon/instagram.png" class="w-8 h-8"></a>
