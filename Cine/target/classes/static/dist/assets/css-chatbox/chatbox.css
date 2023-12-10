@@ -198,10 +198,6 @@ body {
 	.chatbot-container{
 		left: 20px;
 	}
-	.chatbot-container-open{
-		top: 150px;
-		left: 270px;
-	}
 	.chat-messages{
 		max-height: 250px;
 	}

@@ -127,8 +127,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		// Agrega la imagen de perfil al lado del nombre
 		const avatar = document.createElement("img");
 		avatar.src = isUser
-			? "./assets/img/minilogo.png"
-			: "./assets/img/minilogo.png";
+			? "./assets/icon/minilogo black.jpg"
+			: "./assets/icon/minilogo black.jpg";
 		avatar.alt = isUser ? "Usuario" : "Chatbot";
 		avatar.style.width = "30px"; // Ajusta el tamaño de la imagen de perfil
 		avatar.style.height = "30px";
