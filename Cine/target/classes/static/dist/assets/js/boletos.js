@@ -65,10 +65,41 @@ function reiniciarBoletos(){
     );
 }
 
-//Variables que serán usadas en la página comprafinalqr para el calculo del total
-function guardarTiposBoletos() {
-    sessionStorage.adultoCantidad = document.getElementById('adultoCantidad').innerText;
-    sessionStorage.ninoCantidad = document.getElementById('ninoCantidad').innerText;
-    sessionStorage.jubiladoCantidad = document.getElementById('jubiladoCantidad').innerText;
-    sessionStorage.discapacitadoCantidad = document.getElementById('discapacitadoCantidad').innerText;
+
+let baseUrl = "http://localhost:8080";
+async function crearTicket() {
+    try {
+        let PasoQr = {
+            sede: "Sede de Howard", 
+            pelicula: "peliculazo", 
+            sala: 1,
+            fecha: "2024-12-12", 
+            hora: "00:00", 
+            boletos: JSON.parse(localStorage.boletos).ticket,
+            nombreSala: "prueba"
+        }
+
+        sessionStorage.adultoCantidad = document.getElementById('adultoCantidad').innerText;
+        sessionStorage.ninoCantidad = document.getElementById('ninoCantidad').innerText;
+        sessionStorage.jubiladoCantidad = document.getElementById('jubiladoCantidad').innerText;
+        sessionStorage.discapacitadoCantidad = document.getElementById('discapacitadoCantidad').innerText;
+
+        const res = await fetch(baseUrl + '/Cine/crearTicket', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(PasoQr)
+        });
+
+        if (res.ok) {
+            sessionStorage.codigoConfirmacion = await res.text();            
+        } else {
+            console.error('Error:', res.statusText);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
 }
+
+

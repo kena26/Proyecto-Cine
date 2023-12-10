@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,8 +26,6 @@ import com.example.Cine.modelos.Director;
 import com.example.Cine.modelos.PasoQr;
 import com.example.Cine.modelos.QrLink;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-
 
 @RestController
 public class CineController {
@@ -117,6 +114,7 @@ public class CineController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+
     @GetMapping("/Cine/actores/{idPelicula}")
     public List<Actor> cargarActoresPorPelicula(@PathVariable int idPelicula) {
         CineDb cineDb = new CineDb();
@@ -142,6 +140,7 @@ public class CineController {
         cineDb.eliminarPelicula(idPelicula);
         return ResponseEntity.noContent().build();
     }
+
     @PostMapping("/Cine/agregarDirector")
     public ResponseEntity<String> agregarDirector(@RequestBody Director director) {
         boolean resultado = cineDb.agregarDirector(director);
@@ -173,6 +172,7 @@ public class CineController {
             return new ResponseEntity<>("Error: Película no encontrada", HttpStatus.NOT_FOUND);
         }
     }
+
     @PutMapping("/Cine/actualizarActor/{idActor}")
     public ResponseEntity<String> actualizarActor(@PathVariable int idActor, @RequestBody Actor actorActualizado) {
         CineDb cineDb = new CineDb();
@@ -184,7 +184,6 @@ public class CineController {
             return new ResponseEntity<>("Error: Actor no encontrado", HttpStatus.NOT_FOUND);
         }
     }
-
 
     @PutMapping("/Cine/actualizarDirector/{idDirector}")
     public ResponseEntity<String> actualizarDirector(@PathVariable int idDirector, @RequestBody Director directorActualizado) {
@@ -217,19 +216,30 @@ public class CineController {
     // Obtener información de cartelera
 
     @GetMapping("/Cine/cartelera")
-    public Cartelera getdisponibilidad(){
+    public List<Cartelera> getCartelera() {
         CineDb cineDb = new CineDb();
         return cineDb.getCartelera();
     }
 
     // Obtener información de paso 1
+    @PostMapping("/Cine/crearTicket")
+    public ResponseEntity<String> crearTicket(@RequestBody PasoQr obj) {
+        CineDb cineDb = new CineDb();
+        String resultado = cineDb.crearTicket(obj);
+    
+        if (resultado != null) {
+            return ResponseEntity.ok(resultado);
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error occurred while creating a ticket");
+        }
+    }
+    
 
     // Obtener información de paso 2
 
     // Obtener información de paso 3
 
     // Obtener información de paso 4 compra-finalqr
-
 
     @GetMapping("/Cine/datosQr/{codigoConfirmacion}")
     public PasoQr getDatosqr(@PathVariable("codigoConfirmacion") String codigoConfirmacion) {
@@ -243,8 +253,5 @@ public class CineController {
         CineDb cineDb = new CineDb();
         return cineDb.getQrLink(codigoConfirmacion);
     }
-
-
-
 
 }
