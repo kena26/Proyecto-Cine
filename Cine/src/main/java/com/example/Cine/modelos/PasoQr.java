@@ -1,24 +1,26 @@
 package com.example.Cine.modelos;
 
 public class PasoQr {
-    private String Sede;
-    private String Pelicula;
-    private int Sala;
-    private String Fecha;
-    private String Hora;
-    private int Boletos;    
+    private String sede;
+    private String pelicula;
+    private int sala;    
+    private String fecha;
+    private String hora;
+    private int boletos;
+    private String nombreSala;    
 
 
     // CONSTRUCTORES//
     public PasoQr(String Sede, String Pelicula, int Sala, String Fecha, String Hora,
-            int Boletos) {
+            int Boletos, String nombreSala) {
 
-        this.Sede = Sede;
-        this.Pelicula = Pelicula;
-        this.Sala = Sala;
-        this.Fecha = Fecha;
-        this.Hora = Hora;
-        this.Boletos = Boletos;        
+        this.sede = Sede;
+        this.pelicula = Pelicula;
+        this.sala = Sala;
+        this.fecha = Fecha;
+        this.hora = Hora;
+        this.boletos = Boletos;
+        this.nombreSala = nombreSala;        
     }
 
     public PasoQr() {}
@@ -26,27 +28,31 @@ public class PasoQr {
     // getter//
 
     public String getSede() {
-        return Sede;
+        return sede;
     }
 
     public String getPelicula() {
-        return Pelicula;
+        return pelicula;
     }
 
     public int getSala() {
-        return Sala;
+        return sala;
     }
 
     public String getFecha() {
-        return Fecha;
+        return fecha;
     }
 
     public String getHora() {
-        return Hora;
+        return hora;
     }
 
     public int getBoletos() {
-        return Boletos;
+        return boletos;
+    }
+
+    public String getNombreSala(){
+        return nombreSala;
     }
 
 }

@@ -130,7 +130,7 @@
                 <p class="text-2xl pb-2">Escanee su código QR</p>
                 <!--habilitar link para pruebas directas en el navegador
                     <a href="#" id="paginaVideo">-->
-                    <div id="compra-qrcode"></div>
+                    <div id="compra-qrcode" class="border-white border-8"></div>
                 <!--</a>-->
 
             </div>
@@ -226,10 +226,10 @@
             sala.innerHTML = compra.sala;
             boletos.innerHTML = compra.boletos;
             fecha.innerHTML = compra.fecha;
-
+            hora.innerHTML = compra.hora;
             // Formatear hora segun las preferencias del usuario (HH:mm)
-            let hour = new Date("2023-01-01 " + compra.hora);
-            hora.innerHTML = hour.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+            //let hour = new Date("2023-01-01 " + compra.hora);
+            //hora.innerHTML = hour.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
 
 
             // Generar QR code
@@ -240,8 +240,8 @@
             });
 
             //qr clickeable
-            let qrlink = document.getElementById("paginaVideo");
-            qrlink.href = paginaVideo;
+            //let qrlink = document.getElementById("paginaVideo");
+            //qrlink.href = paginaVideo;
 
             let qrpic = document.getElementById('compra-qrcode');
             qrpic.classList.add('border-[10px]', 'border-white');
@@ -253,8 +253,8 @@
             + ((Number(sessionStorage.jubiladoCantidad) +
                 Number(sessionStorage.discapacitadoCantidad)) * 2)
         //
-        let codigoConfirmacion = sessionStorage.codigoConfirmacion;
-        let paginaVideo = targetUrl + "?cod=" + codigoConfirmacion;
+        
+        let paginaVideo = targetUrl + "?cod=" + sessionStorage.codigoConfirmacion;
 
         ObtenerCompra(codigoConfirmacion);
 
