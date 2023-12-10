@@ -253,8 +253,8 @@
             + ((Number(sessionStorage.jubiladoCantidad) +
                 Number(sessionStorage.discapacitadoCantidad)) * 2)
         //
-        
-        let paginaVideo = targetUrl + "?cod=" + sessionStorage.codigoConfirmacion;
+        let codigoConfirmacion = sessionStorage.codigoConfirmacion
+        let paginaVideo = targetUrl + "?cod=" + codigoConfirmacion;
 
         ObtenerCompra(codigoConfirmacion);
 
