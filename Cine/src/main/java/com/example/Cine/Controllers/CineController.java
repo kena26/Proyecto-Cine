@@ -264,8 +264,4 @@ public class CineController {
         CineDb cineDb = new CineDb();
         return cineDb.getQrLink(codigoConfirmacion);
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
 }

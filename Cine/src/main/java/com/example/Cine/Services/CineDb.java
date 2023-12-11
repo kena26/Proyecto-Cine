@@ -188,12 +188,8 @@ public class CineDb {
 
     public int agregarPelicula(Pelicula pelicula) {
         try {
-<<<<<<< HEAD
             String query = "INSERT INTO Pelicula(titulo, sinopsis, genero, linkQR, linkInfo, clasificacion, duracion, foto_poster, calificacion) "
                     +
-=======
-            String query = "INSERT INTO Pelicula(titulo, sinopsis, genero, linkQR, linkInfo, clasificacion, duracion, foto_poster, calificacion) "+
->>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             try (PreparedStatement pstmt = cn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
@@ -427,12 +423,7 @@ public class CineDb {
                             result.getInt("id_director"),
                             result.getString("nombre"),
                             result.getString("apellido"),
-<<<<<<< HEAD
                             result.getInt("id_pelicula"));
-=======
-                            result.getInt("id_pelicula")
-                    );
->>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
                     directores.add(director);
                 }
             }
@@ -496,13 +487,9 @@ public class CineDb {
                     pstmt.setString(2, actorActualizado.getApellido());
                     pstmt.setString(3, actorActualizado.getFoto());
                     pstmt.setInt(4, idActor);
-<<<<<<< HEAD
 
                     int rowsAffected = pstmt.executeUpdate();
 
-=======
-                    int rowsAffected = pstmt.executeUpdate();
->>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
                     return rowsAffected > 0;
                 }
             } else {
@@ -549,10 +536,6 @@ public class CineDb {
                     pstmt.setInt(3, idDirector);
 
                     int rowsAffected = pstmt.executeUpdate();
-<<<<<<< HEAD
-
-=======
->>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
                     return rowsAffected > 0;
                 }
             } else {
@@ -597,10 +580,6 @@ public class CineDb {
                 pstmt.setInt(3, sucursalesPelicula.getIdSucursal());
 
                 int rowsAffected = pstmt.executeUpdate();
-<<<<<<< HEAD
-
-=======
->>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
                 return rowsAffected > 0;
             }
         } catch (SQLException e) {
@@ -629,12 +608,7 @@ public class CineDb {
                             result.getString("clasificacion"),
                             result.getString("duracion"),
                             result.getString("foto_poster"),
-<<<<<<< HEAD
                             result.getFloat("calificacion"));
-=======
-                            result.getFloat("calificacion")
-                    );
->>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
                     peliculas.add(pelicula);
                 }
             }
@@ -659,7 +633,7 @@ public class CineDb {
                 "Ticket.cantidadTicket\n" +
                 "FROM Ticket\n" +
                 "JOIN Sucursales ON Ticket.idSucursales = Sucursales.id_sucursal \n" +
-                //"JOIN Pelicula ON Ticket.ID_PELICULA = Pelicula.ID_PELICULA " +
+                // "JOIN Pelicula ON Ticket.ID_PELICULA = Pelicula.ID_PELICULA " +
                 "WHERE Ticket.id_boleto = ?";
 
         try (PreparedStatement pstmt = cn.prepareStatement(query)) {
@@ -732,30 +706,6 @@ public class CineDb {
         return qrlink;
     }
 
-<<<<<<< HEAD
-    // getCartelera()
-    public Cartelera getCartelera() {
-        Cartelera cartel = new Cartelera();
-        try {
-            Statement stmt = cn.createStatement();
-            String query = "SELECT ticket.id_ticket, sucursal.nombre FROM Ticket";
-            ResultSet result = stmt.executeQuery(query);
-            result.next();
-
-            cartel = new Cartelera(
-
-            );
-            /*
-             * public PasoQr(String codigoConfirmacion, String Sede, String Pelicula, int
-             * Sala,
-             * String Fecha, String Hora, int Boletos, String Transaccion,
-             * float totalCompra, String link)
-             */
-
-            result.close();
-            stmt.close();
-
-=======
     // Necesita que los registros de Horario, Cartelera y Sucursal sean validos
     // y sus ids coincidan
     // Retorna una lista de objetos Cartelera
@@ -795,7 +745,6 @@ public class CineDb {
                     peliculas.add(cartelera);
                 }
             }
->>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Error al obtener todas las películas: " + e.getMessage());
@@ -803,27 +752,25 @@ public class CineDb {
         return peliculas;
     }
 
-<<<<<<< HEAD
     public List<Asientos> obtenerAsientos() {
         try {
-          Statement stmt = cn.createStatement();
-          String query = "SELECT * FROM Asientos;";
-    
-          List<Asientos> asientos = new ArrayList<Asientos>();
-          ResultSet result = stmt.executeQuery(query);
-          while (result.next()) {
-            Asientos asiento = new Asientos(
-                    result.getString("id_Asiento"),
-                    result.getInt("Estado"));
-           asientos.add(asiento);
-          }
-    
-          result.close();
-          stmt.close();
-          return asientos;
-    
+            String query = "SELECT * FROM Asientos;";
+            Statement stmt = cn.createStatement();
+            List<Asientos> asientos = new ArrayList<Asientos>();
+            ResultSet result = stmt.executeQuery(query);
+            while (result.next()) {
+                Asientos asiento = new Asientos(
+                        result.getString("id_Asiento"),
+                        result.getInt("Estado"));
+                asientos.add(asiento);
+            }
+
+            result.close();
+            stmt.close();
+            return asientos;
+
         } catch (Exception e) {
-          int x = 1;
+            int x = 1;
         }
         return null;
     }
@@ -849,8 +796,7 @@ public class CineDb {
         }
         return insertados;
     }
-}
-=======
+
     // Crear un registro en Ticket, y retornar el codigo de confirmacion
     public String crearTicket(PasoQr obj) {
         String codigoConfirmacion = "knbl";
@@ -860,7 +806,7 @@ public class CineDb {
         System.out.println(obj.getFecha());
         System.out.println(obj.getHora());
         System.out.println(obj.getPelicula());
-        System.out.println(obj.getSala());                                
+        System.out.println(obj.getSala());
         try {
             String query0 = "SELECT id_sucursal FROM Sucursales WHERE cine = ?";
             int id_sucursal = -1; // Default value if no data is returned
@@ -922,6 +868,4 @@ public class CineDb {
         System.out.println(codigoConfirmacion);
         return codigoConfirmacion;
     }
-
 }
->>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
