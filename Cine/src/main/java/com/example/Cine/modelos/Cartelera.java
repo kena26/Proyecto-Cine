@@ -3,26 +3,29 @@ package com.example.Cine.modelos;
 public class Cartelera {
     private String Provincia;
     private String hora;
-    private String NombrePelicula;
-    private String Sede;
-    private String Sala;
+    private String titulo;
+    private String genero;
+    private String cine;
+    private String sala;
     private String duracion;
-    private String fecha;
-    private boolean disponibilidad;
-    private String link;
+    private boolean estado;
+    private String foto_poster;
+    private String fechaEstreno;
 
     //CONSTRUCTORES//
-    public Cartelera(String Provincia, String hora, String NombrePelicula, String Sede, String sala, String duracion, String fecha, String link, boolean disponibilidad) {
+    public Cartelera(boolean estado, String Provincia, String hora, String titulo, String cine, String sala,
+     String duracion, String foto_poster, String genero, String fechaEstreno) {
         
         this.Provincia = Provincia;
         this.hora = hora;
-        this.NombrePelicula = NombrePelicula;
-        this.Sede = Sede;
-        this.Sala = sala;
+        this.titulo = titulo;
+        this.cine = cine;
+        this.sala = sala;
         this.duracion = duracion;
-        this.Sede = fecha;
-        this.disponibilidad = disponibilidad;
-        this.link = link;
+        this.estado = estado;
+        this.foto_poster = foto_poster;
+        this.genero = genero;
+        this.fechaEstreno = fechaEstreno;
         
     }
    
@@ -38,31 +41,35 @@ public class Cartelera {
         return this.hora;
     }
     
-    public String getNombrePelicula() {
-        return this.NombrePelicula;
+    public String gettitulo() {
+        return this.titulo;
     }
     
-    public String getSede() {
-        return this.Sede;
+    public String getcine() {
+        return this.cine;
     }
     
-    public String getSala() {
-        return this.Sala;
+    public String getsala() {
+        return this.sala;
     }
     
     public String getDuracion() {
         return this.duracion;
     }
-    
-    public String getFecha() {
-        return this.fecha;
+       
+    public boolean getEstado() {
+        return this.estado;
     }
     
-    public boolean getDisponibilidad() {
-        return this.disponibilidad;
+    public String getFoto_poster() {
+        return this.foto_poster;
     }
-    
-    public String getLink() {
-        return this.link;
+
+    public String getgenero() {
+        return this.genero;
+    }
+
+    public String getfechaEstreno() {
+        return this.fechaEstreno;
     }
 }

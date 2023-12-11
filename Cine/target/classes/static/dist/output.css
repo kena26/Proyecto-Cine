@@ -3094,6 +3094,21 @@ video {
     top: 80px;
   }
 
+<<<<<<< HEAD
+=======
+  .max-sm\:bottom-3 {
+    bottom: 0.75rem;
+  }
+
+  .max-sm\:top-14 {
+    top: 3.5rem;
+  }
+
+  .max-sm\:top-24 {
+    top: 6rem;
+  }
+
+>>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
   .max-sm\:col-span-2 {
     grid-column: span 2 / span 2;
   }
@@ -3464,6 +3479,11 @@ video {
   .max-sm\:py-10 {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
+  }
+
+  .max-sm\:py-12 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 
   .max-sm\:py-5 {
