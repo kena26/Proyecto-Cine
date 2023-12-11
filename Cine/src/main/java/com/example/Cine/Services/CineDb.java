@@ -712,36 +712,86 @@ public class CineDb {
     public List<Cartelera> getCartelera() {
         List<Cartelera> peliculas = new ArrayList<>();
         try (Statement stmt = cn.createStatement()) {
-            String query = "SELECT Cartelera.estado, Cartelera.fechaEstreno" + //
-                    "    Pelicula.titulo, Pelicula.foto_poster,\n" + //
-                    "    Pelicula.duracion, Sucursales.Provincia,\n" + //
-                    "    Sucursales.cine, Horario.tandas, " + //
-                    "    Pelicula.genero Sala.nombre_sala\n" + //
-                    "FROM \n" + //
-                    "    Cartelera\n" + //
-                    "JOIN \n" + //
-                    "    Pelicula ON Pelicula.ID_PELICULA = Cartelera.ID_PELICULA \n" + //
-                    "JOIN \n" + //
-                    "    Horario ON Horario.ID_horario = Cartelera.ID_horario  \n" + //
-                    "JOIN \n" + //
-                    "    Sucursal ON Sucursal.id_cartelera = Cartelera.id_cartelera  \n" + //
-                    "JOIN \n" + //
-                    "    Sucursales ON Sucursales.id_sucursal = Sucursal.id_sucursal \n" + //
-                    "JOIN \n" + //
-                    "    Sala ON Sala.id_sala = Horario.id_sala;";
+            String query = "SELECT Cartelera.id_cartelera, Cartelera.estado, Cartelera.fechaEstreno,\n"+
+                            "Pelicula.titulo, Pelicula.foto_poster,\n"+
+                            "Pelicula.duracion, Sucursales.Provincia,\n"+
+                            "Sucursales.cine, Horario.tandas, \n"+
+                            "Pelicula.genero, Sala.nombre_sala, \n"+
+                            "Cartelera.id_cartelera, Pelicula.clasificacion, Cartelera.id_pelicula\n"+
+                            "FROM Cartelera \n"+
+                            "JOIN Pelicula ON Pelicula.id_pelicula = Cartelera.id_pelicula \n"+
+                            "JOIN Horario ON Horario.Id_horario = Cartelera.Id_horario \n"+ 
+                            "JOIN Sucursales_Pelicula ON Sucursales_Pelicula.id_pelicula = Pelicula.id_pelicula\n"+
+                            "JOIN Sucursales ON Sucursales.id_sucursal = Sucursales_Pelicula.id_sucursal\n"+
+                            "JOIN Sala ON Sala.id_sala = Horario.id_sala \n"+
+                            "WHERE Sucursales_Pelicula.activo = 1;";
             try (ResultSet result = stmt.executeQuery(query)) {
                 while (result.next()) {
                     Cartelera cartelera = new Cartelera(
-                            result.getBoolean("Cartelera.estado"),
+                            result.getString("Sucursales.Provincia"),
+                            result.getString("Horario.tandas"),
                             result.getString("Pelicula.titulo"),
                             result.getString("Pelicula.genero"),
-                            result.getString("Pelicula.duracion"),
-                            result.getString("Pelicula.foto_poster"),
-                            result.getString("Sucursales.Provincia"),
                             result.getString("Sucursales.cine"),
                             result.getString("Sala.nombre_sala"),
+                            result.getString("Pelicula.duracion"),
+                            result.getBoolean("Cartelera.estado"),
+                            result.getString("Pelicula.foto_poster"),
+                            result.getString("Cartelera.fechaEstreno"),
+                            result.getInt("Cartelera.id_cartelera"),
+                            result.getString("Pelicula.clasificacion"),
+                            result.getInt("Cartelera.id_pelicula"));
+                    peliculas.add(cartelera);
+                    
+                }
+                result.close();
+                stmt.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error al obtener todas las películas: " + e.getMessage());
+        }
+        return peliculas;
+    }
+
+    
+    public List<Cartelera> filtrarCarteleraPorSucursal(int idSucursal) {
+        List<Cartelera> peliculas = new ArrayList<>();
+
+        String query = "SELECT Cartelera.id_cartelera, Cartelera.estado, Cartelera.fechaEstreno,\n"+
+                            "Pelicula.titulo, Pelicula.foto_poster,\n"+
+                            "Pelicula.duracion, Sucursales.Provincia,\n"+
+                            "Sucursales.cine, Horario.tandas, \n"+
+                            "Pelicula.genero, Sala.nombre_sala, \n"+
+                            "Cartelera.id_cartelera, Pelicula.clasificacion, Cartelera.id_pelicula\n"+
+                            "FROM Cartelera \n"+
+                            "JOIN Pelicula ON Pelicula.id_pelicula = Cartelera.id_pelicula \n"+
+                            "JOIN Horario ON Horario.Id_horario = Cartelera.Id_horario \n"+ 
+                            "JOIN Sucursales_Pelicula ON Sucursales_Pelicula.id_pelicula = Pelicula.id_pelicula\n"+
+                            "JOIN Sucursales ON Sucursales.id_sucursal = Sucursales_Pelicula.id_sucursal\n"+
+                            "JOIN Sala ON Sala.id_sala = Horario.id_sala \n"+
+                            "WHERE Sucursales_Pelicula.activo = 1 \n"+
+                            "AND Sucursales_Pelicula.id_sucursal = ? ;";
+
+        try (PreparedStatement pstmt = cn.prepareStatement(query)) {
+            pstmt.setInt(1, idSucursal);
+                    
+            try (ResultSet result = pstmt.executeQuery()) {
+                while (result.next()) {
+                    Cartelera cartelera = new Cartelera(
+                            result.getString("Sucursales.Provincia"),
                             result.getString("Horario.tandas"),
-                            result.getString("Cartelera.fechaEstreno"));
+                            result.getString("Pelicula.titulo"),
+                            result.getString("Pelicula.genero"),
+                            result.getString("Sucursales.cine"),
+                            result.getString("Sala.nombre_sala"),
+                            result.getString("Pelicula.duracion"),
+                            result.getBoolean("Cartelera.estado"),
+                            result.getString("Pelicula.foto_poster"),
+                            result.getString("Cartelera.fechaEstreno"),
+                            result.getInt("Cartelera.id_cartelera"),
+                            result.getString("Pelicula.clasificacion"),
+                            result.getInt("Cartelera.id_pelicula"));
                     peliculas.add(cartelera);
                 }
             }
@@ -751,6 +801,101 @@ public class CineDb {
         }
         return peliculas;
     }
+    public List<Cartelera> filtrarCarteleraPorGenero(String genero) {
+        List<Cartelera> peliculas = new ArrayList<>();
+
+        String query = "SELECT Cartelera.id_cartelera, Cartelera.estado, Cartelera.fechaEstreno,\n"+
+                            "Pelicula.titulo, Pelicula.foto_poster,\n"+
+                            "Pelicula.duracion, Sucursales.Provincia,\n"+
+                            "Sucursales.cine, Horario.tandas, \n"+
+                            "Pelicula.genero, Sala.nombre_sala, \n"+
+                            "Cartelera.id_cartelera, Pelicula.clasificacion, Cartelera.id_pelicula\n"+
+                            "FROM Cartelera \n"+
+                            "JOIN Pelicula ON Pelicula.id_pelicula = Cartelera.id_pelicula \n"+
+                            "JOIN Horario ON Horario.Id_horario = Cartelera.Id_horario \n"+ 
+                            "JOIN Sucursales_Pelicula ON Sucursales_Pelicula.id_pelicula = Pelicula.id_pelicula\n"+
+                            "JOIN Sucursales ON Sucursales.id_sucursal = Sucursales_Pelicula.id_sucursal\n"+
+                            "JOIN Sala ON Sala.id_sala = Horario.id_sala \n"+
+                            "WHERE Sucursales_Pelicula.activo = 1 \n"+
+                            "AND Pelicula.genero LIKE ? ;";
+
+        try (PreparedStatement pstmt = cn.prepareStatement(query)) {
+            pstmt.setString(1, "%" + genero + "%");
+                    
+            try (ResultSet result = pstmt.executeQuery()) {
+                while (result.next()) {
+                    Cartelera cartelera = new Cartelera(
+                            result.getString("Sucursales.Provincia"),
+                            result.getString("Horario.tandas"),
+                            result.getString("Pelicula.titulo"),
+                            result.getString("Pelicula.genero"),
+                            result.getString("Sucursales.cine"),
+                            result.getString("Sala.nombre_sala"),
+                            result.getString("Pelicula.duracion"),
+                            result.getBoolean("Cartelera.estado"),
+                            result.getString("Pelicula.foto_poster"),
+                            result.getString("Cartelera.fechaEstreno"),
+                            result.getInt("Cartelera.id_cartelera"),
+                            result.getString("Pelicula.clasificacion"),
+                            result.getInt("Cartelera.id_pelicula"));
+                    peliculas.add(cartelera);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error al obtener todas las películas: " + e.getMessage());
+        }
+        return peliculas;
+    }
+    public List<Cartelera> filtrarCarteleraPorSucursalYGenero(int idSucursal, String genero) {
+        List<Cartelera> peliculas = new ArrayList<>();
+
+        String query = "SELECT Cartelera.id_cartelera, Cartelera.estado, Cartelera.fechaEstreno,\n"+
+                            "Pelicula.titulo, Pelicula.foto_poster,\n"+
+                            "Pelicula.duracion, Sucursales.Provincia,\n"+
+                            "Sucursales.cine, Horario.tandas, \n"+
+                            "Pelicula.genero, Sala.nombre_sala, \n"+
+                            "Cartelera.id_cartelera, Pelicula.clasificacion, Cartelera.id_pelicula\n"+
+                            "FROM Cartelera \n"+
+                            "JOIN Pelicula ON Pelicula.id_pelicula = Cartelera.id_pelicula \n"+
+                            "JOIN Horario ON Horario.Id_horario = Cartelera.Id_horario \n"+ 
+                            "JOIN Sucursales_Pelicula ON Sucursales_Pelicula.id_pelicula = Pelicula.id_pelicula\n"+
+                            "JOIN Sucursales ON Sucursales.id_sucursal = Sucursales_Pelicula.id_sucursal\n"+
+                            "JOIN Sala ON Sala.id_sala = Horario.id_sala \n"+
+                            "WHERE Sucursales_Pelicula.activo = 1 \n"+
+                            "AND Sucursales_Pelicula.id_sucursal = ? \n"+
+                            "AND Pelicula.genero LIKE ?;";
+
+        try (PreparedStatement pstmt = cn.prepareStatement(query)) {
+            pstmt.setInt(1, idSucursal);
+            pstmt.setString(2, "%" + genero + "%");
+                    
+            try (ResultSet result = pstmt.executeQuery()) {
+                while (result.next()) {
+                    Cartelera cartelera = new Cartelera(
+                            result.getString("Sucursales.Provincia"),
+                            result.getString("Horario.tandas"),
+                            result.getString("Pelicula.titulo"),
+                            result.getString("Pelicula.genero"),
+                            result.getString("Sucursales.cine"),
+                            result.getString("Sala.nombre_sala"),
+                            result.getString("Pelicula.duracion"),
+                            result.getBoolean("Cartelera.estado"),
+                            result.getString("Pelicula.foto_poster"),
+                            result.getString("Cartelera.fechaEstreno"),
+                            result.getInt("Cartelera.id_cartelera"),
+                            result.getString("Pelicula.clasificacion"),
+                            result.getInt("Cartelera.id_pelicula"));
+                    peliculas.add(cartelera);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error al obtener todas las películas: " + e.getMessage());
+        }
+        return peliculas;
+    }
+
 
     public List<Asientos> obtenerAsientos() {
         try {
