@@ -1,4 +1,4 @@
-let asientos = [];
+let asientos1 = [];
 let cantBoletos;
 
 // Verifica si antes habia segundos o minutos

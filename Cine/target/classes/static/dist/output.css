@@ -3094,6 +3094,8 @@ video {
     top: 80px;
   }
 
+<<<<<<< HEAD
+=======
   .max-sm\:bottom-3 {
     bottom: 0.75rem;
   }
@@ -3106,6 +3108,7 @@ video {
     top: 6rem;
   }
 
+>>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
   .max-sm\:col-span-2 {
     grid-column: span 2 / span 2;
   }

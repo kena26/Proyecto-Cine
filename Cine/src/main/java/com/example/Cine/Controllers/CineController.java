@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Cine.Services.CineDb;
 import com.example.Cine.modelos.Actor;
+import com.example.Cine.modelos.Asientos;
 import com.example.Cine.modelos.Pelicula;
 import com.example.Cine.modelos.SucursalesPelicula;
 import com.example.Cine.modelos.Usuarios;
@@ -235,7 +236,17 @@ public class CineController {
     }
     
 
-    // Obtener información de paso 2
+    // Obtener información de paso 21
+    @GetMapping("/asientos/disponibilidad")
+    public List<Asientos> obtenerAsientos(){
+        return new CineDb().obtenerAsientos();
+    }
+
+    @PostMapping("/asientos/ocupar")
+    public int insertarAsientos(@RequestBody List<Asientos> asientos) {
+        int resultado = new CineDb().guardarAsientos(asientos);
+        return resultado;
+    }
 
     // Obtener información de paso 3
 
@@ -253,5 +264,8 @@ public class CineController {
         CineDb cineDb = new CineDb();
         return cineDb.getQrLink(codigoConfirmacion);
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
 }

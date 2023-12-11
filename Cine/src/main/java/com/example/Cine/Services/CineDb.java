@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 import com.example.Cine.modelos.Actor;
+import com.example.Cine.modelos.Asientos;
 import com.example.Cine.modelos.Pelicula;
 import com.example.Cine.modelos.SucursalesPelicula;
 import com.example.Cine.modelos.Usuarios;
@@ -187,7 +188,12 @@ public class CineDb {
 
     public int agregarPelicula(Pelicula pelicula) {
         try {
+<<<<<<< HEAD
+            String query = "INSERT INTO Pelicula(titulo, sinopsis, genero, linkQR, linkInfo, clasificacion, duracion, foto_poster, calificacion) "
+                    +
+=======
             String query = "INSERT INTO Pelicula(titulo, sinopsis, genero, linkQR, linkInfo, clasificacion, duracion, foto_poster, calificacion) "+
+>>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             try (PreparedStatement pstmt = cn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
@@ -235,8 +241,7 @@ public class CineDb {
                             result.getString("clasificacion"),
                             result.getString("duracion"),
                             result.getString("foto_poster"),
-                            result.getFloat("calificacion")
-                    );
+                            result.getFloat("calificacion"));
                     peliculas.add(pelicula);
                 }
             }
@@ -264,8 +269,7 @@ public class CineDb {
                                 resultSet.getString("clasificacion"),
                                 resultSet.getString("duracion"),
                                 resultSet.getString("foto_poster"),
-                                resultSet.getFloat("calificacion")
-                        );
+                                resultSet.getFloat("calificacion"));
                     }
                 }
             }
@@ -308,8 +312,7 @@ public class CineDb {
                             result.getString("nombre"),
                             result.getString("apellido"),
                             result.getString("foto"),
-                            result.getInt("id_pelicula")
-                    );
+                            result.getInt("id_pelicula"));
                     actores.add(actor);
                 }
                 pstmt.close();
@@ -385,7 +388,8 @@ public class CineDb {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Error al verificar la existencia de la película en la base de datos: " + e.getMessage());
+            System.out
+                    .println("Error al verificar la existencia de la película en la base de datos: " + e.getMessage());
             throw e; // Re-throw the exception to the calling method
         }
 
@@ -423,8 +427,12 @@ public class CineDb {
                             result.getInt("id_director"),
                             result.getString("nombre"),
                             result.getString("apellido"),
+<<<<<<< HEAD
+                            result.getInt("id_pelicula"));
+=======
                             result.getInt("id_pelicula")
                     );
+>>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
                     directores.add(director);
                 }
             }
@@ -458,15 +466,15 @@ public class CineDb {
 
     public List<SucursalesPelicula> obtenerSucursalesPorPelicula(int idPelicula) throws SQLException {
         List<SucursalesPelicula> sucursales = new ArrayList<>();
-        try (PreparedStatement pstmt = cn.prepareStatement("SELECT * FROM Sucursales_Pelicula WHERE id_pelicula = ? AND activo = 1")) {
+        try (PreparedStatement pstmt = cn
+                .prepareStatement("SELECT * FROM Sucursales_Pelicula WHERE id_pelicula = ? AND activo = 1")) {
             pstmt.setInt(1, idPelicula);
             try (ResultSet result = pstmt.executeQuery()) {
                 while (result.next()) {
                     SucursalesPelicula sucursal = new SucursalesPelicula(
                             result.getInt("id_sucursal"),
                             result.getInt("id_pelicula"),
-                            result.getInt("activo")
-                    );
+                            result.getInt("activo"));
                     sucursales.add(sucursal);
                 }
             } catch (SQLException e) {
@@ -488,7 +496,13 @@ public class CineDb {
                     pstmt.setString(2, actorActualizado.getApellido());
                     pstmt.setString(3, actorActualizado.getFoto());
                     pstmt.setInt(4, idActor);
+<<<<<<< HEAD
+
                     int rowsAffected = pstmt.executeUpdate();
+
+=======
+                    int rowsAffected = pstmt.executeUpdate();
+>>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
                     return rowsAffected > 0;
                 }
             } else {
@@ -535,6 +549,10 @@ public class CineDb {
                     pstmt.setInt(3, idDirector);
 
                     int rowsAffected = pstmt.executeUpdate();
+<<<<<<< HEAD
+
+=======
+>>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
                     return rowsAffected > 0;
                 }
             } else {
@@ -579,6 +597,10 @@ public class CineDb {
                 pstmt.setInt(3, sucursalesPelicula.getIdSucursal());
 
                 int rowsAffected = pstmt.executeUpdate();
+<<<<<<< HEAD
+
+=======
+>>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
                 return rowsAffected > 0;
             }
         } catch (SQLException e) {
@@ -607,8 +629,12 @@ public class CineDb {
                             result.getString("clasificacion"),
                             result.getString("duracion"),
                             result.getString("foto_poster"),
+<<<<<<< HEAD
+                            result.getFloat("calificacion"));
+=======
                             result.getFloat("calificacion")
                     );
+>>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
                     peliculas.add(pelicula);
                 }
             }
@@ -706,6 +732,30 @@ public class CineDb {
         return qrlink;
     }
 
+<<<<<<< HEAD
+    // getCartelera()
+    public Cartelera getCartelera() {
+        Cartelera cartel = new Cartelera();
+        try {
+            Statement stmt = cn.createStatement();
+            String query = "SELECT ticket.id_ticket, sucursal.nombre FROM Ticket";
+            ResultSet result = stmt.executeQuery(query);
+            result.next();
+
+            cartel = new Cartelera(
+
+            );
+            /*
+             * public PasoQr(String codigoConfirmacion, String Sede, String Pelicula, int
+             * Sala,
+             * String Fecha, String Hora, int Boletos, String Transaccion,
+             * float totalCompra, String link)
+             */
+
+            result.close();
+            stmt.close();
+
+=======
     // Necesita que los registros de Horario, Cartelera y Sucursal sean validos
     // y sus ids coincidan
     // Retorna una lista de objetos Cartelera
@@ -745,6 +795,7 @@ public class CineDb {
                     peliculas.add(cartelera);
                 }
             }
+>>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Error al obtener todas las películas: " + e.getMessage());
@@ -752,6 +803,54 @@ public class CineDb {
         return peliculas;
     }
 
+<<<<<<< HEAD
+    public List<Asientos> obtenerAsientos() {
+        try {
+          Statement stmt = cn.createStatement();
+          String query = "SELECT * FROM Asientos;";
+    
+          List<Asientos> asientos = new ArrayList<Asientos>();
+          ResultSet result = stmt.executeQuery(query);
+          while (result.next()) {
+            Asientos asiento = new Asientos(
+                    result.getString("id_Asiento"),
+                    result.getInt("Estado"));
+           asientos.add(asiento);
+          }
+    
+          result.close();
+          stmt.close();
+          return asientos;
+    
+        } catch (Exception e) {
+          int x = 1;
+        }
+        return null;
+    }
+
+    public int guardarAsientos(List<Asientos> asientosList) {
+        int insertados = 0;
+        try {
+            Statement stmt = cn.createStatement();
+            for (Asientos asiento : asientosList) {
+                String query = "INSERT INTO Asientos (id_Asiento, Estado) VALUES ('"
+                        + asiento.getid_Asiento() + "',"
+                        + asiento.getEstado() + ")";
+
+                int resultado = stmt.executeUpdate(query);
+                // Verifica si la inserción fue exitosa
+                if (resultado > 0) {
+                    insertados++;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            insertados = 0; // Se produjo un error
+        }
+        return insertados;
+    }
+}
+=======
     // Crear un registro en Ticket, y retornar el codigo de confirmacion
     public String crearTicket(PasoQr obj) {
         String codigoConfirmacion = "knbl";
@@ -825,3 +924,4 @@ public class CineDb {
     }
 
 }
+>>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1

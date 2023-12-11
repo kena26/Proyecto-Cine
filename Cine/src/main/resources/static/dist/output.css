@@ -852,6 +852,8 @@ video {
   top: 9.8%;
 }
 
+<<<<<<< HEAD
+=======
 .bottom-20 {
   bottom: 5rem;
 }
@@ -868,6 +870,7 @@ video {
   bottom: 1.75rem;
 }
 
+>>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
 .z-10 {
   z-index: 10;
 }
@@ -1356,6 +1359,8 @@ video {
   height: 100vh;
 }
 
+<<<<<<< HEAD
+=======
 .h-0 {
   height: 0px;
 }
@@ -1376,6 +1381,7 @@ video {
   height: 80px;
 }
 
+>>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
 .max-h-\[18rem\] {
   max-height: 18rem;
 }
@@ -3201,10 +3207,13 @@ video {
     top: 80px;
   }
 
+<<<<<<< HEAD
+=======
   .max-sm\:top-24 {
     top: 6rem;
   }
 
+>>>>>>> 651dba17d1e94dae1cc836e534a57715f0a246a1
   .max-sm\:col-span-2 {
     grid-column: span 2 / span 2;
   }
