@@ -4,7 +4,7 @@ const peliculasPorContenedor = [];
 async function cargarPeliculas() {
     try {
         const response = await fetch(`${urlbase}/Cine/peliculas`);
-        
+
         if (!response.ok) {
             throw new Error(`Error al cargar las películas. Código de estado: ${response.status}`);
         }
@@ -101,17 +101,17 @@ async function realizarBusqueda() {
         const terminoBusqueda = inputBusqueda.value.trim();
         const generoSeleccionado = generoSelect.value;
         const categoriaSeleccionada = categoriaSelect.value;
-    
+
         if (terminoBusqueda !== '' || generoSeleccionado !== '' || categoriaSeleccionada !== '') {
             try {
                 // Limpiar resultados anteriores solo si hay nuevos resultados
                 if (contenedorResultados.firstChild) {
                     limpiarResultadosAnteriores();
                 }
-    
+
                 ocultarContenedoresPeliculas();
                 const todasLasPeliculas = await obtenerTodasLasPeliculas();
-    
+
                 // Filtrar por término de búsqueda
                 let resultadosBusqueda = todasLasPeliculas;
                 if (terminoBusqueda !== '') {
@@ -119,7 +119,7 @@ async function realizarBusqueda() {
                         pelicula.titulo.toLowerCase().includes(terminoBusqueda.toLowerCase())
                     );
                 }
-    
+
                 // Filtrar por género
                 if (generoSeleccionado.toLowerCase() !== 'all' && generoSeleccionado !== '') {
                     resultadosBusqueda = resultadosBusqueda.filter(pelicula =>
@@ -128,53 +128,53 @@ async function realizarBusqueda() {
                         )
                     );
                 }
-    
+
                 // Filtrar por categoría
                 if (categoriaSeleccionada.toLowerCase() !== 'all' && categoriaSeleccionada !== '') {
                     resultadosBusqueda = resultadosBusqueda.filter(pelicula =>
                         pelicula.clasificacion.toLowerCase() === categoriaSeleccionada.toLowerCase()
                     );
                 }
-    
+
                 if (resultadosBusqueda.length > 0) {
                     contenedorResultados.style.display = 'flex';
-    
+
                     const encabezado = document.createElement('h4');
                     encabezado.classList.add('px-6', 'py-2', 'bg-transparent', 'hover:bg-Mulled-Cider', 'focus:bg-Mulled-Cider', 'opacity-80', 'focus:text-black', 'text-white', 'rounded-xl', 'text-2xl', 'right-150', 'mb-20', 'text-left');
                     encabezado.textContent = 'Resultados de Búsqueda:';
                     contenedorResultados.appendChild(encabezado);
-    
+
                     // Variable contador para identificar contenedores
                     let contadorContenedor = 1;
-    
+
                     for (let i = 0; i < resultadosBusqueda.length; i += 4) {
                         // Crear un nuevo contenedor para el grupo de películas
                         const contenedorPeliculas = document.createElement('div');
                         contenedorPeliculas.classList.add('contenedor-grupo-peliculas');
-    
+
                         // Obtener el grupo de hasta 4 películas
                         const grupoPeliculas = resultadosBusqueda.slice(i, i + 4);
-    
+
                         // Cargar las películas en el nuevo contenedor
                         cargarPeliculasEnHTML(grupoPeliculas, `resultados-busqueda${contadorContenedor}`);
-    
+
                         // Incrementar el contador solo si hay películas en el grupo
                         if (grupoPeliculas.length > 0) {
                             contadorContenedor++;
                             mostrarContenedoresBusqueda();
                         }
-    
+
                         // Agregar el contenedor al resultado
                         contenedorResultados.appendChild(contenedorPeliculas);
                     }
-    
+
                     // Almacenar los resultados de la búsqueda actual
                     resultadosAnteriores = resultadosBusqueda;
                 } else {
                     contenedorResultados.style.display = 'none';
                     resultadosAnteriores = []; // Limpiar resultados anteriores si no hay resultados
                 }
-    
+
                 // Limpiar el contenido del campo de búsqueda
                 inputBusqueda.value = '';
             } catch (error) {
@@ -221,7 +221,7 @@ function ocultarContenedoresPeliculas() {
 
     for (let i = 1; i <= numeroDeContenedores; i++) {
         const contenedorPeliculas = document.getElementById(`movie-container${i}`);
-        
+
         if (contenedorPeliculas) {
             contenedorPeliculas.style.display = 'none';
         }
@@ -233,7 +233,7 @@ function ocultarContenedoresBusqueda() {
 
     for (let i = 1; i <= numeroDeContenedores; i++) {
         const contenedorPeliculas = document.getElementById(`resultados-busqueda${i}`);
-        
+
         if (contenedorPeliculas) {
             contenedorPeliculas.style.display = 'none';
         }
@@ -244,7 +244,7 @@ function mostrarContenedoresPeliculas() {
 
     for (let i = 1; i <= numeroDeContenedores; i++) {
         const contenedorPeliculas = document.getElementById(`movie-container${i}`);
-        
+
         if (contenedorPeliculas) {
             contenedorPeliculas.style.display = 'flex';
         }
@@ -255,7 +255,7 @@ function mostrarContenedoresBusqueda() {
 
     for (let i = 1; i <= numeroDeContenedores; i++) {
         const contenedorPeliculas = document.getElementById(`resultados-busqueda${i}`);
-        
+
         if (contenedorPeliculas) {
             contenedorPeliculas.style.display = 'flex';
         }
@@ -300,7 +300,12 @@ function cargarPeliculasEnHTML(peliculas, contenedor) {
 
         // Crear el contenedor para detalles
         const divDetalles = document.createElement("div");
-        divDetalles.classList.add("absolute", "-top-1", "left-2", "flex", "z-10", "items-center", "opacity-0", "hover:opacity-100", "flex-col", "w-52", "h-full", "duration-500");
+        divDetalles.classList.add("absolute", "-top-1", "left-0", "flex", "z-10", "items-center", "opacity-0", "hover:opacity-100", "flex-col", "w-52", "h-full", "duration-500");
+
+        //Sombreado al hacer hover
+        const sombreado = document.createElement("div");
+        sombreado.classList.add("absolute", "inset-0", "bg-black", "opacity-50","pointer-events-none");
+        divDetalles.appendChild(sombreado);
 
         // Crear el enlace y el botón
         const enlace = document.createElement("a");
@@ -316,7 +321,7 @@ function cargarPeliculasEnHTML(peliculas, contenedor) {
         });
 
         const botonVerAhora = document.createElement("button");
-        botonVerAhora.classList.add("flex", "font-mono", "text-white", "text-xl", "ml-7", "transform", "-translate-x-1/1", "-translate-y-16", "bg-gradient-to-b", "from-[#9C6D46]", "to-[#684A31]", "p-2", "pr-4", "pl-4", "rounded-3xl", "opacity-80", "transition-opacity", "hover:opacity-75", "focus:opacity-75", "active:opacity-75", "z-50", "hover:text-white", "py-2", "px-4", "border-black-500", "hover:border-transparent");
+        botonVerAhora.classList.add("flex", "font-mono", "text-white", "text-center", "inline-block", "text-xl", "ml-7", "transform", "bg-gradient-to-b", "from-[#9C6D46]", "to-[#684A31]", "p-2", "pr-4", "pl-4", "rounded-3xl", "opacity-80", "transition-opacity", "hover:opacity-75", "focus:opacity-75", "active:opacity-75", "z-50", "hover:text-white", "py-2", "px-4", "border-black-500", "hover:border-transparent");
         botonVerAhora.textContent = "Ver ahora";
 
         // Crear el párrafo de detalles
@@ -325,19 +330,22 @@ function cargarPeliculasEnHTML(peliculas, contenedor) {
             "text-white",
             "font-mono",
             "text-left",
-            "max-w-[16rem]", 
-            "ml-0", 
-            "p-0", 
-            "overflow-x-hidden", 
-            "whitespace-nowrap", 
+            "max-w-[16rem]",
+            "ml-0",
+            "p-0",
+            "overflow-x-hidden",
+            "whitespace-nowrap",
             "rounded-b-lg",
             "max-h-[18rem]",
-            "mb-3", 
+            "mb-3",
             "bg-transparent",
             "opacity-60",
             "text-xl",
             "cursor-pointer",
-            "max-sm:text-lg"
+            "max-sm:text-lg",
+            "text-ellipsis",
+            "whitespace-nowrap",
+            "overflow-hidden"
         );
         parrafoDetalles.innerHTML = `${pelicula.titulo}<br>${pelicula.genero}`;
 
