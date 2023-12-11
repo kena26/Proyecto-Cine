@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -221,6 +222,21 @@ public class CineController {
         CineDb cineDb = new CineDb();
         return cineDb.getCartelera();
     }
+    @GetMapping("/Cine/filtrarCarteleraPorSucursal/{idSucursal}")
+    public List<Cartelera> filtrarCarteleraPorSucursal(@PathVariable int idSucursal) {
+        CineDb cineDb = new CineDb();
+        return cineDb.filtrarCarteleraPorSucursal(idSucursal);
+    }
+    @GetMapping("/Cine/filtrarCarteleraPorGenero/{genero}")
+    public List<Cartelera> filtrarCarteleraPorGenero(@PathVariable String genero) {
+        CineDb cineDb = new CineDb();
+        return cineDb.filtrarCarteleraPorGenero(genero);
+    }
+    @GetMapping("/Cine/filtrarCarteleraPorSucursalYGenero/{idSucursal}/{genero}")
+    public List<Cartelera> filtrarCarteleraPorSucursalYGenero(@PathVariable int idSucursal, @PathVariable String genero) {
+        CineDb cineDb = new CineDb();
+        return cineDb.filtrarCarteleraPorSucursalYGenero(idSucursal, genero);
+    }
 
     // Obtener información de paso 1
     @PostMapping("/Cine/crearTicket")
@@ -251,7 +267,6 @@ public class CineController {
     // Obtener información de paso 3
 
     // Obtener información de paso 4 compra-finalqr
-
     @GetMapping("/Cine/datosQr/{codigoConfirmacion}")
     public PasoQr getDatosqr(@PathVariable("codigoConfirmacion") String codigoConfirmacion) {
         CineDb cineDb = new CineDb();
