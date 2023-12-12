@@ -1362,10 +1362,6 @@ video {
   height: 100vh;
 }
 
-.h-\[140px\] {
-  height: 140px;
-}
-
 .max-h-\[18rem\] {
   max-height: 18rem;
 }
@@ -1682,12 +1678,6 @@ video {
 .scale-0 {
   --tw-scale-x: 0;
   --tw-scale-y: 0;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.scale-125 {
-  --tw-scale-x: 1.25;
-  --tw-scale-y: 1.25;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -3373,6 +3363,10 @@ video {
     width: 18rem;
   }
 
+  .max-sm\:w-\[320px\] {
+    width: 320px;
+  }
+
   .max-sm\:w-\[70\%\] {
     width: 70%;
   }
@@ -3403,10 +3397,6 @@ video {
 
   .max-sm\:w-full {
     width: 100%;
-  }
-
-  .max-sm\:w-\[320px\] {
-    width: 320px;
   }
 
   .max-sm\:max-w-\[112px\] {
@@ -3802,18 +3792,6 @@ video {
     height: 100%;
   }
 
-  .md\:h-\[30vh\] {
-    height: 30vh;
-  }
-
-  .md\:max-h-\[200px\] {
-    max-height: 200px;
-  }
-
-  .md\:min-h-\[140px\] {
-    min-height: 140px;
-  }
-
   .md\:w-2\/3 {
     width: 66.666667%;
   }
@@ -3830,10 +3808,6 @@ video {
     width: 1.75rem;
   }
 
-  .md\:w-\[10vw\] {
-    width: 10vw;
-  }
-
   .md\:w-\[200px\] {
     width: 200px;
   }
@@ -3846,40 +3820,16 @@ video {
     width: 70%;
   }
 
-  .md\:w-\[95\%\] {
-    width: 95%;
-  }
-
   .md\:w-full {
     width: 100%;
-  }
-
-  .md\:w-\[14vw\] {
-    width: 14vw;
   }
 
   .md\:min-w-\[250px\] {
     min-width: 250px;
   }
 
-  .md\:min-w-\[70px\] {
-    min-width: 70px;
-  }
-
-  .md\:min-w-\[100px\] {
-    min-width: 100px;
-  }
-
-  .md\:max-w-\[200px\] {
-    max-width: 200px;
-  }
-
   .md\:max-w-\[400px\] {
     max-width: 400px;
-  }
-
-  .md\:max-w-\[150px\] {
-    max-width: 150px;
   }
 
   .md\:grid-cols-2 {
@@ -3988,16 +3938,8 @@ video {
     height: 280px;
   }
 
-  .lg\:w-\[13vw\] {
-    width: 13vw;
-  }
-
   .lg\:w-\[220px\] {
     width: 220px;
-  }
-
-  .lg\:w-\[90\%\] {
-    width: 90%;
   }
 
   .lg\:text-2xl {
