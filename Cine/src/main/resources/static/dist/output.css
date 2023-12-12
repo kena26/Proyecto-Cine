@@ -1274,10 +1274,6 @@ video {
   height: 1600px;
 }
 
-.h-\[1635px\] {
-  height: 1635px;
-}
-
 .h-\[180px\] {
   height: 180px;
 }
@@ -2472,6 +2468,16 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .pb-1 {
