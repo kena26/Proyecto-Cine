@@ -1,38 +1,38 @@
 let baseUrl = "http://localhost:8080";
 
 let asiento = new Array(4).fill(0);
-let asientos = [];     
-const peliculas = getRequest(); 
+let asientos = [];
+const peliculas = getRequest();
 let seatvalue = getSeatValues();
 
 //esta funcion hace el post request de los asientos en la base de datos 
-function selectAsiento(){
-	var checkbox = document.querySelectorAll('input[type="checkbox"]:checked');
-	var cajas = [];
-	
-	if (!checkbox) {
-		console.log('No se ha seleccionado ningún asiento.');
-		return;
-	}
-	
-	checkbox.forEach(seleccion => {
-		if (seleccion.checked){
-			console.log('Seleccionado:', seleccion.id);
-			cajas.push({
-				id_Asiento: seleccion.id,
-				Estado: parseInt(1),
-			});
-		}
-	});
-  
-	fetch(baseUrl + "/asientos/ocupar", {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-			body: JSON.stringify(cajas),
-		});
+function selectAsiento() {
+  var checkbox = document.querySelectorAll('input[type="checkbox"]:checked');
+  var cajas = [];
+
+  if (!checkbox) {
+    console.log('No se ha seleccionado ningún asiento.');
+    return;
   }
+
+  checkbox.forEach(seleccion => {
+    if (seleccion.checked) {
+      console.log('Seleccionado:', seleccion.id);
+      cajas.push({
+        id_Asiento: seleccion.id,
+        Estado: parseInt(1),
+      });
+    }
+  });
+
+  fetch(baseUrl + "/asientos/ocupar", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(cajas),
+  });
+}
 
 
 
@@ -76,9 +76,9 @@ function findMovieID(targetID) {
 
 
 //esta funcion es la que muestra los asientos seleccionados en el html con el evento onclick
-function bloquear(){
+function bloquear() {
   usardato();
-} 
+}
 
 
 
@@ -116,16 +116,16 @@ function buscarDato() {
       datos.push(asientos[i]);
     }
   }
-return datos; 
+  return datos;
 }
 
 
 
-   //este funciona
-function usardato(){
+//este funciona
+function usardato() {
   let checkboxes = document.querySelectorAll('input[type="checkbox"]');
   for (let i = 0; i < checkboxes.length; i++) {
-    if (buscarDato().includes(checkboxes[i].id)) { 
+    if (buscarDato().includes(checkboxes[i].id)) {
       checkboxes[i].disabled = true;
     }
   }
@@ -135,55 +135,55 @@ function usardato(){
 /*
 //esta funcion hace el post request de los asientos en la base de datos 
 function selectAsiento(){
-	var checkbox = document.querySelectorAll('input[type="checkbox"]:checked');
-	var cajas = [];
+  var checkbox = document.querySelectorAll('input[type="checkbox"]:checked');
+  var cajas = [];
 	
-	if (!checkbox) {
-		console.log('No se ha seleccionado ningún asiento.');
-		return;
-	}
+  if (!checkbox) {
+    console.log('No se ha seleccionado ningún asiento.');
+    return;
+  }
 	
-	checkbox.forEach(seleccion => {
-		if (seleccion.checked){
-			console.log('Seleccionado:', seleccion.id);
-			cajas.push({
-				id_Asiento: seleccion.id,
-				Estado: parseInt(0)
-			});
-		}
-	});
+  checkbox.forEach(seleccion => {
+    if (seleccion.checked){
+      console.log('Seleccionado:', seleccion.id);
+      cajas.push({
+        id_Asiento: seleccion.id,
+        Estado: parseInt(0)
+      });
+    }
+  });
   
-	fetch(baseUrl + "/asientos/ocupar", {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-			body: JSON.stringify(cajas),
-		});
-  	}
+  fetch(baseUrl + "/asientos/ocupar", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+      body: JSON.stringify(cajas),
+    });
+    }
 */
 
 
-    function selectAsiento() {
-      var checkbox = document.querySelector('input[type="checkbox"]:checked');
-    
-      if (!checkbox) {
-          console.log('No se ha seleccionado ningún asiento.');
-          return;
-      }
-    
-      var asientoSelect = {
-        id_Asiento: checkbox.id,
-        estado: 1
-      };
-    
-      fetch(baseUrl + "/asientos/ocupar", {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(asientoSelect),
-      });
-    }
+function selectAsiento() {
+  var checkbox = document.querySelector('input[type="checkbox"]:checked');
+
+  if (!checkbox) {
+    console.log('No se ha seleccionado ningún asiento.');
+    return;
+  }
+
+  var asientoSelect = {
+    id_Asiento: checkbox.id,
+    estado: 1
+  };
+
+  fetch(baseUrl + "/asientos/ocupar", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(asientoSelect),
+  });
+}
 
 
