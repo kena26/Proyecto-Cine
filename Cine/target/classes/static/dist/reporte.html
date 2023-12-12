@@ -68,7 +68,7 @@
     </header>
 
     <div
-        class="mt-10 grid m-auto justify-center gap-5  md:grid-rows-custom4 md:grid-cols-1f4f md:items-start md:w-[95%] lg:w-[90%]">
+        class="mt-10 grid m-auto justify-center gap-5  md:grid-rows-custom4 md:grid-cols-1f4f md:items-star">
         <h1 class="bg-[#45362D] px-4 py-1 text-center font-bold md:text-start md:text-base md:w-[70%] lg:text-xl">
             Reporte de Boletos Diciembre - 2023</h1>
         <aside
@@ -86,33 +86,9 @@
             class="flex gap-5 bg-[#573C2C] py-2 px-3 rounded-md items-center text-[10px] sm:text-xs md:col-start-2 md:row-start-2 md:justify-between md:font-medium md:text-sm">
             <form action="" class="flex gap-2">
                 <label for="mes" class="relative flex gap-1 items-center">Mes
-                    <input list="meses" name="mes" id="mes" class="w-16 rounded-2xl md:rounded-md cursor-pointer md:py-2">
+                    <input type="month" name="mes" id="mes" class="text-black w-32 rounded-2xl md:rounded-md cursor-pointer md:py-2">
                     <img src="./assets/icon/flecha-hacia-abajo-para-navegar.png" class="absolute w-2 right-2">
                 </label>
-                <datalist id="meses">
-                    <option value="Enero">
-                    <option value="Febrero">
-                    <option value="Marzo">
-                    <option value="Abril">
-                    <option value="Mayo">
-                    <option value="Junio">
-                    <option value="Julio">
-                    <option value="Agosto">
-                    <option value="Septiembre">
-                    <option value="Octubre">
-                    <option value="Noviembre">
-                    <option value="Diciembre">
-                </datalist>
-                <label for="anio" class="relative flex gap-1 items-center">
-                    Año
-                    <input list="anios" name="anio" id="anio" class="w-16 rounded-2xl md:rounded-md cursor-pointer md:py-2">
-                    <img src="./assets/icon/flecha-hacia-abajo-para-navegar.png" class="absolute w-2 right-2">
-                </label>
-                <datalist id="anios">
-                    <option value="2022">
-                    <option value="2023">
-                    <option value="2024">
-                </datalist>
             </form>
             <div class="flex gap-2">
                 <button class="flex items-center bg-[#441C1A] min-w-[80px] gap-2 px-2 py-1 rounded-xl md:rounded-md"><img
@@ -128,87 +104,50 @@
                     <div>
                         <h2 class="bg-[#45382E] py-1 md:font-medium">Item</h2>
                         <div
-                            class="w-[100px] h-[140px] bg-white md:min-w-[100px] md:w-[14vw] md:max-w-[150px] md:min-h-[140px] md:h-[30vh] md:max-h-[200px]">
+                            class="w-[550px] max-sm:w-[320px] h-[400px] text-black bg-white">
+                            <table id="reporte" class="w-full overflow-y-scroll">
+                                <tr class="text-left">
+                                    <th>Pelicula</th>
+                                    <th>Boletos vendidos</th>
+                                    <th>Ingreso</th>
+                                    <th>Total</th>
+                                </tr>
+                                <tr class="text-left">
+                                    <th>spider</th>
+                                    <th>123</th>
+                                    <th>6514</th>
+                                    <th></th>
+                                </tr>
+                                <tr class="text-left">
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>6514</th>
+                                </tr>
+                            </table>
                         </div>
                     </div>
-                    <div>
-                        <h2 class="bg-[#45382E] py-1 md:font-medium">Pelicula</h2>
-                        <div
-                            class="w-[100px] h-[140px] bg-white md:min-w-[100px] md:w-[14vw] md:max-w-[150px] md:min-h-[140px] md:h-[30vh] md:max-h-[200px]">
-                        </div>
-                    </div>
-                    <div>
-                        <h2 class="bg-[#45382E] py-1 md:font-medium">Boleto_Precio</h2>
-                        <div
-                            class="w-[100px] h-[140px] bg-white md:min-w-[100px] md:w-[14vw] md:max-w-[150px] md:min-h-[140px] md:h-[30vh] md:max-h-[200px]">
-                        </div>
-                    </div>
-                </div>
                 <div>
-                    <div class="flex gap-2 text-center">
-                        <div>
-                            <h2 class="bg-[#45382E] py-1 md:font-medium">Item</h2>
-                            <div
-                                class="w-[100px] h-[140px] bg-white md:min-w-[100px] md:w-[14vw] md:max-w-[150px] md:min-h-[140px] md:h-[30vh] md:max-h-[200px]">
-                            </div>
-                        </div>
-                        <div>
-                            <h2 class="bg-[#45382E] py-1 md:font-medium">Pelicula</h2>
-                            <div
-                                class="w-[100px] h-[140px] bg-white md:min-w-[100px] md:w-[14vw] md:max-w-[150px] md:min-h-[140px] md:h-[30vh] md:max-h-[200px]">
-                            </div>
-                        </div>
-                        <div>
-                            <h2 class="bg-[#45382E] py-1 md:font-medium">Total_Ingresos</h2>
-                            <div
-                                class="w-[100px] h-[140px] bg-white md:min-w-[100px] md:w-[14vw] md:max-w-[150px] md:min-h-[140px] md:h-[30vh] md:max-h-[200px]">
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </section>
             <!--BOLETOS MAS VENDIDOS-->
             <section class="flex flex-col gap-8">
                 <div>
                     <h2 class="text-lg font-medium mb-2 text-center">Boletos Mas-Vendidos</h2>
-                    <div class="flex gap-4 items-center">
-                        <img src="../dist/assets/img/img-reporte/grafico.png"
-                            class="min-w-[80px] md:min-w-[70px] md:max-w-[200px] md:w-[10vw] lg:w-[13vw]">
-                        <form action="" class="flex flex-col gap-2">
-                            <label for="" class="flex items-center justify-center gap-2">
-                                <input type="checkbox" class="scale-125">Boleto 1
-                            </label>
-                            <label for="" class="flex items-center justify-center gap-2">
-                                <input type="checkbox" class="scale-125">Boleto 2
-                            </label>
-                            <label for="" class="flex items-center justify-center gap-2">
-                                <input type="checkbox" class="scale-125">Boleto 3
-                            </label>
-                        </form>
-                    </div>
+                    <canvas id="vendidos-pie">
+                    </canvas>
                 </div>
                 <div>
                     <h2 class="text-lg font-medium mb-2 text-center">Total de Ingresos por Pelicula</h2>
-                    <div class="flex gap-4 items-center">
-                        <img src="../dist/assets/img/img-reporte/grafico.png"
-                            class="min-w-[80px] md:min-w-[70px] md:max-w-[200px] md:w-[10vw] lg:w-[13vw]">
-                        <form action="" class="flex flex-col gap-2">
-                            <label for="" class="flex items-center justify-center gap-2">
-                                <input type="checkbox" class="scale-125">Pelicula 1
-                            </label>
-                            <label for="" class="flex items-center justify-center gap-2">
-                                <input type="checkbox" class="scale-125">Pelicula 2
-                            </label>
-                            <label for="" class="flex items-center justify-center gap-2">
-                                <input type="checkbox" class="scale-125">Pelicula 3
-                            </label>
-                        </form>
-                    </div>
+                    <canvas id="ingreso-pie">
+                    </canvas>
                 </div>
             </section>
         </main>
     </div>
     <script src="./assets/js/header.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./assets/js/reporte.js"></script>
 </body>
 
 </html>
