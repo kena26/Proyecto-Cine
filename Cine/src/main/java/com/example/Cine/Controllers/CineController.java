@@ -11,11 +11,17 @@ import org.springframework.web.bind.annotation.*;
 import com.example.Cine.Services.CineDb;
 import com.example.Cine.modelos.Actor;
 import com.example.Cine.modelos.Asientos;
+import com.example.Cine.modelos.Boletos;
+import com.example.Cine.modelos.Boletos2;
 import com.example.Cine.modelos.Pelicula;
 import com.example.Cine.modelos.SucursalesPelicula;
 import com.example.Cine.modelos.Usuarios;
 import com.example.Cine.modelos.Cartelera;
 import com.example.Cine.modelos.Director;
+import com.example.Cine.modelos.Ingresos;
+import com.example.Cine.modelos.Ingresos2;
+import com.example.Cine.modelos.Ingresos3;
+import com.example.Cine.modelos.Ingresos2;
 import com.example.Cine.modelos.PasoQr;
 import com.example.Cine.modelos.QrLink;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -156,7 +162,8 @@ public class CineController {
     }
 
     @PutMapping("/Cine/actualizarPelicula/{idPeli}")
-    public ResponseEntity<String> actualizarPelicula(@PathVariable int idPeli, @RequestBody Pelicula peliculaActualizada) {
+    public ResponseEntity<String> actualizarPelicula(@PathVariable int idPeli,
+            @RequestBody Pelicula peliculaActualizada) {
         CineDb cineDb = new CineDb();
         boolean resultado = cineDb.actualizarPelicula(idPeli, peliculaActualizada);
 
@@ -180,7 +187,8 @@ public class CineController {
     }
 
     @PutMapping("/Cine/actualizarDirector/{idDirector}")
-    public ResponseEntity<String> actualizarDirector(@PathVariable int idDirector, @RequestBody Director directorActualizado) {
+    public ResponseEntity<String> actualizarDirector(@PathVariable int idDirector,
+            @RequestBody Director directorActualizado) {
         CineDb cineDb = new CineDb();
         boolean resultado = cineDb.actualizarDirector(idDirector, directorActualizado);
 
@@ -191,7 +199,7 @@ public class CineController {
         }
     }
 
-     @PutMapping("/Cine/actualizarEstadoSucursal/")
+    @PutMapping("/Cine/actualizarEstadoSucursal/")
     public ResponseEntity<String> actualizarEstadoSucursal(@RequestBody SucursalesPelicula Sucursales_Pelicula) {
 
         boolean result = cineDb.actualizarEstadoSucursalPorPelicula(Sucursales_Pelicula);
@@ -203,7 +211,7 @@ public class CineController {
         }
     }
 
-     @GetMapping("/Cine/peliculasPorSucursal/{idSucursal}")
+    @GetMapping("/Cine/peliculasPorSucursal/{idSucursal}")
     public List<Pelicula> obtenerPeliculasPorSucursal(@PathVariable int idSucursal) {
         return cineDb.obtenerPeliculasPorSucursal(idSucursal);
     }
@@ -226,13 +234,16 @@ public class CineController {
         CineDb cineDb = new CineDb();
         return cineDb.filtrarCarteleraPorSucursal(idSucursal);
     }
+
     @GetMapping("/Cine/filtrarCarteleraPorGenero/{genero}")
     public List<Cartelera> filtrarCarteleraPorGenero(@PathVariable String genero) {
         CineDb cineDb = new CineDb();
         return cineDb.filtrarCarteleraPorGenero(genero);
     }
+
     @GetMapping("/Cine/filtrarCarteleraPorSucursalYGenero/{idSucursal}/{genero}")
-    public List<Cartelera> filtrarCarteleraPorSucursalYGenero(@PathVariable int idSucursal, @PathVariable String genero) {
+    public List<Cartelera> filtrarCarteleraPorSucursalYGenero(@PathVariable int idSucursal,
+            @PathVariable String genero) {
         CineDb cineDb = new CineDb();
         return cineDb.filtrarCarteleraPorSucursalYGenero(idSucursal, genero);
     }
@@ -242,18 +253,18 @@ public class CineController {
     public ResponseEntity<String> crearTicket(@RequestBody PasoQr obj) {
         CineDb cineDb = new CineDb();
         String resultado = cineDb.crearTicket(obj);
-    
+
         if (resultado != null) {
             return ResponseEntity.ok(resultado);
         } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error occurred while creating a ticket");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error occurred while creating a ticket");
         }
     }
-    
 
     // Obtener información de paso 21
     @GetMapping("/asientos/disponibilidad")
-    public List<Asientos> obtenerAsientos(){
+    public List<Asientos> obtenerAsientos() {
         return new CineDb().obtenerAsientos();
     }
 
@@ -277,5 +288,44 @@ public class CineController {
     public QrLink getObjLink(@PathVariable("codigoConfirmacion") String codigoConfirmacion) {
         CineDb cineDb = new CineDb();
         return cineDb.getQrLink(codigoConfirmacion);
+    }
+
+    // Obtener Boletos x mes
+    @GetMapping("/Cine/boletosXMes")
+    public List<Boletos> BoletosXMes() {
+        CineDb cineDb = new CineDb();
+        return cineDb.BoletosXMes();
+    }
+
+    // Obtener Boletos x Mes x Sucursal
+    @GetMapping("/Cine/boletosXMesXSucursal/{idSucursal}")
+    public List<Boletos> BoletosXMesXSucursal(@PathVariable int idSucursal) {
+        CineDb cineDb = new CineDb();
+        return cineDb.BoletosXMesXSucursal(idSucursal);
+    }
+
+    // Obtener Boletos Totales
+    @GetMapping("/Cine/BoletosTotales/{idSucursal}")
+    public List<Boletos2> BoletosTotales(@PathVariable int idSucursal) {
+        CineDb cineDb = new CineDb();
+        return cineDb.BoletosTotales(idSucursal);
+    }
+
+    @GetMapping("/Cine/IngresosTotales")
+    public List<Ingresos> IngresosTotales() {
+        CineDb cineDb = new CineDb();
+        return cineDb.IngresosTotales();
+    }
+
+    @GetMapping("/Cine/IngresosXMes")
+    public List<Ingresos2> IngresosXMes() {
+        CineDb cineDb = new CineDb();
+        return cineDb.IngresosXMes();
+    }
+
+    @GetMapping("/Cine/IngresosTotalesXSucursal")
+    public List<Ingresos3> IngresosTotalesXSucursal() {
+        CineDb cineDb = new CineDb();
+        return cineDb.IngresosTotalesXSucursal();
     }
 }
