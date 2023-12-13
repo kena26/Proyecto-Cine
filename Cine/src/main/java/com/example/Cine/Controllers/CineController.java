@@ -6,16 +6,7 @@ import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.Cine.Services.CineDb;
 import com.example.Cine.modelos.Actor;
@@ -30,6 +21,7 @@ import com.example.Cine.modelos.QrLink;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class CineController {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
@@ -222,6 +214,13 @@ public class CineController {
         CineDb cineDb = new CineDb();
         return cineDb.getCartelera();
     }
+
+    @GetMapping("/Cine/filtrarCarteleraPorID/{id}")
+    public List<Cartelera> filtrarCarteleraPorTitulo(@PathVariable int ID) {
+        CineDb cineDb = new CineDb();
+        return cineDb.filtrarCarteleraPorID(ID);
+    }
+
     @GetMapping("/Cine/filtrarCarteleraPorSucursal/{idSucursal}")
     public List<Cartelera> filtrarCarteleraPorSucursal(@PathVariable int idSucursal) {
         CineDb cineDb = new CineDb();

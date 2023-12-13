@@ -125,10 +125,9 @@ function mostrarDetallesPelicula(datosPelicula) {
 
 document.addEventListener('DOMContentLoaded', async () => {
     const peliculaSeleccionada = sessionStorage.getItem('peliculaSeleccionada');
-
     if (peliculaSeleccionada) {
         const datosPelicula = JSON.parse(peliculaSeleccionada);
-
+        console.log(peliculaSeleccionada)
         mostrarDetallesPelicula(datosPelicula);
 
         if (datosPelicula.idPelicula !== undefined) {
@@ -238,3 +237,17 @@ async function mostrarActores(idPelicula) {
         console.error('Error al obtener los actores:', error.message);
     }
 }
+
+const pelicula = JSON.parse(sessionStorage.getItem('peliculaSeleccionada'));
+const idPelicula = pelicula.idPelicula
+document.addEventListener("DOMContentLoaded", function () {
+    var compra = document.getElementById("CompraBoleto");
+
+    // Add a click event listener to the button
+    compra.addEventListener("click", function () {
+        // Construct the URL with the movie title as a query parameter
+        var url = "./cartelera.html?idPelicula=" + encodeURIComponent(idPelicula);
+        // Navigate to the URL
+        window.location.href = url;
+    });
+});

@@ -188,7 +188,7 @@ function MapearPeliculas(pelicula){
                         <input type="checkbox" id="${pelicula.idPelicula}" class="checkboxes peer hidden">
                         <img 
 							class="w-5 max-sm:w-4 h-5 max-sm:h-4 rounded-sm opacity-0 peer-checked:opacity-100 scale-0 transition-all z-20 duration-300 peer-checked:transition-all top-2 left-2 peer-checked:scale-100 peer-checked:duration-300"
-							src="/Cine/src/main/resources/static/dist/assets/icon/cheque.png">
+							src="./assets/icon/cheque.png">
                     </label>
                 </div>
                 <div class="table-cell">
@@ -197,7 +197,7 @@ function MapearPeliculas(pelicula){
                 <div class="table-cell absolute left-[40%] max-sm:left-[90%]">
                     <button onclick="mostrarAddPeli('editarBtn', ${pelicula.idPelicula}), scrollASeccion('editPeli')" id="editarBtn" class="flex justify-center items-center">
                         <img class="w-5 h-5 hover:w-6 hover:h-6 max-sm:rotate-90 transition-all duration-300 "
-                        src="/Cine/src/main/resources/static/dist/assets/icon/lapiz-editar.svg" alt="">
+                        src="./assets/icon/lapiz-editar.svg" alt="">
                     </button>
                 </div>
             </div>

@@ -754,6 +754,53 @@ public class CineDb {
         return peliculas;
     }
 
+    public List<Cartelera> filtrarCarteleraPorID(int id) {
+        List<Cartelera> peliculas = new ArrayList<>();
+
+        String query = "SELECT Cartelera.id_cartelera, Cartelera.estado, Cartelera.fechaEstreno,\n"+
+                "Pelicula.titulo, Pelicula.foto_poster,\n"+
+                "Pelicula.duracion, Sucursales.Provincia,\n"+
+                "Sucursales.cine, Horario.tandas, \n"+
+                "Pelicula.genero, Sala.nombre_sala, \n"+
+                "Cartelera.id_cartelera, Pelicula.clasificacion, Cartelera.id_pelicula\n"+
+                "FROM Cartelera \n"+
+                "JOIN Pelicula ON Pelicula.id_pelicula = Cartelera.id_pelicula \n"+
+                "JOIN Horario ON Horario.Id_horario = Cartelera.Id_horario \n"+
+                "JOIN Sucursales_Pelicula ON Sucursales_Pelicula.id_pelicula = Pelicula.id_pelicula\n"+
+                "JOIN Sucursales ON Sucursales.id_sucursal = Sucursales_Pelicula.id_sucursal\n"+
+                "JOIN Sala ON Sala.id_sala = Horario.id_sala \n"+
+                "WHERE Sucursales_Pelicula.activo = 1 \n"+
+                "AND Pelicula.id = ? ;";
+
+        try (PreparedStatement pstmt = cn.prepareStatement(query)) {
+            pstmt.setInt(1, id);
+
+            try (ResultSet result = pstmt.executeQuery()) {
+                while (result.next()) {
+                    Cartelera cartelera = new Cartelera(
+                            result.getString("Sucursales.Provincia"),
+                            result.getString("Horario.tandas"),
+                            result.getString("Pelicula.titulo"),
+                            result.getString("Pelicula.genero"),
+                            result.getString("Sucursales.cine"),
+                            result.getString("Sala.nombre_sala"),
+                            result.getString("Pelicula.duracion"),
+                            result.getBoolean("Cartelera.estado"),
+                            result.getString("Pelicula.foto_poster"),
+                            result.getString("Cartelera.fechaEstreno"),
+                            result.getInt("Cartelera.id_cartelera"),
+                            result.getString("Pelicula.clasificacion"),
+                            result.getInt("Cartelera.id_pelicula"));
+                    peliculas.add(cartelera);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error al obtener todas las películas: " + e.getMessage());
+        }
+        return peliculas;
+    }
+
     
     public List<Cartelera> filtrarCarteleraPorSucursal(int idSucursal) {
         List<Cartelera> peliculas = new ArrayList<>();

@@ -1,11 +1,12 @@
 const urlbase = 'http://localhost:8080';
 let cartelera = [];
 let anteriorPeli;
-
-function obtenerPeliculas(){
+let ID;
+function obtenerPeliculas() {
     fetch(`${urlbase}/Cine/cartelera`)
-        .then((response) => {response.json()
-        .then((json) => {
+        .then((response) => {
+            response.json()
+            .then((json) => {
                 cartelera = json;
                 ImprimirPeliculas();
             });
@@ -15,22 +16,30 @@ function obtenerPeliculas(){
         });
 }
 
-function ImprimirPeliculas(){
+function ImprimirPeliculas() {
     let contenedor = document.getElementById('cartelera');
     let anteriorPeli;
-    contenedor.innerHTML="";
+    contenedor.innerHTML = "";
     cartelera.forEach(pelicula => {
-        
-        if(anteriorPeli!==pelicula.id_pelicula){
-            contenedor.innerHTML+=MapearPeliculas(pelicula);
+
+        if (ID) {
+            let filtradasPorID = cartelera.filter(pelicula => pelicula.id_pelicula === parseInt(ID));
+            contenedor.innerHTML = "";
+            filtradasPorID.forEach(pelicula => {
+                contenedor.innerHTML += MapearPeliculas(pelicula);
+            });
+        } else {
+            if (anteriorPeli !== pelicula.id_pelicula) {
+                contenedor.innerHTML += MapearPeliculas(pelicula);
+            }
+            anteriorPeli = pelicula.id_pelicula;
         }
-        anteriorPeli=pelicula.id_pelicula;
     });
 }
 
-function MapearPeliculas(pelicula){
+function MapearPeliculas(pelicula) {
     const horaInicial = new Date(`January 1, 2023 ${pelicula.hora}`);
-    const minutosDeLaPelicula = parseInt(pelicula.duracion,10);
+    const minutosDeLaPelicula = parseInt(pelicula.duracion, 10);
 
     const hora1 = sumarMinutosAHora(horaInicial, minutosDeLaPelicula);
     const hora2 = sumarMinutosAHora(hora1, minutosDeLaPelicula);
@@ -127,20 +136,20 @@ function formatearHora(hora) {
     return hora.toLocaleTimeString('en-EN', options);
 }
 
-function guardarPeliSeleccionada(peliSeleccionada, hora){
+function guardarPeliSeleccionada(peliSeleccionada, hora) {
     let anteriorCartelera;
     cartelera.forEach(pelicula => {
-        if(pelicula.id_cartelera === peliSeleccionada && anteriorCartelera !== peliSeleccionada){
+        if (pelicula.id_cartelera === peliSeleccionada && anteriorCartelera !== peliSeleccionada) {
             //Guarda los datos de la peli seleccionada en sessionstorage para usarlo en otra pagina
             sessionStorage.sede = pelicula.cine;
-			sessionStorage.pelicula = pelicula.titulo;		
-			sessionStorage.fecha = document.getElementById('fecha').value;
-			sessionStorage.hora = hora;			
-			sessionStorage.nombreSala = pelicula.sala;
+            sessionStorage.pelicula = pelicula.titulo;
+            sessionStorage.fecha = document.getElementById('fecha').value;
+            sessionStorage.hora = hora;
+            sessionStorage.nombreSala = pelicula.sala;
         }
-        anteriorCartelera=pelicula.id_cartelera;
+        anteriorCartelera = pelicula.id_cartelera;
     });
-    window.location.href="/Cine/src/main/resources/static/dist/boletos-Paso-1.html";//Dirige al paso 1 de compra
+    window.location.href = "/Cine/src/main/resources/static/dist/boletos-Paso-1.html";//Dirige al paso 1 de compra
 }
 
 
@@ -149,96 +158,81 @@ function actualizarCartelera() {
     const filtro = document.getElementById('cine').value;
     const genero = document.getElementById('genero').value;
 
-    
-    if(filtro === 'CVLS'){
-        let idSucursal=1;
-        if(genero === 'all'){
+
+    if (filtro === 'CVLS') {
+        let idSucursal = 1;
+        if (genero === 'all') {
             filtrarSucursal(idSucursal);
-        }else{
+        } else {
             filtrarSucursalGenero(idSucursal, genero);
         }
 
-    }else if(filtro === 'TOC'){
-        let idSucursal=2;
-        if(genero === 'all'){
+    } else if (filtro === 'TOC') {
+        let idSucursal = 2;
+        if (genero === 'all') {
             filtrarSucursal(idSucursal);
-        }else{
+        } else {
             filtrarSucursalGenero(idSucursal, genero);
         }
 
-    }else if(filtro === 'HOW'){
-        let idSucursal=3;
-        if(genero === 'all'){
+    } else if (filtro === 'HOW') {
+        let idSucursal = 3;
+        if (genero === 'all') {
             filtrarSucursal(idSucursal);
-        }else{
+        } else {
             filtrarSucursalGenero(idSucursal, genero);
         }
 
-    }else if(filtro === 'CPO'){
-        let idSucursal=4;
-        if(genero === 'all'){
+    } else if (filtro === 'CPO') {
+        let idSucursal = 4;
+        if (genero === 'all') {
             filtrarSucursal(idSucursal);
-        }else{
+        } else {
             filtrarSucursalGenero(idSucursal, genero);
         }
 
-    }else if(filtro === 'CBT'){
-        let idSucursal=5;
-        if(genero === 'all'){
+    } else if (filtro === 'CBT') {
+        let idSucursal = 5;
+        if (genero === 'all') {
             filtrarSucursal(idSucursal);
-        }else{
+        } else {
             filtrarSucursalGenero(idSucursal, genero);
         }
 
-    }else if(filtro === 'CHI'){
-        let idSucursal=6;
-        if(genero === 'all'){
+    } else if (filtro === 'CHI') {
+        let idSucursal = 6;
+        if (genero === 'all') {
             filtrarSucursal(idSucursal);
-        }else{
+        } else {
             filtrarSucursalGenero(idSucursal, genero);
         }
 
-    }else if(filtro === 'COL'){
-        let idSucursal=7;
-        if(genero === 'all'){
+    } else if (filtro === 'COL') {
+        let idSucursal = 7;
+        if (genero === 'all') {
             filtrarSucursal(idSucursal);
-        }else{
+        } else {
             filtrarSucursalGenero(idSucursal, genero);
         }
 
-    }else if(filtro === 'VER'){
-        let idSucursal=8;
-        if(genero === 'all'){
+    } else if (filtro === 'VER') {
+        let idSucursal = 8;
+        if (genero === 'all') {
             filtrarSucursal(idSucursal);
-        }else{
+        } else {
             filtrarSucursalGenero(idSucursal, genero);
         }
-    }else{
+    } else {
         filtrarPorGenero();
     }
 
-        
+
 }
-function filtrarSucursal(idSucursal){
+function filtrarSucursal(idSucursal) {
     fetch(`${urlbase}/Cine/filtrarCarteleraPorSucursal/${idSucursal}`)
-            .then((response) => {response.json()
+        .then((response) => {
+            response.json()
             .then((json) => {
-                    cartelera = json;
-                    ImprimirPeliculas();
-                });
-            })
-            .catch(error => {
-                console.error("Error al obtener las películas:", error);
-            });
-}
-function filtrarPorGenero(){
-    let genero = document.getElementById('genero').value;
-    if(genero === 'all'){
-        obtenerPeliculas();
-    }else{
-        fetch(`${urlbase}/Cine/filtrarCarteleraPorGenero/${genero}`)
-        .then((response) => {response.json()
-        .then((json) => {
                 cartelera = json;
                 ImprimirPeliculas();
             });
@@ -246,12 +240,16 @@ function filtrarPorGenero(){
         .catch(error => {
             console.error("Error al obtener las películas:", error);
         });
-    }
 }
-function filtrarSucursalGenero(idSucursal, genero){
-    fetch(`${urlbase}/Cine/filtrarCarteleraPorSucursalYGenero/${idSucursal}/${genero}`)
-            .then((response) => {response.json()
-            .then((json) => {
+function filtrarPorGenero() {
+    let genero = document.getElementById('genero').value;
+    if (genero === 'all') {
+        obtenerPeliculas();
+    } else {
+        fetch(`${urlbase}/Cine/filtrarCarteleraPorGenero/${genero}`)
+            .then((response) => {
+                response.json()
+                .then((json) => {
                     cartelera = json;
                     ImprimirPeliculas();
                 });
@@ -259,6 +257,28 @@ function filtrarSucursalGenero(idSucursal, genero){
             .catch(error => {
                 console.error("Error al obtener las películas:", error);
             });
+    }
+}
+function filtrarSucursalGenero(idSucursal, genero) {
+    fetch(`${urlbase}/Cine/filtrarCarteleraPorSucursalYGenero/${idSucursal}/${genero}`)
+        .then((response) => {
+            response.json()
+            .then((json) => {
+                cartelera = json;
+                ImprimirPeliculas();
+            });
+        })
+        .catch(error => {
+            console.error("Error al obtener las películas:", error);
+        });
+}
+function FiltrarPorID(ID) {
+    fetch(`/Cine/filtrarCarteleraPorID/${ID}`)
+        .then(res => res.json())
+        .then((json) => {
+            cartelera = json;
+            ImprimirPeliculas();
+        })
 }
 let filtroProvincia = document.getElementById('provincia')
 let filtroCine = document.getElementById('cine');
@@ -268,3 +288,12 @@ let filtroGenero = document.getElementById('genero');
 filtroProvincia.addEventListener('change', actualizarCartelera);
 filtroCine.addEventListener('change', actualizarCartelera);
 filtroGenero.addEventListener('change', actualizarCartelera);
+
+document.addEventListener("DOMContentLoaded", function () {
+    let filtrarID = new URLSearchParams(window.location.search);
+    ID = filtrarID.get("idPelicula");
+
+    if (ID) {
+        FiltrarPorID(ID);
+    }
+});
