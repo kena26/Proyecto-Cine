@@ -72,3 +72,4 @@ const { ticket: storedTicket} =
 	JSON.parse(tickeState);
 cantBoletos = storedTicket;// (cantBoletos) es la cantidad de boletos que seleccionó, osea que no puede seleccionar más de esa cantidad
 
+console.log(cantBoletos)

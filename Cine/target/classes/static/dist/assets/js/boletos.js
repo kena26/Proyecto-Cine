@@ -1,3 +1,14 @@
+let boletosTotal = 0;
+
+function siguiente(){
+    if(boletosTotal===0 || boletosTotal<0){
+        alert("No ha seleccionado ningun boleto")
+    }
+    else{
+        window.location.href="./compra-paso-2(asientos).html"
+    }
+}
+
 function increment(type) {
     const cantidadElement = document.getElementById(`${type}Cantidad`);
     const totalElement = document.getElementById('total');
