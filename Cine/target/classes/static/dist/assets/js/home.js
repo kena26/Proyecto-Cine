@@ -181,8 +181,8 @@ const cerrarSesionBtn = document.getElementById('cerrarSesionBtn');
 cerrarSesionBtn.addEventListener('click', function () {
     const fotoPerfil = document.getElementById('fotoperfil');
     const perfilUsuario = document.getElementById('perfilUsuario');
-    fotoPerfil.src = '/Cine/src/main/resources/static/dist/assets/icon/usuario.png';
-    perfilUsuario.src = '/Cine/src/main/resources/static/dist/assets/icon/usuario.png';
+    fotoPerfil.src = './assets/icon/usuario.png';
+    perfilUsuario.src = './assets/icon/usuario.png';
 
     sessionStorage.removeItem('usuarioData');
     localStorage.removeItem('rutaImagenPerfil');
@@ -310,7 +310,6 @@ function mostrarPeliculasCartelera(peliculas) {
 document.addEventListener('DOMContentLoaded', function () {
 
     cargarPeliculas();
-
 
     const siguienteBtn = document.getElementById('siguienteBtn');
     const atrasBtn = document.getElementById('atrasBtn');

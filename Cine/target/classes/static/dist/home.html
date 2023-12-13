@@ -11,7 +11,7 @@
 	<script src="https://kit.fontawesome.com/da2008d449.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="bg-radial-gradient at-[50.02% 52.33%] from-[#431B19] via-[#431B19] to-[#141414]">
+<body onload="cargarPeliculas()" class="bg-radial-gradient at-[50.02% 52.33%] from-[#431B19] via-[#431B19] to-[#141414]">
 	<!--HEADER-->
 	<header>
         <!--nav principal-->
@@ -280,7 +280,7 @@
 		</div>
 		<!--Imagenes-->
 		<div class="flex justify-center pt-10">
-			<div class="grid grid-cols-4 max-w-full w-4/5 max-sm:grid-cols-2 gap-3">
+			<div id="cartelera" class="grid grid-cols-4 max-w-full w-4/5 max-sm:grid-cols-2 gap-3">
 				<!--Imagen 1-->
 				<div class="relative">
 					<img src="./assets/img/img-home/carrusel1.png" alt=""
@@ -346,13 +346,13 @@
 		</div>
 	</section>
 	<!--SECCION 4 - PROMOCIONES-->
-	<section class="h-[480px] max-sm:h-56 max-sm:pt-[30rem] pb-[30rem] max-sm:pb-[40rem] w-full">
+	<section class="h-[480px] max-sm:h-56 max-sm:pt-[30rem] pb-[35rem] max-sm:pb-[40rem] w-full">
 		<div class="flex justify-center pt-40 w-[100%] max-sm:pt-20">
 			<div
 				class="grid grid-cols-2 max-w-full w-11/12 gap-20 max-sm:grid-cols-1 max-sm:gap-3 max-sm:w-full place-items-center">
 				<!--promocion 1-->
 				<div
-					class="bg-[#362A26] h-72 rounded-3xl relative max-sm:flex-col max-sm:h-56 w-11/12 max-sm:pt-0 max-sm:items-center flex justify-center pt-5">
+					class="bg-[#362A26] h-80 rounded-3xl relative max-sm:flex-col max-sm:h-56 w-11/12 max-sm:pt-0 max-sm:items-center flex justify-center py-5">
 					<div id="promo"
 						class="max-w-full w-11/12 h-28 justify-center items-center max-sm:flex max-sm:w-full">
 						<!--imagen promocion-->
@@ -361,7 +361,7 @@
 						<div class="text-center max-sm:w-32 max-sm:whitespace-nowrap max-sm:text-ellipsis">
 							<!--info promociom-->
 							<p
-								class="text-white font-bold text-lg py-4 max-sm:text-sm max-sm:overflow-hidden max-sm:px-2">
+								class="text-white max-h-[100px] mb-6 font-bold text-lg py-4 max-sm:text-sm text-ellipsis overflow-hidden max-sm:px-2">
 								¡Explora el mundo de la magia en Filmania! 
 								Regístrate ahora y obtén un 15% de descuento a partir de la compra de tu segundo boleto para ver Black Clover: La Espada del Rey Mago.
 							</p>
@@ -374,7 +374,7 @@
 				</div>
 				<!--promocion 2-->
 				<div
-					class="bg-[#362A26] h-72 rounded-3xl relative max-sm:flex-col max-sm:h-56 w-11/12 max-sm:pt-0 max-sm:items-center flex justify-center pt-5">
+					class="bg-[#362A26] h-80 rounded-3xl relative max-sm:flex-col max-sm:h-56 w-11/12 max-sm:pt-0 max-sm:items-center flex justify-center py-5">
 					<div id="promo"
 						class="max-w-full w-11/12 h-28 justify-center items-center max-sm:flex max-sm:w-full">
 						<!--imagen promocion-->
@@ -383,7 +383,7 @@
 						<div class="text-center max-sm:w-32 max-sm:whitespace-nowrap max-sm:text-ellipsis">
 							<!--info promociom-->
 							<p
-								class="text-white font-bold text-lg py-4 max-sm:text-sm max-sm:overflow-hidden max-sm:px-2">
+								class="text-white max-h-[100px] mb-6 font-bold text-lg py-4 max-sm:text-sm text-ellipsis overflow-hidden max-sm:px-2">
 								 Compra tres boletos y recibe el cuarto boleto ¡GRATIS! Esta oferta especial está disponible por tiempo limitado, 
 								 así que regístrate ahora y disfruta de la película con tus amigos. 
 							</p>
@@ -438,7 +438,6 @@
 	<script src="./assets/js/home.js"></script>
 	<script src="./assets/js/chatbot.js"></script>
 	<script src="./assets/js/header.js"></script>
-	<script src="./assets/js/homepage.js"></script>
 </body>
 
 </html>

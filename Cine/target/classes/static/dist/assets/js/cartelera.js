@@ -149,7 +149,7 @@ function guardarPeliSeleccionada(peliSeleccionada, hora) {
         }
         anteriorCartelera = pelicula.id_cartelera;
     });
-    window.location.href = "/Cine/src/main/resources/static/dist/boletos-Paso-1.html";//Dirige al paso 1 de compra
+    window.location.href = "./boletos-Paso-1.html";//Dirige al paso 1 de compra
 }
 
 

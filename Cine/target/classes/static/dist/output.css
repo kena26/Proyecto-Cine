@@ -588,10 +588,6 @@ video {
   pointer-events: auto;
 }
 
-.static {
-  position: static;
-}
-
 .fixed {
   position: fixed;
 }
@@ -1226,6 +1222,10 @@ video {
   height: 2rem;
 }
 
+.h-80 {
+  height: 20rem;
+}
+
 .h-96 {
   height: 24rem;
 }
@@ -1356,6 +1356,18 @@ video {
 
 .max-h-\[18rem\] {
   max-height: 18rem;
+}
+
+.max-h-3\/4 {
+  max-height: 75%;
+}
+
+.max-h-\[150px\] {
+  max-height: 150px;
+}
+
+.max-h-\[100px\] {
+  max-height: 100px;
 }
 
 .min-h-screen {
@@ -2563,6 +2575,10 @@ video {
   padding-top: 2rem;
 }
 
+.pb-\[35rem\] {
+  padding-bottom: 35rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -3310,6 +3326,10 @@ video {
 
   .max-sm\:h-\[95\%\] {
     height: 95%;
+  }
+
+  .max-sm\:h-72 {
+    height: 18rem;
   }
 
   .max-sm\:min-h-full {
