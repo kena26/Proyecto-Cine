@@ -11,6 +11,8 @@ import java.util.UUID;
 
 import com.example.Cine.modelos.Actor;
 import com.example.Cine.modelos.Asientos;
+import com.example.Cine.modelos.Boletos;
+import com.example.Cine.modelos.Boletos2;
 import com.example.Cine.modelos.Pelicula;
 import com.example.Cine.modelos.SucursalesPelicula;
 import com.example.Cine.modelos.Usuarios;
@@ -18,6 +20,9 @@ import com.example.Cine.modelos.PasoQr;
 import com.example.Cine.modelos.QrLink;
 import com.example.Cine.modelos.Cartelera;
 import com.example.Cine.modelos.Director;
+import com.example.Cine.modelos.Ingresos;
+import com.example.Cine.modelos.Ingresos2;
+import com.example.Cine.modelos.Ingresos3;
 
 public class CineDb {
     Connection cn;
@@ -631,6 +636,7 @@ public class CineDb {
                 "Ticket.fechaTicket,\n" +
                 "Ticket.horaTicket,\n" +
                 "Ticket.cantidadTicket\n" +
+                // "Ticket.montoIngreso\n" +//
                 "FROM Ticket\n" +
                 "JOIN Sucursales ON Ticket.idSucursales = Sucursales.id_sucursal \n" +
                 // "JOIN Pelicula ON Ticket.ID_PELICULA = Pelicula.ID_PELICULA " +
@@ -648,6 +654,7 @@ public class CineDb {
                         result.getString("Ticket.fechaTicket"),
                         result.getString("Ticket.horaTicket"),
                         result.getInt("Ticket.cantidadTicket"),
+                        // result.getFloat("Ticket.montoIngreso"),//
                         "nombreSala");
             }
 
@@ -1081,5 +1088,169 @@ public class CineDb {
         }
         System.out.println(codigoConfirmacion);
         return codigoConfirmacion;
+    }
+
+    public List<Boletos> BoletosXMes() {
+        List<Boletos> boletos = new ArrayList<>();
+        try (Statement stmt = cn.createStatement()) {
+            String query = "SELECT distinct count(*) as cantidad, MONTH(fechaTicket) as Mes,\n" +
+                    "sum(Ticket.cantidadTicket) as CantidadTickets \n" +
+                    "FROM Ticket \n" +
+                    "JOIN Sucursales ON Sucursales.id_sucursal = Ticket.Idsucursales\n" +
+                    "GROUP BY Mes, Ticket.NombrePelicula\n" +
+                    "ORDER BY CantidadTickets DESC;";
+
+            try (ResultSet result = stmt.executeQuery(query)) {
+                while (result.next()) {
+                    Boletos boleto = new Boletos(
+                            result.getInt("cantidad"),
+                            result.getInt("Mes"),
+                            result.getInt("CantidadTickets"));
+                    boletos.add(boleto);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error al obtener los datos de boletos x mes: " + e.getMessage());
+        }
+        return boletos;
+    }
+
+    public List<Boletos> BoletosXMesXSucursal(int idSucursal) {
+        List<Boletos> boletos = new ArrayList<>();
+        String query = "SELECT distinct count(*) as cantidad, MONTH(fechaTicket) as Mes,\n" +
+                "sum(Ticket.cantidadTicket) as CantidadTickets \n" +
+                "From Ticket \n" +
+                "JOIN Sucursales ON Sucursales.id_sucursal = Ticket.Idsucursales\n" +
+                "WHERE Sucursales.id_sucursal = ? \n GROUP BY Mes, Ticket.NombrePelicula\n" +
+                "ORDER BY  CantidadTickets DESC;";
+        try (PreparedStatement pstmt = cn.prepareStatement(query)) {
+            pstmt.setInt(1, idSucursal);
+
+            try (ResultSet result = pstmt.executeQuery()) {
+                while (result.next()) {
+                    Boletos boleto = new Boletos(
+                            result.getInt("cantidad"),
+                            result.getInt("Mes"),
+                            result.getInt("CantidadTickets"));
+                    boletos.add(boleto);
+                }
+                result.close();
+                pstmt.close();
+            }
+        } catch (Exception e) {
+            System.out.println("Error al obtener los datos de Boletos x Mes filtro por sucursal: " + e.getMessage());
+        }
+        return boletos;
+    }
+
+    public List<Boletos2> BoletosTotales(int idSucursal) {
+        List<Boletos2> boletos = new ArrayList<>();
+        String query = "SELECT COUNT(*) AS cantidad_total, MONTH(fechaTicket) AS Mes,\n" +
+                "SUM(Ticket.cantidadTicket) AS CantidadTickets_total,\n" +
+                "SUM(CASE WHEN Sucursales.id_sucursal = ? THEN Ticket.cantidadTicket ELSE 0 END) AS CantidadTickets_sucursal\n"
+                +
+                "FROM Ticket JOIN Sucursales ON Sucursales.id_sucursal = Ticket.Idsucursales\n" +
+                "GROUP BY Mes, Ticket.NombrePelicula\n" +
+                "ORDER BY CantidadTickets_total DESC;\n";
+        try (PreparedStatement pstmt = cn.prepareStatement(query)) {
+            pstmt.setInt(1, idSucursal);
+
+            try (ResultSet result = pstmt.executeQuery()) {
+                while (result.next()) {
+                    Boletos2 boleto = new Boletos2(
+                            result.getInt("cantidad_total"),
+                            result.getInt("Mes"),
+                            result.getInt("CantidadTickets_total"),
+                            result.getInt("CantidadTickets_sucursal"));
+                    boletos.add(boleto);
+                }
+                result.close();
+                pstmt.close();
+            }
+
+            return boletos;
+        } catch (Exception e) {
+            System.out.println("Error al obtener los datos de BoletosXTotales: " + e.getMessage());
+        }
+        return null;
+
+    }
+
+    public List<Ingresos> IngresosTotales() {
+        List<Ingresos> ingresos = new ArrayList<>();
+        try {
+            String setQuery = "SET @totVentas:=0;";
+            String query = " \n SELECT @totVentas:= @totVentas + SUM(Ticket.montoIngreso) AS totVentas FROM Ticket;";
+            Statement stmt = cn.createStatement();
+            stmt.execute(setQuery);
+            ResultSet result = stmt.executeQuery(query);
+
+            while (result.next()) {
+                Ingresos ingreso = new Ingresos(
+                        result.getInt("totVentas"));
+                ingresos.add(ingreso);
+            }
+            result.close();
+            stmt.close();
+
+            return ingresos;
+        } catch (Exception e) {
+            System.out.println("Error al obtener los datos de IngresosTotales: " + e.getMessage());
+        }
+        return null;
+
+    }
+
+    public List<Ingresos2> IngresosXMes() {
+        List<Ingresos2> ingresos = new ArrayList<>();
+        try {
+            String query = "SELECT MONTH(fechaTicket) AS Mes, \n" +
+                    "SUM(Ticket.montoIngreso) AS Ingresos FROM Ticket\n" +
+                    "GROUP BY  Mes ORDER BY  Mes;\n";
+            Statement stmt = cn.createStatement();
+            ResultSet result = stmt.executeQuery(query);
+
+            while (result.next()) {
+                Ingresos2 ingreso = new Ingresos2(
+                        result.getInt("Mes"),
+                        result.getInt("Ingresos"));
+                ingresos.add(ingreso);
+            }
+
+            result.close();
+            stmt.close();
+        } catch (Exception e) {
+            System.out.println("Error al obtener los datos de IngresosXMes: " + e.getMessage());
+        }
+        return ingresos;
+
+    }
+
+    public List<Ingresos3> IngresosTotalesXSucursal() {
+        List<Ingresos3> ingresos = new ArrayList<>();
+        try {
+            String setQuery = "SET @totVentas:=0;";
+            String query = "SELECT Sucursales.id_sucursal,\n" +
+                    "@totVentas:= @totVentas + SUM(Ticket.montoIngreso) AS totVentas FROM Ticket\n" +
+                    "JOIN Sucursales ON Sucursales.id_sucursal = Ticket.idSucursales\n" +
+                    "GROUP BY Sucursales.id_sucursal;\n";
+            Statement stmt = cn.createStatement();
+            stmt.execute(setQuery);
+            ResultSet result = stmt.executeQuery(query);
+
+            while (result.next()) {
+                Ingresos3 ingreso = new Ingresos3(
+                        result.getInt("Sucursales.id_sucursal"),
+                        result.getInt("totVentas"));
+                ingresos.add(ingreso);
+            }
+
+            result.close();
+            stmt.close();
+        } catch (Exception e) {
+            System.out.println("Error al obtener los datos de IngresosTotalesXSucursal: " + e.getMessage());
+        }
+        return ingresos;
+
     }
 }

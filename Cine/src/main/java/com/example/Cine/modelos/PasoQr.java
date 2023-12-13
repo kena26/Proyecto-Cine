@@ -8,7 +8,7 @@ public class PasoQr {
     private String hora;
     private int boletos;
     private String nombreSala;    
-
+  //  private float montoIngreso; //
 
     // CONSTRUCTORES//
     public PasoQr(String Sede, String Pelicula, int Sala, String Fecha, String Hora,
@@ -20,7 +20,8 @@ public class PasoQr {
         this.fecha = Fecha;
         this.hora = Hora;
         this.boletos = Boletos;
-        this.nombreSala = nombreSala;        
+        this.nombreSala = nombreSala; 
+       // this.montoIngreso = montoIngreso;       
     }
 
     public PasoQr() {}
@@ -54,5 +55,9 @@ public class PasoQr {
     public String getNombreSala(){
         return nombreSala;
     }
+
+   // public float getmontoIngreso(){
+       // return montoIngreso;
+   // }//
 
 }
